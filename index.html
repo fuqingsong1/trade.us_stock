@@ -509,12 +509,12 @@ a .title-cn:hover { color: #58a6ff; }
 </div>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('dashboard')">看板</button>
+  <button class="tab-btn active" onclick="switchTab('dashboard')">做多看板</button>
   <button class="tab-btn" onclick="switchTab('regime')">美股行情判断</button>
   <button class="tab-btn" onclick="switchTab('news')">新闻分析</button>
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
   <button class="tab-btn" onclick="switchTab('positions')">持仓</button>
-  <button class="tab-btn" onclick="switchTab('short')">做空</button>
+  <button class="tab-btn" onclick="switchTab('short')">做空看板</button>
   <button class="tab-btn" onclick="switchTab('binance')">Binance</button>
 </div>
 
@@ -729,11 +729,7 @@ a .title-cn:hover { color: #58a6ff; }
 
 <div id="tab-short" class="tab-content">
   <div class="short-rule-box">
-    <strong>做空总开关:</strong> 市场 regime 评分 <span id="short-regime-score"></span> (要求 &lt; 2.0)
-    → <span id="short-regime-status"></span><br>
-    开空需同时满足: <b>市场偏弱</b> + <b>负面新闻</b> + <b>高位 (pct ≥ 75%)</b>。<br>
-    阶梯 short1/2/3 = 75%/81%/87% 分位入场 (杠杆 3x/5x/7x, 仓位 17%/28%/40%); 回落至区间 55% 平 60%、45% 平剩余; 止损 = 入场价 + 5%。<br>
-    <span style="color:#8b949e">注: 下方 Short1/2/3 价格为区间分位参考价; 策略实际挂单为 <b>现价×1.003</b> 限价(等反弹后成交), 与看板略有差异。</span>
+    <strong>做空看板</strong> &middot; 做空信号监控 <span id="short-regime-score" style="display:none"></span><span id="short-regime-status" style="display:none"></span>
   </div>
   <div class="summary" id="short-summary"></div>
   <div class="legend">
@@ -749,7 +745,7 @@ a .title-cn:hover { color: #58a6ff; }
     <th style="width:75px" title="pct≥75% 入场">Short1</th><th style="width:75px" title="pct≥81%">Short2</th><th style="width:75px" title="pct≥87%">Short3</th>
     <th style="width:75px" title="回落至区间55%平60%">止盈1</th><th style="width:75px" title="回落至区间45%平剩余">止盈2</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:90px">状态</th>
-    <th style="width:100px">做空条件</th><th style="width:85px">空头持仓</th><th style="width:65px">杠杆</th>
+    <th style="width:100px">信号</th><th style="width:85px">持仓</th><th style="width:65px">杠杆</th>
   </tr>
   </thead>
   <tbody id="short-tbody"></tbody>
@@ -777,7 +773,7 @@ a .title-cn:hover { color: #58a6ff; }
   </div>
   <div style="padding:12px 20px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px">
     <span>日布林 %B: <b style="color:#58a6ff">59.2%</b> <span style="color:#8b949e">(≤10% 多/≥90% 空入场)</span></span>
-    <span>周布林 %B: <b>20.5%</b> <span style="color:#8b949e">(≥0.5 做多 / <0.5 做空)</span></span>
+    <span>周布林 %B: <b>20.5%</b> <span style="color:#8b949e"></span></span>
     <span>已挂档位: <span style="color:#8b949e;font-size:12px">未挂单</span></span>
     <span>状态: 空仓</span>
   </div>
@@ -789,7 +785,7 @@ a .title-cn:hover { color: #58a6ff; }
   </div>
   <div style="padding:12px 20px;display:flex;gap:32px;flex-wrap:wrap;font-size:13px">
     <span>日布林 %B: <b style="color:#58a6ff">39.6%</b> <span style="color:#8b949e">(≤10% 多/≥90% 空入场)</span></span>
-    <span>周布林 %B: <b>30.0%</b> <span style="color:#8b949e">(≥0.5 做多 / <0.5 做空)</span></span>
+    <span>周布林 %B: <b>30.0%</b> <span style="color:#8b949e"></span></span>
     <span>已挂档位: <span style="color:#8b949e;font-size:12px">未挂单</span></span>
     <span>状态: 空仓</span>
   </div>
@@ -3071,8 +3067,7 @@ for (const d of data) {
   // eligible 绿色背景仅限买入区, SELL区/上半区的高分位股票不标绿, 避免误导
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
   const posBadge = d.has_pos ? `<span class="pos-badge">${d.pos_lever}x $${d.pos_margin.toFixed(1)}</span>` : (d.is_obs ? `<span class="obs-badge">${d.pos_lever}x $${d.pos_margin.toFixed(2)}</span>` : '-');
-  // 建议杠杆: 跟随策略阶梯杠杆, 按周波动率缩放 (与 strategy_v4._lev_tier_map 一致)
-  //   vol≤7.5%: 4/7/10x | 7.5-10%: 4/6/9x | >10%: 3/5/7x (超跌模式 4/5/6x 此处不单独区分)
+  // 建议杠杆: 按周波动率阶梯缩放
   const _lvMap = (d.vol || 0) > 0.10 ? [3,5,7] : (d.vol || 0) > 0.075 ? [4,6,9] : [4,7,10];
   const _lvHtml = _lvMap.map(function(v){ var cls = v>=10 ? 'lev-badge-10' : v>=7 ? 'lev-badge-7' : 'lev-badge'; return '<span class="'+cls+'">'+v+'x</span>'; }).join('');
   const leverText = (d.eligible || d.has_pos) ? _lvHtml : '-';
@@ -3281,18 +3276,18 @@ if (posData.length > 0) {
   </tr>`;
 }
 
-// ===== 做空子页 (Short tab) =====
+// ===== 做空看板 =====
 const shortRegime = {"score": -0.1, "stage": "牛市初期", "exposure": 0.471, "action": "建仓30-50%", "score_trend": 1, "error": null};
-const SHORT_MAX = 2.0;
+const _threshold = 2.0;
 const shortScore = (shortRegime && shortRegime.score !== undefined) ? shortRegime.score : 99;
-const shortAllowed = shortScore < SHORT_MAX;
-// 做空档位分位(与 strategy_v4 常量一致): TP2=45% TP1=55% S1=75% S2=81% S3=87%
+const shortAllowed = shortScore < _threshold;
+// 区间分位常量
 const TP2 = 0.45 * 100;
 const TP1 = 0.55 * 100;
 const S1 = 0.75 * 100;
 const S2 = (0.75 + 0.06) * 100;
 const S3 = (0.75 + 2 * 0.06) * 100;
-const SHORT_LEV_STR = '3/5/7';
+const _levStr = '3/5/7';
 const shortScoreColor = shortScore < -3.5 ? '#8B0000' : shortScore < -1.5 ? '#A32D2D' : shortScore < 0.5 ? '#BA7517' : shortScore < 2 ? '#639922' : '#3B6D11';
 document.getElementById('short-regime-score').innerHTML =
   `<b style="color:${shortScoreColor};font-size:15px">${shortScore.toFixed(1)}</b> <span style="color:#8b949e;font-size:11px">(${(shortRegime && shortRegime.stage) || '未知'})</span>`;
@@ -3307,26 +3302,26 @@ const shortHigh = data.filter(d => d.short_zone && d.short_zone.startsWith('SHOR
 const shortTP = data.filter(d => d.short_zone === '止盈区');
 document.getElementById('short-summary').innerHTML = `
   <div class="card"><div class="label">监控股票</div><div class="value blue">${data.length}</div></div>
-  <div class="card"><div class="label">可做空</div><div class="value red">${shortEligible.length}</div></div>
-  <div class="card"><div class="label">空头持仓</div><div class="value blue">${shortHasPos.length}</div></div>
-  <div class="card"><div class="label">做空区 (75%+)</div><div class="value red">${shortHigh.length}</div></div>
+  <div class="card"><div class="label">做空信号</div><div class="value red">${shortEligible.length}</div></div>
+  <div class="card"><div class="label">持仓数</div><div class="value blue">${shortHasPos.length}</div></div>
+  <div class="card"><div class="label">高位区</div><div class="value red">${shortHigh.length}</div></div>
   <div class="card"><div class="label">止盈区</div><div class="value green">${shortTP.length}</div></div>
 `;
 
-// 做空表格行
+// 表格行渲染
 const shortTbody = document.getElementById('short-tbody');
 for (const d of data) {
   if (d.error) {
     shortTbody.innerHTML += `<tr><td class="sym">${d.sym}</td><td colspan="17" style="color:#8b949e">${d.error}</td></tr>`;
     continue;
   }
-  // 指数行(QQQ/SPY)无做空字段 → 只显示基础行情
+  // 指数行只显示基础行情
   const hasShort = d.short1_px !== undefined && d.short1_px !== null;
   const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
   const fmt = v => (v !== undefined && v !== null) ? '$' + v.toFixed(2) : '-';
   const zone = d.short_zone || '-';
   const zcls = d.short_zone_class || 'szone-low';
-  // 做空条件: 市场 + 新闻
+  // 做空条件
   let condHtml = '-';
   if (hasShort) {
     const mk = d.short_ok_market;
@@ -3335,14 +3330,14 @@ for (const d of data) {
     const nvTxt = nv ? `<span style="font-size:10px;color:#A32D2D">(${nv}%)</span>` : '';
     condHtml = `<span style="color:${mk ? '#3B6D11' : '#A32D2D'}">市场${mk ? '✓' : '✗'}</span> <span style="color:${ns ? '#A32D2D' : '#888'}">新闻${ns ? '✓' : '✗'}</span>${nvTxt}`;
   }
-  // 空头持仓
+  // 持仓
   let posHtml = '-';
   if (d.short_has_pos) {
     const pnlCls = d.short_pos_pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
     posHtml = `<span class="short-badge">空 ${d.short_pos_lever}x</span> <span class="${pnlCls}">${d.short_pos_pnl >= 0 ? '+' : ''}${d.short_pos_pnl.toFixed(2)}</span><span style="color:#8b949e;font-size:10px"> @${d.short_pos_entry.toFixed(2)}</span>`;
   }
-  // 建议杠杆: 与策略做空表一致(3/5/7x)
-  const levHtml = (hasShort && (d.short_eligible || d.short_has_pos)) ? `<span class="lever-10">${SHORT_LEV_STR}x</span>` : '-';
+  // 建议杠杆
+  const levHtml = (hasShort && (d.short_eligible || d.short_has_pos)) ? `<span class="lever-10">${_levStr}x</span>` : '-';
   shortTbody.innerHTML += `
   <tr class="${d.short_has_pos ? 'short-pos' : ''}">
     <td class="sym">${d.sym}</td>
