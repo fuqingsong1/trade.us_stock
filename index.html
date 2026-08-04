@@ -44,7 +44,7 @@ body {
   box-shadow: 0 -2px 0 #58a6ff;
 }
 .tab-btn:hover:not(.active) { color: #c9d1d9; background: #1c2128; border-color: #8b949e; }
-.tab-content { display: none; }
+.tab-content { display: none; overflow-x: auto; }
 .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 .summary {
@@ -405,7 +405,53 @@ a .title-cn:hover { color: #58a6ff; }
 ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #484f58; }
 
-</style>
+/* ════ 移动端响应式 ════ */
+@media (max-width: 768px) {
+  body { min-width: unset; padding: 10px; }
+  .header { flex-wrap: wrap; gap: 8px; }
+  .header h1 { font-size: 15px; }
+  .header .time { font-size: 11px; }
+  /* 摘要卡片：4列→2列 */
+  .summary { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .summary .card .value { font-size: 18px; }
+  .summary .card .label { font-size: 10px; }
+  /* Tab按钮 */
+  .tab-btn { padding: 6px 12px; font-size: 11px; }
+  .sub-tab-btn { padding: 6px 10px; font-size: 10px; }
+  .tab-bar, .sub-tab-row { flex-wrap: wrap; gap: 4px; }
+  /* 表格横向滚动 */
+  table { font-size: 11px; }
+  th { font-size: 10px; padding: 8px 3px; }
+  td { font-size: 11px; padding: 6px 3px; }
+  .bar-cell { width: 100px; }
+  td.name { font-size: 10px; }
+  /* 卡片内边距 */
+  .card, .regime-card, .news-card { padding: 12px; }
+  .short-rule-box, .advice-box, .wait-queue-box, .deposit-alert-box { padding: 10px 14px; font-size: 12px; }
+  /* 新闻卡片标题 */
+  .pos-table { font-size: 11px; }
+  /* Landing页 */
+  .landing-title { font-size: 26px; }
+  .landing-subtitle { font-size: 11px; letter-spacing: 3px; }
+  .landing-desc { font-size: 12px; }
+  .landing-btn { padding: 12px 36px; font-size: 15px; }
+  .landing-stock-ticker { font-size: 11px; }
+  /* 粒子缩小 */
+  .landing-orb { width: 120px; height: 120px; }
+  .landing-orb-2 { width: 90px; height: 90px; }
+  .landing-orb-3 { width: 60px; height: 60px; }
+  .landing-ring { width: 200px; height: 200px; }
+  .landing-ring-2 { width: 280px; height: 280px; }
+  .landing-footer { font-size: 10px; }
+}
+@media (max-width: 480px) {
+  .summary { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .summary .card .value { font-size: 16px; }
+  .landing-title { font-size: 22px; }
+  .landing-subtitle { font-size: 10px; letter-spacing: 2px; }
+  .landing-desc { font-size: 11px; }
+  .landing-btn { padding: 10px 28px; font-size: 14px; }
+}
 </head>
 <body>
 
