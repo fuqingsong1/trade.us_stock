@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="refresh" content="300">
-<title>美股 量化交易看板</title>
+<title>美股 低频量化交易看板</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -457,8 +457,8 @@ a .title-cn:hover { color: #58a6ff; }
       <div class="candle red sm"></div>
       <div class="candle green"></div>
     </div>
-    <div class="landing-title">美股 量化交易看板</div>
-    <div class="landing-subtitle">US STOCK &middot; QUANT  LIVE  MONITOR  SYSTEM</div>
+    <div class="landing-title">美股 低频量化交易看板</div>
+    <div class="landing-subtitle">US STOCK &middot; LOW-FREQ QUANT  SYSTEM</div>
     <div class="landing-desc">多标的做T区间可视化 &middot; 策略运行状态监控 &middot; 全球财经新闻聚合</div>
     <div class="landing-stats">
       <div class="landing-stat"><div class="val" id="landing-time">--:--:--</div><div class="lbl">Beijing Time</div></div>
@@ -476,7 +476,7 @@ a .title-cn:hover { color: #58a6ff; }
 
 <div class="header">
   <div>
-    <h1>美股 量化交易看板</h1>
+    <h1>美股 低频量化交易看板</h1>
     <div class="time">更新时间: 2026-08-06 14:50:06 (CST) | <span style="color:#8b949e">自动刷新</span></div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -492,7 +492,7 @@ a .title-cn:hover { color: #58a6ff; }
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
   <!-- <button class="tab-btn" onclick="switchTab('positions')">持仓</button> -->
   <button class="tab-btn" onclick="switchTab('short')">做空看板</button>
-  <button class="tab-btn" onclick="switchTab('binance')">Binance</button>
+  <!-- <button class="tab-btn" onclick="switchTab('binance')">Binance</button> -->
 </div>
 
 <div id="tab-dashboard" class="tab-content active">
@@ -3176,7 +3176,7 @@ for (const p of posData) {
   totalMargin += p.margin;
   const pnlClass = p.pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
   const pnlPctClass = p.pnlRatio >= 0 ? 'pnl-pos' : 'pnl-neg';
-  // 保证金维持率。OKX返回mgnRatio是原始比值(如4.73=473%)，需×100转为百分比
+  // 保证金维持率。mgnRatio是原始比值(如4.73=473%)，需×100转为百分比
   // 备用：mgnRatio=0时用保证金/(名义价值/杠杆)*100估算
   let mgnRatio = p.mgnRatio;
   if (mgnRatio > 0) {
