@@ -1,0 +1,332 @@
+{
+  "stocks": [
+    {
+      "name": "诺基亚",
+      "symbol": "NOK",
+      "buy": 6.2,
+      "sell": 11.5,
+      "industry": "电信设备",
+      "note": "持有(谨慎),AI云+105%但年涨66%已price-in,追高风险大"
+    },
+    {
+      "name": "阿斯麦",
+      "symbol": "ASML",
+      "buy": 1550,
+      "sell": 1900,
+      "industry": "半导体设备",
+      "note": "增持,EUV垄断+Q2营收93亿€超预期,PE~60x回调再买"
+    },
+    {
+      "name": "奥多比",
+      "symbol": "ADBE",
+      "buy": 190,
+      "sell": 250,
+      "industry": "软件",
+      "note": "持有，创意软件垄断，AI功能集成"
+    },
+    {
+      "name": "IBM",
+      "symbol": "IBM",
+      "buy": 175,
+      "sell": 230,
+      "industry": "IT服务",
+      "note": "持有(谨慎),大型机骤降42%拖累,软件转型+AI合同$125亿+,收息股定位"
+    },
+    {
+      "name": "慧与",
+      "symbol": "HPE",
+      "buy": 40,
+      "sell": 50,
+      "industry": "服务器",
+      "note": "增持，AI服务器订单爆发，积压513亿"
+    },
+    {
+      "name": "戴尔科技",
+      "symbol": "DELL",
+      "buy": 330,
+      "sell": 460,
+      "industry": "IT基础设施",
+      "note": "增持，AI服务器营收+757%，高盛目标230"
+    },
+    {
+      "name": "台积电",
+      "symbol": "TSM",
+      "buy": 380,
+      "sell": 520,
+      "industry": "半导体代工",
+      "note": "增持,Q2净利+77%创历史新高,2nm量产+全年指引上调至40%+,AI基建核心受益"
+    },
+    {
+      "name": "脸书",
+      "symbol": "META",
+      "buy": 500,
+      "sell": 630,
+      "industry": "社交媒体",
+      "note": "增持,Q2营收608亿+28%强,净利-14%+FCF崩盘7.84亿是短期阵痛,调整PE18x历史低位"
+    },
+    {
+      "name": "微软",
+      "symbol": "MSFT",
+      "buy": 420,
+      "sell": 560,
+      "industry": "软件",
+      "note": "买入,Q4营收900亿+18%超预期,Azure+43%四年最快,Capex下调至1750亿利好,FY27 capex拐点"
+    },
+    {
+      "name": "礼来",
+      "symbol": "LLY",
+      "buy": 900,
+      "sell": 1300,
+      "industry": "制药",
+      "note": "强烈增持，GLP-1爆发，指引上调"
+    },
+    {
+      "name": "奈飞",
+      "symbol": "NFLX",
+      "buy": 55,
+      "sell": 70,
+      "industry": "流媒体",
+      "note": "持有(谨慎),Q2营收+13%稳,广告$30亿+AI降本,PE~22x中性偏高"
+    },
+    {
+      "name": "谷歌",
+      "symbol": "GOOGL",
+      "buy": 300,
+      "sell": 380,
+      "industry": "互联网",
+      "note": "增持(下调自买入),云+82%但FCF首转负,Capex$2000亿等回调"
+    },
+    {
+      "name": "亚马逊",
+      "symbol": "AMZN",
+      "buy": 230,
+      "sell": 310,
+      "industry": "电商/云",
+      "note": "增持,Q2营收2006亿首破2000亿,AWS+37%创18季最快,净利626亿含Anthropic重估534亿非经常,扣非PE~33x"
+    },
+    {
+      "name": "英伟达",
+      "symbol": "NVDA",
+      "buy": 180,
+      "sell": 250,
+      "industry": "半导体",
+      "note": "等待区，机构目标271"
+    },
+    {
+      "name": "苹果",
+      "symbol": "AAPL",
+      "buy": 250,
+      "sell": 350,
+      "industry": "消费电子",
+      "note": "持有,Q3营收1094亿+16%超预期,iPhone+22%领跑但库克9月卸任+35xPE偏贵+2nm成本压力"
+    },
+    {
+      "name": "闪迪",
+      "symbol": "SNDK",
+      "buy": 600.0,
+      "sell": 1100.0,
+      "industry": "存储",
+      "note": "减持,AI存储超级周期带来的暴利已在股价中大幅兑现，当前风险收益比不佳，建议减持并等待周期回归后的黄金坑。"
+    },
+    {
+      "name": "特斯拉",
+      "symbol": "TSLA",
+      "buy": 240,
+      "sell": 340,
+      "industry": "新能源汽车",
+      "note": "减持/回避,营业利润暴跌57%+FCF转负+PB14.3x离谱,故事溢价~$290"
+    },
+    {
+      "name": "超威半导体",
+      "symbol": "AMD",
+      "buy": 450.0,
+      "sell": 580.0,
+      "industry": "半导体",
+      "note": "持有,Q2 2026财报确认AMD AI数据中心高增长，但现价500美元已部分透支乐观预期，建议450美元以下增持、580美元以上减持，长期看好但短期安全边际不足"
+    },
+    {
+      "name": "甲骨文",
+      "symbol": "ORCL",
+      "buy": 115,
+      "sell": 180,
+      "industry": "企业软件",
+      "note": "回避区，机构目标260"
+    },
+    {
+      "name": "英特尔",
+      "symbol": "INTC",
+      "buy": 80,
+      "sell": 140,
+      "industry": "半导体",
+      "note": "持有,Q2营收+25%创15年最强,GAAP巨亏$110亿是会计噪音,等$80以下"
+    },
+    {
+      "name": "好市多",
+      "symbol": "COST",
+      "buy": 800,
+      "sell": 1000,
+      "industry": "零售",
+      "note": "回避区，机构目标1078"
+    },
+    {
+      "name": "美光",
+      "symbol": "MU",
+      "buy": 600,
+      "sell": 1200,
+      "industry": "半导体",
+      "note": "回避区，机构目标483"
+    },
+    {
+      "name": "安谋",
+      "symbol": "ARM",
+      "buy": 200,
+      "sell": 300,
+      "industry": "芯片IP",
+      "note": "增持(逢低买入),毛利率98.1%+数据中心版税翻倍+v9升级周期,PE244x看似疯狂但FY31目标CAGR60%+"
+    },
+    {
+      "name": "博通",
+      "symbol": "AVGO",
+      "buy": 340,
+      "sell": 430,
+      "industry": "半导体/软件",
+      "note": "持有，AI芯片+云计算，无线部分待观察"
+    },
+    {
+      "name": "帕兰提尔",
+      "symbol": "PLTR",
+      "buy": 60,
+      "sell": 90,
+      "industry": "AI软件",
+      "note": "回避，前瞻PS~45倍，增长率陷阱风险极高"
+    },
+    {
+      "name": "火箭实验室",
+      "symbol": "RKLB",
+      "buy": 35,
+      "sell": 100,
+      "industry": "商业航天",
+      "note": "回避，PS~87倍亏损状态，风险远大于收益"
+    },
+    {
+      "name": "高意",
+      "symbol": "COHR",
+      "buy": 210,
+      "sell": 350,
+      "industry": "光通信",
+      "note": "增持，光通信龙头，订单排至2030年"
+    },
+    {
+      "name": "希姆斯赫斯",
+      "symbol": "HIMS",
+      "buy": 18,
+      "sell": 30,
+      "industry": "数字健康",
+      "note": "回避，增长断崖式放缓，由盈转亏"
+    },
+    {
+      "name": "罗宾汉",
+      "symbol": "HOOD",
+      "buy": 75,
+      "sell": 100,
+      "industry": " 金融科技",
+      "note": "回避，增长断崖式放缓，由盈转亏"
+    },
+    {
+      "name": "高通",
+      "symbol": "QCOM",
+      "buy": 140,
+      "sell": 185,
+      "industry": "半导体",
+      "note": "增持(观望),Q3净利-25%手机-20%但汽车+61%,等$130-140建仓,转型阵痛期"
+    },
+    {
+      "name": "康宁",
+      "symbol": "GLW",
+      "buy": 110,
+      "sell": 170,
+      "industry": "特种玻璃",
+      "note": "增持(逢低买入),Q2光通信+32%利润+77%+AI光纤产能扩10倍,财报后跌18%创造机会窗"
+    },
+    {
+      "name": "通用能源",
+      "symbol": "GEV",
+      "buy": 800,
+      "sell": 1050,
+      "industry": "电力",
+      "note": "增持(谨慎),订单积压$1760亿+全球电气化顺风,FCF上调$50亿但新上市数据少"
+    },
+    {
+      "name": "思科",
+      "symbol": "CSCO",
+      "buy": 95,
+      "sell": 150,
+      "industry": "通信",
+      "note": "网络设施、安全业务、企业协作"
+    },
+    {
+      "name": "西部数据",
+      "symbol": "WDC",
+      "buy": 400,
+      "sell": 650,
+      "industry": "存储",
+      "note": "硬盘、闪存"
+    },
+    {
+      "name": "微策略",
+      "symbol": "MSTR",
+      "buy": 70,
+      "sell": 130,
+      "industry": "比特币",
+      "note": "高风险投机,首次卖币3488枚破神话+NAV折价38%+死亡螺旋概率25-30%,仅适合BTC多头对冲"
+    },
+    {
+      "name": "迈威尔",
+      "symbol": "MRVL",
+      "buy": 180,
+      "sell": 300,
+      "industry": "光通信",
+      "note": "数据中心、AI互联、企业网络"
+    },
+    {
+      "name": "莱特",
+      "symbol": "LITE",
+      "buy": 640,
+      "sell": 950,
+      "industry": "光通信",
+      "note": "光模块、电信光器件"
+    },
+    {
+      "name": "SpaceX",
+      "symbol": "SPCX",
+      "buy": 100,
+      "sell": 160,
+      "industry": "商业航天",
+      "note": "回避,SOTP中性$10.5当前$118溢价12倍,首份财报+解禁洪峰+空头32%,完美风暴"
+    },
+    {
+      "name": "SK海力士",
+      "symbol": "SKHY",
+      "buy": 120,
+      "sell": 180,
+      "industry": "半导体",
+      "note": "增持(谨慎),HBM绝对龙头Q2利润率76%但周期峰值PE虚低,等$120-150建仓"
+    }
+  ],
+  "commodities": [
+    {
+      "name": "黄金",
+      "symbol": "GC=F",
+      "buy": 3800,
+      "sell": 5000,
+      "note": "人民币/盎司"
+    },
+    {
+      "name": "布伦特原油",
+      "symbol": "BZ=F",
+      "buy": 60,
+      "sell": 90,
+      "note": "美元/桶"
+    }
+  ]
+}

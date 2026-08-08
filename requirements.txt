@@ -1,0 +1,7 @@
+# GitHub Actions 云端生成看板所需依赖 (与本地 yolo26 环境版本对齐)
+requests>=2.31
+urllib3>=2.0
+pandas>=2.0
+numpy>=1.24
+# yfinance 1.4.1 支持 Ticker(symbol, session=...) 传参; 新版移除了 session 参数
+yfinance==1.4.1

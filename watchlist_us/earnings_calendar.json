@@ -1,0 +1,592 @@
+{
+  "updated": "2026-08-08",
+  "events": [
+    {
+      "date": "2026-01-27",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "含SEP经济预测"
+    },
+    {
+      "date": "2026-01-28",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-03-17",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "含SEP经济预测"
+    },
+    {
+      "date": "2026-03-18",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-04-28",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": ""
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-06-11",
+      "symbol": "ORCL",
+      "name": "甲骨文",
+      "period": "FY2026 Q4",
+      "status": "done",
+      "file": "甲骨文-ORCL-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-06-16",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "含SEP经济预测"
+    },
+    {
+      "date": "2026-06-17",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-07-15",
+      "symbol": "ASML",
+      "name": "阿斯麦",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "阿斯麦-ASML-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-16",
+      "symbol": "TSM",
+      "name": "台积电",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "台积电-TSM-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-17",
+      "symbol": "NFLX",
+      "name": "奈飞",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "奈飞-NFLX-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-22",
+      "symbol": "TSLA",
+      "name": "特斯拉",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "特斯拉-TSLA-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-22",
+      "symbol": "GOOGL",
+      "name": "谷歌",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "谷歌-GOOGL-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-22",
+      "symbol": "IBM",
+      "name": "IBM",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "IBM-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-23",
+      "symbol": "INTC",
+      "name": "英特尔",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "英特尔-INTC-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-23",
+      "symbol": "NOK",
+      "name": "诺基亚",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "诺基亚-NOK-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-24",
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "GE Vernova-GEV-六步分析法-20260724.md",
+      "note": "已更新(7/24)"
+    },
+    {
+      "date": "2026-07-28",
+      "symbol": "GLW",
+      "name": "康宁",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "康宁-GLW-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-28",
+      "symbol": "SKHY",
+      "name": "SK海力士",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "SK海力士-SKHY-六步分析法-20260802.md",
+      "note": "已更新(8/2, 新建)"
+    },
+    {
+      "date": "2026-07-28",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": ""
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "MSFT",
+      "name": "微软",
+      "period": "FY2026 Q4",
+      "status": "done",
+      "file": "微软-MSFT-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "META",
+      "name": "Meta",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "Meta-META-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "ARM",
+      "name": "安谋",
+      "period": "FY2027 Q1",
+      "status": "done",
+      "file": "Arm-ARM-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "QCOM",
+      "name": "高通",
+      "period": "Q3 2026",
+      "status": "done",
+      "file": "高通-QCOM-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "HOOD",
+      "name": "Robinhood",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "Robinhood-HOOD-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-29",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "done",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-07-30",
+      "symbol": "AMZN",
+      "name": "亚马逊",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "亚马逊-AMZN-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-30",
+      "symbol": "AAPL",
+      "name": "苹果",
+      "period": "FY2026 Q3",
+      "status": "done",
+      "file": "苹果-AAPL-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-07-30",
+      "symbol": "MSTR",
+      "name": "微策略",
+      "period": "Q2 2026",
+      "status": "done",
+      "file": "微策略-MSTR-六步分析法-20260802.md",
+      "note": "已更新(8/2)"
+    },
+    {
+      "date": "2026-08-04",
+      "symbol": "AMD",
+      "name": "超威半导体",
+      "period": "Q2 2026",
+      "status": "upcoming",
+      "file": "超威半导体-AMD-六步分析法-20260807.md",
+      "note": "盘后发布,当前文件基于Q1 | 已更新(08/02) | 已更新(08/07)"
+    },
+    {
+      "date": "2026-08-04",
+      "symbol": "SPCX",
+      "name": "SpaceX",
+      "period": "Q2 2026(首份季报)",
+      "status": "upcoming",
+      "file": "SpaceX-SPCX-六步分析法-20260724.md",
+      "note": "北京时间8/5凌晨首份季报"
+    },
+    {
+      "date": "2026-08-05",
+      "symbol": "WDC",
+      "name": "西部数据",
+      "period": "FY2026 Q4",
+      "status": "upcoming",
+      "file": "西部数据-WDC-六步分析法-20260807.md",
+      "note": "预期EPS $3.30/营收$37亿,文件0605版 | 已更新(08/07)"
+    },
+    {
+      "date": "2026-08-05",
+      "symbol": "SNDK",
+      "name": "闪迪",
+      "period": "FY2026 Q4",
+      "status": "upcoming",
+      "file": "闪迪-SNDK-六步分析法-20260807.md",
+      "note": "预期营收+341%扭亏,文件0511版 | 已更新(08/07)"
+    },
+    {
+      "date": "2026-08-06",
+      "symbol": "DIS",
+      "name": "迪士尼",
+      "period": "FY2026 Q3",
+      "status": "upcoming",
+      "file": "迪士尼-DIS-六步分析法-20260807.md",
+      "note": "不在watchlist,仅关注 | 已更新(08/07)"
+    },
+    {
+      "date": "2026-08-07",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "7月数据"
+    },
+    {
+      "date": "2026-08-10",
+      "symbol": "RKLB",
+      "name": "火箭实验室",
+      "period": "Q2 2026",
+      "status": "upcoming",
+      "file": "RocketLab-RKLB-六步分析法-20260630.md",
+      "note": "8月上旬"
+    },
+    {
+      "date": "2026-08-10",
+      "symbol": "HIMS",
+      "name": "Hims & Hers",
+      "period": "Q2 2026",
+      "status": "upcoming",
+      "file": "HIMS-HIMS-六步分析法-20260521.md",
+      "note": "8月上旬"
+    },
+    {
+      "date": "2026-08-11",
+      "symbol": "LITE",
+      "name": "Lumentum",
+      "period": "FY2026 Q4",
+      "status": "upcoming",
+      "file": "莱特-LITE-六步分析法-20260605.md",
+      "note": "8月中旬"
+    },
+    {
+      "date": "2026-08-12",
+      "symbol": "ECON",
+      "name": "CPI通胀数据",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "7月数据"
+    },
+    {
+      "date": "2026-08-12",
+      "symbol": "CSCO",
+      "name": "思科",
+      "period": "FY2026 Q4",
+      "status": "upcoming",
+      "file": "思科-CSCO-六步分析法-20260605.md",
+      "note": "8月中旬"
+    },
+    {
+      "date": "2026-08-12",
+      "symbol": "COHR",
+      "name": "Coherent",
+      "period": "FY2026 Q4",
+      "status": "upcoming",
+      "file": "Coherent-COHR-六步分析法-20260521.md",
+      "note": "8月中旬"
+    },
+    {
+      "date": "2026-08-26",
+      "symbol": "NVDA",
+      "name": "英伟达",
+      "period": "Q2 FY2027",
+      "status": "upcoming",
+      "file": "英伟达-NVDA-六步分析法-20260605.md",
+      "note": "8月下旬"
+    },
+    {
+      "date": "2026-08-27",
+      "symbol": "MRVL",
+      "name": "迈威尔",
+      "period": "Q2 FY2027",
+      "status": "upcoming",
+      "file": "迈威尔-MRVL-六步分析法-20260605.md",
+      "note": "8月下旬"
+    },
+    {
+      "date": "2026-08-??",
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "period": "Q2 2026",
+      "status": "pending",
+      "file": "Palantir-PLTR-六步分析法-20260521.md",
+      "note": "8月上旬"
+    },
+    {
+      "date": "2026-08-??",
+      "symbol": "LLY",
+      "name": "礼来",
+      "period": "Q2 2026",
+      "status": "pending",
+      "file": "礼来-LLY-六步分析法-20260501.md",
+      "note": "8月上旬"
+    },
+    {
+      "date": "2026-09-04",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "8月数据"
+    },
+    {
+      "date": "2026-09-11",
+      "symbol": "ECON",
+      "name": "CPI通胀数据",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "8月数据"
+    },
+    {
+      "date": "2026-09-15",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": "含SEP经济预测"
+    },
+    {
+      "date": "2026-09-16",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-10-02",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "9月数据"
+    },
+    {
+      "date": "2026-10-14",
+      "symbol": "ECON",
+      "name": "CPI通胀数据",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "9月数据"
+    },
+    {
+      "date": "2026-10-27",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": ""
+    },
+    {
+      "date": "2026-10-28",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-11-06",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "10月数据"
+    },
+    {
+      "date": "2026-11-10",
+      "symbol": "ECON",
+      "name": "CPI通胀数据",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "10月数据"
+    },
+    {
+      "date": "2026-12-04",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "11月数据"
+    },
+    {
+      "date": "2026-12-08",
+      "symbol": "FED",
+      "name": "FOMC会议",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": "含SEP经济预测"
+    },
+    {
+      "date": "2026-12-09",
+      "symbol": "FED",
+      "name": "FOMC会议第2日",
+      "period": "FOMC",
+      "status": "upcoming",
+      "file": null,
+      "note": "利率决议+鲍威尔发布会"
+    },
+    {
+      "date": "2026-12-10",
+      "symbol": "ECON",
+      "name": "CPI通胀数据",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "11月数据"
+    },
+    {
+      "date": "2027-01-08",
+      "symbol": "ECON",
+      "name": "非农就业报告",
+      "period": "经济数据",
+      "status": "upcoming",
+      "file": null,
+      "note": "12月数据"
+    }
+  ],
+  "watch_items": [
+    {
+      "symbol": "ADBE",
+      "name": "奥多比",
+      "file": "奥多比-ADBE-六步分析法-20260630.md",
+      "note": "0630版,待核实是否已含最新财季"
+    },
+    {
+      "symbol": "HPE",
+      "name": "慧与",
+      "file": "慧与-HPE-六步分析法-20260630.md",
+      "note": "0630版,待核实"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
+      "file": "博通-AVGO-六步分析法-20260630.md",
+      "note": "0630版,含6/4 Q2财报,7月无新财报"
+    },
+    {
+      "symbol": "MU",
+      "name": "美光",
+      "file": "美光-MU-六步分析法-20260630.md",
+      "note": "0630版已含Q3(6/24发布),无需更新"
+    },
+    {
+      "symbol": "DELL",
+      "name": "戴尔",
+      "file": "戴尔科技-DELL-六步分析法-20260605.md",
+      "note": "0605版,Q2财报8月底"
+    },
+    {
+      "symbol": "COST",
+      "name": "好市多",
+      "file": "好事多-COST-六步分析法-20260501.md",
+      "note": "0501版"
+    }
+  ]
+}

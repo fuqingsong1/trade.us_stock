@@ -1,0 +1,27 @@
+# ═══════════════════════════════════════════════
+# 本地密钥与敏感文件 — 绝不推送 (密钥走 GitHub Secrets)
+# ═══════════════════════════════════════════════
+secrets_local.py
+news_config.json
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# 本地策略/运行时状态 (仅本地服务器运行, 云端不推)
+strategy_v4.py
+strategy_binance.py
+watchdog.py
+api_okx.py
+instruments.json
+t_range.json
+script_status.json
+strategy_state.json
+manual_prices.json
+update_all.bat
+
+# 日志与备份
+*.log
+*.bak
+*.lock
