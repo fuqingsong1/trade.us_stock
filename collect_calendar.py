@@ -20,16 +20,17 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 SCRIPT_DIR = Path(__file__).parent
-WORKSPACE = SCRIPT_DIR.parent
-WATCHLIST_US = WORKSPACE / "watchlist_us"
-CAL_JSON = WATCHLIST_US / "earnings_calendar.json"
-LOG_F = SCRIPT_DIR / "collect_calendar.log"
 
 sys.path.insert(0, str(SCRIPT_DIR))
 from utils import _auto_proxy, WORKSPACE_ROOT
 
 # 代理分流由 utils._auto_proxy 统一处理: 本地走 127.0.0.1:7890, NO_PROXY=1 直连
-WORKSPACE = WORKSPACE_ROOT  # 云端用 WORKSPACE_ROOT 环境变量指向仓库根, 保证 watchlist_us 可找到
+# 云端用 WORKSPACE_ROOT 环境变量指向仓库根, 保证 watchlist_us 可找到
+# 注意: WATCHLIST_US/CAL_JSON 必须在 WORKSPACE 覆盖之后再计算, 否则云端会写到仓库外
+WORKSPACE = WORKSPACE_ROOT
+WATCHLIST_US = WORKSPACE / "watchlist_us"
+CAL_JSON = WATCHLIST_US / "earnings_calendar.json"
+LOG_F = SCRIPT_DIR / "collect_calendar.log"
 
 # 美联储2026年FOMC会议日程(提前一年公布, 数据源: 美联储官网)
 # 2026年8次FOMC会议(含经济预测摘要SEP的会议标记)

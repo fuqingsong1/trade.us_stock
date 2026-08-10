@@ -92,7 +92,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html last_update.json web/dashboard.html news_cache.json market_regime.json watchlist_us/earnings_calendar.json watchlist_us/earnings_calendar.html 2>/dev/null || true
+          # 用 git add -A 而非显式列举: 显式路径只要有一个不存在就整体报错(rc=128), 导致永远提交不上
+          git add -A
           if git diff --cached --quiet; then
             echo "无内容变更, 跳过提交"
           else
