@@ -1,0 +1,102 @@
+name: 看板自动更新
+
+on:
+  workflow_dispatch:        # 手动触发: 仓库 Actions 页面点 Run workflow
+  schedule:
+    # 北京时间 21:00-22:00 (UTC+8), 分钟数错开避免 GitHub 限流
+    - cron: "3 13 * * *"    # 21:03
+    - cron: "16 13 * * *"   # 21:16
+    - cron: "29 13 * * *"   # 21:29
+    - cron: "42 13 * * *"   # 21:42
+    - cron: "55 13 * * *"   # 21:55
+    # 周末晚 22:30 额外更新 (UTC 14:30, 6=周六 0=周日)
+    - cron: "30 14 * * 0,6"
+
+permissions:
+  contents: write          # 允许工作流写回仓库(生成 index.html 并 push)
+
+concurrency:
+  group: dashboard-update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 生成财报日历 (失败不阻塞)
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+        run: |
+          python collect_calendar.py || echo "::warning::财报日历生成失败, 使用现有数据"
+          python watchlist_us/update_calendar.py || echo "::warning::日历页生成失败, 跳过 html"
+
+      - name: 抓取新闻并分析
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OKX_API_KEY: ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET: ${{ secrets.OKX_API_SECRET }}
+          OKX_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
+          BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
+          BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
+        run: python news.py --refresh || echo "::warning::新闻生成失败"
+
+      - name: 生成看板
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          OKX_API_KEY: ${{ secrets.OKX_API_KEY }}
+          OKX_API_SECRET: ${{ secrets.OKX_API_SECRET }}
+          OKX_PASSPHRASE: ${{ secrets.OKX_PASSPHRASE }}
+          BINANCE_API_KEY: ${{ secrets.BINANCE_API_KEY }}
+          BINANCE_API_SECRET: ${{ secrets.BINANCE_API_SECRET }}
+        run: python dashboard.py --no-open
+
+      - name: 应用深色主题着陆页
+        run: python transform.py web/dashboard.html index.html
+
+      - name: 生成最近更新徽章数据 (北京时间)
+        run: |
+          python - <<'EOF'
+          import json
+          from datetime import datetime, timezone, timedelta
+          now = datetime.now(timezone.utc) + timedelta(hours=8)
+          data = {
+              "update_text": now.strftime("%Y-%m-%d %H:%M") + " (北京时间)",
+              "update_iso": now.isoformat(timespec="seconds")
+          }
+          with open("last_update.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+          print("last_update.json:", data)
+          EOF
+
+      - name: 提交并推送更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html last_update.json web/dashboard.html news_cache.json market_regime.json watchlist_us/earnings_calendar.json watchlist_us/earnings_calendar.html 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "无内容变更, 跳过提交"
+          else
+            git commit -m "看板数据更新 $(date -u +'%Y-%m-%d %H:%M UTC')" || true
+            git push
+            echo "已推送更新"
+          fi
