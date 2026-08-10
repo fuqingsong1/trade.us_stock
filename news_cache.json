@@ -136,11 +136,11 @@
           "source": "rule"
         },
         {
-          "title": "What's Going On With Western Digital Stock Monday? - Benzinga",
-          "title_cn": "What's Going On With Western Digital Stock Monday? - Benzinga",
+          "title": "What's Going On With Western Digital Stock Monday? - benzinga.com",
+          "title_cn": "What's Going On With Western Digital Stock Monday? - benzinga.com",
           "summary": "",
           "pubDate": "2026-08-10",
-          "provider": "Benzinga",
+          "provider": "benzinga.com",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxObG1xYm5VZHdBcWtVMDRVeVJMNWkwZ3kzczJoQXBET2lCZlRDc2VZWTdNTWFSclJaUkxodmxGZGxNbkZHNzE2b01MSWpPRFJMVHBET3hVbGxzaUdDT05pYmNIaHJ1Ym9hcDhnN0FuNlY5NE5iM3FHeC1renNGOTZjOEZ6UWpVQWszRDdWTnlnMUU1WWFXQzhIQU9ublcwdy1mb0dN?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -156,6 +156,19 @@
     }
   ],
   "macro": [
+    {
+      "title": "U.S. Hiring Slumps, a Worrying Sign for the Economy - The New York Times",
+      "title_cn": "U.S. Hiring Slumps, a Worrying Sign for the Economy - The New York Times",
+      "summary": "",
+      "pubDate": "2026-08-07",
+      "provider": "The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1COG5QdEZTcXNmcTNybFJiVWVoNHJlS0Rrd1dsM282THhNNnVCVHhnVXNncm90UHRRNENoQjQtRm9KNWZvaTZlRFA0dFRoRWstRXdYeU8tV1BRMFk5RVEwTmxua2t0S1ptT1dRdzR3MXpxQ0k5OHFZ?oc=5",
+      "direction": "negative",
+      "impact_pct": -0.6,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
     {
       "title": "Market cuts odds of Fed hike after jobs data, but economists still see case for tightening - Reuters",
       "title_cn": "Market cuts odds of Fed hike after jobs data, but economists still see case for tightening - Reuters",
@@ -196,19 +209,6 @@
       "source": "rule"
     },
     {
-      "title": "Current refi mortgage rates report for Aug. 10, 2026 - Fortune",
-      "title_cn": "Current refi mortgage rates report for Aug. 10, 2026 - Fortune",
-      "summary": "",
-      "pubDate": "2026-08-10",
-      "provider": "Fortune",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE83TnVselV6aGFWOXNmVDVaV1BaTjZ5YjVxNy10SjBhaEQ5Zzk4U2IxSWVXOFJyeHRyb1gweVdvQjR2RF9yUjRfYzBhSS1Lb2FZaVFERUlHTzZLS3U0dHJrVURmVEVjUUEtV1FqMzN6aTZTdG5vd3c?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Interest Rates Could Still Rise in September: 5 High-Yield Passive Income Stocks Will Benefit - 24/7 Wall St.",
       "title_cn": "Interest Rates Could Still Rise in September: 5 High-Yield Passive Income Stocks Will Benefit - 24/7 Wall St.",
       "summary": "",
@@ -222,7 +222,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-10 14:34:59",
+  "generated_at": "2026-08-10 14:46:07",
   "macro_summary": "",
-  "cached_at": "2026-08-10T14:35:18.843409"
+  "cached_at": "2026-08-10T14:46:27.128761"
 }
