@@ -1502,7 +1502,9 @@ short_regime_json = json.dumps({
     "error": market_regime.get("error"),
 }, ensure_ascii=False)
 short_lev_str = "/".join(str(v) for v in SHORT_LEV_TIER.values())  # "3/5/7" 供 JS 显示做空杠杆
-now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+# 云端 runner 时区是 UTC, 需 +8 显示北京时间; 本地直接取系统时间
+now_str = ((datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
+           if CLOUD_MODE else datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
