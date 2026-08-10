@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美股财报日历</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f5f5f5; padding: 20px; line-height: 1.6;
+        }
+        .header {
+            background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 24px; color: #333; margin-bottom: 8px; }
+        .header .meta { color: #666; font-size: 14px; }
+        .nav {
+            margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap;
+        }
+        .nav a {
+            display: inline-block; padding: 8px 16px; border-radius: 4px;
+            text-decoration: none; font-size: 14px; transition: background 0.2s;
+        }
+        .nav .active {
+            background: #2c3e50; color: white;
+        }
+        .nav .normal {
+            background: #3498db; color: white;
+        }
+        .nav .normal:hover { background: #2980b9; }
+        .stats {
+            display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #f8f9fa; border-radius: 6px; padding: 10px 18px; text-align: center;
+            flex: 1; min-width: 120px;
+        }
+        .stat-card .num { font-size: 26px; font-weight: 700; color: #2c3e50; }
+        .stat-card .lbl { font-size: 12px; color: #888; margin-top: 2px; }
+        .section {
+            background: white; border-radius: 8px; margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden;
+        }
+        .section h2 {
+            font-size: 18px; color: #2c3e50; padding: 16px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section h2 .count { color: #999; font-weight: 400; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; }
+        th {
+            background: #f8f9fa; color: #555; font-size: 13px; font-weight: 600;
+            text-align: left; padding: 10px 20px; border-bottom: 2px solid #eee;
+        }
+        td { padding: 10px 20px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        tr:hover td { background: #fafafa; }
+        .date { color: #666; white-space: nowrap; }
+        .sym { color: #999; font-size: 12px; margin-left: 4px; }
+        .badge {
+            display: inline-block; padding: 2px 10px; border-radius: 12px;
+            color: white; font-size: 12px; white-space: nowrap;
+        }
+        .note { color: #777; font-size: 13px; }
+        .footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 20px; }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            th, td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📅 美股财报日历</h1>
+        <div class="meta">数据更新：2026-08-10 ｜ 今日：2026-08-10 ｜ 共 61 条财报事件</div>
+        <div class="nav">
+            <a class="normal" href="index.html">← 返回观察清单</a>
+            <span class="active">📅 财报日历</span>
+        </div>
+        <div class="stats">
+            <div class="stat-card"><div class="num" style="color:#27ae60">30</div><div class="lbl">已完成</div></div>
+            <div class="stat-card"><div class="num" style="color:#e67e22">29</div><div class="lbl">即将发布</div></div>
+            <div class="stat-card"><div class="num" style="color:#3498db">2</div><div class="lbl">待确认日期</div></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⏰ 即将发布 <span class="count">(29)</span></h2>
+        <table>
+            <thead><tr><th>日期</th><th>公司</th><th>财报期</th><th>状态</th><th>备注</th></tr></thead>
+            <tbody>
+        <tr>
+            <td class="date">2026-08-04</td>
+            <td class="stock"><strong>超威半导体</strong> <span class="sym">AMD</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">盘后发布,当前文件基于Q1 | 已更新(08/02) | 已更新(08/07)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-04</td>
+            <td class="stock"><strong>SpaceX</strong> <span class="sym">SPCX</span></td>
+            <td>Q2 2026(首份季报)</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">北京时间8/5凌晨首份季报</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-05</td>
+            <td class="stock"><strong>西部数据</strong> <span class="sym">WDC</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">预期EPS $3.30/营收$37亿,文件0605版 | 已更新(08/07)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-05</td>
+            <td class="stock"><strong>闪迪</strong> <span class="sym">SNDK</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">预期营收+341%扭亏,文件0511版 | 已更新(08/07)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-06</td>
+            <td class="stock"><strong>迪士尼</strong> <span class="sym">DIS</span></td>
+            <td>FY2026 Q3</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">不在watchlist,仅关注 | 已更新(08/07)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-07</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">7月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-10</td>
+            <td class="stock"><strong>火箭实验室</strong> <span class="sym">RKLB</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月上旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-10</td>
+            <td class="stock"><strong>Hims &amp; Hers</strong> <span class="sym">HIMS</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月上旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-11</td>
+            <td class="stock"><strong>Lumentum</strong> <span class="sym">LITE</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月中旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-12</td>
+            <td class="stock"><strong>CPI通胀数据</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">7月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-12</td>
+            <td class="stock"><strong>思科</strong> <span class="sym">CSCO</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月中旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-12</td>
+            <td class="stock"><strong>Coherent</strong> <span class="sym">COHR</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月中旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-26</td>
+            <td class="stock"><strong>英伟达</strong> <span class="sym">NVDA</span></td>
+            <td>Q2 FY2027</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月下旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-08-27</td>
+            <td class="stock"><strong>迈威尔</strong> <span class="sym">MRVL</span></td>
+            <td>Q2 FY2027</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月下旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-09-04</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-09-11</td>
+            <td class="stock"><strong>CPI通胀数据</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">8月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-09-15</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">含SEP经济预测</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-09-16</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-10-02</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">9月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-10-14</td>
+            <td class="stock"><strong>CPI通胀数据</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">9月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-10-27</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note"></td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-10-28</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-11-06</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">10月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-11-10</td>
+            <td class="stock"><strong>CPI通胀数据</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">10月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-12-04</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">11月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-12-08</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">含SEP经济预测</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-12-09</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-12-10</td>
+            <td class="stock"><strong>CPI通胀数据</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">11月数据</td>
+        </tr>
+
+        <tr>
+            <td class="date">2027-01-08</td>
+            <td class="stock"><strong>非农就业报告</strong> <span class="sym">ECON</span></td>
+            <td>经济数据</td>
+            <td><span class="badge" style="background:#e67e22">⏰ 即将发布</span></td>
+            <td class="note">12月数据</td>
+        </tr></tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>? 待确认日期 <span class="count">(2)</span></h2>
+        <table>
+            <thead><tr><th>日期</th><th>公司</th><th>财报期</th><th>状态</th><th>备注</th></tr></thead>
+            <tbody>
+        <tr>
+            <td class="date">8月中旬待定</td>
+            <td class="stock"><strong>Palantir</strong> <span class="sym">PLTR</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#3498db">? 待确认日期</span></td>
+            <td class="note">8月上旬</td>
+        </tr>
+
+        <tr>
+            <td class="date">8月中旬待定</td>
+            <td class="stock"><strong>礼来</strong> <span class="sym">LLY</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#3498db">? 待确认日期</span></td>
+            <td class="note">8月上旬</td>
+        </tr></tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>✓ 本季已完成 <span class="count">(30)</span></h2>
+        <table>
+            <thead><tr><th>日期</th><th>公司</th><th>财报期</th><th>状态</th><th>备注</th></tr></thead>
+            <tbody>
+        <tr>
+            <td class="date">2026-01-27</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">含SEP经济预测</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-01-28</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-03-17</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">含SEP经济预测</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-03-18</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-04-28</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note"></td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-04-29</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-06-11</td>
+            <td class="stock"><strong>甲骨文</strong> <span class="sym">ORCL</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-06-16</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">含SEP经济预测</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-06-17</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-15</td>
+            <td class="stock"><strong>阿斯麦</strong> <span class="sym">ASML</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-16</td>
+            <td class="stock"><strong>台积电</strong> <span class="sym">TSM</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-17</td>
+            <td class="stock"><strong>奈飞</strong> <span class="sym">NFLX</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-22</td>
+            <td class="stock"><strong>特斯拉</strong> <span class="sym">TSLA</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-22</td>
+            <td class="stock"><strong>谷歌</strong> <span class="sym">GOOGL</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-22</td>
+            <td class="stock"><strong>IBM</strong> <span class="sym">IBM</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-23</td>
+            <td class="stock"><strong>英特尔</strong> <span class="sym">INTC</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-23</td>
+            <td class="stock"><strong>诺基亚</strong> <span class="sym">NOK</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-24</td>
+            <td class="stock"><strong>GE Vernova</strong> <span class="sym">GEV</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(7/24)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-28</td>
+            <td class="stock"><strong>康宁</strong> <span class="sym">GLW</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-28</td>
+            <td class="stock"><strong>SK海力士</strong> <span class="sym">SKHY</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2, 新建)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-28</td>
+            <td class="stock"><strong>FOMC会议</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note"></td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>微软</strong> <span class="sym">MSFT</span></td>
+            <td>FY2026 Q4</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>Meta</strong> <span class="sym">META</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>安谋</strong> <span class="sym">ARM</span></td>
+            <td>FY2027 Q1</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>高通</strong> <span class="sym">QCOM</span></td>
+            <td>Q3 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>Robinhood</strong> <span class="sym">HOOD</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-29</td>
+            <td class="stock"><strong>FOMC会议第2日</strong> <span class="sym">FED</span></td>
+            <td>FOMC</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">利率决议+鲍威尔发布会</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-30</td>
+            <td class="stock"><strong>亚马逊</strong> <span class="sym">AMZN</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-30</td>
+            <td class="stock"><strong>苹果</strong> <span class="sym">AAPL</span></td>
+            <td>FY2026 Q3</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr>
+
+        <tr>
+            <td class="date">2026-07-30</td>
+            <td class="stock"><strong>微策略</strong> <span class="sym">MSTR</span></td>
+            <td>Q2 2026</td>
+            <td><span class="badge" style="background:#27ae60">✓ 已完成</span></td>
+            <td class="note">已更新(8/2)</td>
+        </tr></tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🔍 其他持仓待核实 <span class="count">(6)</span></h2>
+        <table>
+            <thead><tr><th>公司</th><th>备注</th></tr></thead>
+            <tbody>
+        <tr>
+            <td class="stock"><strong>奥多比</strong> <span class="sym">ADBE</span></td>
+            <td class="note">0630版,待核实是否已含最新财季</td>
+        </tr>
+
+        <tr>
+            <td class="stock"><strong>慧与</strong> <span class="sym">HPE</span></td>
+            <td class="note">0630版,待核实</td>
+        </tr>
+
+        <tr>
+            <td class="stock"><strong>博通</strong> <span class="sym">AVGO</span></td>
+            <td class="note">0630版,含6/4 Q2财报,7月无新财报</td>
+        </tr>
+
+        <tr>
+            <td class="stock"><strong>美光</strong> <span class="sym">MU</span></td>
+            <td class="note">0630版已含Q3(6/24发布),无需更新</td>
+        </tr>
+
+        <tr>
+            <td class="stock"><strong>戴尔</strong> <span class="sym">DELL</span></td>
+            <td class="note">0605版,Q2财报8月底</td>
+        </tr>
+
+        <tr>
+            <td class="stock"><strong>好市多</strong> <span class="sym">COST</span></td>
+            <td class="note">0501版</td>
+        </tr></tbody>
+        </table>
+    </div>
+
+    <div class="footer">由 earnings_calendar.json 自动生成 ｜ 财报日期以公司官方公告为准</div>
+</body>
+</html>
