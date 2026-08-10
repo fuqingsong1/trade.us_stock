@@ -1,7 +1,228 @@
 {
-  "stocks": [],
-  "macro": [],
-  "generated_at": "2026-08-10 14:26:17",
+  "stocks": [
+    {
+      "symbol": "AMD",
+      "name": "超威半导体",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Weekly Recap: Data Center & AI revenue surge and AMD share gains vs INTC - TradingView",
+          "title_cn": "Weekly Recap: Data Center & AI revenue surge and AMD share gains vs INTC - TradingView",
+          "summary": "",
+          "pubDate": "2026-08-10",
+          "provider": "TradingView",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNbHk0S3FFT005T3RmY2dzM0U1bG1xVTFtdXNQdXF1ejJISWxSQWwtNFlZUUFOZkw1TFJHM3dXM1BiSWZuRHctVmZxeGc4d1RhNmE3cWdETzNVT1RYaE1QREJrVl9jZlk3NXFibnRtc3Fma2UxeVRKYTFlSFdwUnU0N1AzcTFwNk5EcVlFTDZHNVVvVklBaXV5d0tQMlJGY1FTQ1Vlc1MxaHZsWC1YYVNsS2RHWXd3LTNGUjlIUEVXeEtxUFJLMVE5TVVUUQ?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.6,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Intel Falls 5% on Proposed $15B Share Sale as AMD, NVIDIA, Broadcom Hold Steady - 24/7 Wall St.",
+          "title_cn": "Intel Falls 5% on Proposed $15B Share Sale as AMD, NVIDIA, Broadcom Hold Steady - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-08-10",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPUXowOG11TVRBdl9kX2FLM3BlanVXYWkzejhaRG8yYkRURjNNSi1kb2hYaklNSXE0SmQ5bWN0Y3NXN3c1THc3anQ2WW1kNmJSMmxYWFgtZXlrMWMxaHNNTGloTkQ4ZGt3YmJSRm82aEZFTnV0V2FPWU1KU1FLd2JYMF9LWVFkRHd0THJLcFVhb0JKcmVkTnpKZVJEWldjUUE0bEdMRy14NS1OckJKeTdzbmFrbHYtdWhuRGJF?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
+          "title_cn": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
+          "summary": "",
+          "pubDate": "2026-08-05",
+          "provider": "MarketWatch",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNDNxdklpcDNyTVZITG10clMzcDI1bERtTk1IQVZDRGRHQ3czaTViSXROTlVjRFJjSlNrLWNNMDNKOFpZM09KVFhqTkdDUmZ5UEZTdG1Id2JrazA4UGNIdENNZVV4b3BiMHRDcUhIU2dHbVlwVjRYWkxMU09YWEtsQlN0ZUp3SUZJMlR1b1d2WGtMck0taEFUY2dBVk9wazVzcVBRZi15ZVdmNzVKUjlDckl4ZjRmOHc?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.5,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "AMD Shares Fall 8% as Elon Musk Commits to Nvidia Chips for SpaceX - WSJ",
+          "title_cn": "AMD Shares Fall 8% as Elon Musk Commits to Nvidia Chips for SpaceX - WSJ",
+          "summary": "",
+          "pubDate": "2026-08-04",
+          "provider": "WSJ",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBFaGtxOHFMdFctcDd6TTgzZndpV0U1QUFGRV9nbFdxcVZDemlTTW80ZmZTOWxXT0N1ZUJYM3ByQ3Z1ZGF3d1E5S2FjRlp3dzBicVRtaGNBMUV5V1BEWUFfZ2lwaE9kck1xYlNYTENuTnFlMEFkcHlwRGpxYlY1UQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.4,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "AMD Stock Drops As Chipmaker Disappoints With Modest Quarterly Beat - Investor's Business Daily",
+          "title_cn": "AMD Stock Drops As Chipmaker Disappoints With Modest Quarterly Beat - Investor's Business Daily",
+          "summary": "",
+          "pubDate": "2026-08-04",
+          "provider": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOcDdPU2hRQTVaWlFwUlFueHp3NEtNSHNBc1QtcXJtRU8wd19INnNVZWRRdklhX3pkckw1MGtsOUR6cm8yVGc1V3hJbEhYclEtTWNybWVEeVprVUhnc1ZYSGEwQUxpNnVyYkRKLXJTNlNJWHBMczl1TVUzLVh6c20yNk85dkRRS2pITDNOX0RwQWc0TjQ4Q2ln?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.3,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "negative",
+      "next_earnings": "未公布"
+    },
+    {
+      "symbol": "WDC",
+      "name": "西部数据",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Western Digital Stock Tanks. An Earnings Beat Isn’t Enough These Days. - Barron's",
+          "title_cn": "Western Digital Stock Tanks. An Earnings Beat Isn’t Enough These Days. - Barron's",
+          "summary": "",
+          "pubDate": "2026-08-06",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQd3NLQVNNbmFhTkdKOGEyWnpkdFpEZVNWTE10VlhzanByRHFwcnFRelFBaHhxcTFSUkFWcm5pWUF1RkY5MnFDUHpMMjVucG5BeU5rWjdiRmVSWUFyV0RJYzVRbWNfUkpYWGNjM3ZTUXpkcjZNdzNfbU0wcTBPamRKNHUyV3p2enU2eGc?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Why Western Digital Stock Is Tumbling Despite A Big Earnings Beat - Investor's Business Daily",
+          "title_cn": "Why Western Digital Stock Is Tumbling Despite A Big Earnings Beat - Investor's Business Daily",
+          "summary": "",
+          "pubDate": "2026-08-06",
+          "provider": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNVHVYMkRkWDktNFNBcG45WmpqeTBHQXNEdXlIS0kzVWUwTGk0dDZjNGlVZF95RE1zOXg5V18yVEF2cVJidzlPTFcycHdSQUVlUVVMYUh5dXFRN0RwUHgwTUJnSWthNEk3OEJBUnNLZlRlWW9lM1dMNzJUYnpUUWliZTM4QUc2Rmx4V3dsVlBZclE?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.7,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Why Is Western Digital Stock Sinking Thursday? - Yahoo Finance",
+          "title_cn": "Why Is Western Digital Stock Sinking Thursday? - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-06",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQcFF3dUl3SWg2dC1GeC1qd2ZsSWVrWFhVVDkzRGlwWUhEWDVkNXFuZ1IwUVRoZDNjeXRQamhnczEzS0oycDlZWUp6Sk5xbWt4dWlzSGRob0lidUUzR2NmOU5HUEl3Uk5xS2FhQkVCZi15OFgtUGtTcjYwVGRjamZYeE1pTVNXdXdOeWxibjVrYmtVT3BiWnE1WlJGcjd0SzQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.6,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Western Digital Stock Slumps 9% as Current Quarter Projections Underwhelm Traders - TIKR.com",
+          "title_cn": "Western Digital Stock Slumps 9% as Current Quarter Projections Underwhelm Traders - TIKR.com",
+          "summary": "",
+          "pubDate": "2026-08-06",
+          "provider": "TIKR.com",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNa2tXMGE4WFNicG1ZYldTeHVJbERUa0VkVkEwdUVqNUlPUEZEYjFZQ0NJXzdFTjN3dGN6YndqQ1pkTFZqMHpjVWtrTkZWX042VDNZV0cyQ1hrWUpwYWNYRUJzN0ViakMyNTFvY21mWkltYkhXM3dYM0ppaVZoWmctRDV1NHlsTDktRkE?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.4,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "What's Going On With Western Digital Stock Monday? - Benzinga",
+          "title_cn": "What's Going On With Western Digital Stock Monday? - Benzinga",
+          "summary": "",
+          "pubDate": "2026-08-10",
+          "provider": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxObG1xYm5VZHdBcWtVMDRVeVJMNWkwZ3kzczJoQXBET2lCZlRDc2VZWTdNTWFSclJaUkxodmxGZGxNbkZHNzE2b01MSWpPRFJMVHBET3hVbGxzaUdDT05pYmNIaHJ1Ym9hcDhnN0FuNlY5NE5iM3FHeC1renNGOTZjOEZ6UWpVQWszRDdWTnlnMUU1WWFXQzhIQU9ublcwdy1mb0dN?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "未公布"
+    }
+  ],
+  "macro": [
+    {
+      "title": "Market cuts odds of Fed hike after jobs data, but economists still see case for tightening - Reuters",
+      "title_cn": "Market cuts odds of Fed hike after jobs data, but economists still see case for tightening - Reuters",
+      "summary": "",
+      "pubDate": "2026-08-07",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQc20xOTBqRG9tVV9IUnA4T1JoVHo1dUpfSV85UzZQdzFqeWZPZ0hFb3kzUVZDUTlUcS10b205dzIyWVRaWUpxUmJJa0EtR2tfQ0sxa0tsRl82SkFXMF9BRWFCSzJDSkRpb25EOW5Fd0hUUzdrMU4wMlRDZVNiQTVoazN4dHFpeUhfNjJaUkkyUnVtdWh4V2l0LXlVcWtzM1pqdmZHVnVCT3ZoT3o5?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
+      "title_cn": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
+      "summary": "",
+      "pubDate": "2026-08-06",
+      "provider": "Barron's",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOSERES2lGcGlzcE44UzJLUGdJY0RJc0xDRDVXbmlrVUxJS1ZtMjd6LWJvQmtZY2RSRVF5dDZxSUFkd3NNaEJPelFpUkZrUU5QaUVtMVFSWGVRODVaSDMwVVRiSFBYdkhCM2t2UmFhUEdjQWhNY21yV2pMMjdiY2tFeW9VMmE?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Rethinking Rate Cuts as Kevin Warsh Works Some Inflation Magic - TheStreet Pro",
+      "title_cn": "Rethinking Rate Cuts as Kevin Warsh Works Some Inflation Magic - TheStreet Pro",
+      "summary": "",
+      "pubDate": "2026-08-10",
+      "provider": "TheStreet Pro",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOZkNIanhDb3NTbVZqS3ZtRkNjaUQ5LWE4TngwRmMtT2xHMC1TR083QWQ4bVNxQXdVZTJMeDl0cXZ1UC1tWnluRnBSbDl0QTZuekZVd18zV1dyWkU0NzZkby0wdDRpSDl4d2twNld2dV85endCUnU2TFhfZ2JNS3NxSEQ0SDZka0RUX2IyLWo5Z2g0bXhVZlJabDN2V1dtSmdfdFR2QkZ1dzA1Zw?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Current refi mortgage rates report for Aug. 10, 2026 - Fortune",
+      "title_cn": "Current refi mortgage rates report for Aug. 10, 2026 - Fortune",
+      "summary": "",
+      "pubDate": "2026-08-10",
+      "provider": "Fortune",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE83TnVselV6aGFWOXNmVDVaV1BaTjZ5YjVxNy10SjBhaEQ5Zzk4U2IxSWVXOFJyeHRyb1gweVdvQjR2RF9yUjRfYzBhSS1Lb2FZaVFERUlHTzZLS3U0dHJrVURmVEVjUUEtV1FqMzN6aTZTdG5vd3c?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Interest Rates Could Still Rise in September: 5 High-Yield Passive Income Stocks Will Benefit - 24/7 Wall St.",
+      "title_cn": "Interest Rates Could Still Rise in September: 5 High-Yield Passive Income Stocks Will Benefit - 24/7 Wall St.",
+      "summary": "",
+      "pubDate": "2026-08-10",
+      "provider": "24/7 Wall St.",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQNWFqUWZuQXJ3TW1xT3lBQXU2N2h3YnRjd2ladnpSM2hsZTZ6RnRZR0tZVXNpZzhBQzRUQW9KQ2ZDLU1BZ2drVmd5LWRaekJteGN2NXphUjM3dXVkanh1anYxVm9sRjlZaC1QR2ZsdEx2SWJwMzZlMW9QVTVSRG9IVFVvUVlXZmJob04tUVA5aEdOenR5V2QteHNwT1A1U0RtNTBwNFhyWXJ5bGtwZWZiLW5sMVpfcHVtdlRWSnlSZDJzLVBlcWp2ZDVIX20?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    }
+  ],
+  "generated_at": "2026-08-10 14:34:59",
   "macro_summary": "",
-  "cached_at": "2026-08-10T14:29:13.653817"
+  "cached_at": "2026-08-10T14:35:18.843409"
 }
