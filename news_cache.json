@@ -46,19 +46,6 @@
           "source": "rule"
         },
         {
-          "title": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
-          "title_cn": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
-          "summary": "",
-          "pubDate": "2026-08-05",
-          "provider": "MarketWatch",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNDNxdklpcDNyTVZITG10clMzcDI1bERtTk1IQVZDRGRHQ3czaTViSXROTlVjRFJjSlNrLWNNMDNKOFpZM09KVFhqTkdDUmZ5UEZTdG1Id2JrazA4UGNIdENNZVV4b3BiMHRDcUhIU2dHbVlwVjRYWkxMU09YWEtsQlN0ZUp3SUZJMlR1b1d2WGtMck0taEFUY2dBVk9wazVzcVBRZi15ZVdmNzVKUjlDckl4ZjRmOHc?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.5,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
           "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
           "summary": "",
@@ -69,6 +56,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Chip Stocks Forecast – AMD, Nvidia, and Intel Face Key Technical Levels - FXEmpire",
+          "title_cn": "Chip Stocks Forecast – AMD, Nvidia, and Intel Face Key Technical Levels - FXEmpire",
+          "summary": "",
+          "pubDate": "2026-08-11",
+          "provider": "FXEmpire",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNV1pLbGk1SFkyM2F0X0ZJTHdfdWdUWW5jR2hwVDJ5VWF0RHBPZnFqZVM1d2tkLVVmalhGSmJsbUlfdWJxaGtBcElRQ0VBWDB2SHVRMllOY1liWEthSENOYUN0QUFleXdTcXdiOXRibGt0Y0dmWHp5bkVlMmJlVXoyb2Qyby1ETFlUQmNJaURtdHRLRWEzZnEtTUxvNnZjRS1IYlRwZGJEdnZILW90U2VRMDhyZUU0c0tLVk5Rbw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -196,19 +196,6 @@
       "source": "rule"
     },
     {
-      "title": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
-      "title_cn": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
-      "summary": "",
-      "pubDate": "2026-08-11",
-      "provider": "Fortune",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE52Y0E4bU1MYkZJMTYxaGl0VVI4bFprX0poQWRKbU1DSkRkOTNiZDhLR1VWSlVkdy1NOHd5eGx2WUtGOGp2Y0c5S1JGbWJnWW1vM1R1bjZ4SEs?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
       "title_cn": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
       "summary": "",
@@ -220,9 +207,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
+      "title_cn": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
+      "summary": "",
+      "pubDate": "2026-08-11",
+      "provider": "Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE52Y0E4bU1MYkZJMTYxaGl0VVI4bFprX0poQWRKbU1DSkRkOTNiZDhLR1VWSlVkdy1NOHd5eGx2WUtGOGp2Y0c5S1JGbWJnWW1vM1R1bjZ4SEs?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-11 14:33:47",
+  "generated_at": "2026-08-11 14:46:27",
   "macro_summary": "",
-  "cached_at": "2026-08-11T14:34:07.532524"
+  "cached_at": "2026-08-11T14:46:46.690242"
 }
