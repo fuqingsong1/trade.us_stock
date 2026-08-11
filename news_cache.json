@@ -33,19 +33,6 @@
           "source": "rule"
         },
         {
-          "title": "Priced For Perfection: Why AMD's Growth Thesis Faces A Structural Ceiling (NASDAQ:AMD) - Seeking Alpha",
-          "title_cn": "Priced For Perfection: Why AMD's Growth Thesis Faces A Structural Ceiling (NASDAQ:AMD) - Seeking Alpha",
-          "summary": "",
-          "pubDate": "2026-08-11",
-          "provider": "Seeking Alpha",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNalNheGdaT0xxZG8wVk1wVXNWV2lCa01iRTR3R0huNl9XZ2IwUy1qaDIyMFFoRTJEeGxFd2NHOGRmNm1PR1U2Q2pmZVhzWWs2My1mTVNjUHZ2akZSbEk3Sm9zeFFheWdsTmNVOGJETExyenlldXJYQVJCRHVlRVR5bFpJUVJja0Z1NmNIQW1GdGFUVkU3NXUxc0M1WWZvMWRtN1pGM3Y4ZXNXVVVPVENIWQ?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.4,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "What Is Behind Advanced Micro Devices (AMD) Stock Dropping Today? - simplywall.st",
           "title_cn": "What Is Behind Advanced Micro Devices (AMD) Stock Dropping Today? - simplywall.st",
           "summary": "",
@@ -54,6 +41,19 @@
           "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNZlJIY2o0VkZSU21xN2ZJTDVUSjhFaDJ3Y3k4VkoxeVREdjQ4cjFQMjVCZElUQ19qNzBKZF9rSm1VZ25MZmxOeTdmbVdhNGFQamswTlhLUzNPbTV5NW50cWRhMkxkdzlNYk5Gc1FLQURtRE5rNGQyZS1ETUJ5TlBzcGdGMEYzN2ZTVE5va3d0TzZKaTd3X3RMeFYxelhJUFEybC1Mc3FLbzR6Yzk3N1A1aGd1c0F5NFRCTlB5N3htYU8zVFFBSXZ2d3RUUmhXR29tX3FoTmJCTkItbGQ2aE9v0gHkAUFVX3lxTE4xQUR1SUlNd09ldUNMNDhCSW9qbEtQTldMd3pJNk9TNk5qTmNCY2k5VW9xcnRTcjJtT2FZVnZQWlRHazdUTjBiNnFfamJLZDBDazZSVXB6NWpxSk15S3lTUUhWa2t1dzdxS1dRT1RhSFpPbVZVcjJRMFlOeEx1RWhpN01PNlJqckVLLW1keDE3bUxFTUVvaVRROERINUx0dVBnc1M5WjBLVmN4anZ5SFN2ZGRYWGppRW9oSGRuQjNYdEdjb1d2dWdDbzh3VXJzbERkTE5LajhMWkJQWGJRak5MeUFocw?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
+          "title_cn": "3 reasons AMD’s stock is falling in the face of its latest earnings report - MarketWatch",
+          "summary": "",
+          "pubDate": "2026-08-05",
+          "provider": "MarketWatch",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNDNxdklpcDNyTVZITG10clMzcDI1bERtTk1IQVZDRGRHQ3czaTViSXROTlVjRFJjSlNrLWNNMDNKOFpZM09KVFhqTkdDUmZ5UEZTdG1Id2JrazA4UGNIdENNZVV4b3BiMHRDcUhIU2dHbVlwVjRYWkxMU09YWEtsQlN0ZUp3SUZJMlR1b1d2WGtMck0taEFUY2dBVk9wazVzcVBRZi15ZVdmNzVKUjlDckl4ZjRmOHc?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -196,19 +196,6 @@
       "source": "rule"
     },
     {
-      "title": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
-      "title_cn": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
-      "summary": "",
-      "pubDate": "2026-08-10",
-      "provider": "Morningstar",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaEFCZFRxdkFwZExldmx1T2dnWDhUUk50SXJMMkpSU0VpZFRkQ09La0g0N3ZuNDctTHhCc3ZDTTFHUHhNaElVNVJDMGdjWVpETks1TURHQi1mcWJBYS1PckF1TFZFU2pkZWZ1ejBKU3pMaXM2eTlPbnBnLUhmOUxuS2R3S2VoRF9vOTQzNUhQR0ZMMmYwaDBBeVctMjRJTHp4?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
       "title_cn": "Top CD rates today, Aug. 11, 2026: Lock in up to up to 4.50% - Fortune",
       "summary": "",
@@ -220,9 +207,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
+      "title_cn": "Will the ECB Raise Interest Rates Again in 2026, But Cut Them in 2027? - Morningstar",
+      "summary": "",
+      "pubDate": "2026-08-10",
+      "provider": "Morningstar",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPaEFCZFRxdkFwZExldmx1T2dnWDhUUk50SXJMMkpSU0VpZFRkQ09La0g0N3ZuNDctTHhCc3ZDTTFHUHhNaElVNVJDMGdjWVpETks1TURHQi1mcWJBYS1PckF1TFZFU2pkZWZ1ejBKU3pMaXM2eTlPbnBnLUhmOUxuS2R3S2VoRF9vOTQzNUhQR0ZMMmYwaDBBeVctMjRJTHp4?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-11 14:26:04",
+  "generated_at": "2026-08-11 14:33:47",
   "macro_summary": "",
-  "cached_at": "2026-08-11T14:26:23.341807"
+  "cached_at": "2026-08-11T14:34:07.532524"
 }
