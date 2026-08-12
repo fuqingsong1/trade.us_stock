@@ -46,11 +46,11 @@
           "source": "rule"
         },
         {
-          "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
-          "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
+          "title": "What's Going On With AMD Stock Tuesday? - benzinga.com",
+          "title_cn": "What's Going On With AMD Stock Tuesday? - benzinga.com",
           "summary": "",
           "pubDate": "2026-08-11",
-          "provider": "Benzinga",
+          "provider": "benzinga.com",
           "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdTNBSEwtUzBNQVVKTGVoLTc1WFFVTV92YXdDZm1LdnZ4VXhtLWhMSS11b1hvMVFXNGRWeTZlMGNMd3Y3c0cwcV9qekVaSFBnV01Vc2UzU28tck4wemFJa3BqQ3N0cXZTeE54bHVzeG1oRW9aQ0xYUnUyVHN4dC1wbXl0VEd3U3A0V1NkVzEtY2dRSUJPOFJ3?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -59,16 +59,16 @@
           "source": "rule"
         },
         {
-          "title": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
-          "title_cn": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
+          "title": "Reaction to AMD Earnings Shows Why It’s Hard Being in Second Place - Barron's",
+          "title_cn": "Reaction to AMD Earnings Shows Why It’s Hard Being in Second Place - Barron's",
           "summary": "",
-          "pubDate": "2026-08-11",
-          "provider": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdThFeXM3VmxVVXNlM0xYdmdOaC1XZnZ4bUJSbkYyYmtiN09vWlQybC1XaDlEZ2dlV3NYSk9WUjgzQTRzeG84QTRuNU92NE1pMnh1VWlWYkhYZmxjSHlOWFFVQUZrSkZnTTRNeHliT0g5Y0h5NjJWcjd6OWNJb2VMY0FZY0dBMVA5cFdrZm5sOFZNY010THg5eXBHcmw2cmJmQUxxVmVvLWU4aHc3U1pLUTRZNXZEcXNwM0JZ?oc=5",
+          "pubDate": "2026-08-05",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5KUjNvUUJiMlFaNHZoY3NNX3NpTE0yYjRJem1Pa0M3VWg3UEV6TzVpZ1ZxZTFKWk9YU25EYUt1S21aMy1MZWZPcVhHOUxzMlpLOG02aWcxc19GbmpEem9vQ0JzWDN0TXdXbnY3b0Vid1lITjRjMjhoMTdFTUN3UQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -132,11 +132,11 @@
       "source": "rule"
     },
     {
-      "title": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - unn.ua",
-      "title_cn": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - unn.ua",
+      "title": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - Українські Національні Новини (УНН)",
+      "title_cn": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - Українські Національні Новини (УНН)",
       "summary": "",
       "pubDate": "2026-08-11",
-      "provider": "unn.ua",
+      "provider": "Українські Національні Новини (УНН)",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNYWVpMDN6M2VVd2U5NHc3Y2FMMWtwcnF4dklzTVVDekVmamJRME85ZDhhVlNYQlBmcm5ZZWlVaE5VSGZKbzY3aDVIQ0xFZW5nN2VzZG9XWUNnZ3NUejFQMzFsZFRjMkx2bUF6c1I3eHlrc3dBSjNSRmdSYTdleWx2N2E0LUhEVW9XQTRyRnFpMm1xYlVFajhwaXZtUlNYY21LNVZJaUd30gGkAUFVX3lxTE9LY2dPSE5RajdlWVBGT0hiUHAyckc1WVlxUm1VREpGcW5Lak11dHRsdFlEWG9GbDVsWFkyUVpRczJQbmw1NzNjVm55WVE0NFBrbVNabXlhOVB3eWNhOXBVMTRreVllQ3dja1ItLTc2dHY1Z3VVdHNRTi1CRk5HbW9iT0pMRDVEMXBJUm9pN2ZKLVpMQW5jRE0xSTE1U3JpWEs1UzA3?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -145,7 +145,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-12 14:34:43",
+  "generated_at": "2026-08-12 14:45:57",
   "macro_summary": "",
-  "cached_at": "2026-08-12T14:34:59.911939"
+  "cached_at": "2026-08-12T14:46:13.872568"
 }
