@@ -46,11 +46,11 @@
           "source": "rule"
         },
         {
-          "title": "What's Going On With AMD Stock Tuesday? - benzinga.com",
-          "title_cn": "What's Going On With AMD Stock Tuesday? - benzinga.com",
+          "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
+          "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
           "summary": "",
           "pubDate": "2026-08-11",
-          "provider": "benzinga.com",
+          "provider": "Benzinga",
           "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdTNBSEwtUzBNQVVKTGVoLTc1WFFVTV92YXdDZm1LdnZ4VXhtLWhMSS11b1hvMVFXNGRWeTZlMGNMd3Y3c0cwcV9qekVaSFBnV01Vc2UzU28tck4wemFJa3BqQ3N0cXZTeE54bHVzeG1oRW9aQ0xYUnUyVHN4dC1wbXl0VEd3U3A0V1NkVzEtY2dRSUJPOFJ3?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -59,16 +59,16 @@
           "source": "rule"
         },
         {
-          "title": "Reaction to AMD Earnings Shows Why It’s Hard Being in Second Place - Barron's",
-          "title_cn": "Reaction to AMD Earnings Shows Why It’s Hard Being in Second Place - Barron's",
+          "title": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
+          "title_cn": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
           "summary": "",
-          "pubDate": "2026-08-05",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5KUjNvUUJiMlFaNHZoY3NNX3NpTE0yYjRJem1Pa0M3VWg3UEV6TzVpZ1ZxZTFKWk9YU25EYUt1S21aMy1MZWZPcVhHOUxzMlpLOG02aWcxc19GbmpEem9vQ0JzWDN0TXdXbnY3b0Vid1lITjRjMjhoMTdFTUN3UQ?oc=5",
+          "pubDate": "2026-08-11",
+          "provider": "Investing.com",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdThFeXM3VmxVVXNlM0xYdmdOaC1XZnZ4bUJSbkYyYmtiN09vWlQybC1XaDlEZ2dlV3NYSk9WUjgzQTRzeG84QTRuNU92NE1pMnh1VWlWYkhYZmxjSHlOWFFVQUZrSkZnTTRNeHliT0g5Y0h5NjJWcjd6OWNJb2VMY0FZY0dBMVA5cFdrZm5sOFZNY010THg5eXBHcmw2cmJmQUxxVmVvLWU4aHc3U1pLUTRZNXZEcXNwM0JZ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "个股",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -145,7 +145,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-12 14:45:57",
+  "generated_at": "2026-08-12 14:50:37",
   "macro_summary": "",
-  "cached_at": "2026-08-12T14:46:13.872568"
+  "cached_at": "2026-08-12T14:50:54.713647"
 }
