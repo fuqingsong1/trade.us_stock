@@ -1,83 +1,5 @@
 {
-  "stocks": [
-    {
-      "symbol": "AMD",
-      "name": "超威半导体",
-      "has_position": false,
-      "is_eligible": true,
-      "news": [
-        {
-          "title": "Why AMD Stock Tumbled 18% in July - Yahoo Finance",
-          "title_cn": "Why AMD Stock Tumbled 18% in July - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-10",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQZXVHWVFFc1NYZlRONnhmZ0dXemtDMXRfcVNhc0drbm4yTF9WRllfZENSblhxaXJpT1ZmakRpaXBYVkZZQU9SeHpZdXZSckZMMkpKc3BYUFY1RHRxV3dWaWU3LThkeUF6LU1xMkNfcnpqR0gteXhOcHBQZUs0bVN5RlZFUnhWdlN3eFZMMmNNLVdLMEE?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.7,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "AMD Trades at 63x Forward Earnings, While Nvidia Trades at 24x. History Says This Is the Better Buy. - Yahoo Finance",
-          "title_cn": "AMD Trades at 63x Forward Earnings, While Nvidia Trades at 24x. History Says This Is the Better Buy. - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-12",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQNHNZZlJ4MEtyN0xiWDBjczFDcmR3OFZ0V0FEZkFheFNxdF9aY20tQXFCdGY1VWpvT2otM0wzWnRWNWlnZ0Y2dXk1VXdUYW5fblpWc2RjNGI2dGFPQ0ZDZ1RxeGp4RjJDdnBrX3AxS05vckdmQkMxdlRRdEp0SlZDN1dxWGJqM3B6ZFkwVHBjYmxrQTJzTDVXaktEVGI?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "AMD Trades at 63x Forward Earnings, While Nvidia Trades at 24x. History Says This Is the Better Buy. - The Motley Fool",
-          "title_cn": "AMD Trades at 63x Forward Earnings, While Nvidia Trades at 24x. History Says This Is the Better Buy. - The Motley Fool",
-          "summary": "",
-          "pubDate": "2026-08-12",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSzdBSzE2NFh1dU5WeVh5T2pGbWJ2cjRkZC1uWTZrUmxqRmRWTmpIbVgtOVpXUTRHTTFSU2hObzNtaWZ3WHpxZXI0T21jRTFJaU0tX3JLbWw4Q3d4UGZDNFBlb1BYdU9iZ3lrSGdIZVJoRnhESndCcXVDMEZXT1o3WlRmaFlPUzc3?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
-          "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
-          "summary": "",
-          "pubDate": "2026-08-11",
-          "provider": "Benzinga",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNdTNBSEwtUzBNQVVKTGVoLTc1WFFVTV92YXdDZm1LdnZ4VXhtLWhMSS11b1hvMVFXNGRWeTZlMGNMd3Y3c0cwcV9qekVaSFBnV01Vc2UzU28tck4wemFJa3BqQ3N0cXZTeE54bHVzeG1oRW9aQ0xYUnUyVHN4dC1wbXl0VEd3U3A0V1NkVzEtY2dRSUJPOFJ3?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
-          "title_cn": "AMD at Technology Leadership Forum 2026: ai demand lifts outlook - Investing.com",
-          "summary": "",
-          "pubDate": "2026-08-11",
-          "provider": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdThFeXM3VmxVVXNlM0xYdmdOaC1XZnZ4bUJSbkYyYmtiN09vWlQybC1XaDlEZ2dlV3NYSk9WUjgzQTRzeG84QTRuNU92NE1pMnh1VWlWYkhYZmxjSHlOWFFVQUZrSkZnTTRNeHliT0g5Y0h5NjJWcjd6OWNJb2VMY0FZY0dBMVA5cFdrZm5sOFZNY010THg5eXBHcmw2cmJmQUxxVmVvLWU4aHc3U1pLUTRZNXZEcXNwM0JZ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        }
-      ],
-      "stock_summary": "",
-      "total_impact": 0,
-      "net_direction": "negative",
-      "next_earnings": "未公布"
-    }
-  ],
+  "stocks": [],
   "macro": [
     {
       "title": "The Odds of a September Rate Hike Have Plunged, but the Federal Reserve's Job Just Became Infinitely More Challenging - Yahoo Finance",
@@ -87,7 +9,7 @@
       "provider": "Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVm9vaE1jVEdITDBZV2tFNEIwaXdMX1RSWVV0NEZnOE9hZkpZU2JVdTNTNWtkTmFEdHllaWVBOWl2WDlEZlNQQUxxdTdWQk44WGdWNGYyWWpybWdiSGg3czNDVkNxMkJ4YTBVS3NDQTh3UGZheWJETG16ZFRGZmt1S2VpdENUX2NzckhaQXIwRzVYeVRwMzE0VHY2QUVVQQ?oc=5",
       "direction": "negative",
-      "impact_pct": -4.2,
+      "impact_pct": -3.4,
       "reason": "",
       "type": "宏观",
       "source": "rule"
@@ -106,6 +28,32 @@
       "source": "rule"
     },
     {
+      "title": "Fed expected to leave rates unchanged next month after soft inflation data - Reuters",
+      "title_cn": "Fed expected to leave rates unchanged next month after soft inflation data - Reuters",
+      "summary": "",
+      "pubDate": "2026-08-12",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR2NNM1hicnFuakczck9zME1UVXVFV2hjLVFzbkJMY1NaT3JUcWlfcDN3Rko0RU1iSFEzS3VQaGJibEo5S05icjFXN09POFE0dGFYS3pjTlMxa0hKSnJ2SjdaVDJRZXNIR3h5dTZvTkgxalowRndaeUttbHc0OFZvbmJGcXJ3UnhxYVZrSGdfbmllVXYzMmRUQ2VrMUE2eGJwa1VDdEJCM01fVlp6b1U0?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
+      "title_cn": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
+      "summary": "",
+      "pubDate": "2026-08-13",
+      "provider": "The Daily Upside",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOWXRrRlR3Z0NGdmM2NkhCWlQxT1FBN2dmMi1XQUhDUjB0YnlvVHNHaVVkNjNBSnFrNXhHaUhpNEd2UVNSSkFFcHllanhfdDUwLUUtb1dTUmwxdXBZc0N6QWptSlQ1c2xvMXVXZ3lxZmdfdTlfWVRVRnBJa2FWc3NnNmpWSjUwdWVOLUZ6M1djVDd1dlFOSVVxRG9tdjhrS2FyQmFTNG1SQVZ6Nl9FRFMtUGE1SDhiUXFmdXR0X3RKOUtmM2piWko5RlhWT3RERkE?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
       "title_cn": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
       "summary": "",
@@ -117,35 +65,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "Consumer prices rose 0.1% in July, as expected, putting the annual rate at 3.4% - CNBC",
-      "title_cn": "Consumer prices rose 0.1% in July, as expected, putting the annual rate at 3.4% - CNBC",
-      "summary": "",
-      "pubDate": "2026-08-12",
-      "provider": "CNBC",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE03RHN4UDF4N1RkNlRBbXF5ZHJ5eUo0YngzU0lLZlY3LXJpOFdNWGwxRENUblFZRk9WcXBlNGpvckRyVjR4bFk3YnI4aDY1cUk5Nksxd3FZNU9qM2N2X08tZGs5SXlfT1U5d2I0YUpPc3hsaTdNTWfSAXtBVV95cUxPVEluUE5uVlBIcElrWUhFcDVOQkVqQXpTb1VUMWxVUDNiMHJNLVpFVVpzbEFMMWtsLUEtdlBxMUJHcHNjd0FpUmFkWXAtYW9FX184S3l5U1lkWTcyZFNfWEhUNkV4aFlZX2VwcVA0M3BMZjRBZTdoWVowU2M?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
-      "title": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - Українські Національні Новини (УНН)",
-      "title_cn": "Trump is once again pressuring the Fed, seeking to influence interest-rate policy - Українські Національні Новини (УНН)",
-      "summary": "",
-      "pubDate": "2026-08-11",
-      "provider": "Українські Національні Новини (УНН)",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNYWVpMDN6M2VVd2U5NHc3Y2FMMWtwcnF4dklzTVVDekVmamJRME85ZDhhVlNYQlBmcm5ZZWlVaE5VSGZKbzY3aDVIQ0xFZW5nN2VzZG9XWUNnZ3NUejFQMzFsZFRjMkx2bUF6c1I3eHlrc3dBSjNSRmdSYTdleWx2N2E0LUhEVW9XQTRyRnFpMm1xYlVFajhwaXZtUlNYY21LNVZJaUd30gGkAUFVX3lxTE9LY2dPSE5RajdlWVBGT0hiUHAyckc1WVlxUm1VREpGcW5Lak11dHRsdFlEWG9GbDVsWFkyUVpRczJQbmw1NzNjVm55WVE0NFBrbVNabXlhOVB3eWNhOXBVMTRreVllQ3dja1ItLTc2dHY1Z3VVdHNRTi1CRk5HbW9iT0pMRDVEMXBJUm9pN2ZKLVpMQW5jRE0xSTE1U3JpWEs1UzA3?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-12 14:50:37",
+  "generated_at": "2026-08-13 14:28:07",
   "macro_summary": "",
-  "cached_at": "2026-08-12T14:50:54.713647"
+  "cached_at": "2026-08-13T14:28:11.346149"
 }
