@@ -2,11 +2,11 @@
   "stocks": [],
   "macro": [
     {
-      "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
-      "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
+      "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - global.morningstar.com",
+      "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - global.morningstar.com",
       "summary": "",
       "pubDate": "2026-08-11",
-      "provider": "Morningstar",
+      "provider": "global.morningstar.com",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdGVOeHZtTHBSY19Pa0lnUk9YdXZyRmpHUEtMSWJESC1SWi1GUzc5Q1A4ZllxbWN3R1hhZW5DaTB3VXBkVUFRTG5GZXNkZ1VTS1VfQ29BSFl4MzFSWTJrNDZsbG1lRVJGU044bjNWamh1cHh4VlhqUzl3dkVGSGR6eEEyd3BwMy1FVnd5VkNPRFNDcmIwbGxpQ056VFFOWTRoRzNVQ3VuT0dRaGpO?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -28,11 +28,11 @@
       "source": "rule"
     },
     {
-      "title": "When will mortgage rates go down from close to a one-year high? - finance.yahoo.com",
-      "title_cn": "When will mortgage rates go down from close to a one-year high? - finance.yahoo.com",
+      "title": "When will mortgage rates go down from close to a one-year high? - Yahoo Finance",
+      "title_cn": "When will mortgage rates go down from close to a one-year high? - Yahoo Finance",
       "summary": "",
       "pubDate": "2026-08-13",
-      "provider": "finance.yahoo.com",
+      "provider": "Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUFFGTW90Qjl5SmFfODZ1ZHNCVW1tZ1Mzam9WQ1BKcUxSdjBFY2NGb2ZlNllQWDN6d1Y4blNxZGJsUWdxNWVpOE54T1B3bENXUFU4N2N3d0JuLU1YbFVybUt3eS1oREhPVlZQV043MEFscHRpaGt1MDhNODdMX29hQ01uTkZ5X2RkOHhqc01XZW1fdjUzWGhyRGRLLVoydHlOa05QSFVKUGgtQXBmVUhnVkY3TTUwUFJhYllIU01BeE5TYy1qSEV4S2xIVVVjR2ZHVUlzZQ?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -41,11 +41,11 @@
       "source": "rule"
     },
     {
-      "title": "What's a good 1-year CD account interest rate considered to be now? - CBS News",
-      "title_cn": "What's a good 1-year CD account interest rate considered to be now? - CBS News",
+      "title": "What's a good 1-year CD account interest rate considered to be now? - cbsnews.com",
+      "title_cn": "What's a good 1-year CD account interest rate considered to be now? - cbsnews.com",
       "summary": "",
       "pubDate": "2026-08-13",
-      "provider": "CBS News",
+      "provider": "cbsnews.com",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPYlVnWVh4cVAxVlhaZWpEOXc2bFVrYTdkUFN2TDJnQnBWSVJyWXEyUlFIS1A1ZWM5R0FfWjJORURwZ2VVRFJrY0pkTDlBWWZ6ODg4NEpXM0tNSno3Yy1VOXR0Mk1fN0VjQmhXZlRyRTQzZFJxSGJvdEJNVDJHNjdHVk1NVFc3TVdLS1ZScA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -54,11 +54,11 @@
       "source": "rule"
     },
     {
-      "title": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - thedailyupside.com",
-      "title_cn": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - thedailyupside.com",
+      "title": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
+      "title_cn": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
       "summary": "",
       "pubDate": "2026-08-13",
-      "provider": "thedailyupside.com",
+      "provider": "The Daily Upside",
       "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOWXRrRlR3Z0NGdmM2NkhCWlQxT1FBN2dmMi1XQUhDUjB0YnlvVHNHaVVkNjNBSnFrNXhHaUhpNEd2UVNSSkFFcHllanhfdDUwLUUtb1dTUmwxdXBZc0N6QWptSlQ1c2xvMXVXZ3lxZmdfdTlfWVRVRnBJa2FWc3NnNmpWSjUwdWVOLUZ6M1djVDd1dlFOSVVxRG9tdjhrS2FyQmFTNG1SQVZ6Nl9FRFMtUGE1SDhiUXFmdXR0X3RKOUtmM2piWko5RlhWT3RERkE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -67,7 +67,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-14 14:31:14",
+  "generated_at": "2026-08-14 14:41:46",
   "macro_summary": "",
-  "cached_at": "2026-08-14T14:31:17.701713"
+  "cached_at": "2026-08-14T14:41:49.577533"
 }
