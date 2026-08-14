@@ -2,19 +2,6 @@
   "stocks": [],
   "macro": [
     {
-      "title": "The Odds of a September Rate Hike Have Plunged, but the Federal Reserve's Job Just Became Infinitely More Challenging - Yahoo Finance",
-      "title_cn": "The Odds of a September Rate Hike Have Plunged, but the Federal Reserve's Job Just Became Infinitely More Challenging - Yahoo Finance",
-      "summary": "",
-      "pubDate": "2026-08-12",
-      "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVm9vaE1jVEdITDBZV2tFNEIwaXdMX1RSWVV0NEZnOE9hZkpZU2JVdTNTNWtkTmFEdHllaWVBOWl2WDlEZlNQQUxxdTdWQk44WGdWNGYyWWpybWdiSGg3czNDVkNxMkJ4YTBVS3NDQTh3UGZheWJETG16ZFRGZmt1S2VpdENUX2NzckhaQXIwRzVYeVRwMzE0VHY2QUVVQQ?oc=5",
-      "direction": "negative",
-      "impact_pct": -3.4,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
       "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
       "summary": "",
@@ -28,12 +15,38 @@
       "source": "rule"
     },
     {
-      "title": "Fed expected to leave rates unchanged next month after soft inflation data - Reuters",
-      "title_cn": "Fed expected to leave rates unchanged next month after soft inflation data - Reuters",
+      "title": "Interest rate hikes go global - Washington Examiner",
+      "title_cn": "Interest rate hikes go global - Washington Examiner",
       "summary": "",
-      "pubDate": "2026-08-12",
-      "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR2NNM1hicnFuakczck9zME1UVXVFV2hjLVFzbkJMY1NaT3JUcWlfcDN3Rko0RU1iSFEzS3VQaGJibEo5S05icjFXN09POFE0dGFYS3pjTlMxa0hKSnJ2SjdaVDJRZXNIR3h5dTZvTkgxalowRndaeUttbHc0OFZvbmJGcXJ3UnhxYVZrSGdfbmllVXYzMmRUQ2VrMUE2eGJwa1VDdEJCM01fVlp6b1U0?oc=5",
+      "pubDate": "2026-08-14",
+      "provider": "Washington Examiner",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeWxtOHNYZG02TzlRdlc1Mk0xOXl0QlZKNWJuTXRRS3VpRHBESlBBazFpc19BXzh0TEhSeEx2SU1HdDZmdHFuZGdKY21laVBvd09RRlNTZ3lITG90ckFlSTFfMUZmLThENXBkbnBNSnhxRHZ2RndXSXpzLWJIZENNcUF2UkZIWHJP?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "When will mortgage rates go down from close to a one-year high? - Yahoo Finance",
+      "title_cn": "When will mortgage rates go down from close to a one-year high? - Yahoo Finance",
+      "summary": "",
+      "pubDate": "2026-08-13",
+      "provider": "Yahoo Finance",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUFFGTW90Qjl5SmFfODZ1ZHNCVW1tZ1Mzam9WQ1BKcUxSdjBFY2NGb2ZlNllQWDN6d1Y4blNxZGJsUWdxNWVpOE54T1B3bENXUFU4N2N3d0JuLU1YbFVybUt3eS1oREhPVlZQV043MEFscHRpaGt1MDhNODdMX29hQ01uTkZ5X2RkOHhqc01XZW1fdjUzWGhyRGRLLVoydHlOa05QSFVKUGgtQXBmVUhnVkY3TTUwUFJhYllIU01BeE5TYy1qSEV4S2xIVVVjR2ZHVUlzZQ?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "What's a good 1-year CD account interest rate considered to be now? - CBS News",
+      "title_cn": "What's a good 1-year CD account interest rate considered to be now? - CBS News",
+      "summary": "",
+      "pubDate": "2026-08-13",
+      "provider": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPYlVnWVh4cVAxVlhaZWpEOXc2bFVrYTdkUFN2TDJnQnBWSVJyWXEyUlFIS1A1ZWM5R0FfWjJORURwZ2VVRFJrY0pkTDlBWWZ6ODg4NEpXM0tNSno3Yy1VOXR0Mk1fN0VjQmhXZlRyRTQzZFJxSGJvdEJNVDJHNjdHVk1NVFc3TVdLS1ZScA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -52,22 +65,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
-      "title_cn": "Why a Fed Rate Cut Is Coming and How the Market Will React - Barron's",
-      "summary": "",
-      "pubDate": "2026-08-06",
-      "provider": "Barron's",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOSERES2lGcGlzcE44UzJLUGdJY0RJc0xDRDVXbmlrVUxJS1ZtMjd6LWJvQmtZY2RSRVF5dDZxSUFkd3NNaEJPelFpUkZrUU5QaUVtMVFSWGVRODVaSDMwVVRiSFBYdkhCM2t2UmFhUEdjQWhNY21yV2pMMjdiY2tFeW9VMmE?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-13 14:49:58",
+  "generated_at": "2026-08-14 14:20:57",
   "macro_summary": "",
-  "cached_at": "2026-08-13T14:50:01.252854"
+  "cached_at": "2026-08-14T14:21:00.367430"
 }
