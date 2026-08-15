@@ -2,11 +2,11 @@
   "stocks": [],
   "macro": [
     {
-      "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
-      "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
+      "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - global.morningstar.com",
+      "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - global.morningstar.com",
       "summary": "",
       "pubDate": "2026-08-11",
-      "provider": "Morningstar",
+      "provider": "global.morningstar.com",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdGVOeHZtTHBSY19Pa0lnUk9YdXZyRmpHUEtMSWJESC1SWi1GUzc5Q1A4ZllxbWN3R1hhZW5DaTB3VXBkVUFRTG5GZXNkZ1VTS1VfQ29BSFl4MzFSWTJrNDZsbG1lRVJGU044bjNWamh1cHh4VlhqUzl3dkVGSGR6eEEyd3BwMy1FVnd5VkNPRFNDcmIwbGxpQ056VFFOWTRoRzNVQ3VuT0dRaGpO?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -28,12 +28,12 @@
       "source": "rule"
     },
     {
-      "title": "Higher interest rates start to look like the new normal - nbcnews.com",
-      "title_cn": "Higher interest rates start to look like the new normal - nbcnews.com",
+      "title": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
+      "title_cn": "Sticky Inflation, Job Loss Prolong Fed’s Interest-Rate Limbo - The Daily Upside",
       "summary": "",
       "pubDate": "2026-08-13",
-      "provider": "nbcnews.com",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQVlURFlQM1EzT18wUHFhSm9Ld2RPTDlwQkxJM3M5cVdTaWZjMGUzejRIeEM0aWozU2JnS1JOaFdmaTJoZVJ6M215MlEweWpNbERFajE4UDMwZnppVEVoVEtpM0VzSXRIbE9faE54Unp2VXBBT29kZTN2bWNVbTZ4djl0ZzdTdlJpenNFdVptNU8?oc=5",
+      "provider": "The Daily Upside",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOWXRrRlR3Z0NGdmM2NkhCWlQxT1FBN2dmMi1XQUhDUjB0YnlvVHNHaVVkNjNBSnFrNXhHaUhpNEd2UVNSSkFFcHllanhfdDUwLUUtb1dTUmwxdXBZc0N6QWptSlQ1c2xvMXVXZ3lxZmdfdTlfWVRVRnBJa2FWc3NnNmpWSjUwdWVOLUZ6M1djVDd1dlFOSVVxRG9tdjhrS2FyQmFTNG1SQVZ6Nl9FRFMtUGE1SDhiUXFmdXR0X3RKOUtmM2piWko5RlhWT3RERkE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -67,7 +67,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-15 14:09:14",
+  "generated_at": "2026-08-15 14:47:42",
   "macro_summary": "",
-  "cached_at": "2026-08-15T14:09:17.348528"
+  "cached_at": "2026-08-15T14:47:46.010494"
 }
