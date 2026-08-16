@@ -2,6 +2,19 @@
   "stocks": [],
   "macro": [
     {
+      "title": "The Odds for a September Fed Rate Hike Plunged to 25%. Here's Why the Betting Markets Might Be Wrong - 24/7 Wall St.",
+      "title_cn": "The Odds for a September Fed Rate Hike Plunged to 25%. Here's Why the Betting Markets Might Be Wrong - 24/7 Wall St.",
+      "summary": "",
+      "pubDate": "2026-08-16",
+      "provider": "24/7 Wall St.",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbkVDbzBlUEVQYjY4OUtDMTlTVzdHM0o0OTEwZjJOWDNzNGJtS2pOWDdIeEZnb3ZoTVhNa0RZVl8wMklYTHBuVU9OZm9Za05EbDZqOThkb2dDaDdWRlRYX2wzWHJUczZPVEVPNGEyTlF6MEpMbWVYYkhaZ29hM3FrQnQ2MnZaUW5lQlBHcG1vUWV0aEs0NTIyRVV2amlPbHpfMkdLemNTdWdoeGg3aTB0SUxQNXhjcDJydXd0aE5FVXNYclJmNUpaaVBpaE5sSUNDZjhNc0FOSWw?oc=5",
+      "direction": "negative",
+      "impact_pct": -2.4,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
       "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
       "summary": "",
@@ -15,11 +28,11 @@
       "source": "rule"
     },
     {
-      "title": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - finance.yahoo.com",
-      "title_cn": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - finance.yahoo.com",
+      "title": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - Yahoo Finance",
+      "title_cn": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - Yahoo Finance",
       "summary": "",
       "pubDate": "2026-08-13",
-      "provider": "finance.yahoo.com",
+      "provider": "Yahoo Finance",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSUJLUkRzTmdoa25JRlBITmlXb2FzLTBEUmFUdFZTcW9RVHRmWUJMTlNPQmJBZ25PWERWM3drVE9WajFyZUdyMHYydlIzNXhicE1ac212RE8yaUQyOGk4czBrV3BLTFdhdWFJYjJ0bzJXeVlRVkR6YUxjQjl2OTFlTkF4S0pmOVBZQmJ2eC1aQ0tVOWZVY1pHSw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -52,22 +65,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "July’s Jobs Report Is Ugly. Strip Out the World Cup Hangover and It’s Even Uglier - 24/7 Wall St.",
-      "title_cn": "July’s Jobs Report Is Ugly. Strip Out the World Cup Hangover and It’s Even Uglier - 24/7 Wall St.",
-      "summary": "",
-      "pubDate": "2026-08-16",
-      "provider": "24/7 Wall St.",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOUXVnbEd1ZzQzaHZNYVZRUnhRaVF3S19IaF9HSFhiTzExeHQ4VEZQc2lsRERYdi1FeV81SDFvZTE1cjRWUzBJcGF4LVlmazZZcTRYMmZvbEZLcUthSjNLcDNsQXhUem55TF9mbzJ3MVJZWTVsZVI1NWNrNUlPcnVfT0Itd3VxWDFkTWRBWGh2cFRIMUNqVFJ1UEpIc2p3aHVoSkEtb2EydFpjanIzOEI0VUhfQUljUjAwWUdJWHBkUQ?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-16 14:11:44",
+  "generated_at": "2026-08-16 14:48:00",
   "macro_summary": "",
-  "cached_at": "2026-08-16T14:11:47.408664"
+  "cached_at": "2026-08-16T14:48:04.001144"
 }
