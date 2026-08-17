@@ -2,25 +2,12 @@
   "stocks": [],
   "macro": [
     {
-      "title": "The Odds for a September Fed Rate Hike Plunged to 25%. Here's Why the Betting Markets Might Be Wrong - 24/7 Wall St.",
-      "title_cn": "The Odds for a September Fed Rate Hike Plunged to 25%. Here's Why the Betting Markets Might Be Wrong - 24/7 Wall St.",
+      "title": "Dollar slips to lowest since early June as rate hike bets fade - Reuters",
+      "title_cn": "Dollar slips to lowest since early June as rate hike bets fade - Reuters",
       "summary": "",
-      "pubDate": "2026-08-16",
-      "provider": "24/7 Wall St.",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPbkVDbzBlUEVQYjY4OUtDMTlTVzdHM0o0OTEwZjJOWDNzNGJtS2pOWDdIeEZnb3ZoTVhNa0RZVl8wMklYTHBuVU9OZm9Za05EbDZqOThkb2dDaDdWRlRYX2wzWHJUczZPVEVPNGEyTlF6MEpMbWVYYkhaZ29hM3FrQnQ2MnZaUW5lQlBHcG1vUWV0aEs0NTIyRVV2amlPbHpfMkdLemNTdWdoeGg3aTB0SUxQNXhjcDJydXd0aE5FVXNYclJmNUpaaVBpaE5sSUNDZjhNc0FOSWw?oc=5",
-      "direction": "negative",
-      "impact_pct": -2.4,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
-      "title": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
-      "title_cn": "The US Fed’s New Philosophy Could Be a Recipe for Interest Rate Volatility - Morningstar",
-      "summary": "",
-      "pubDate": "2026-08-11",
-      "provider": "Morningstar",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdGVOeHZtTHBSY19Pa0lnUk9YdXZyRmpHUEtMSWJESC1SWi1GUzc5Q1A4ZllxbWN3R1hhZW5DaTB3VXBkVUFRTG5GZXNkZ1VTS1VfQ29BSFl4MzFSWTJrNDZsbG1lRVJGU044bjNWamh1cHh4VlhqUzl3dkVGSGR6eEEyd3BwMy1FVnd5VkNPRFNDcmIwbGxpQ056VFFOWTRoRzNVQ3VuT0dRaGpO?oc=5",
+      "pubDate": "2026-08-17",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNcEx2UnRQT3N2aTdDejItdVFGZ280ZXJ1ZzYtSHRoeDg0WEd1dGxmbkRvd1ZJMVRaUkdsMEZsMWx6ZUh1Wk1NeExBUTRxbHNuaW01TFpBd1F5dWlOOWoydXdETU8tamlmU2xpeEptdDRDTk52LW9GZW5oV201MmRubl85SnNSdnVwT2NxT0VHdmxxVGJ4TGdIWFhQcUN4dnBEcmFUUENqRQ?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -28,12 +15,12 @@
       "source": "rule"
     },
     {
-      "title": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - Yahoo Finance",
-      "title_cn": "Here's Where the Fed May Take Interest Rates Under Chairman Kevin Warsh - Yahoo Finance",
+      "title": "Yen stronger as traders cut back bets on Fed rate hike - 102.7 WBOW",
+      "title_cn": "Yen stronger as traders cut back bets on Fed rate hike - 102.7 WBOW",
       "summary": "",
-      "pubDate": "2026-08-13",
-      "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNSUJLUkRzTmdoa25JRlBITmlXb2FzLTBEUmFUdFZTcW9RVHRmWUJMTlNPQmJBZ25PWERWM3drVE9WajFyZUdyMHYydlIzNXhicE1ac212RE8yaUQyOGk4czBrV3BLTFdhdWFJYjJ0bzJXeVlRVkR6YUxjQjl2OTFlTkF4S0pmOVBZQmJ2eC1aQ0tVOWZVY1pHSw?oc=5",
+      "pubDate": "2026-08-17",
+      "provider": "102.7 WBOW",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQaGhxWGlwOUhYc1FvSVpiOG15aXJPRVc4eGRIdzdPNG8tbWVBd0lTc3ZSSW1RbUZDVzc0dVVJdENMbmNubEFTXzhoRHJ4bDh2bHktZURfWmgtMGc3dFhIMWt1MUx4bWNEQVVfbXMxQTYwZFJWR2ROVVo5Vy01SlU0MVRBWlFjWUFpMHFReHJ3?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -41,12 +28,12 @@
       "source": "rule"
     },
     {
-      "title": "Fed Interest Rate Forecast: Softer CPI and PPI Push Dollar Index Below 100 - FXEmpire",
-      "title_cn": "Fed Interest Rate Forecast: Softer CPI and PPI Push Dollar Index Below 100 - FXEmpire",
+      "title": "Gold Holds Gains as Soft US Data Bolsters Rate-Cut Expectations - CryptoRank",
+      "title_cn": "Gold Holds Gains as Soft US Data Bolsters Rate-Cut Expectations - CryptoRank",
       "summary": "",
-      "pubDate": "2026-08-16",
-      "provider": "FXEmpire",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQMkZEMkdiMHUzUHdOQnE4aFAweFR6Z3dJUnRHV3Y2ZHljUThnSmdxSUlqUGpMdTg3QmxoLTdHcDU3NkE0UmtwX2JiSTZsSXlpakhreEh0U0xNMGhNRGNzbTE5d3B0eUdFNllVaHZIUm1MZGZmdnNBSFZvMnhRWWRvazhsMFg1YXJkeTliaExWUENoV1dYYk91WGVjX2lzcTV3S3lvRXpaejNjUVVKRllhV1dWVjQ1TXAyRjdPRTFMT3JlQQ?oc=5",
+      "pubDate": "2026-08-17",
+      "provider": "CryptoRank",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNSzVfQ1RkQk9QeUVHRG1VYVpRNGhMVmNoaENFOWVEVnYyYXBpWGZfMFJpMFRNSU1nX19kbWdRRTVvRlFsbXg0cmo4a3dhOUdubEVlcWRVUG82UlNqQmcwcFVIb01VX0pTY3d3OERzdGF4Q2ZXaWhjWDdhS0dWYVpHcFY0Z00yNVlXbWZiZ2UxWjJPWEE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -54,12 +41,25 @@
       "source": "rule"
     },
     {
-      "title": "Higher interest rates start to look like the new normal - NBC News",
-      "title_cn": "Higher interest rates start to look like the new normal - NBC News",
+      "title": "Finding your next place of employment with UP Michigan Works! Hot Job offerings - Upper Michigan's Source",
+      "title_cn": "Finding your next place of employment with UP Michigan Works! Hot Job offerings - Upper Michigan's Source",
       "summary": "",
-      "pubDate": "2026-08-13",
-      "provider": "NBC News",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQVlURFlQM1EzT18wUHFhSm9Ld2RPTDlwQkxJM3M5cVdTaWZjMGUzejRIeEM0aWozU2JnS1JOaFdmaTJoZVJ6M215MlEweWpNbERFajE4UDMwZnppVEVoVEtpM0VzSXRIbE9faE54Unp2VXBBT29kZTN2bWNVbTZ4djl0ZzdTdlJpenNFdVptNU8?oc=5",
+      "pubDate": "2026-08-17",
+      "provider": "Upper Michigan's Source",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTHhpOGxwMy1GSm9ZTk1VUjhwbXF1UzRFRGR4Q2FqMFpndFZtTkE5TVQycnNoQWVUdWtXMlZKVGhfNzVNbWNMc2JaNzNEQzVHdUJHWEs5T1VjT2s5Mk9IeXNySURfN3ZTdVZQT0dFWGgzQ2hmQTdhS2hHV2ZGOG1rVVRkeXlaYmYtcVhEdzQ2dGdLTDBfTExtM2VwQm8zU1Q1TXVjT1c0OEluZDdFUDdmR0dmVDEwczR0NXpsZnVtWUQwZ9IB1gFBVV95cUxOVEQtYWFzcnlVY0laQWNCZ2g5ZUVBdFowbkxFaXJKeUFYQWYtTktaYTV4VE9Tc0g3Sk9TVmhTbUp2SnZCNG9VeHBvVkpMbG5oNWxCeE5TNTZhUGFvQldPYzZnLTFqTDBpaDFBNVFiNG5oV3JReUZyX1ExLUh0N09YbnNzR2FOWXlMYWJ0Qzl4b3hGTEVQdk4yNkp5anRPcmxGaHVlZlBKMGxDY2o3a01odE5mS2lPYWJLRGcxU0QzdWJ1NE9yMkxhM0MtODNIcmtxR2cxa0F3?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "New York Wants Employers To Measure AI's Impact On Jobs. That's Harder Than It Sounds - Forbes",
+      "title_cn": "New York Wants Employers To Measure AI's Impact On Jobs. That's Harder Than It Sounds - Forbes",
+      "summary": "",
+      "pubDate": "2026-08-17",
+      "provider": "Forbes",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYTdaNVRyRmREVVRHT1EwRWJrQzhrQWZrUnB3ZDFLWGxaTXdDOFZaTW9lMDQwcXN5amFad0pPZlY0azdVemFCWmpLY1VYamc3Z0xERzQ0cVV0TlE0VEZrUlZWWGl5SW1DOHNpNjJVSVBzNEpWVHVSN1hjQ01YTUFORkZKUWZVbGJpQ3hUMktTRUF4ZE8xUUJMNU5pTEFQMEV3RzNsVUg0SzdNNVBUOUgyZ05PVEJBbjh3R01KTVYxRlBjV1FkQVZ6a09YTVdiZFVzYmtCcw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -67,7 +67,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-16 14:48:00",
+  "generated_at": "2026-08-17 13:50:46",
   "macro_summary": "",
-  "cached_at": "2026-08-16T14:48:04.001144"
+  "cached_at": "2026-08-17T13:50:49.916494"
 }
