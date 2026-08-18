@@ -1,13 +1,168 @@
 {
-  "stocks": [],
+  "stocks": [
+    {
+      "symbol": "TSM",
+      "name": "台积电",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Why Is TSMC Stock Rising In Premarket Today? - Stocktwits",
+          "title_cn": "Why Is TSMC Stock Rising In Premarket Today? - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-08-17",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOVUcxUDVRcFVtRnBuMnZMWlhWbDQzZnVuNi1pU201UENOWG5JVXVKRnVOc0Q2OFlfVTY0dk5YM1RtUDM5NFVVb3VVUUl0NGlDdWMzM1pVZjIyZngyVVV6Y2ptTkJZVHlTUmhaUXpYRngxemIxQkRhaXpJWV9icFp2Y1FMYnRaYnBfTG9McXRuUVNpYjR3cG44U1pxbWNtT0E4TXdmbHIwUE5NSDQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC Stock Rises 2.2% as $4.69 Billion Sony Venture Launches - Yahoo Finance",
+          "title_cn": "TSMC Stock Rises 2.2% as $4.69 Billion Sony Venture Launches - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-12",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQektfVjhIMDFNRGRkem1zMlBWSy0zY0hrTnlxa0w5V1lDZk0ybjFER25XODBDZ0xiaFB2aFhjTUVpajh3YXVtWlIzZHd0NW5TRTdRR0tDczdNSjRMMzk5dkhtM3VoNXpEQnozdmxQLTBSYWJFbENrTlZIXzdLZ055NUo4OTBoUWVZUWVOT2lR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC (TSM) Stock Looks Fully Priced Despite Strong AI Demand - simplywall.st",
+          "title_cn": "TSMC (TSM) Stock Looks Fully Priced Despite Strong AI Demand - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-08-14",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPMHZESm8xNlhUay1oRW1jek9yTUE0M0luUUlvNDFoMHdJaVlhM2FFaFp3M1VSOXk1WTFQMVJqZVN4bWtZMUdFWHdITlhpR2tyeXprdUpQZHh5cVViVXVMVGw3RTlnU2I0d1ZYaDkyeWk0TlBPTHFwTy01dXRJTW5WZDR0Y2RDTk5LaDNIc0ZpWm9YaVpjMklGSlVLc0lkUndwNW15blNwUm9feF84RmU3elFzS3J2THdvYmRtS0lwMTFCOTFYNEp2NnFpWGd5STZYa3d0QjUyN0o3SFRwMW9xSlR3UUtxRElXbHfSAe8BQVVfeXFMT0RUajA0MWs5ZE9VZk9LcEU3ZDJRdTUzejkxdV9rREhyMVc1b2VGSGhWQlF2TURqc3cxX1hWUHBpajY5UlZMS0NjdzdSRUhQcUVCbnU2aHY0MjVWQWJfbWwxenJrMHlqNkVpTlZuTTVZNHNxWFJOTktKellLeXJmY2FyekNtMUZmSjhfcXl5Y1llRmF5NTBIZjNMb1JGWDlVaEhEdk9WSlF2bV9QZjJWR3p4N2N1eTFBUVdlU2ZqdXlvSnBrODYtYXU2dGZ6VGRCZDI4Rjd2X0NxSEhmWWotYVhoUkVfRHo5dHRhXzFPeEU?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "What's Going On With Taiwan Semiconductor Stock Monday? - Benzinga",
+          "title_cn": "What's Going On With Taiwan Semiconductor Stock Monday? - Benzinga",
+          "summary": "",
+          "pubDate": "2026-08-18",
+          "provider": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNLWwwYlFVbkY2aml3LWlJT3Zxcy1FUUhGd2d6RVg0Mmk4aVFiNkV2YjlpaWVkOEM0X09RcV81Qmx2ZHBSU0QwcXE1V212UjZfMnoyMElwdjNzTHR6aUJCVklmcEZ6RWhFc1dTTXlmT3huTF81RlpuX2FIMURsNWtHQm1GajJ6QnQ2QUZXSzNTMTdWNUVqRk5XVEtKbTdSX0Ffa2k3VXZqWjlLWXkzTFVDTS1KeUpyTFE?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC Stock Slips as Sony Venture Commits ¥282 Billion - GuruFocus",
+          "title_cn": "TSMC Stock Slips as Sony Venture Commits ¥282 Billion - GuruFocus",
+          "summary": "",
+          "pubDate": "2026-08-14",
+          "provider": "GuruFocus",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPWXFMZkEzakxvTTM4N1hNZm9hdEZNQ1JhQ2FwZ1BvcEt6NTBLQnFud3JqVlBEZ1RZUFRqQlZiWHZldlAzOFc1RVhaYXhvY3BsTDR6SEdzWXEzYmVZNG5JYUdrb0JqeTNVUHB2eHJtQkRDVU5tNkE3ZW02RTFrTkZyWkx5azBkdHQtb0gwVGE5LW1MZkJBcXc?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "未公布"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超威半导体",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "AMD Stock Ended Friday’s Session Nearly 5% Higher — What Triggered The Rally? - Stocktwits",
+          "title_cn": "AMD Stock Ended Friday’s Session Nearly 5% Higher — What Triggered The Rally? - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-08-18",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQMlRQd0kyRVlZSW5acnhxeHJfelpXYUVfcHRVODRrcGNINEhsUS1yVVlIZlJhVDZsLVRNa1dKV3dwdzJoMUx0blMyOUVrVmRGRmhfb2RFWDJEWGs5LVJJbFIxLV9ycngtdEY1OEMyeG9yUUZqWHk2bWRqZHFWbi1tTHI0REFLQ3dieHphMFJDVXc1WXBVYmJmNXZMSHFqaWJCNHFJMFMxbmpsd1h2M2FwcERUWHJsRlduY0hNU0xValpoUTVKRmNYbm4wSHFoYkZTN29Ydk5WNThwb3du?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Intel and AMD Fall 4% as 13F Filings Reveal Concentrated Chip Bets - 24/7 Wall St.",
+          "title_cn": "Intel and AMD Fall 4% as 13F Filings Reveal Concentrated Chip Bets - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-08-18",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQRWF0ODlabmdJbGY4b2RxRF9ScEh3bWhGZ3dWMFM0N0FTNGd5alVoWEx0czl0VEE5ZU9DM1B1dXVKTEZyS0dMM09yZmJFWlQtYzFXX3N4ZTBGVXkwY2ZFYWkySDZLS2xtSUJUbFFOTVF1eUlXSVIxMWtNR1hxSFZrYlNHM0pvQ2FOWEVYOXJHX0FyOUdkZDh2dFNobC0zcV9ncUI2X0ZHaDFaRGh6TEE?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "AMD Stock Jumps 5.6% While $4.75 Billion Debt Deal Lands - Yahoo Finance",
+          "title_cn": "AMD Stock Jumps 5.6% While $4.75 Billion Debt Deal Lands - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-14",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQMVAyZ1FUUlE3dy1XYjlTSVczTzZPdkhVN3QzQ0xUbUgwOWpsTkVVd1BZRnAzQjA2d0xNTkN1cmVNdnR6ZlZTVENzbjZWal9LVDRQMjdybENuZ1Q0UU5yYmctMXpvRloyTmJzRkNOS3VSS1FUT0ZqZ1gzVjNnT3VvRFBpSnZwRUp1RE9CMw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Micron vs. AMD: Only One AI Stock Looks Like a Better Buy Now - Zacks Investment Research",
+          "title_cn": "Micron vs. AMD: Only One AI Stock Looks Like a Better Buy Now - Zacks Investment Research",
+          "summary": "",
+          "pubDate": "2026-08-17",
+          "provider": "Zacks Investment Research",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOYmpiQzI0Z3d0NFlaV09YZTRGeFE5a3hQYkNFU0NUSlJzd1RHbExRY25pd2Y4UGt5NnFzMkxkSWVMZ3MtUUdMeTdjMEk0VW9TZmpBajh6TzBybGlSZWZLUmo1eEdKQnROVlpYcEFzS1dEOS1ma0Y3dDd3elZjNUNJakMtS3VXc1cxTWc0WVQxZmlpSVozQ0p5V0JGXzIyWnRDZ2c?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
+          "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
+          "summary": "",
+          "pubDate": "2026-08-18",
+          "provider": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMDI1NGV5ejR6ZVkxQXdQbTJrbU8zTU91RGFQSWxxNDd6UFBkc0ZMZGpIMFVxdkg2RjV3N2lnMXVOd0p0d1h5NzFxbHVDREJuWmVXMkEzRXF6d3E5V1ZWQkFMVjZqMlNLV3RId0NKTThOR3VSUm9TY1JJNGV2Vi0zNEVlTUVKRUVPajg3UGkxRG1PaWw3MTFqbG1ORzVFdnFqRFBR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "未公布"
+    }
+  ],
   "macro": [
     {
-      "title": "Dollar slips to lowest since early June as rate hike bets fade - Reuters",
-      "title_cn": "Dollar slips to lowest since early June as rate hike bets fade - Reuters",
+      "title": "Rate hikes may be a blunt tool, but they're all the Fed has to cool inflation - Reuters",
+      "title_cn": "Rate hikes may be a blunt tool, but they're all the Fed has to cool inflation - Reuters",
       "summary": "",
       "pubDate": "2026-08-17",
       "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNcEx2UnRQT3N2aTdDejItdVFGZ280ZXJ1ZzYtSHRoeDg0WEd1dGxmbkRvd1ZJMVRaUkdsMEZsMWx6ZUh1Wk1NeExBUTRxbHNuaW01TFpBd1F5dWlOOWoydXdETU8tamlmU2xpeEptdDRDTk52LW9GZW5oV201MmRubl85SnNSdnVwT2NxT0VHdmxxVGJ4TGdIWFhQcUN4dnBEcmFUUENqRQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQSkx4M1hZeWx5Mnp2endmVlRLNnltcERaNG55Sk9YSmpOU2lQaUhxLUtnRGNJal9KcEtwTG1kdS1HMlRHcGE3amwzRl84LVNWT3JUMmlQWE5VZ3JaQ0VqMUpFNEJRV2U3bjUyLVY0dzFWVndmS3lTcUt6OWluLTQxeVc0cmU2TGRFdlJMVjV1QXZDSkJhM2JTNW12S0JVZmJya1YyRGdMQzloN2FqeFplWEtibVU1T3BWc09Gb0h2SkxvYjFNSjFYa0ZWdw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -15,12 +170,12 @@
       "source": "rule"
     },
     {
-      "title": "Yen stronger as traders cut back bets on Fed rate hike - 102.7 WBOW",
-      "title_cn": "Yen stronger as traders cut back bets on Fed rate hike - 102.7 WBOW",
+      "title": "Top CD rates today, Aug. 18, 2026: Lock in up to up to 4.50% - Fortune",
+      "title_cn": "Top CD rates today, Aug. 18, 2026: Lock in up to up to 4.50% - Fortune",
       "summary": "",
-      "pubDate": "2026-08-17",
-      "provider": "102.7 WBOW",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQaGhxWGlwOUhYc1FvSVpiOG15aXJPRVc4eGRIdzdPNG8tbWVBd0lTc3ZSSW1RbUZDVzc0dVVJdENMbmNubEFTXzhoRHJ4bDh2bHktZURfWmgtMGc3dFhIMWt1MUx4bWNEQVVfbXMxQTYwZFJWR2ROVVo5Vy01SlU0MVRBWlFjWUFpMHFReHJ3?oc=5",
+      "pubDate": "2026-08-18",
+      "provider": "Fortune",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1DVm1yYlNtRFZuam9taUZWblczM0tIX3lvR2RZTXRtLVVTNDlsSXJwbW9GWFpoMzU4akExLS1IMGlEcXZpaXl0X2ZxRnRILWtNckdsLXZYbjU?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -28,12 +183,12 @@
       "source": "rule"
     },
     {
-      "title": "Gold Holds Gains as Soft US Data Bolsters Rate-Cut Expectations - CryptoRank",
-      "title_cn": "Gold Holds Gains as Soft US Data Bolsters Rate-Cut Expectations - CryptoRank",
+      "title": "EM Currencies Rise on Softer Dollar and Stronger Risk Appetite - Bloomberg.com",
+      "title_cn": "EM Currencies Rise on Softer Dollar and Stronger Risk Appetite - Bloomberg.com",
       "summary": "",
       "pubDate": "2026-08-17",
-      "provider": "CryptoRank",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNSzVfQ1RkQk9QeUVHRG1VYVpRNGhMVmNoaENFOWVEVnYyYXBpWGZfMFJpMFRNSU1nX19kbWdRRTVvRlFsbXg0cmo4a3dhOUdubEVlcWRVUG82UlNqQmcwcFVIb01VX0pTY3d3OERzdGF4Q2ZXaWhjWDdhS0dWYVpHcFY0Z00yNVlXbWZiZ2UxWjJPWEE?oc=5",
+      "provider": "Bloomberg.com",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUlkxWnRvX05qOVA1LUx0X0FPby1FS29ua1pQWmFqSUcyS0ZvZTFGaFVIQ0pXWXkwTWVEemhreG1oYXo3ZlBJWnIyVUh4bk1JVGJIT0lMaHR3UXJtcEp3N1JnOTZRMWVPdGp4LUdkZjdiRzRRaDNaanNpdVpacTBmdEFVX3lXOFpMRFFhbHk0RHBJTmN1WXRhOWdTdktZY3ZHTlVlUEZMYlg5enM5WTNRcVhR?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -41,12 +196,12 @@
       "source": "rule"
     },
     {
-      "title": "Finding your next place of employment with UP Michigan Works! Hot Job offerings - Upper Michigan's Source",
-      "title_cn": "Finding your next place of employment with UP Michigan Works! Hot Job offerings - Upper Michigan's Source",
+      "title": "Many recent grads say AI is making it harder to get a job. Economists aren't so sure - NPR",
+      "title_cn": "Many recent grads say AI is making it harder to get a job. Economists aren't so sure - NPR",
       "summary": "",
-      "pubDate": "2026-08-17",
-      "provider": "Upper Michigan's Source",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOTHhpOGxwMy1GSm9ZTk1VUjhwbXF1UzRFRGR4Q2FqMFpndFZtTkE5TVQycnNoQWVUdWtXMlZKVGhfNzVNbWNMc2JaNzNEQzVHdUJHWEs5T1VjT2s5Mk9IeXNySURfN3ZTdVZQT0dFWGgzQ2hmQTdhS2hHV2ZGOG1rVVRkeXlaYmYtcVhEdzQ2dGdLTDBfTExtM2VwQm8zU1Q1TXVjT1c0OEluZDdFUDdmR0dmVDEwczR0NXpsZnVtWUQwZ9IB1gFBVV95cUxOVEQtYWFzcnlVY0laQWNCZ2g5ZUVBdFowbkxFaXJKeUFYQWYtTktaYTV4VE9Tc0g3Sk9TVmhTbUp2SnZCNG9VeHBvVkpMbG5oNWxCeE5TNTZhUGFvQldPYzZnLTFqTDBpaDFBNVFiNG5oV3JReUZyX1ExLUh0N09YbnNzR2FOWXlMYWJ0Qzl4b3hGTEVQdk4yNkp5anRPcmxGaHVlZlBKMGxDY2o3a01odE5mS2lPYWJLRGcxU0QzdWJ1NE9yMkxhM0MtODNIcmtxR2cxa0F3?oc=5",
+      "pubDate": "2026-08-18",
+      "provider": "NPR",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTTV6TXZVZjNrcHRWbzZTTWZmRHJ3aXFsMXhwMWgwVklKb1RRMHhZdS1jS1l5YVlsVHhVWmwyaWFVOGdCUl8tNHg2UlNjdC1jRE02YnJhei1WUjlmdGZnLXNoMnk4cENKMG9nLUZ5Nm83TmZLTEMyS2pHalRWWktRWWhpZlkxZHhZRnc4Q3ZZZEFvZGZSY3lvdzhobWNFYlh0YlA1T1RjczlXc284?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -54,12 +209,12 @@
       "source": "rule"
     },
     {
-      "title": "New York Wants Employers To Measure AI's Impact On Jobs. That's Harder Than It Sounds - Forbes",
-      "title_cn": "New York Wants Employers To Measure AI's Impact On Jobs. That's Harder Than It Sounds - Forbes",
+      "title": "UK labour market loses more momentum in second quarter - Reuters",
+      "title_cn": "UK labour market loses more momentum in second quarter - Reuters",
       "summary": "",
-      "pubDate": "2026-08-17",
-      "provider": "Forbes",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYTdaNVRyRmREVVRHT1EwRWJrQzhrQWZrUnB3ZDFLWGxaTXdDOFZaTW9lMDQwcXN5amFad0pPZlY0azdVemFCWmpLY1VYamc3Z0xERzQ0cVV0TlE0VEZrUlZWWGl5SW1DOHNpNjJVSVBzNEpWVHVSN1hjQ01YTUFORkZKUWZVbGJpQ3hUMktTRUF4ZE8xUUJMNU5pTEFQMEV3RzNsVUg0SzdNNVBUOUgyZ05PVEJBbjh3R01KTVYxRlBjV1FkQVZ6a09YTVdiZFVzYmtCcw?oc=5",
+      "pubDate": "2026-08-18",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNUlRRR1AxZ0pxYnZKZVVFcEVPYU81WmVTX2s4VV80emhDeFZxUDVrM0Jlb2lvNUJPX1lEczE5VWQwdVVEQ2Q5SURObmJaeWYtM0dHUTc1a2dtXzhmQTlLSTI0THVYNVJ0MUpBaTIzZkFMS1dHMTNJY3NxWEpQeTJFdW5wMA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -67,7 +222,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-17 14:16:29",
+  "generated_at": "2026-08-18 13:53:20",
   "macro_summary": "",
-  "cached_at": "2026-08-17T14:16:32.757027"
+  "cached_at": "2026-08-18T13:53:40.627353"
 }
