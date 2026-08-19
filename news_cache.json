@@ -174,6 +174,19 @@
           "source": "rule"
         },
         {
+          "title": "Is Broadcom (AVGO) Undervalued As A 6% Drop Reopens The Valuation Debate? - Yahoo Finance",
+          "title_cn": "Is Broadcom (AVGO) Undervalued As A 6% Drop Reopens The Valuation Debate? - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-18",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdWFydldRdmVXcEFlX0VKdUg4bXlwaEs0Vllwb1pSWGQyQ00yZEtGbThhYlU5VWNfMlR4cUpfN2daYmpHUWxTNVhLRHoyOXlqQV9OZ1BjZ0psNlpXUU5MQlpISmk0cmtMNy13ZENyazB3Zm5sSXhGR1JNUTdyUVg0b05saUhuc2c1YmRZODl1UXlDcDlEaFFpcmRaa29Edw?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.1,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Marvell Technology Rockets 13% on $12.2B Google Warrant; Broadcom Falls 3%, Alphabet Unmoved - 24/7 Wall St.",
           "title_cn": "Marvell Technology Rockets 13% on $12.2B Google Warrant; Broadcom Falls 3%, Alphabet Unmoved - 24/7 Wall St.",
           "summary": "",
@@ -208,19 +221,6 @@
           "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxON0hyZnY3TkdSZGV2VFByUXZGbHdZRTQ1UmVhaVdHcEJrR1VrblZtbGdJY0xHSTFhQ2tFT3E0cTZSaWdHb2l3dXl6N1c2Z3hlRUZSOXliT2JVY01rY0M4djFzdHhRMEkzTDBudklpVVYzc2JQREFGZko3NXZ1eE8zNDZ4eG9KbmNVejZBOXc3SkpzdWItMEVNXzRtaDBHYWMtcHJsMw?oc=5",
           "direction": "positive",
           "impact_pct": 0.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Unfortunate News for Broadcom Stock Investors - The Motley Fool",
-          "title_cn": "Unfortunate News for Broadcom Stock Investors - The Motley Fool",
-          "summary": "",
-          "pubDate": "2026-08-19",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWUlWeWlaQU5SSFJMcEFEVG11X1BMZHk0ZmxxdUVZUDAzSUw3TWxiSXNuTWpjYkl2U0pIb2xMd0s1TjJUNzVfel92WmpNSmNlTG9DYmQxd3VVMTViN2VRSGlVQnZ2MUtJWFY1T3Q4ZmpiSXBGc2RNelNYYnBNejBOVjktbURJM3ZrWVBvcDZHRTQzdw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -260,19 +260,6 @@
       "source": "rule"
     },
     {
-      "title": "Bond Traders Are Hedging Risk Fed Pivots to Rate Cuts in 2027 - Bloomberg.com",
-      "title_cn": "Bond Traders Are Hedging Risk Fed Pivots to Rate Cuts in 2027 - Bloomberg.com",
-      "summary": "",
-      "pubDate": "2026-08-18",
-      "provider": "Bloomberg.com",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPYWVreE1yeEFtQmZHckVoZkFCTGFBa3l6ZDM0RzBvSUdaZzBibVIyUHgzUDZRUEJpWjlwRUlXOHNpRHB4UjN3elk3eGUzQmVPMHl6ZWlsVFZjSkpvRTB5cFhBMWI2VGhQaFRReUxkai05TS0wS0hxbmh2NWJuYllEX2RsaGo0b2JCTzQ5S0VTeXB1Q0dnWVRRbzlzUE9RY1o5SG5nZHNLci1lNjlwOXU0WGhn?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Rate hikes may be a blunt tool, but they're all the Fed has to cool inflation - Reuters",
       "title_cn": "Rate hikes may be a blunt tool, but they're all the Fed has to cool inflation - Reuters",
       "summary": "",
@@ -286,11 +273,24 @@
       "source": "rule"
     },
     {
-      "title": "Goldman studied where AI is squeezing labor markets. Here's what it found - cnbc.com",
-      "title_cn": "Goldman studied where AI is squeezing labor markets. Here's what it found - cnbc.com",
+      "title": "Bond Traders Are Hedging Risk Fed Pivots to Rate Cuts in 2027 - Bloomberg.com",
+      "title_cn": "Bond Traders Are Hedging Risk Fed Pivots to Rate Cuts in 2027 - Bloomberg.com",
+      "summary": "",
+      "pubDate": "2026-08-18",
+      "provider": "Bloomberg.com",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPYWVreE1yeEFtQmZHckVoZkFCTGFBa3l6ZDM0RzBvSUdaZzBibVIyUHgzUDZRUEJpWjlwRUlXOHNpRHB4UjN3elk3eGUzQmVPMHl6ZWlsVFZjSkpvRTB5cFhBMWI2VGhQaFRReUxkai05TS0wS0hxbmh2NWJuYllEX2RsaGo0b2JCTzQ5S0VTeXB1Q0dnWVRRbzlzUE9RY1o5SG5nZHNLci1lNjlwOXU0WGhn?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Goldman studied where AI is squeezing labor markets. Here's what it found - CNBC",
+      "title_cn": "Goldman studied where AI is squeezing labor markets. Here's what it found - CNBC",
       "summary": "",
       "pubDate": "2026-08-19",
-      "provider": "cnbc.com",
+      "provider": "CNBC",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE53dEREYXBrV1VORWo3VGRpZUVURzk0WFcwVU9Rc0Jpb1hCSUd0OER1Q2o2cGxERGgtTjhReXBYcXBGZUhieGVkNkxrdjNQUElidk0weDZOdVMtdUg5SnJVWUhEa0o2NDRKRXlpamtxRlJBSlBDd0o3bjVn0gF_QVVfeXFMT050cFEyWHJPT3VfRzlQOFY1c1VleFRTYU41T0V3dFdVRmJDVjRCNktNcWpCZWd5Si1McmFIb2FNYWtoajFhdXg1emhNRTBvWGZ2S0t1SHQwTTg1SHI0ZjhRV2Fnc1pxSlhjNGFWeG4xZDI0ZlNTSllPZFBKbV9DOA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -299,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-19 13:54:09",
+  "generated_at": "2026-08-19 13:59:35",
   "macro_summary": "",
-  "cached_at": "2026-08-19T13:54:31.085955"
+  "cached_at": "2026-08-19T13:59:56.790536"
 }
