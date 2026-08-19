@@ -59,16 +59,16 @@
           "source": "rule"
         },
         {
-          "title": "TSMC Loses Monthly and Quarterly Moving Average Support; CLSA Bucks Trend with NT$3,700 Target, Marking 85% Cumulative Hike This Year - finance.biggo.com",
-          "title_cn": "TSMC Loses Monthly and Quarterly Moving Average Support; CLSA Bucks Trend with NT$3,700 Target, Marking 85% Cumulative Hike This Year - finance.biggo.com",
+          "title": "100,462 Shares in Taiwan Semiconductor Manufacturing Company Ltd. $TSM Purchased by Trust Co. of Vermont - MarketBeat",
+          "title_cn": "100,462 Shares in Taiwan Semiconductor Manufacturing Company Ltd. $TSM Purchased by Trust Co. of Vermont - MarketBeat",
           "summary": "",
           "pubDate": "2026-08-19",
-          "provider": "finance.biggo.com",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE96V3ZVcC0xS1NOaWQ4Nnl5VldHbU1VNVV3Ym9QdEp6cUVDMFFldXBWVnRBY3lDd3hFWWV1bEREa0JOU1VWdzctd1VZcU0xUmNmSC1ydlF6WllQTjFqRmhDQ2t6VTE4QXl2RURkX1d4amJsUWNBdXc?oc=5",
+          "provider": "MarketBeat",
+          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQQW5sNXpqT0xXdm9GeGZpWnh2QkdWcWJzMmFoM2xGZEJ0R3lLTEk4Y0Y3dGJsVmxHZEl3RG12bDRqQks5M0ZZbDhwZGZLck1vQmt1NFVPMWxGc050WlhTNi10TTNvaUZjTlZpYTdEVnhtSGp3Rnc2NFZoRWhOMFJEWHhValEwWG94TXhVQmFfNkxkYWFpbnNiTE5LY1gtWmFOTGRxd05EOG8xQlBpZXREZjVCVjhENWVjYWM3dU9LQWRnZ1QwckZVTW1BRW5LbWZ4alpjRXZ6QU0xcHN1NllVY0lKNTgzdHkwSDRBYUpoa3ZZWWM?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "个股",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -84,14 +84,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Cerebras, Intel, and AMD Shares Fall Ahead of Tonight’s ‘Supernova’ Event - AOL.com",
-          "title_cn": "Cerebras, Intel, and AMD Shares Fall Ahead of Tonight’s ‘Supernova’ Event - AOL.com",
+          "title": "The Next Leg In Advanced Micro Devices Stock Runs Through Its Server Processors - Trefis",
+          "title_cn": "The Next Leg In Advanced Micro Devices Stock Runs Through Its Server Processors - Trefis",
           "summary": "",
-          "pubDate": "2026-08-18",
-          "provider": "AOL.com",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5MaDBlaldjbHFieHByQzM4ZGNkcFZtNFlEbm9pX2FCeTIyZTBNWmhnSTFRcGZmX3RpNDg1Q1VKV2JRYzhOTUtJVkNnRzIwM2hzQko1dVlhZ1piZ3A1V0dROE1ZSV9PbmU1eWVuMmhnQjZNNmJ5VUltampHUG9kd0U?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.6,
+          "pubDate": "2026-08-19",
+          "provider": "Trefis",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOcEtqeVFza3NZaGVodGNWRXdsT0hPa1E5MWJWU1gxQmh4ZGFuZUFPNkxMdS14R3dhWnBrSFZOeExRNGRUN2V5NFJRU25UZlJEN255S1Y2M2xtdEdHZ09EWkR3SEJMal9IMVBpVTlYQzk5dXhPNUZ4Q1N6elc0YVRVZndEWC1DeFBESHJaandmUmRTYmxtYnVaRlBKZnZkM3Q5OXFFTzJEcmxpWEc1SlJsUVZlQ3pXT0g3UTB5b3ZSUVZGeVVkNjcwMkhCc2tCdHBySDBwczBR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -110,11 +110,24 @@
           "source": "rule"
         },
         {
-          "title": "What's Going On With AMD Stock Tuesday? - Benzinga",
-          "title_cn": "What's Going On With AMD Stock Tuesday? - Benzinga",
+          "title": "Where Will AMD Stock Be in 5 Years? - The Motley Fool",
+          "title_cn": "Where Will AMD Stock Be in 5 Years? - The Motley Fool",
+          "summary": "",
+          "pubDate": "2026-08-19",
+          "provider": "The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdkJGNHdza2VlbzdVdmJqZEVPSVJNTS1HWVkxRDlfSy1neEpLT1RGMzRFS01qbk5FZ2MwRG0tNVhuOHgxSmI4NXdwWVA4aTd5SzVBQjlCRTVLd2ZSLTZFemdWbmJQaUFkcExQWVhsUlJJSlNWQzFlakdCNzZYTzJMQjU4cw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "What's Going On With AMD Stock Tuesday? - benzinga.com",
+          "title_cn": "What's Going On With AMD Stock Tuesday? - benzinga.com",
           "summary": "",
           "pubDate": "2026-08-18",
-          "provider": "Benzinga",
+          "provider": "benzinga.com",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMDI1NGV5ejR6ZVkxQXdQbTJrbU8zTU91RGFQSWxxNDd6UFBkc0ZMZGpIMFVxdkg2RjV3N2lnMXVOd0p0d1h5NzFxbHVDREJuWmVXMkEzRXF6d3E5V1ZWQkFMVjZqMlNLV3RId0NKTThOR3VSUm9TY1JJNGV2Vi0zNEVlTUVKRUVPajg3UGkxRG1PaWw3MTFqbG1ORzVFdnFqRFBR?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -123,25 +136,12 @@
           "source": "rule"
         },
         {
-          "title": "Great News for AMD Stock Investors! - The Motley Fool",
-          "title_cn": "Great News for AMD Stock Investors! - The Motley Fool",
+          "title": "Advanced Micro Devices, Inc. $AMD Stock Position Decreased by Insight Advisors LLC PA - MarketBeat",
+          "title_cn": "Advanced Micro Devices, Inc. $AMD Stock Position Decreased by Insight Advisors LLC PA - MarketBeat",
           "summary": "",
           "pubDate": "2026-08-19",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQSDJLamRSYkJDa3RqRDdCcDNjNTBQQ29MdkdGWmEtSENXMXd0MENLSTFrU1BsN3JUdEdzZC12aUpqdXdoMnllUDN6Y0JfSWZtelB3OTA1T3lpeTVZNk5NVzF6TFh2d0t0eENWRVJsT0pHWGlmUDdRNzdCNnBFcnptN2xjQQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Advanced Micro Devices Stock Is On Sale, But Is It A Bargain? - Trefis",
-          "title_cn": "Advanced Micro Devices Stock Is On Sale, But Is It A Bargain? - Trefis",
-          "summary": "",
-          "pubDate": "2026-08-19",
-          "provider": "Trefis",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPQ1Y0VDA2Sl9SMFZpTUZEaC03QUJpVUFfSTBiNnBnRzIyN2d5elRpQVlHZlBiZmEwN0xXM1pKZ0ZLbzlacEhod2Z2Z09PRjZZZTY1WEI0b2xQMkRoNEkxSXlsWVRYOUVGaDRPT21HR1ZQLWdnTU03Y2xvVThQLWcyWEJEVXFoQS10NWRxeXhwbmI5YWNaMmZtQktFYWliWTZhQ1p5LVM0aXhiLXkwT1dmWFNISVd6b0NTZGloR0JmcEpub1BubFgzNA?oc=5",
+          "provider": "MarketBeat",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPUzFVMGpXRXNkT0RxNVJrdkQtREZmcXRpMFVzOENXWnpKUEJhQ3hWY3NPQkE0X1ZHSGVORjdqVnVRMGhRMXRyU1pTZ01FTkNrcTBmNHdRYUU1YW5SaHNQV1otdkN0M1U3Mi1GaDFsYkIwNWxHcWdSVXBnNHYtSmtCWndfcWJERHNlNDlsNXVaeHYxd25WWHp0QmFSbHRiOVc3b2M2SHEyVGZuNlRXYjJmRExCdmp4ZnFBZVBBbUlOSGJNM3dnNHBuaUxEcEZ1Mm1rbHVIanowdUQtbVk?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -151,7 +151,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -286,11 +286,11 @@
       "source": "rule"
     },
     {
-      "title": "Is teen summer employment in the U.S. rebounding after a long fade? - Pew Research Center",
-      "title_cn": "Is teen summer employment in the U.S. rebounding after a long fade? - Pew Research Center",
+      "title": "Is teen summer employment in the U.S. rebounding after a long fade? - pewresearch.org",
+      "title_cn": "Is teen summer employment in the U.S. rebounding after a long fade? - pewresearch.org",
       "summary": "",
       "pubDate": "2026-08-19",
-      "provider": "Pew Research Center",
+      "provider": "pewresearch.org",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOYWs0cGtBbFZJdmJqR0haTFNEeU5vbmhaWE15QlhHZWFxSUZxLWJzcDJDUWJVSWJRU19xSC1NSUZ2T1hXemZrVUFzZW5DQ3dSdS1IeVFwdGcyRXlPNFlnbTFubTE5eUpsOEdSRy1URmkyaVZMdTdpSUtVMU1iQzFFWXpFdW0yRm8zTk82TWVFZ3VpUkVWZXlVUHpwdDhrY09wY1huUEFXOXJ0alJyOUtzbTR1QjdGVk0?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -299,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-19 14:05:08",
+  "generated_at": "2026-08-19 14:19:53",
   "macro_summary": "",
-  "cached_at": "2026-08-19T14:05:30.956822"
+  "cached_at": "2026-08-19T14:20:15.615945"
 }
