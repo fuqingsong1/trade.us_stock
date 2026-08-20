@@ -200,14 +200,14 @@
           "source": "rule"
         },
         {
-          "title": "Why Broadcom (AVGO) Stock Is Trading Lower Today - Yahoo Finance",
-          "title_cn": "Why Broadcom (AVGO) Stock Is Trading Lower Today - Yahoo Finance",
+          "title": "Broadcom: Multisourcing Doesn’t Erode Massive Growth and a Buying Opportunity - Morningstar",
+          "title_cn": "Broadcom: Multisourcing Doesn’t Erode Massive Growth and a Buying Opportunity - Morningstar",
           "summary": "",
           "pubDate": "2026-08-19",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPXy1jd2dXYS1CbnVFMDNWcjRXekV6Q3Z6S044ZlhfS3B0emJDZXhWZHFFeVZmRlJ3QXJLT0s1WkpRX051aEJZRGtSNDg0X29Dem1acWMtd1dQVVFXOHFTU1JfZ2pUejhmdGdoTkhycDgzdWI3cDNDbXBmTVoxeFFzOWhLZXhjUHBrcXBDeXBnd2xvTnh2anIwWmZseVg?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
+          "provider": "Morningstar",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPZV9FV0dVNndUa1d6OU1XQzdZZkV3V2hkMFJUVXh5Z3ptdGM3TXpKX3VRRF9VbWwydE5GQUhLUVBka3lUa0lsZk5tT3JzbjltdTBxa1ZobElJaURGZVh4UXB0RzBMTXMwRjNDWk94VEEySm1oVVVqa0tXSWRvUTVzVDlDSVlmd3RXWWJzR0tOeFhldl8tVEw1YkxSWHprbVE2Mmw5Zng1aw?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.6,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -228,7 +228,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     }
   ],
@@ -299,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-20 14:01:00",
+  "generated_at": "2026-08-20 14:07:35",
   "macro_summary": "",
-  "cached_at": "2026-08-20T14:01:23.050486"
+  "cached_at": "2026-08-20T14:07:56.615627"
 }
