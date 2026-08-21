@@ -161,19 +161,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Why Broadcom Stock Crashed Today - Yahoo Finance",
-          "title_cn": "Why Broadcom Stock Crashed Today - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-19",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1BhN2plcEJ5MENBNUlJZk9Md1NyVzJSa0FHdHFETjdoelE2VFdBZ0EzVTlvNVNMZ3E5QnczTjNmSTVZQTZkeTRWOEhXb0dmR3k0Z3BiYmhURWpKblBLXzQwS1RLekU0QUtIMnZiT3dDa2t5S2hYb1hLVktRS09yYlJkbE1oNGlTRHAyeG5tSHduWkQyUmJwX3MyOUlIZw?oc=5",
-          "direction": "negative",
-          "impact_pct": -2.5,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal - Bloomberg.com",
           "title_cn": "Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal - Bloomberg.com",
           "summary": "",
@@ -213,6 +200,19 @@
           "source": "rule"
         },
         {
+          "title": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Stocktwits",
+          "title_cn": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-08-21",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNOFRKRU5aSnMyWWJ1ZUJyWTllSElsRnRzbzBhTmZDRG41eTMzS05oelVOR0F1RllpS0s2OWRlb21fM2lUMU1fZ0JKbEJpdVhWRzNybnhlb2pxbDNaZjBmN1R5U1JOdkFLZTI0SHU2bEZNeVN5SDFKRURGcXl1WkFfclZTRk1PQVFXYWdmZ1Y2WWF4QTJmQjhPeUk3ZHJKZl95eDU0OXRjVHVEbnh5MHIxYVlBcklJX0pUNW5zNVVUczR1N0hVVHZoMUJ6dExhSnRXWHhSdHlTOXBUWXprSE5VUlBjZ00?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "Why the AI Cycle Means Broadcom Stock Has 25% Upside After the Recent Selloff - Barron's",
           "title_cn": "Why the AI Cycle Means Broadcom Stock Has 25% Upside After the Recent Selloff - Barron's",
           "summary": "",
@@ -233,19 +233,6 @@
     }
   ],
   "macro": [
-    {
-      "title": "July jobs report: Record payroll, unemployment falls in Illinois - Quad Cities Business Journal",
-      "title_cn": "July jobs report: Record payroll, unemployment falls in Illinois - Quad Cities Business Journal",
-      "summary": "",
-      "pubDate": "2026-08-21",
-      "provider": "Quad Cities Business Journal",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPb1ZCS3N3aWUwb3N3Yy1uRmlGTFJLYnNMX1dnY1FzTmt5LVJXZWFjazlZR1VaVDItdjExcXYxdDNWanpoYktyU201Y2NOQWxMT1E5RUtrbnNFa1hGTFdfVnlmLUVzU29DVXZyYVh6U0VzeFJ4UER5STlNX0phS3pHelEwWEhmRmJjR2Rnc2xFNWwxZmhHX091MWRB?oc=5",
-      "direction": "negative",
-      "impact_pct": -1.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
     {
       "title": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
       "title_cn": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
@@ -297,9 +284,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Federal Reserve officials hint rate increase may be necessary - The Hill",
+      "title_cn": "Federal Reserve officials hint rate increase may be necessary - The Hill",
+      "summary": "",
+      "pubDate": "2026-08-19",
+      "provider": "The Hill",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE94NWtnVTFYOGRxSDdodmNaNjBqVEdObFFuVTJfdGVuRFMwUG92RXBOT2E5TTdLVG9UWm5CR2pZOTNNRjgyR2pQZVVNSU5WSnd5U1h3NldjTy1sTG5wQlJtLVg4VHNWTDI1R2NOcS13MGt2UdIBd0FVX3lxTE9sXzNSYjA0Sk0xOVVyVWRja2FsMnZIVmVYSHo1UVBxX2lGQ3BzSXFpazJPbFgzUzgySHJ1UzdhYklkTjdvNEpxd3hBZkdYaVdrdW8xQzNmTG8wS2p0YWlTOEJmY0ZJMWd0NjlBR2JEdEpLckJkTmZz?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-21 13:54:59",
+  "generated_at": "2026-08-21 14:00:12",
   "macro_summary": "",
-  "cached_at": "2026-08-21T13:55:22.199539"
+  "cached_at": "2026-08-21T14:00:33.935391"
 }
