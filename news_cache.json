@@ -234,6 +234,19 @@
   ],
   "macro": [
     {
+      "title": "Number Of Jobs In Mississippi Again Reaches New All-Time High - Office of Governor Tate Reeves (.gov)",
+      "title_cn": "Number Of Jobs In Mississippi Again Reaches New All-Time High - Office of Governor Tate Reeves (.gov)",
+      "summary": "",
+      "pubDate": "2026-08-21",
+      "provider": "Office of Governor Tate Reeves (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNR3NXM2Zlbi1BTGl4VTlUbkZHVGJMZzh1YnNjYl9uMl9aZFV1WW93YVVtcjdVelhsOVBxZnVjTTlpdUcxSUU3WExySXhQcm1pT0JVUEZpWnQ3Sm9CcVJMcENTbHJnRG0tM3lSU1A2dFh4Y1JtTFB6THV4N1J4RFY2UDE0OE1pRlRzUWo4aHphR3NOTkNTWVUwZ1NR?oc=5",
+      "direction": "positive",
+      "impact_pct": 1.4,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
       "title_cn": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
       "summary": "",
@@ -284,22 +297,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "Federal Reserve officials hint rate increase may be necessary - The Hill",
-      "title_cn": "Federal Reserve officials hint rate increase may be necessary - The Hill",
-      "summary": "",
-      "pubDate": "2026-08-19",
-      "provider": "The Hill",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE94NWtnVTFYOGRxSDdodmNaNjBqVEdObFFuVTJfdGVuRFMwUG92RXBOT2E5TTdLVG9UWm5CR2pZOTNNRjgyR2pQZVVNSU5WSnd5U1h3NldjTy1sTG5wQlJtLVg4VHNWTDI1R2NOcS13MGt2UdIBd0FVX3lxTE9sXzNSYjA0Sk0xOVVyVWRja2FsMnZIVmVYSHo1UVBxX2lGQ3BzSXFpazJPbFgzUzgySHJ1UzdhYklkTjdvNEpxd3hBZkdYaVdrdW8xQzNmTG8wS2p0YWlTOEJmY0ZJMWd0NjlBR2JEdEpLckJkTmZz?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-21 14:05:55",
+  "generated_at": "2026-08-21 14:21:42",
   "macro_summary": "",
-  "cached_at": "2026-08-21T14:06:16.258433"
+  "cached_at": "2026-08-21T14:22:03.887940"
 }
