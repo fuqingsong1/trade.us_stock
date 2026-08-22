@@ -14,7 +14,7 @@
           "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNb1dLc01JZEtRX01HNnVKVXJnTU01SDEyX1VkSnBsdld0Y0x5UFpwNV9KWFRVSzVBMUUzVDJmWUc5ZnZva0hsZnpJd3hKdXlqQ0xjN1JHYy1kT2l2NFdEU2xMSTNScWlMNzV1bnc0R1dtSGVnVFBNcEVOajBLUE5kdFNpd2swTlc0ejNHMUJ6VTB1VGM?oc=5",
           "direction": "positive",
-          "impact_pct": 1.1,
+          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -27,20 +27,7 @@
           "provider": "digitimes",
           "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOZHBBSW1VMTMycjE3M0MzRWN2NHA3RXZQb0dfNngzTjY5RFZ1YmxhX3pGSGhvYTg4OGRib2tjMEplLWpGTEtBOWR1bGlRLU5ka0dZN0ZOLVZpaU1YdHVkaWhJX3U4Nkd5bnR1R0xVakhFM28taXMydEhBRHhmeGhpWmlNUU5sd2dmbXVkbw?oc=5",
           "direction": "negative",
-          "impact_pct": -0.6,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
-          "title": "BofA Sends Bullish Message For Taiwan Semiconductor Stock Fans - TradingView",
-          "title_cn": "BofA Sends Bullish Message For Taiwan Semiconductor Stock Fans - TradingView",
-          "summary": "",
-          "pubDate": "2026-08-18",
-          "provider": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbGVyUjVoaWwzZnQxdUt1X0J3b3c4M2FrLTNfVFZMVlBkZW5fdGZXczIzb2hFa2tocWhfZ1U1VDdLbkdRQWhaZ29UOXRnQ3N4SkZJVndxTDBJZnFfN3dmRW5QNVV6b05VcmtXTDd4azZLMWFQUTl0VTlteUtDajdFdTJud3VPWFk4X3ZjLWpGNzlHSHlueUh4dTdFd3R2TlhGblVCVjREdGpCS2JuWjluaFUxM2dFTmgzZm44NXpYZw?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.3,
+          "impact_pct": -0.5,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -70,11 +57,24 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
+        },
+        {
+          "title": "TSMC vs. ASML: Which Semi Monopoly Has the Wider Moat? - 24/7 Wall St.",
+          "title_cn": "TSMC vs. ASML: Which Semi Monopoly Has the Wider Moat? - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-08-22",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOWkRnZ3djVk8zOXVtNG0zZDQ2aVlHMVQ2MHBVTnRsUGEwWHExeWs3cGxadW5ycWtGRXVHN3Y3a3dWT2ZORmpqd1BiSUtFbUZEMVZjMWJaM1JGQzBDQ3Y3ZF91N1NqUHpOVzZiZm9QeXU3Y19sYzlnVG53NGI5NHVnM2FIMFZ5a2phaWltVzVaSGJxTGxsR3pTNkQwZw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -84,19 +84,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "BMO initiates AMD stock coverage with outperform rating on AI growth - Investing.com",
-          "title_cn": "BMO initiates AMD stock coverage with outperform rating on AI growth - Investing.com",
-          "summary": "",
-          "pubDate": "2026-08-21",
-          "provider": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQLWhOcHhQb25UWUpCdnEwZ1JfTk9LOWhjTGhtV1p5QjZCdGw2REEyekg4RElqbjBzUkcwbGd1ZnBTdS1DVTJDM3F2M3hjYUoyWXhKeExaWTRQeFFrcHpNYTA1cFZBQ3haZlhNbllPUE5OUndoemtJXzluZ0xCbXZRODVBcFI0MWxTMzZqNkxROGNFUW1zVURwenRURzIzUkZ0TUtXM3NtQzFDRlBnWXVzaWRsZEROVS1rclNhSV9zMUp0YlRkSTRn?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.2,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Cathie Wood Sends Fresh Warning on AMD Stock - GuruFocus",
           "title_cn": "Cathie Wood Sends Fresh Warning on AMD Stock - GuruFocus",
           "summary": "",
@@ -104,20 +91,7 @@
           "provider": "GuruFocus",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPYkl4X3F0czJ2REV0a0doU1NFZGxIU0tRTG1lOUM2OFNsS09qZXozaUhHUUpfeHFydVpfWmlxYUdYeDVtWU9ObXNoRTRLdjNDMjk4aGtsV2JvaWtRMWVEVUlvbDdLVXhRVkQ5bGFCM3M1Um9zMzdiclJlWldkdHdFb1VvM3VrelZleU1F?oc=5",
           "direction": "negative",
-          "impact_pct": -0.6,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Prediction: AMD Stock Will Hit $650 on This Date - 24/7 Wall St.",
-          "title_cn": "Prediction: AMD Stock Will Hit $650 on This Date - 24/7 Wall St.",
-          "summary": "",
-          "pubDate": "2026-08-20",
-          "provider": "24/7 Wall St.",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOR2xUS3lyVjJ3WkNiQlB1U2hKejktX3c3SWx0MGRvZ2w1TTljRndiYWc3MkRpdkpPYXI1eUk2SEpPa2JBcXlmZ2x4c1ZMTWdQMnB1bldBTDhvR3ItRERvLTFoYkhzRHN6N0ZvajFKY2tkSU1XTWt3MjhGcU1IQXYyc21NdUhqWVByZHBBYldSVkRiYmNX?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
+          "impact_pct": -0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -147,11 +121,37 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "Prediction: AMD Stock Will Hit $650 on This Date - Yahoo Finance",
+          "title_cn": "Prediction: AMD Stock Will Hit $650 on This Date - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-20",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSnIwVW9sX1lmZDZyX1RrYXRCcUtPSmVLNS1JLUplbTNPcDE1UFJrTkZiQ2tqY2QwLTN0N1hFUHVnVDlEdFNQVmpwOW11X2ozZmtMdzFpeXI1OXVWRGh1aWdHa1ZoVEpXc1FOZklQQXhCSTJWeWRoWm1rS1hua2NqMFRCcHk0MEM5eTB0VXhFT3Ytb1B3MmVneg?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Advanced Micro Devices (AMD) Stock Looks Cheap On Cash Flow Yet Pricey On Earnings - simplywall.st",
+          "title_cn": "Advanced Micro Devices (AMD) Stock Looks Cheap On Cash Flow Yet Pricey On Earnings - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-08-22",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOajE4LTVYalZFeWRsOW01bFI1TkJvUG8zR1Y1Smc4ODdBT3pXZlU1UHdoUHZEdno1ZExtT05LbXcwT2paaHp4ZFVsdk8tbEpib3l1blR6TGxCTTZmN084ZDNlMktEYnZuMmZqNDNfWVRsWDk1NkxTLXM4SnhuaVRhaXVodTl5eGFBOG1kMmgwSmtra1lwa21kVlVjOXpNSFA1OEJjZS1fX1ZYNC1CVGVucnBuYW5QS3RGb0RyTlZMbUFJMDlKb3pkNE5ZcThMSTNtRGxMRklsZ1NqSWswVzcyZEt2eHTSAeQBQVVfeXFMTmoxOC01WGpWRXlkbDltNWxSNU5Cb1BvM0dWNUpnODg3QU96V2ZVNVB3aFB2RHZ6NWRMbU9OS213ME9qWmh6eGRVbHZPLWxKYm95dW5UekxsQk02ZjdPOGQzZTJLRGJ2bjJmajQzX1lUbFg5NTZMUy1zOEp4bmlUYWl1aHU5eXhhQThtZDJoMEpra2tZcGttZFZVYzl6TUhQNThCY2UtX19WWDQtQlRlbnJwbmFuUEt0Rm9Eck5WTG1BSTA5Sm96ZDROWXE4TEkzbURsTEZJbGdTaklrMFc3MmRLdnh0?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "negative",
       "next_earnings": "未公布"
     },
     {
@@ -161,29 +161,29 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal - Bloomberg.com",
-          "title_cn": "Broadcom Seeks More Than $60 Billion in Latest AI Debt Deal - Bloomberg.com",
+          "title": "Why Broadcom Stock Crashed Today - Yahoo Finance",
+          "title_cn": "Why Broadcom Stock Crashed Today - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-08-20",
-          "provider": "Bloomberg.com",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQaW1JdkM5Si1JUXF0SjF4aWw5SXlicHI4NmV0SndDZHc2ejdMY3ZnVjJaRG5lQ0w4YVUtejhYT1lYR0NJR3BORnFhUi1neE4yOGJHRGVNMjZFUXZxSHRXa0tHcmw4M0M2ekYxYTdSWFJJb2loaDU5MEEzYzZweF9paUdBWEVNN0ltWS00X2NWNEhmeFpvZ3U3S2N3ZTZBSGdORGo3d1lHc3o2MzhSY2c?oc=5",
+          "pubDate": "2026-08-19",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1BhN2plcEJ5MENBNUlJZk9Md1NyVzJSa0FHdHFETjdoelE2VFdBZ0EzVTlvNVNMZ3E5QnczTjNmSTVZQTZkeTRWOEhXb0dmR3k0Z3BiYmhURWpKblBLXzQwS1RLekU0QUtIMnZiT3dDa2t5S2hYb1hLVktRS09yYlJkbE1oNGlTRHAyeG5tSHduWkQyUmJwX3MyOUlIZw?oc=5",
           "direction": "negative",
-          "impact_pct": -1.5,
+          "impact_pct": -1.7,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         },
         {
-          "title": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Yahoo Finance",
-          "title_cn": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Yahoo Finance",
+          "title": "Broadcom Stock Just Scored a New Bullish Rating. Here's Why. - Barchart.com",
+          "title_cn": "Broadcom Stock Just Scored a New Bullish Rating. Here's Why. - Barchart.com",
           "summary": "",
-          "pubDate": "2026-08-20",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMzRqX2luMmlqdjFUMUo4OFRrYVdwU0NpcmlWaVpkMFJlV1U0eUN2UEpReHNPTmwtV2U4LTNpQ0UxS3Y4SFJHR3h5bTlmVkx3a2FoRGVVemFWZzg4NlRZQWZZUklJd0pNTWs3ZDJSV3ZsN1FLVlNzZFBpeDE2cEtoN2lpZ2hXWHRKckN6emVBcXpSWGRiRzZWaFp2eEppUQ?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.1,
+          "pubDate": "2026-08-21",
+          "provider": "Barchart.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNd3VXdTZDd1JBVGlVdEwtc19lZnk5OC01alk2Nnc3ZHozaFJvODc1YkRNWU5zdHNmOVo1OXJoa3RXOGpFTWwwcXZ4bkd0ZlVTbDFkVXR2ZkFDQklhd1o2R0RSaXRQM1hhTWN5TE5hVXdKdnNvcGFxYVFodjJEV0RsN3A2T05kaXJLVEpvd3VSY3BjRWRSV185cXdZUzRSNWdDaWRSXw?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.6,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         },
         {
@@ -194,35 +194,35 @@
           "provider": "MarketWatch",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPcFZjUnVYcG1EbFpjV1c5b3FPajJtZ0hCLUJmdTdubnJ0VVRQR0VNYi1Mek9kdXhVS3ZsdHA0Y3NWbkhWcmRHRXBVZ2FYVTJCZlFmMVdsLWl2VXoxRGs2Zi1WblZFSC1Ga3FIV1M4Z0pTT29JaHRoQVdiQks4TXE4TG96VFh0ZEJZU2V3Qy1oYXlIaGM3bnRRNF9hRHlCREdDOGxNcGRRcjlhN2lteFNrZA?oc=5",
           "direction": "negative",
-          "impact_pct": -1.0,
+          "impact_pct": -0.6,
           "reason": "",
           "type": "行业",
           "source": "rule"
         },
         {
-          "title": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Stocktwits",
-          "title_cn": "AVGO Stock Inches Higher — Broadcom Reportedly Eyes Nearly $100B Debt Package To Fund AI Infrastructure Expansion - Stocktwits",
+          "title": "Broadcom Stock Headlines 3 Cash Flow Picks Trading Below Fair Value - simplywall.st",
+          "title_cn": "Broadcom Stock Headlines 3 Cash Flow Picks Trading Below Fair Value - simplywall.st",
           "summary": "",
-          "pubDate": "2026-08-21",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNOFRKRU5aSnMyWWJ1ZUJyWTllSElsRnRzbzBhTmZDRG41eTMzS05oelVOR0F1RllpS0s2OWRlb21fM2lUMU1fZ0JKbEJpdVhWRzNybnhlb2pxbDNaZjBmN1R5U1JOdkFLZTI0SHU2bEZNeVN5SDFKRURGcXl1WkFfclZTRk1PQVFXYWdmZ1Y2WWF4QTJmQjhPeUk3ZHJKZl95eDU0OXRjVHVEbnh5MHIxYVlBcklJX0pUNW5zNVVUczR1N0hVVHZoMUJ6dExhSnRXWHhSdHlTOXBUWXprSE5VUlBjZ00?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.8,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
-          "title": "Why the AI Cycle Means Broadcom Stock Has 25% Upside After the Recent Selloff - Barron's",
-          "title_cn": "Why the AI Cycle Means Broadcom Stock Has 25% Upside After the Recent Selloff - Barron's",
-          "summary": "",
-          "pubDate": "2026-08-21",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9GcVhoMGNiNTdLMWQ3UkJHWExMOHRwY0ZlSlNVd1BtVGhKMllxeVZRRzlKTm5haVRIVjEwNEpZbVRKMTVrdXpVT0R1c3JRNjJxbG5USEl4dkJmemNkQXRSYWUyWWdkOVBFVFBXcE11UkhUVFFl?oc=5",
+          "pubDate": "2026-08-22",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOb01YaWoxd3AzbVRYYXBWM0VqM1FzMElfTEV6TWxKVlRYMkVGRUdkRHBNOTlWc1psZDc2UXpucUZDRTdhTjBGMnlOcWY3VUxtSXFMNXhUTXlkVFlrMlRhMkd1RVZHSHh2bkdMTDVyR2FRbXlxTEFDS0tnM0VHNnBIeUplamxBYWg0OU0xNVhHS3RsR0F2bWZoT1BDOWhqcFRSMXR1N1JONkFiUkhzS2lrMlJvNTdlWFR6ZGh1LU5sNVJ4S0lINUYwZWdHcVQ5Z9IB0wFBVV95cUxNbmpVYW02WnVCdFhwaGlaLWNnWWVJMXg4TFNTWEVRNHpDSFZuYmJfZ092Z2Y0RlZHaWhrZGtqanBacnBBWDBkQnVtbmJQZUtjNTVsZUVjNDdXaV9KQnM4VmtEWTJvMlF3YzI2ZUxyYlo1YlRlOTlaWmhMUE1MNHFxT01Rc2x6UEJhTkZIZlNzUEJlLXFFRXJPX0p5WDhRWGNoZ211cURKWDg1WHYyRVBoaFhHU3pUWG9YTThpRENWSG1aQ0RkMldpamVvZ0pGQXU2TjZB?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Why Broadcom Stock Inched Higher on Friday - The Motley Fool",
+          "title_cn": "Why Broadcom Stock Inched Higher on Friday - The Motley Fool",
+          "summary": "",
+          "pubDate": "2026-08-21",
+          "provider": "The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOOUF0LXpNcU9seVhUMGJuQzhhVnBrTFVrWWVzdEJpVmZ0YUtXQjE5Wl91VVAzTHpoYUxSRmhRVXRFSmlrY3NfTE8wQmhoTmQyb3kyN0xyWHJud2FKMjVMOHl4STR3bWJrRkp1QmZ3Rk1acFNpR0JzYlZ1R3ZBWWh1eC1ORlVuOVdyY0N1SjFR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -234,27 +234,14 @@
   ],
   "macro": [
     {
-      "title": "Number Of Jobs In Mississippi Again Reaches New All-Time High - Office of Governor Tate Reeves (.gov)",
-      "title_cn": "Number Of Jobs In Mississippi Again Reaches New All-Time High - Office of Governor Tate Reeves (.gov)",
+      "title": "Montana’s Unemployment Rate Falls to 3.2% - State of Montana Newsroom (.gov)",
+      "title_cn": "Montana’s Unemployment Rate Falls to 3.2% - State of Montana Newsroom (.gov)",
       "summary": "",
-      "pubDate": "2026-08-21",
-      "provider": "Office of Governor Tate Reeves (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNR3NXM2Zlbi1BTGl4VTlUbkZHVGJMZzh1YnNjYl9uMl9aZFV1WW93YVVtcjdVelhsOVBxZnVjTTlpdUcxSUU3WExySXhQcm1pT0JVUEZpWnQ3Sm9CcVJMcENTbHJnRG0tM3lSU1A2dFh4Y1JtTFB6THV4N1J4RFY2UDE0OE1pRlRzUWo4aHphR3NOTkNTWVUwZ1NR?oc=5",
-      "direction": "positive",
-      "impact_pct": 1.4,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
-      "title": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
-      "title_cn": "Alabama Sees Continued Job Growth and Rising Wages in July Economic Data - Alabama Department of Labor (.gov)",
-      "summary": "",
-      "pubDate": "2026-08-21",
-      "provider": "Alabama Department of Labor (.gov)",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdTFLcUJiR095T3NTQ2tsOGlXS3h5dlVrdEpFMWNHLWk3dFI4cmZZLUNvYjd5b3lfek5WUzJTRFVjTWYzeFRlYndlZ1kyZF93V19iQkNSQ002TEFORnY3OWs4X0VhZFVJbzIyeXJBdlNKY3pQSGZrZHpZLS13aXBwVE9sejFOQXpXU2t2OHVSbDhwUzBYYVpMNWJuTWpqQnZlOFI5TVppd3RHUQ?oc=5",
-      "direction": "positive",
-      "impact_pct": 0.8,
+      "pubDate": "2026-08-22",
+      "provider": "State of Montana Newsroom (.gov)",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNTmxFcVlHazY3enVfVGpISmNaS3F0UGlqUzEtR25zWFVvaVpOcU9BMUR0TDlJVVNLWTRkVGo5ek15clNtYk43OC1GY3JXVmxscXBPdW5OOVh5RU45MGpwVHVGZTZjWkc5NW5YeGJvNzhFS3RzTG93X1pBUUdOd2JRSG13?oc=5",
+      "direction": "negative",
+      "impact_pct": -0.8,
       "reason": "",
       "type": "宏观",
       "source": "rule"
@@ -297,9 +284,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Federal Reserve officials hint rate increase may be necessary - The Hill",
+      "title_cn": "Federal Reserve officials hint rate increase may be necessary - The Hill",
+      "summary": "",
+      "pubDate": "2026-08-19",
+      "provider": "The Hill",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE94NWtnVTFYOGRxSDdodmNaNjBqVEdObFFuVTJfdGVuRFMwUG92RXBOT2E5TTdLVG9UWm5CR2pZOTNNRjgyR2pQZVVNSU5WSnd5U1h3NldjTy1sTG5wQlJtLVg4VHNWTDI1R2NOcS13MGt2UdIBd0FVX3lxTE9sXzNSYjA0Sk0xOVVyVWRja2FsMnZIVmVYSHo1UVBxX2lGQ3BzSXFpazJPbFgzUzgySHJ1UzdhYklkTjdvNEpxd3hBZkdYaVdrdW8xQzNmTG8wS2p0YWlTOEJmY0ZJMWd0NjlBR2JEdEpLckJkTmZz?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-21 14:21:42",
+  "generated_at": "2026-08-22 13:41:39",
   "macro_summary": "",
-  "cached_at": "2026-08-21T14:22:03.887940"
+  "cached_at": "2026-08-22T13:42:00.966749"
 }
