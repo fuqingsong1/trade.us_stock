@@ -234,19 +234,6 @@
   ],
   "macro": [
     {
-      "title": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
-      "title_cn": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
-      "summary": "",
-      "pubDate": "2026-08-22",
-      "provider": "ABC News - Breaking News, Latest News and Videos",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNX3NMLXhhYU1lOVVLWU9sY0k0SDUyQnEwMG9SZ1RzNHZobTIyYk9KWGJlOGhic3FKdlQ2NXlIVDF6SW1oRlNWZlY2NHlNLWlnNGoybzAwLWlkV3V1Q1ZtM21KS2FLTy02NEF6VjY4UmFNc2hYa21mRURlSkJYZWxtc1R3VmRYZFlKNUU3NzZiMkZGNGJZcG1xZUNCN0RQNkRndEVPb9IBqgFBVV95cUxOU1FSZ3pWOURaQUxBS296TzBtRFFGclJXTnpLYWwzZXU1Q01kcVZUczBxUDAwR3FaYmFZdzlXUWM2T0Q3TDVldm9nSVY4OERYRUtkdm5sdndPSU1ETU1yc3BuMEpXLTd2VFFZRTVQcWdMZFdEZ0EzYjhTS200RFBkZy1jbE01WVhVbEgyX1Z2dXc4MWxmbXd6cl9pSlp2TDRldkdkS2hwOVE0Zw?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Fed minutes show September rate hike still on the table - Reuters",
       "title_cn": "Fed minutes show September rate hike still on the table - Reuters",
       "summary": "",
@@ -297,9 +284,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Investors cut bets on US and UK interest rate rises - Financial Times",
+      "title_cn": "Investors cut bets on US and UK interest rate rises - Financial Times",
+      "summary": "",
+      "pubDate": "2026-08-20",
+      "provider": "Financial Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNeXdyTDdtOWNBRWJKd1ZUZDdiZWZzSTdURlFzRFk4VnBja0UtOVdMSVh1MHZBMGdwYS1CVkNNNFExMUV5bUlYT0hhRDN6UTVpTUNac0RzNjAxaHRHemY3N0Rna3JSWUdia0RPbTl0al9JcUYwUVAtalV3WF9Qc0s2dnNOU08?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-23 13:42:51",
+  "generated_at": "2026-08-23 13:47:53",
   "macro_summary": "",
-  "cached_at": "2026-08-23T13:43:12.559391"
+  "cached_at": "2026-08-23T13:48:15.503169"
 }
