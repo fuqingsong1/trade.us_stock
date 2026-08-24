@@ -187,25 +187,25 @@
           "source": "rule"
         },
         {
-          "title": "Why Intel, Marvell Stocks Are Dropping After Chip Stocks Enter New Bull Market - Barron's",
-          "title_cn": "Why Intel, Marvell Stocks Are Dropping After Chip Stocks Enter New Bull Market - Barron's",
-          "summary": "",
-          "pubDate": "2026-08-18",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONlR0c0ZHZUFxd0pPRTRPRFJYYjBjOGhUMC11MldvQWRYTUNqeGdYVWVLQThiRGtxSEI4QUVHOVp6aUpJa1BmMFYtZjE3VUtlb3E5dTF0VzdhWkRtRm1mQzhRQmZFOElfZHdCTjhkX1pSNmZaRVNqd044VzQ5dzhNaF9Hbk41UQ?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.3,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "$Intel (INTC.US)$ Maybe today or tomorrow 📈 - Moomoo",
           "title_cn": "$Intel (INTC.US)$ Maybe today or tomorrow 📈 - Moomoo",
           "summary": "",
           "pubDate": "2026-08-24",
           "provider": "Moomoo",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQMjZjSGdiSDlPZWhrNTJ3cmVETTNIOXpCSGtOSy1HQnl5QUtFUjlWbUZ6TUxKLWZXX1Vqems0dkpIelU1MGtpbVl3dWdZN19jYXgxd1FqTWRJdjFCa0JwdlFrM1UtX0NkVVBTRWN0UUltVDRvOXBEc3E1aHRPdUlsLWpSaWpEbGo1WVZRdEl3My1zWXRPOGc?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Intel Corp Stock (INTC) Opened Down by 4.60% on Aug 24: What Investors Need To Know - TradingKey",
+          "title_cn": "Intel Corp Stock (INTC) Opened Down by 4.60% on Aug 24: What Investors Need To Know - TradingKey",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "TradingKey",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNdFQ4bnZkNlNKSllFM3RucVpoajJCU1NsR1ZYUUVxbThsR3ZNNFN3Vkx4alJ1MnR1ZWE4Z1FWODIxbTdZQ0VVQ0ZWM3FyaGNvQWczTEFJYW0wZWJ1V01ESzIzSHV4LVdrVWpINVk5d2FZVE9YOE14X1p1R3M0TGNQWEVoOUNzUFJWT08w?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -228,7 +228,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -251,19 +251,6 @@
           "source": "rule"
         },
         {
-          "title": "Broadcom Stock Forecast: Why Did AVGO Drop 17% and Is Wall Street Missing the AI Story? - TradingKey",
-          "title_cn": "Broadcom Stock Forecast: Why Did AVGO Drop 17% and Is Wall Street Missing the AI Story? - TradingKey",
-          "summary": "",
-          "pubDate": "2026-08-24",
-          "provider": "TradingKey",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOYWJZTlZuWDRhOXNJaGVzTW9ObGhfdEZHTmxHazNoTVpUaEVPSno5NXVWbVZESlhMR2xpWmphMlQzYWcwNWp2WDlxZG9PWl9JZnJIV1h3cEVxaVdrQWhONVZ6RnBfYjVfLU04T01KTTVLRVVkVFhybi11MnJLckVZZjM2ZUppdThxVHRYZGhjUHBIWUpWZ0lqVUhHSUxsemlPRnFwN0xIZjNLck9wMHlSSGc0YzdtSUZWNi04NHVpQ2x0Y3ZKZEphY2Q2MFZXZUpoc3o3QTZ5SQ?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.0,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Broadcom (AVGO.US) earnings triggered a sell-off, wiping $1.3 trillion off chip stocks in two days; the Philadelphia Semiconductor Index posted its steepest single-day drop since the onset of the COVID-19 pandemic. - Moomoo",
           "title_cn": "Broadcom (AVGO.US) earnings triggered a sell-off, wiping $1.3 trillion off chip stocks in two days; the Philadelphia Semiconductor Index posted its steepest single-day drop since the onset of the COVID-19 pandemic. - Moomoo",
           "summary": "",
@@ -274,6 +261,19 @@
           "impact_pct": -0.5,
           "reason": "",
           "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Broadcom Stock Just Scored a New Bullish Rating. Here's Why. - Barchart.com",
+          "title_cn": "Broadcom Stock Just Scored a New Bullish Rating. Here's Why. - Barchart.com",
+          "summary": "",
+          "pubDate": "2026-08-21",
+          "provider": "Barchart.com",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNd3VXdTZDd1JBVGlVdEwtc19lZnk5OC01alk2Nnc3ZHozaFJvODc1YkRNWU5zdHNmOVo1OXJoa3RXOGpFTWwwcXZ4bkd0ZlVTbDFkVXR2ZkFDQklhd1o2R0RSaXRQM1hhTWN5TE5hVXdKdnNvcGFxYVFodjJEV0RsN3A2T05kaXJLVEpvd3VSY3BjRWRSV185cXdZUzRSNWdDaWRSXw?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.3,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         },
         {
@@ -453,7 +453,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-24 14:04:15",
+  "generated_at": "2026-08-24 14:10:43",
   "macro_summary": "",
-  "cached_at": "2026-08-24T14:04:44.005303"
+  "cached_at": "2026-08-24T14:11:10.987235"
 }
