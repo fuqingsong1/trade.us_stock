@@ -2297,7 +2297,7 @@ for (const d of data) {{
       </div>
     </td>
     <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
-    <td class="num" title="{{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="{{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">{{d.ratio>=999 ? '∞' : d.ratio}}</td>
+    <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
     <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
@@ -2365,7 +2365,7 @@ for (const d of hkData) {{
       </div>
     </td>
     <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
-    <td class="num" title="{{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="{{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">{{d.ratio>=999 ? '∞' : d.ratio}}</td>
+    <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
     <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
