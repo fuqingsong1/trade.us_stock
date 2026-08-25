@@ -84,6 +84,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
+          "title_cn": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
+          "summary": "",
+          "pubDate": "2026-08-25",
+          "provider": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcGxxZE5Kc0MzcWdtdkw5NmZwZ0xvcWE2bEtmamlzZXBpUkpxNWREajVrM3R5aFU5QlF6YUxtSnhJbDB3M19XN1dZbGZzZUdrdEhRSmdHdTBkQmZWZ0UwMlRweFdUdzJrX1ZiTHNEYkhMSTlLYUZTTVVTdzhaOHBMaXNZamRNcENIOVdHbVpUUzViQWQzNXU1NC13bw?oc=5",
+          "direction": "positive",
+          "impact_pct": 4.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Advanced Micro Devices Shares Rise After Raymond James Upgrades Stock to Strong Buy - Yahoo Finance",
           "title_cn": "Advanced Micro Devices Shares Rise After Raymond James Upgrades Stock to Strong Buy - Yahoo Finance",
           "summary": "",
@@ -105,19 +118,6 @@
           "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPSmZtQ0syc2EwaFhIb3BVdXplb1BEaG8tczVCc2Rpc0FQSFdxclhZbmg0T1ZCcTFLSzNnTW9Bd2d3bEd3RzNOd3NEcmVLeng5SXJGeDNsazltc0lHYjV3OTRCeUV6YWhZSjBVVll3d3gxaEU1LXJ4ZC1pVUJjZDJtYzdJbWpEOUNTWVY4VVhGYVdfUQ?oc=5",
           "direction": "positive",
           "impact_pct": 2.2,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
-          "title": "AMD Stock Gains After Upgrade: Analyst Sees ‘Strongest Combination’ Of Earnings Leverage, Data Center Gains - Stocktwits",
-          "title_cn": "AMD Stock Gains After Upgrade: Analyst Sees ‘Strongest Combination’ Of Earnings Leverage, Data Center Gains - Stocktwits",
-          "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxONGh2UmRLSjdha2lNN2tkcHBtTG9DcUFGSFhvbGdXUVN6Zjd5WTdjc25tT0t3dkx3SUlFLThXR0QyM25GTWFMMWFoa09Sd1FTbUlYUlB6VUEtVzJKdlRfNXVpTTBvdk9YSkxmOEpaYldIaUQ1YlliTk5SMm9MdzBjV1VYSXZkUmtZQjVSRXplZEc4d0ljQ28yWC1hNUlIXzk1cGhDRm15c1NBVklnanZZWlZqblJUZ2FoXzB0aElxYzRybVEtNF9jUUp6dUd0a2NPTS0yZG93?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.8,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -152,6 +152,83 @@
       "stock_summary": "",
       "total_impact": 0,
       "net_direction": "positive",
+      "next_earnings": "未公布"
+    },
+    {
+      "symbol": "INTC",
+      "name": "英特尔",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Semiconductor Stocks Slide Ahead of NVIDIA Earnings: Intel Falls 5%, AMD Slides 4%, Taiwan Semiconductor Slips 3% - Yahoo Finance",
+          "title_cn": "Semiconductor Stocks Slide Ahead of NVIDIA Earnings: Intel Falls 5%, AMD Slides 4%, Taiwan Semiconductor Slips 3% - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaDBmM0FRUG1yQU9HbC1CQmkycUNUTkp2XzVpY0F6ZW01c2F2RTdxOC1LSHNsMW9weUtDLU9jZVY0aFlBMi1MLXBUV2p3TmFMa2JjMzYtUXhZVHFYVGFDUC1CSVRmRkRBeHRpc0p3ZnowV0xOU1Bqak1kNXdjZm5EZHNBSU90ekdadElkMEprbEJyTVJFVE94N2pMWXpGZ3N0QWNwM1lzVQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.7,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Why is Intel stock rallying today? - Investing.com",
+          "title_cn": "Why is Intel stock rallying today? - Investing.com",
+          "summary": "",
+          "pubDate": "2026-08-25",
+          "provider": "Investing.com",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOanZFRGZtMEZ4NTMwaDNjWmZNLW1qbHFuYWl4NXpwOFVlZ2VESXlBVHd1S29YcGJ3c2kxYmJSUFdJOVBxbW9jOXJ6cUR5UHlBbVVyamNEdExWbGJYWGNXd01FWXpjYUxUMi1EazVMMWoxMUxtMGMwNjI2aWpGb1NycjBCT210N0x5S0x5WTdpOEJBTTBmUTZKM3RPNA?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Intel Stock Jumps After Nancy Pelosi Reveals New Stake - TradingView",
+          "title_cn": "Intel Stock Jumps After Nancy Pelosi Reveals New Stake - TradingView",
+          "summary": "",
+          "pubDate": "2026-08-25",
+          "provider": "TradingView",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQMG5hM21McDh1TmNFNlRfTEV3NkNvZUhWN3FkSkhSc2NsYmduaElLdTFpVUx4TldpeGxjczBPSVFyMlVMZFAyOHluWnBRTUtmcEt1OFl6cHMzZ01mdkRGN2VySFVoSWhGZ1IwVVlXUXlZVk1LUjh5UUR0NExTVF9uTl9OT3RqU0RMNnZuS3RhYkRZSVhfb1hxeVNYbTB3Vlpfc3poWVJHRUZjeE1ESWpaekp5MEI?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Why Is Intel Stock Falling on Monday? - Benzinga",
+          "title_cn": "Why Is Intel Stock Falling on Monday? - Benzinga",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMzk1LXhpRnFZUnI1QVNUZGZEV0xfOUZyUTlINnViRU9VQlFjcUtnYmRSRU9HYnBIeGJldTdfV1EybXluUVBkUDZMVHc3TXZaOWF1Q2lyei1nMUh3LXNkdHFPcWozVWpoR200NDRUZVJrc2FmS05HY2Vsdlg3WjhqNmRobnZhYlFkcHk4eTJvSFFpV2M2aTN2SXZkVWJ0UQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.6,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Intel Stock (NASDAQ:INTC) Slides as CPU Market Share Reaches Low Not Seen in Decades - TipRanks",
+          "title_cn": "Intel Stock (NASDAQ:INTC) Slides as CPU Market Share Reaches Low Not Seen in Decades - TipRanks",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "TipRanks",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOajBxQlZPckk5UEVsSzZfalczRHRoWk9wY3ZjWk5DWVUtOGpJQTJZYkNfcGx0bUZEZVVEd2pKajJXendiQXYtRzVtalE4azhueUwxdmhaNmRva0hUYnNsRTZOZ1hjbXEtb3RBM1dBVmhWZ1RueEVxT1Z2WGpsbXRFbXVvZFhEMU1JYkZtQnp3OFl4UmZxbHliSko4WmM3eVg0SzhvNFQ5ZE9YUmx6WVBsNA?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -378,14 +455,14 @@
           "source": "rule"
         },
         {
-          "title": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
-          "title_cn": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
+          "title": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
+          "title_cn": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
           "summary": "",
-          "pubDate": "2026-08-20",
-          "provider": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYlM3alo4dTBPQ2R0Y3ZaRFkwcHQ4NVRmTkdyNmNGemhLeld0X2lkVnl5YlVOX09xUHh2ampiX0c4cUhrZHRaZEpnVEdVUGkzeWRsZ21PZV9pc0dnQkFuanR3SGZuNkhHcTVBVkpWRC11MmJGZERiWWQ0TlNfOFNRQlpqM3hleVBGVDN5M2tVajI0eFdINTFTQ3BMZFNPNEtOanA0eHBxS0dVcHJQU1RxWGZhS3J6Y2c?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.2,
+          "pubDate": "2026-08-21",
+          "provider": "富途牛牛",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdFpDM1JNaHpYX2tQYnF0WXZGZVB1Vzh1ODNUOENBRWxLU0QzUEY1OFpVX2w4ZW82WHoyaDhMelhycnpuYk05a1JqWXgtT1ZuRVpXbEpPMWxNYnlUbmRLYmx2V0FWb0lFS2ViLXNDWk4zTTJyalBNZkpKdlNhVlVZOEJIbWlwRkN1NDZTVW9BaFRLMDRrekpqTHVpdkp3Zw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -393,7 +470,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "negative",
       "next_earnings": "未公布"
     },
     {
@@ -541,7 +618,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-25 13:58:08",
+  "generated_at": "2026-08-25 14:03:32",
   "macro_summary": "",
-  "cached_at": "2026-08-25T14:00:26.558022"
+  "cached_at": "2026-08-25T14:05:43.883452"
 }
