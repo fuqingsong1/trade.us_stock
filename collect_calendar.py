@@ -135,6 +135,65 @@ def fetch_nasdaq_calendar(symbols, session, max_days=90):
     return result
 
 
+def fetch_yahoo_earnings(symbols, session, max_days=120):
+    """从 Yahoo Finance quoteSummary/calendarEvents 批量获取财报日期。
+    覆盖港股(.HK)/A股(.SZ/.SS)/韩股(.KS)/日股(.T)等 NASDAQ API 不覆盖的标的。
+    返回 {symbol: "YYYY-MM-DD"}。失败标的不会出现在结果中。
+    """
+    from datetime import date as dt_date, timedelta
+    import time as _time
+
+    today = dt_date.today()
+    end = today + timedelta(days=max_days)
+    result = {}
+
+    # Yahoo quoteSummary 需要 crumb: 先访问 fc.yahoo.com 设置 cookie, 再取 crumb
+    crumb = ""
+    try:
+        hdr = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+        session.get("https://fc.yahoo.com", headers=hdr, timeout=15)  # 404 也正常, 只为设置 cookie
+        r = session.get("https://query1.finance.yahoo.com/v1/test/getcrumb", headers=hdr, timeout=15)
+        if r.status_code == 200 and r.text.strip():
+            crumb = r.text.strip()
+    except Exception:
+        pass
+    if not crumb:
+        print("  [WARN] Yahoo crumb 获取失败, 跳过非美股财报日期抓取")
+
+    def _norm(sym):
+        """港股去前导零: 00700.HK -> 0700.HK, 00100.HK -> 100.HK"""
+        if sym.endswith(".HK") and len(sym) > 4:
+            num = sym[:-3].lstrip("0") or "0"
+            return num + ".HK"
+        return sym
+
+    for sym in symbols:
+        if not crumb:
+            break
+        try:
+            url = f"https://query1.finance.yahoo.com/v10/finance/quoteSummary/{_norm(sym)}"
+            resp = session.get(url, timeout=(7, 12), params={"modules": "calendarEvents", "crumb": crumb},
+                headers={"User-Agent": "Mozilla/5.0"})
+            if resp.status_code != 200:
+                continue
+            data = resp.json().get("quoteSummary", {}).get("result") or []
+            if not data:
+                continue
+            evs = (((data[0].get("calendarEvents") or {}).get("earnings") or {}).get("earningsDate")) or []
+            for ev in evs:
+                ts = ev.get("raw")
+                if ts:
+                    d = dt_date.fromtimestamp(ts)
+                    if today <= d <= end:
+                        result[sym] = d.isoformat()
+                        break
+        except Exception:
+            pass  # 单只失败不影响整体
+        _time.sleep(0.4)  # rate limit
+
+    return result
+
+
 def main():
     log("=" * 50)
     log("日历搜集脚本启动")
@@ -156,9 +215,14 @@ def main():
     if not proxy_ok:
         try:
             import socket
-            sock = socket.create_connection(("127.0.0.1", 7890), timeout=5)
-            sock.close()
-            proxy_ok = True
+            for port in (7892, 7890, 7897, 10809, 10808):
+                try:
+                    sock = socket.create_connection(("127.0.0.1", port), timeout=5)
+                    sock.close()
+                    proxy_ok = True
+                    break
+                except Exception:
+                    continue
         except Exception:
             pass
 
@@ -166,13 +230,68 @@ def main():
     updated = 0
     pending_events = [e for e in events if e.get("status") in ("pending", "upcoming")]
     if not proxy_ok:
-        log(f"  [SKIP] 代理 127.0.0.1:7890 不可用，跳过财报日期抓取（{len(pending_events)}条待更新）")
+        log(f"  [SKIP] 代理不可用(127.0.0.1:7892/7890/7897/10809/10808)，跳过财报日期抓取（{len(pending_events)}条待更新）")
     else:
         session = requests.Session()
         session.trust_env = False
         session.verify = False
         # NASDAQ 是国外域名: 本地走代理, 云端(NO_PROXY)直连
         session.proxies = _auto_proxy("https://api.nasdaq.com")
+
+        # 0. 港股/A股/ADR 标的(有symbol)加入日历:
+        #    - config 标记 earnings_done (最近一个月已公布财报) 的不加入
+        #    - Yahoo 能查到未来财报日的直接定为 upcoming 确切日期
+        #    - 其余保持 pending 待确认
+        hk_added = 0
+        try:
+            hk_cfg_f = WATCHLIST_US / "config.json"
+            if hk_cfg_f.exists():
+                with open(hk_cfg_f, "r", encoding="utf-8") as f:
+                    hk_cfg = json.load(f)
+                existing_hk = {e.get("symbol", "") for e in events}
+                _hk_new = []
+                for h in hk_cfg.get("hk_stocks", []):
+                    hs = (h.get("symbol") or "").strip()
+                    if not hs or hs in existing_hk:
+                        continue
+                    if h.get("earnings_done"):
+                        log(f"  [跳过] {hs} {h.get('name','')}: 最近一个月已公布财报")
+                        existing_hk.add(hs)
+                        continue
+                    _hk_new.append((hs, h))
+                if _hk_new:
+                    _ym = fetch_yahoo_earnings([x[0] for x in _hk_new], session, max_days=120)
+                else:
+                    _ym = {}
+                for hs, h in _hk_new:
+                    fetched = _ym.get(hs)
+                    if fetched:
+                        events.append({
+                            "date": fetched,
+                            "symbol": hs,
+                            "name": h.get("name", hs),
+                            "period": "待定",
+                            "status": "upcoming",
+                            "file": None,
+                            "note": (h.get("note") or "")[:80],
+                        })
+                    else:
+                        events.append({
+                            "date": "2026-??-??",
+                            "symbol": hs,
+                            "name": h.get("name", hs),
+                            "period": "待定",
+                            "status": "pending",
+                            "file": None,
+                            "note": (h.get("note") or "")[:80],
+                        })
+                    existing_hk.add(hs)
+                    hk_added += 1
+        except Exception as _he:
+            log(f"  [WARN] 读取hk_stocks失败: {_he}")
+        if hk_added:
+            log(f"  [新增] 港股/A股/ADR财报事件: {hk_added}条")
+
         # 收集待查询的股票
         pending_syms = []
         for e in pending_events:
@@ -182,28 +301,48 @@ def main():
                 continue
             pending_syms.append(e)
         if pending_syms:
-            symbols_to_fetch = list({e["symbol"] for e in pending_syms})
-            log(f"待更新事件: {len(pending_syms)}条, 涉及{len(symbols_to_fetch)}只股票")
-            log(f"  开始从NASDAQ API批量查询(未来90天)...")
-            # 批量查询
-            earnings_map = fetch_nasdaq_calendar(symbols_to_fetch, session, max_days=90)
-            found_count = len(earnings_map)
-            log(f"  查询完成: {found_count}/{len(symbols_to_fetch)}只股票有确定日期")
-            # 更新事件
-            for e in pending_syms:
-                sym = e["symbol"]
-                fetched = earnings_map.get(sym)
-                if fetched:
-                    old_date = e.get("date", "")
-                    if old_date != fetched:
-                        e["date"] = fetched
-                        e["status"] = "upcoming"
-                        log(f"  [更新] {sym}: {old_date} -> {fetched}")
-                        updated += 1
+            # 美股/ADR走NASDAQ API; 港股/A股/韩股/日股等非美股走Yahoo quoteSummary
+            _us_syms = [e for e in pending_syms if "." not in e["symbol"] or e["symbol"].endswith(".US")]
+            _nonus_syms = [e for e in pending_syms if e not in _us_syms]
+            log(f"待更新事件: {len(pending_syms)}条 (美股{len(_us_syms)}条, 非美股{len(_nonus_syms)}条)")
+            if _us_syms:
+                symbols_to_fetch = list({e["symbol"] for e in _us_syms})
+                log(f"  开始从NASDAQ API批量查询(未来90天)...")
+                earnings_map = fetch_nasdaq_calendar(symbols_to_fetch, session, max_days=90)
+                log(f"  NASDAQ查询完成: {len(earnings_map)}/{len(symbols_to_fetch)}只股票有确定日期")
+                for e in _us_syms:
+                    sym = e["symbol"]
+                    fetched = earnings_map.get(sym)
+                    if fetched:
+                        old_date = e.get("date", "")
+                        if old_date != fetched:
+                            e["date"] = fetched
+                            e["status"] = "upcoming"
+                            log(f"  [更新] {sym}: {old_date} -> {fetched}")
+                            updated += 1
+                        else:
+                            log(f"  [一致] {sym}: {fetched}")
                     else:
-                        log(f"  [一致] {sym}: {fetched}")
-                else:
-                    log(f"  [未获] {sym}: 未来90天内暂无财报日期")
+                        log(f"  [未获] {sym}: 未来90天内暂无财报日期")
+            if _nonus_syms:
+                symbols_to_fetch2 = list({e["symbol"] for e in _nonus_syms})
+                log(f"  开始从Yahoo quoteSummary批量查询(未来120天)...")
+                yahoo_map = fetch_yahoo_earnings(symbols_to_fetch2, session, max_days=120)
+                log(f"  Yahoo查询完成: {len(yahoo_map)}/{len(symbols_to_fetch2)}只股票有确定日期")
+                for e in _nonus_syms:
+                    sym = e["symbol"]
+                    fetched = yahoo_map.get(sym)
+                    if fetched:
+                        old_date = e.get("date", "")
+                        if old_date != fetched:
+                            e["date"] = fetched
+                            e["status"] = "upcoming"
+                            log(f"  [更新] {sym}: {old_date} -> {fetched}")
+                            updated += 1
+                        else:
+                            log(f"  [一致] {sym}: {fetched}")
+                    else:
+                        log(f"  [未获] {sym}: 未来120天内暂无财报日期")
         else:
             log("待更新事件: 0条")
 
@@ -250,7 +389,18 @@ def main():
     else:
         log("  [一致] 经济数据日程已存在,无新增")
 
-    # 4. 按日期排序
+    # 4. 状态维护: 日期已过去(非"??"待定)的 upcoming 事件自动标记为 done, 避免日历长期显示过期"即将发布"
+    rolled = 0
+    _today = date.today().isoformat()
+    for e in events:
+        d = e.get("date", "")
+        if e.get("status") == "upcoming" and d and not d.endswith("??") and d < _today:
+            e["status"] = "done"
+            rolled += 1
+    if rolled:
+        log(f"  [状态] {rolled}条过期事件已标记为完成(done)")
+
+    # 5. 按日期排序
     events.sort(key=lambda x: x.get("date", "9999"))
     cal["events"] = events
     cal["updated"] = date.today().isoformat()
@@ -258,7 +408,7 @@ def main():
     with open(CAL_JSON, "w", encoding="utf-8") as f:
         json.dump(cal, f, ensure_ascii=False, indent=2)
 
-    # 5. 重新生成日历页
+    # 6. 重新生成日历页
     import subprocess
     r = subprocess.run([sys.executable, str(WATCHLIST_US / "update_calendar.py")],
                        capture_output=True, text=True, encoding="utf-8", errors="replace",

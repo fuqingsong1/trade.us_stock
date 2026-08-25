@@ -11,9 +11,13 @@ Usage:
 
 import os, sys
 # Auto-redirect to conda yolo26 env if not already running in it
+# 若由计划任务 pythonw.exe 启动(无控制台), 则重定向到 pythonw.exe 保持静默(不弹黑框)
 _YOLO_PY = r"D:\Anaconda\envs\yolo26\python.exe"
-if sys.executable.lower() != _YOLO_PY.lower() and os.path.isfile(_YOLO_PY):
-    os.execv(_YOLO_PY, [_YOLO_PY] + sys.argv)
+_YOLO_PYW = r"D:\Anaconda\envs\yolo26\pythonw.exe"
+if sys.executable.lower() not in (_YOLO_PY.lower(), _YOLO_PYW.lower()):
+    _target = _YOLO_PYW if os.path.basename(sys.executable).lower().startswith("pythonw") else _YOLO_PY
+    if os.path.isfile(_target):
+        os.execv(_target, [_target] + sys.argv)
 import json, time, re, traceback, hmac, base64
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -32,18 +36,19 @@ NEWS_CFG_F     = SCRIPT_DIR / "news_config.json"
 
 def _check_proxy(timeout=5):
     """检测代理是否可用。返回 (bool, str)。
-    NO_PROXY=1(云端/服务器)时直连可访问国外API, 视为代理可用无需检测。"""
+    NO_PROXY=1(云端/服务器)时直连可访问国外API, 视为代理可用无需检测。
+    本地自动探测常见代理端口(Clash Verge 7890/7897, 飞鸟 7892, v2ray 10809/10808)。"""
     if os.getenv("NO_PROXY"):
         return True, ""
     import socket
-    try:
-        host = "127.0.0.1"
-        port = 7890
-        sock = socket.create_connection((host, port), timeout=timeout)
-        sock.close()
-        return True, ""
-    except Exception as e:
-        return False, str(e)
+    for port in (7892, 7890, 7897, 10809, 10808):
+        try:
+            sock = socket.create_connection(("127.0.0.1", port), timeout=timeout)
+            sock.close()
+            return True, f"127.0.0.1:{port}"
+        except Exception:
+            continue
+    return False, "无可用代理端口(127.0.0.1:7892/7890/7897/10809/10808)"
 
 
 def _request_with_retry(method, url, max_retries=3, base_delay=3, **kwargs):
@@ -314,6 +319,12 @@ RSS_ALIASES = {
     "NVDA": "Nvidia", "AMD": "AMD", "INTC": "Intel",
     "QCOM": "Qualcomm", "CRM": "Salesforce", "NFLX": "Netflix",
     "TSLA": "Tesla", "UBER": "Uber", "COIN": "Coinbase",
+    # 港股/A股/ADR (Google News 用中文名搜索更准确)
+    "00700.HK": "腾讯控股 Tencent", "09988.HK": "阿里巴巴 Alibaba", "03690.HK": "美团 Meituan",
+    "01810.HK": "小米 Xiaomi", "01024.HK": "快手 Kuaishou", "09992.HK": "泡泡玛特 Pop Mart",
+    "02513.HK": "智谱 Zhipu", "00100.HK": "MiniMax 稀宇科技",
+    "300308.SZ": "中际旭创", "603986.SS": "兆易创新", "688836.SS": "宇树科技", "688825.SS": "长鑫科技",
+    "PDD": "PDD Holdings",
 }
 
 
@@ -809,6 +820,11 @@ def get_relevant_stocks():
     with open(WATCHLIST_F, "r", encoding="utf-8") as f:
         cfg = json.load(f)
     stocks = {s["symbol"]: s for s in cfg.get("stocks", [])}
+    # 港股/A股/ADR(有symbol且含买卖区间)并入, 新闻分析同样覆盖
+    for h in cfg.get("hk_stocks", []):
+        hs = (h.get("symbol") or "").strip()
+        if hs and h.get("buy") and h.get("sell"):
+            stocks[hs] = h
 
     # Load positions (exclude observation positions with margin < $1)
     positions = set()
@@ -863,9 +879,19 @@ def get_relevant_stocks():
     _tq_session.trust_env = False
     # 腾讯是国内域名，直连（不设置proxies）
     print(f"  Fetching prices for {len(sym_list)} stocks from Tencent Finance...")
+    def _tq_code(sym):
+        """腾讯行情代码: 美股 usXXX, 港股 hk00700, A股 sz/sh, 其余(韩/日等)走yfinance兜底"""
+        if sym.endswith(".HK"):
+            return f"hk{sym[:-3]}"
+        if sym.endswith(".SZ"):
+            return f"sz{sym[:-3]}"
+        if sym.endswith(".SS"):
+            return f"sh{sym[:-3]}"
+        return f"us{sym}"
+
     for sym in sym_list:
         try:
-            tq_code = f"us{sym}"
+            tq_code = _tq_code(sym)
             url = f"https://qt.gtimg.cn/q={tq_code}"
             resp = _tq_session.get(url, timeout=10)
             if resp.status_code == 200 and resp.text.strip():
@@ -1131,7 +1157,7 @@ def analyze_all(refresh=False):
     # --- 代理连通性检测：不通时跳过所有需要代理的步骤 ---
     proxy_ok, proxy_err = _check_proxy(timeout=5)
     if not proxy_ok:
-        print(f"  [SKIP] 代理 127.0.0.1:7890 不可用 ({proxy_err})，跳过新闻抓取和LLM分析")
+        print(f"  [SKIP] 代理不可用 ({proxy_err})，跳过新闻抓取和LLM分析")
         # 生成空结果，让HTML生成步骤正常走完
         skipped = {
             "stocks": [], "macro": [], "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

@@ -7,7 +7,7 @@
   持仓/余额返回空(不暴露账户), 全部直连无需代理。
 - 本地模式: 行情/持仓/余额走 OKX 只读接口, 走本机代理。
 - 密钥加载: 环境变量优先, 本地 secrets_local.py 兜底(secrets_local.py 不推 GitHub)。
-"""
+""" 
 import os, sys, json, time, hmac, base64
 from datetime import datetime, timezone
 from pathlib import Path
@@ -71,12 +71,24 @@ def _yf_sym(inst_id):
     return str(inst_id).replace("-USDT-SWAP", "").replace("-USDT", "")
 
 
+def _norm_yf_sym(sym):
+    """Yahoo 符号规范化: 港股去前导零 (00700.HK -> 0700.HK, 00100.HK -> 100.HK)."""
+    s = str(sym).strip()
+    if s.endswith(".HK") and len(s) > 4:
+        num = s[:-3]
+        if num.startswith("0"):
+            num = num.lstrip("0") or "0"
+            s = num + ".HK"
+    return s
+
+
 def _yahoo_chart(sym, interval, rng):
     """拉取 Yahoo 日K/周K, 返回 OKX candle 格式 [[ts_ms,o,h,l,c,vol,0,0,'1'],...] (旧→新).
     先 requests 直取, 403/异常时用 curl_cffi 浏览器指纹兜底(与 yfinance 同款防反爬).
     trust_env=False 避免 Windows 系统代理干扰分流. 失败返回 []."""
     import urllib3
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    sym = _norm_yf_sym(sym)  # 港股去前导零
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}"
     params = {"interval": interval, "range": rng}
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
@@ -160,9 +172,50 @@ def _eastmoney_candles(sym, limit=16):
 _CANDLE_CACHE = {}
 
 
+def _tencent_kline(sym, limit=16):
+    """腾讯日K兜底 (web.ifzq.gtimg.cn, 国内可达, 无速率限制).
+    支持港股(hk)/A股(sz/sh). 返回 OKX 顺序(旧→新) rows."""
+    import time
+    try:
+        import requests as req
+        if sym.endswith(".HK"):
+            code = f"hk{sym[:-3]}"
+        elif sym.endswith(".SZ"):
+            code = f"sz{sym[:-3]}"
+        elif sym.endswith(".SS"):
+            code = f"sh{sym[:-3]}"
+        elif sym.endswith(".KS"):
+            code = f"kr{sym[:-3]}"
+        elif sym.endswith(".T"):
+            code = f"jp{sym[:-2]}"
+        else:
+            return []
+        s = req.Session(); s.trust_env = False
+        s.proxies = _auto_proxy("https://web.ifzq.gtimg.cn")
+        url = f"https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param={code},day,,,{limit},qfq"
+        resp = s.get(url, timeout=12)
+        data = resp.json().get("data", {}).get(code) or {}
+        rows_raw = data.get("qfqday") or data.get("day") or []
+        from datetime import datetime as _dt
+        rows = []
+        for p in rows_raw:
+            if len(p) < 6:
+                continue
+            date_str = str(p[0]).replace("-", "")
+            try:
+                ts_ms = int(_dt.strptime(date_str, "%Y%m%d").replace(tzinfo=timezone.utc).timestamp()) * 1000
+            except Exception:
+                continue
+            rows.append([ts_ms, float(p[1]), float(p[3]), float(p[4]), float(p[2]), float(p[5] or 0), 0, 0, "1"])
+        time.sleep(0.2)
+        return rows  # 旧→新
+    except Exception:
+        return []
+
+
 def yahoo_candles(sym, bar="1D", limit=16):
     """返回 OKX 顺序(新→旧)的 candle rows, 与 OKXAPI.get_candles 兼容.
-    Yahoo 优先, 东方财富日K兜底. 结果按 (sym, bar) 缓存."""
+    Yahoo 优先, 腾讯日K兜底(港股/A股), 东方财富日K再兜底. 结果按 (sym, bar) 缓存."""
     key = (sym, bar)
     if key in _CANDLE_CACHE:
         return _CANDLE_CACHE[key][:limit]
@@ -172,6 +225,8 @@ def yahoo_candles(sym, bar="1D", limit=16):
         rows = _yahoo_chart(sym, interval, rng)
     except Exception:
         rows = []
+    if not rows and interval == "1d":
+        rows = _tencent_kline(sym, max(limit, 30))
     if not rows and interval == "1d":
         rows = _eastmoney_candles(sym, max(limit, 30))
     rows.reverse()  # 新→旧
@@ -184,12 +239,24 @@ def yahoo_price(sym):
     rows = yahoo_candles(sym, "1D", 5)
     if rows:
         return rows[0][4]
-    # 腾讯兜底: v_usXXX="200~QQQ~...~现价~..."
+    # 腾讯兜底: 美股 v_usXXX, 港股 v_hk00700, A股 v_sz/sh (现价字段index=3)
     try:
         import requests as req
         s = req.Session(); s.trust_env = False
         s.proxies = _auto_proxy("https://qt.gtimg.cn")
-        r = s.get(f"https://qt.gtimg.cn/q=us{sym}", timeout=10)
+        if sym.endswith(".HK"):
+            code = f"hk{sym[:-3]}"
+        elif sym.endswith(".SZ"):
+            code = f"sz{sym[:-3]}"
+        elif sym.endswith(".SS"):
+            code = f"sh{sym[:-3]}"
+        elif sym.endswith(".KS"):
+            code = f"kr{sym[:-3]}"
+        elif sym.endswith(".T"):
+            code = f"jp{sym[:-2]}"
+        else:
+            code = f"us{sym}"
+        r = s.get(f"https://qt.gtimg.cn/q={code}", timeout=10)
         parts = r.text.split("~")
         if len(parts) > 3:
             px = _safe_float(parts[3])

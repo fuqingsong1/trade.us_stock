@@ -250,6 +250,21 @@ a .title-cn:hover { color: #58a6ff; }
 .cal-table .date { color: #8b949e; white-space: nowrap; }
 .cal-table .sym { color: #8b949e; font-size: 12px; }
 .cal-table .note { color: #c9d1d9; font-size: 13px; }
+/* ===== 月历视图 ===== */
+.cal-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
+.cal-nav-btn { background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; color: #8b949e; }
+.cal-nav-btn:hover { background: #1c2128; border-color: #58a6ff; color: #58a6ff; }
+.cal-title { font-size: 15px; font-weight: 600; color: #c9d1d9; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding: 0 20px 16px; }
+.cal-dow-row { border-bottom: 1px solid #21262d; margin-bottom: 6px; }
+.cal-dow { font-size: 11px; color: #8b949e; text-align: center; padding: 6px 0; font-weight: 500; }
+.cal-cell { min-height: 84px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 4px 6px; overflow: hidden; }
+.cal-cell.dim { background: #0d1117; opacity: 0.45; }
+.cal-cell.today { border: 1px solid #58a6ff; box-shadow: inset 0 0 0 1px #58a6ff; }
+.cal-day { font-size: 12px; font-weight: 600; color: #8b949e; }
+.cal-cell.today .cal-day { color: #58a6ff; }
+.cal-chip { display: block; font-size: 10px; padding: 1px 4px; border-radius: 3px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; cursor: default; }
+.cal-chip.done { opacity: 0.5; }
 /* ── Landing Page ── */
 .landing {
   position: fixed; inset: 0; z-index: 9999;
@@ -461,7 +476,7 @@ LANDING_HTML = '''<!-- ════ Landing Page ════ -->
       <div class="candle red sm"></div>
       <div class="candle green"></div>
     </div>
-    <div class="landing-title">美股 低频量化交易看板</div>
+    <div class="landing-title">低频量化交易看板</div>
     <div class="landing-subtitle">US STOCK &middot; LOW-FREQ QUANT  SYSTEM</div>
     <div class="landing-desc">多标的做T区间可视化 &middot; 策略运行状态监控 &middot; 全球财经新闻聚合</div>
     <div class="landing-stats">
@@ -531,8 +546,9 @@ def apply_text_replacements(html):
     """应用所有命名、脱敏、颜色修复"""
 
     # --- 标题 ---
-    html = html.replace('OKX 做T看板 + 新闻', '美股 低频量化交易看板')
-    html = html.replace('OKX USDT-SWAP 做T看板', '美股 低频量化交易看板')
+    html = html.replace('OKX 做T看板 + 新闻', '低频量化交易看板')
+    html = html.replace('OKX USDT-SWAP 做T看板', '低频量化交易看板')
+    html = html.replace('美股 低频量化交易看板', '低频量化交易看板')
 
     # --- Tab 命名 ---
     html = html.replace('switchTab(\'dashboard\')">看板<', 'switchTab(\'dashboard\')">做多看板<')

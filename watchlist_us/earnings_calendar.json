@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24",
+  "updated": "2026-08-25",
   "events": [
     {
       "date": "2026-01-27",
@@ -276,7 +276,7 @@
       "symbol": "AMD",
       "name": "超威半导体",
       "period": "Q2 2026",
-      "status": "upcoming",
+      "status": "done",
       "file": "超威半导体-AMD-六步分析法-20260807.md",
       "note": "盘后发布,当前文件基于Q1 | 已更新(08/02) | 已更新(08/07)"
     },
@@ -285,7 +285,7 @@
       "symbol": "SPCX",
       "name": "SpaceX",
       "period": "Q2 2026(首份季报)",
-      "status": "upcoming",
+      "status": "done",
       "file": "SpaceX-SPCX-六步分析法-20260724.md",
       "note": "北京时间8/5凌晨首份季报"
     },
@@ -294,7 +294,7 @@
       "symbol": "WDC",
       "name": "西部数据",
       "period": "FY2026 Q4",
-      "status": "upcoming",
+      "status": "done",
       "file": "西部数据-WDC-六步分析法-20260807.md",
       "note": "预期EPS $3.30/营收$37亿,文件0605版 | 已更新(08/07)"
     },
@@ -303,7 +303,7 @@
       "symbol": "SNDK",
       "name": "闪迪",
       "period": "FY2026 Q4",
-      "status": "upcoming",
+      "status": "done",
       "file": "闪迪-SNDK-六步分析法-20260807.md",
       "note": "预期营收+341%扭亏,文件0511版 | 已更新(08/07)"
     },
@@ -312,7 +312,7 @@
       "symbol": "DIS",
       "name": "迪士尼",
       "period": "FY2026 Q3",
-      "status": "upcoming",
+      "status": "done",
       "file": "迪士尼-DIS-六步分析法-20260807.md",
       "note": "不在watchlist,仅关注 | 已更新(08/07)"
     },
@@ -321,7 +321,7 @@
       "symbol": "ECON",
       "name": "非农就业报告",
       "period": "经济数据",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "7月数据"
     },
@@ -330,34 +330,34 @@
       "symbol": "RKLB",
       "name": "火箭实验室",
       "period": "Q2 2026",
-      "status": "upcoming",
-      "file": "RocketLab-RKLB-六步分析法-20260630.md",
-      "note": "8月上旬"
+      "status": "done",
+      "file": "火箭实验室-RKLB-六步分析法-20260812.md",
+      "note": "8月上旬 | 已更新(08/10) | 已更新(08/12)"
     },
     {
       "date": "2026-08-10",
       "symbol": "HIMS",
       "name": "Hims & Hers",
       "period": "Q2 2026",
-      "status": "upcoming",
-      "file": "HIMS-HIMS-六步分析法-20260521.md",
-      "note": "8月上旬"
+      "status": "done",
+      "file": "希姆斯赫斯-HIMS-六步分析法-20260812.md",
+      "note": "8月上旬 | 已更新(08/10) | 已更新(08/12)"
     },
     {
       "date": "2026-08-11",
       "symbol": "LITE",
       "name": "Lumentum",
       "period": "FY2026 Q4",
-      "status": "upcoming",
-      "file": "莱特-LITE-六步分析法-20260605.md",
-      "note": "8月中旬"
+      "status": "done",
+      "file": "莱特-LITE-六步分析法-20260812.md",
+      "note": "8月中旬 | 已更新(08/12)"
     },
     {
       "date": "2026-08-12",
       "symbol": "ECON",
       "name": "CPI通胀数据",
       "period": "经济数据",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "7月数据"
     },
@@ -366,18 +366,45 @@
       "symbol": "CSCO",
       "name": "思科",
       "period": "FY2026 Q4",
-      "status": "upcoming",
-      "file": "思科-CSCO-六步分析法-20260605.md",
-      "note": "8月中旬"
+      "status": "done",
+      "file": "思科-CSCO-六步分析法-20260812.md",
+      "note": "8月中旬 | 已更新(08/12)"
     },
     {
       "date": "2026-08-12",
       "symbol": "COHR",
       "name": "Coherent",
       "period": "FY2026 Q4",
-      "status": "upcoming",
-      "file": "Coherent-COHR-六步分析法-20260521.md",
-      "note": "8月中旬"
+      "status": "done",
+      "file": "高意-COHR-六步分析法-20260812.md",
+      "note": "8月中旬 | 已更新(08/12) | 已更新(08/12)"
+    },
+    {
+      "date": "2026-08-12",
+      "symbol": "CRWV",
+      "name": "CoreWeave",
+      "period": "2026 Q2",
+      "status": "done",
+      "file": "CoreWeave-CRWV-六步分析法-20260812.md",
+      "note": "8/12已发布 | 已更新(08/12)"
+    },
+    {
+      "date": "2026-08-12",
+      "symbol": "NBIS",
+      "name": "Nebius",
+      "period": "2026 Q2",
+      "status": "done",
+      "file": "Nebius-NBIS-六步分析法-20260812.md",
+      "note": "8/12已发布 | 已更新(08/12)"
+    },
+    {
+      "date": "2026-08-13",
+      "symbol": "AMAT",
+      "name": "应用材料",
+      "period": "FY2026 Q3",
+      "status": "done",
+      "file": "应用材料-AMAT-六步分析法-20260815.md",
+      "note": "8/13盘后(北京8/14凌晨) | 财报前预分析已生成 | 已更新(08/13) | 已更新(08/13) | 已更新(08/15)"
     },
     {
       "date": "2026-08-26",
@@ -398,22 +425,13 @@
       "note": "8月下旬"
     },
     {
-      "date": "2026-08-??",
-      "symbol": "PLTR",
-      "name": "Palantir",
-      "period": "Q2 2026",
-      "status": "pending",
-      "file": "Palantir-PLTR-六步分析法-20260521.md",
-      "note": "8月上旬"
-    },
-    {
-      "date": "2026-08-??",
-      "symbol": "LLY",
-      "name": "礼来",
-      "period": "Q2 2026",
-      "status": "pending",
-      "file": "礼来-LLY-六步分析法-20260501.md",
-      "note": "8月上旬"
+      "date": "2026-08-28",
+      "symbol": "03690.HK",
+      "name": "美团",
+      "period": "待定",
+      "status": "upcoming",
+      "file": null,
+      "note": "盈利拐点右侧初现,75-85分批建仓,65-70加大,100以上逐步兑现;8/28财报验票"
     },
     {
       "date": "2026-09-04",
@@ -506,6 +524,24 @@
       "note": "10月数据"
     },
     {
+      "date": "2026-11-17",
+      "symbol": "01810.HK",
+      "name": "小米集团",
+      "period": "待定",
+      "status": "upcoming",
+      "file": null,
+      "note": "成本冲击+需求疲弱逆风,24以下分批加仓(中性DCF 2/3),35以上逐步兑现"
+    },
+    {
+      "date": "2026-11-18",
+      "symbol": "01024.HK",
+      "name": "快手",
+      "period": "待定",
+      "status": "upcoming",
+      "file": null,
+      "note": "现金≈96%市值,PE7.9x历史底部,33附近分批建仓,30以下加大,50以上兑现"
+    },
+    {
       "date": "2026-12-04",
       "symbol": "ECON",
       "name": "非农就业报告",
@@ -540,6 +576,42 @@
       "status": "upcoming",
       "file": null,
       "note": "11月数据"
+    },
+    {
+      "date": "2026-??-??",
+      "symbol": "02513.HK",
+      "name": "智谱",
+      "period": "待定",
+      "status": "pending",
+      "file": null,
+      "note": "大模型第一股但PS约594x极贵,现价高于DCF中性约10倍,回避等估值消化"
+    },
+    {
+      "date": "2026-??-??",
+      "symbol": "00100.HK",
+      "name": "MiniMax",
+      "period": "待定",
+      "status": "pending",
+      "file": null,
+      "note": "估值透支(现价高于乐观DCF),仅高风险资金220-268小仓博弈,严格止损"
+    },
+    {
+      "date": "2026-??-??",
+      "symbol": "688836.SS",
+      "name": "宇树科技",
+      "period": "待定",
+      "status": "pending",
+      "file": null,
+      "note": "人形机器人第一股但现价高于乐观DCF59%,等市值回落600-800亿(150-200元)"
+    },
+    {
+      "date": "2026-??-??",
+      "symbol": "688825.SS",
+      "name": "长鑫科技",
+      "period": "待定",
+      "status": "pending",
+      "file": null,
+      "note": "DRAM国产替代但现价高于乐观DCF48%,动态PE35x极端,严禁追高"
     },
     {
       "date": "2027-01-08",

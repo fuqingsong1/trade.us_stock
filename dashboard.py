@@ -7,9 +7,13 @@
 """
 import os, sys
 # Auto-redirect to conda yolo26 env if not already running in it
+# 若由计划任务 pythonw.exe 启动(无控制台), 则重定向到 pythonw.exe 保持静默(不弹黑框)
 _YOLO_PY = r"D:\Anaconda\envs\yolo26\python.exe"
-if sys.executable.lower() != _YOLO_PY.lower() and os.path.isfile(_YOLO_PY):
-    os.execv(_YOLO_PY, [_YOLO_PY] + sys.argv)
+_YOLO_PYW = r"D:\Anaconda\envs\yolo26\pythonw.exe"
+if sys.executable.lower() not in (_YOLO_PY.lower(), _YOLO_PYW.lower()):
+    _target = _YOLO_PYW if os.path.basename(sys.executable).lower().startswith("pythonw") else _YOLO_PY
+    if os.path.isfile(_target):
+        os.execv(_target, [_target] + sys.argv)
 import json, math, webbrowser
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
@@ -17,11 +21,16 @@ from pathlib import Path
 from utils import PROXY, WORKSPACE_ROOT, SCRIPT_DIR, _auto_proxy, _safe_float
 # 云端(GitHub Actions)与本地共用 web_shared: 密钥隔离 + Yahoo 行情兜底 + 只读 OKXAPI
 # 不再 from strategy_v4, 避免云端 import 策略模块(含实盘下单逻辑与硬编码密钥)
-from web_shared import (OKXAPI, CLOUD_MODE,
+from web_shared import (OKXAPI, CLOUD_MODE, yahoo_price, yahoo_candles,
                         REORDER_PCT, SHORT_ENTRY_MIN, SHORT_TIER_STEP,
                         SHORT_TP1_PCT, SHORT_TP2_PCT, SHORT_REGIME_MAX, SHORT_LEV_TIER,
                         load_okx_keys, load_binance_keys)
 API_KEY, API_SECRET, PASSPHRASE = load_okx_keys()
+# 货币符号映射 (config 中 ccy 字段; 默认 USD)
+CCY_MAP = {"USD": "$", "KRW": "₩", "JPY": "JP¥", "HKD": "HK$", "CNY": "¥"}
+# OKX 合约与美股代码冲突的标的: OKX 该 ticker 是加密货币而非美股代币, 价格必须走 Yahoo 兜底
+# 例: STX-USDT-SWAP 在 OKX 是 Stacks 币(~$0.3), 而美股希捷 STX 真实价约 $700+
+OKX_CONFLICT = {"STX"}
 WATCHLIST   = WORKSPACE_ROOT / "watchlist_us" / "config.json"
 INST_MAP_F  = SCRIPT_DIR / "instruments.json"
 STATUS_F    = SCRIPT_DIR / "script_status.json"
@@ -73,11 +82,19 @@ if T_RANGE_F.exists():
 with open(WATCHLIST, "r", encoding="utf-8") as fp:
     cfg = json.load(fp)
 
-def get_price(inst_id):
+def get_price(inst_id, sym=None):
     r = api.get_ticker(inst_id)
     if r.get("code") == "0" and r["data"]:
         v = float(r["data"][0].get("last", 0))
         return v if v > 0 else None
+    # 非OKX合约(新增美股/韩股/日股/港股): Yahoo/腾讯兜底
+    if sym:
+        try:
+            import time as _t
+            _t.sleep(0.2)  # 缓速, 避免 Yahoo 连续请求被限流
+            return yahoo_price(sym)
+        except Exception:
+            return None
     return None
 
 def _pos_margin_est(p):
@@ -88,10 +105,15 @@ def _pos_margin_est(p):
         m = abs(_safe_float(p.get("pos", 0)) * _safe_float(p.get("avgPx", 0)))
     return m
 
-def get_10d_range(inst_id):
+def get_10d_range(inst_id, sym=None):
     r = api.get_candles(inst_id, bar="1D", limit=16)
     if r.get("code") != "0" or not r.get("data"):
-        return None, None
+        rows = []
+        if sym:
+            rows = yahoo_candles(sym, "1D", 16)
+        if not rows:
+            return None, None
+        r = {"code": "0", "data": rows}
     weekday_candles = []
     for c in r["data"]:
         ts = int(c[0]) / 1000
@@ -106,10 +128,14 @@ def get_10d_range(inst_id):
     lows = [float(c[3]) for c in weekday_candles]
     return max(highs), min(lows)
 
-def calc_vol(inst_id, high, low):
+def calc_vol(inst_id, high, low, sym=None):
     """Weekly volatility: 5-day log-return std * sqrt(5), fallback to range width."""
     try:
         r = api.get_candles(inst_id, bar="1D", limit=7)
+        if (r.get("code") != "0" or len(r.get("data") or []) < 5) and sym:
+            rows = yahoo_candles(sym, "1D", 7)
+            if rows:
+                r = {"code": "0", "data": rows}
         if r.get("code") == "0" and len(r["data"]) >= 5:
             closes = [float(c[4]) for c in r["data"]]
             closes.reverse()
@@ -125,14 +151,21 @@ def calc_vol(inst_id, high, low):
         return 0
     return (high - low) / ((high + low) / 2)
 
-def get_boll_pct(inst_id, current_price, bar="1D", period=20):
+def get_boll_pct(inst_id, current_price, bar="1D", period=20, sym=None):
     """布林带 %B = (Price - Lower) / (Upper - Lower)
     <0 超卖(下轨下方), >1 超买(上轨上方), 0.5 在中轨
     bar: "1D"=日布林, "1W"=周布林"""
     min_period = max(10, period // 2)
     r = api.get_candles(inst_id, bar=bar, limit=period)
     if r.get("code") != "0" or not r.get("data") or len(r["data"]) < min_period:
-        return None
+        if sym:
+            rows = yahoo_candles(sym, bar, period)
+            if rows and len(rows) >= min_period:
+                r = {"code": "0", "data": rows}
+            else:
+                return None
+        else:
+            return None
     closes = [float(c[4]) for c in r["data"][:period]]
     ma = sum(closes) / len(closes)
     var = sum((x - ma) ** 2 for x in closes) / len(closes)
@@ -210,6 +243,21 @@ if bal_r.get("code") == "0" and bal_r.get("data"):
 
 # Collect data
 stocks = cfg.get("stocks", [])
+# 港股/A股/ADR 标的并入主循环统一计算指标(非OKX合约, 价格/区间走 Yahoo 兜底)
+# 未上市标的(如MOONSHOT, 无symbol)不进入计算, 单独在港股tab底部展示分析结论
+_hk_extra = []
+for _h in cfg.get("hk_stocks", []):
+    _sym = (_h.get("symbol") or "").strip()
+    if not _sym:
+        continue
+    _hk_extra.append({
+        "symbol": _sym, "name": _h.get("name", ""),
+        "buy": float(_h.get("buy") or 0), "sell": float(_h.get("sell") or 0),
+        "industry": _h.get("industry", ""), "note": _h.get("note", ""),
+        "ccy": _h.get("ccy", "HKD"), "market": _h.get("market", ""),
+        "rating": _h.get("rating", ""), "is_hk": True,
+    })
+stocks = list(stocks) + _hk_extra
 results = []
 
 # Load news impact for range adjustment
@@ -644,15 +692,20 @@ for s in stocks:
     name = s.get("name", "")
     industry = s.get("industry", "")
     note = s.get("note", "")
+    ccy = CCY_MAP.get(s.get("ccy", "USD"), "$")
     inst_id = inst_map.get(sym, f"{sym}-USDT-SWAP")
+    # OKX 合约与美股代码冲突的标的: 置空 inst_id 强制走 Yahoo, 避免误用加密货币价格(如 STX=Stacks)
+    if sym in OKX_CONFLICT:
+        inst_id = ""
 
-    px = get_price(inst_id)
+    px = get_price(inst_id, sym)
     if not px:
-        results.append({"sym": sym, "name": name, "error": "no price"})
+        results.append({"sym": sym, "name": name, "error": "no price",
+                        "is_hk": s.get("is_hk", False), "market": s.get("market", "美股"), "rating": s.get("rating", "")})
         continue
 
-    boll_pct = get_boll_pct(inst_id, px)
-    boll_pct_w = get_boll_pct(inst_id, px, bar="1W", period=20)
+    boll_pct = get_boll_pct(inst_id, px, sym=sym)
+    boll_pct_w = get_boll_pct(inst_id, px, bar="1W", period=20, sym=sym)
 
     manual = t_range.get(sym)
     if manual:
@@ -660,13 +713,14 @@ for s in stocks:
         actual_high = int(manual["high"]) + (1 if manual["high"] % 1 > 0 else 0)
         src = "manual"
     else:
-        ref_high, ref_low = get_10d_range(inst_id)
+        ref_high, ref_low = get_10d_range(inst_id, sym)
         if ref_high and ref_low:
             actual_low = int(ref_low / 5) * 5
             actual_high = int(ref_high) + (1 if ref_high % 1 > 0 else 0)
             src = "10d"
         else:
-            results.append({"sym": sym, "name": name, "error": "no range"})
+            results.append({"sym": sym, "name": name, "error": "no range",
+                            "is_hk": s.get("is_hk", False), "market": s.get("market", "美股"), "rating": s.get("rating", "")})
             continue
 
     # Apply news impact: asymmetric adjustment on 10d high/low, then recalc
@@ -686,7 +740,7 @@ for s in stocks:
         actual_low = int(actual_low / 5) * 5
         actual_high = int(actual_high) + (1 if actual_high % 1 > 0 else 0)
 
-    vol = calc_vol(inst_id, actual_high, actual_low)
+    vol = calc_vol(inst_id, actual_high, actual_low, sym)
     pct = (px - actual_low) / (actual_high - actual_low) if actual_high > actual_low else 0.5
 
     if vol > 0.075:
@@ -768,6 +822,8 @@ for s in stocks:
     pos_info = okx_positions.get(sym)
     results.append({
         "sym": sym, "name": name, "industry": industry, "note": note,
+        "ccy": ccy,
+        "is_hk": s.get("is_hk", False), "market": s.get("market", "美股"), "rating": s.get("rating", ""),
         "px": px, "alow": actual_low, "ahigh": actual_high,
         "vol": vol, "pct": pct, "src": src, "boll_pct": boll_pct, "boll_pct_w": boll_pct_w,
         "buy1_pct": buy1_pct, "buy2_pct": buy2_pct, "buy3_pct": buy3_pct,
@@ -814,17 +870,17 @@ index_results = []
 for idx_info in INDEX_MONITORS:
     sym = idx_info["sym"]
     inst_id = f"{sym}-USDT-SWAP"
-    px = get_price(inst_id)
+    px = get_price(inst_id, sym)
     if not px:
         index_results.append({"sym": sym, "name": idx_info["name"], "error": "no price", "is_index": True})
         continue
-    boll_pct = get_boll_pct(inst_id, px)
-    boll_pct_w = get_boll_pct(inst_id, px, bar="1W", period=20)
-    ref_high, ref_low = get_10d_range(inst_id)
+    boll_pct = get_boll_pct(inst_id, px, sym=sym)
+    boll_pct_w = get_boll_pct(inst_id, px, bar="1W", period=20, sym=sym)
+    ref_high, ref_low = get_10d_range(inst_id, sym)
     if ref_high and ref_low:
         actual_low = int(ref_low / 5) * 5
         actual_high = int(ref_high) + (1 if ref_high % 1 > 0 else 0)
-        vol = calc_vol(inst_id, actual_high, actual_low)
+        vol = calc_vol(inst_id, actual_high, actual_low, sym)
         pct = (px - actual_low) / (actual_high - actual_low) if actual_high > actual_low else 0.5
     else:
         actual_low = actual_high = 0
@@ -860,6 +916,8 @@ for idx_info in INDEX_MONITORS:
     index_results.append({
         "sym": sym, "name": idx_info["name"], "industry": idx_info["industry"],
         "px": px, "alow": actual_low, "ahigh": actual_high,
+        "ccy": "$",
+        "is_hk": False, "market": "美股", "rating": "",
         "vol": vol, "pct": pct, "src": "10d", "boll_pct": boll_pct, "boll_pct_w": boll_pct_w,
         "is_index": True,
         "buy1_pct": buy1_pct, "buy2_pct": buy2_pct, "buy3_pct": buy3_pct,
@@ -876,6 +934,21 @@ for idx_info in INDEX_MONITORS:
     })
 
 results = index_results + results
+
+# ============================================================
+# 港股/A股/ADR 未上市标的 (无symbol, 未进入主循环, 单独在港股tab底部展示分析结论)
+# ============================================================
+_hk_extra_rows = []
+for _h in cfg.get("hk_stocks", []):
+    _sym = (_h.get("symbol") or "").strip()
+    if _sym:
+        continue
+    _hk_extra_rows.append({
+        "name": _h.get("name", ""), "market": _h.get("market", ""),
+        "rating": _h.get("rating", ""), "note": _h.get("note", ""),
+        "ccy": CCY_MAP.get(_h.get("ccy", "HKD"), "HK$"),
+    })
+hk_extra_json = json.dumps(_hk_extra_rows, ensure_ascii=False)
 
 # ============================================================
 # Generate rebalance advice via DeepSeek V4 Pro
@@ -899,11 +972,11 @@ def _generate_rebalance_advice(results, index_results):
         return "DeepSeek API未配置，无法生成调仓建议。请在news_config.json中配置api_key。"
 
     # Collect position stocks
-    pos_stocks = [r for r in results if r.get("has_pos") and not r.get("is_index")]
+    pos_stocks = [r for r in results if r.get("has_pos") and not r.get("is_index") and not r.get("is_hk")]
     # Collect eligible stocks (no position)
-    eli_stocks = [r for r in results if r.get("eligible") and not r.get("has_pos") and not r.get("is_index")]
+    eli_stocks = [r for r in results if r.get("eligible") and not r.get("has_pos") and not r.get("is_index") and not r.get("is_hk")]
     # Collect observation stocks
-    obs_stocks = [r for r in results if r.get("is_obs") and not r.get("is_index")]
+    obs_stocks = [r for r in results if r.get("is_obs") and not r.get("is_index") and not r.get("is_hk")]
     # Index info
     idx_info = {}
     for ir in index_results:
@@ -1117,6 +1190,7 @@ _bin_state = {}
 _bin_boll = {}
 _bin_status = {"running": False, "last_heartbeat": ""}
 try:
+    sys.path.insert(0, str(SCRIPT_DIR / "binance"))   # 币安模块已移入 binance/ 子目录
     from api_binance import BinanceAPI as _BAPI
     _bapi = _BAPI(BINANCE_API_KEY, BINANCE_API_SECRET, "", "0",
                   "https://fapi.binance.com", proxy="" if CLOUD_MODE else PROXY)
@@ -1151,9 +1225,9 @@ try:
 except Exception as _e:
     print(f"  [WARN] 币安 API 数据获取失败(降级): {_e}")
 
-for _p, _t in ((SCRIPT_DIR / "strategy_binance_state.json", _bin_state),
-               (SCRIPT_DIR / "strategy_binance_boll.json", _bin_boll),
-               (SCRIPT_DIR / "script_status_binance.json", _bin_status)):
+for _p, _t in ((SCRIPT_DIR / "binance" / "strategy_binance_state.json", _bin_state),
+               (SCRIPT_DIR / "binance" / "strategy_binance_boll.json", _bin_boll),
+               (SCRIPT_DIR / "binance" / "script_status_binance.json", _bin_status)):
     if _p.exists():
         try:
             with open(_p, "r", encoding="utf-8") as _f:
@@ -1300,6 +1374,8 @@ if CALENDAR_F.exists():
             days = ""
             if d and d.endswith("??"):
                 date_display = d.replace("2026-08-??", "8月待定")
+                if date_display == d:
+                    date_display = "待确认"
             else:
                 date_display = d
                 try:
@@ -1328,10 +1404,11 @@ if CALENDAR_F.exists():
                     and 0 <= (datetime.strptime(e["date"], "%Y-%m-%d") - _now).days <= 7)
         _up30 = sum(1 for e in _upcoming if e.get("date") and not e.get("date","").endswith("??")
                     and 0 <= (datetime.strptime(e["date"], "%Y-%m-%d") - _now).days <= 30)
+        cal_events_json = json.dumps(_evts, ensure_ascii=False)
         calendar_html = f'''
 <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
   <div style="font-size:14px;font-weight:500">财报 / FOMC / 经济数据日历</div>
-  <div style="font-size:12px;color:#888">数据更新: {_html.escape(str(_cal.get("updated","-")))} | 共 {len(_evts)} 条</div>
+  <div style="font-size:12px;color:#888">数据更新: {_html.escape(str(_cal.get("updated","-")))} | 共 {len(_evts)} 条 | 月历视图, 点击 ◀ ▶ 切换月份</div>
 </div>
 <div class="summary">
   <div class="card"><div class="label">7天内</div><div class="value red">{_up7}</div></div>
@@ -1340,22 +1417,198 @@ if CALENDAR_F.exists():
   <div class="card"><div class="label">待确认日期</div><div class="value" style="color:#185FA5">{len(_pending)}</div></div>
 </div>
 <div class="stock-section">
-  <div class="stock-header"><div class="stock-info"><span class="stock-sym">⏰</span><span class="stock-name">即将发布</span><span class="macro-tag">{len(_upcoming)}</span></div></div>
-  {_cal_table(_upcoming, '暂无即将发布的事件')}
+  <div class="stock-header"><div class="stock-info"><span class="stock-sym">📅</span><span class="stock-name">月历提醒</span><span class="macro-tag">一行一周</span></div></div>
+  <div class="cal-nav">
+    <button class="cal-nav-btn" id="cal-prev">◀ 上月</button>
+    <span class="cal-title" id="cal-title"></span>
+    <button class="cal-nav-btn" id="cal-next">下月 ▶</button>
+  </div>
+  <div class="cal-grid cal-dow-row">
+    <div class="cal-dow">周一</div><div class="cal-dow">周二</div><div class="cal-dow">周三</div><div class="cal-dow">周四</div><div class="cal-dow">周五</div><div class="cal-dow">周六</div><div class="cal-dow">周日</div>
+  </div>
+  <div class="cal-grid" id="cal-grid"></div>
 </div>
 <div class="stock-section">
   <div class="stock-header"><div class="stock-info"><span class="stock-sym">?</span><span class="stock-name">待确认日期</span><span class="macro-tag">{len(_pending)}</span></div></div>
   {_cal_table(_pending, '暂无待确认日期的事件')}
-</div>
-<div class="stock-section">
-  <div class="stock-header"><div class="stock-info"><span class="stock-sym">✓</span><span class="stock-name">已完成</span><span class="macro-tag">{len(_done)}</span></div></div>
-  {_cal_table(_done, '暂无已完成事件')}
 </div>'''
         print(f"  Calendar tab content loaded ({len(_evts)} events)")
     except Exception as e:
         calendar_html = f'<div class="no-data">日历数据加载失败: {e}</div>'
+        cal_events_json = "[]"
 else:
     calendar_html = '<div class="no-data">日历数据不存在，请先运行 watchlist_us/update_calendar.py</div>'
+    cal_events_json = "[]"
+
+# ===== Build Earnings Events tab HTML (财报事件驱动策略) =====
+EARN_REPORT_F = SCRIPT_DIR / "earnings_events_report.json"
+earnings_html = ""
+# 宏观经济 AI 分析渲染 (macro_analysis.json 由 earnings_events.py 生成)
+_macro_html = ""
+try:
+    _macro = {}
+    _mf = SCRIPT_DIR / "macro_analysis.json"
+    if _mf.exists():
+        with open(_mf, "r", encoding="utf-8") as _mfp:
+            _macro = json.load(_mfp)
+    if _macro.get("rate_path"):
+        _m_evs = "".join(
+            f'<div style="font-size:12px;color:#8b949e;padding:2px 0">📅 {_html.escape(str(_ev.get("date","")))} '
+            f'{_html.escape(str(_ev.get("name","")))} {_html.escape(str(_ev.get("note","") or ""))}</div>'
+            for _ev in _macro.get("events", [])[:8])
+        _m_rows = "".join(
+            f'<tr><td style="padding:8px 12px;font-size:13px;color:#c9d1d9;white-space:normal;width:130px"><b>{_html.escape(_lab)}</b></td>'
+            f'<td style="padding:8px 12px;font-size:13px;color:#c9d1d9;white-space:normal">{_html.escape(str(_macro.get(_k,"")))}</td></tr>'
+            for _lab, _k in (("降息路径", "rate_path"), ("利率影响", "rate_impact"),
+                             ("估值影响", "valuation_impact"), ("交易含义", "action")))
+        _m_detail = _html.escape(str(_macro.get("detail", ""))).replace("\n", "<br>")
+        _macro_html = f'''
+<table class="cal-table"><tbody>{_m_rows}</tbody></table>
+<div style="margin-top:10px;padding:10px 14px;background:rgba(108,92,231,0.08);border-radius:8px;font-size:12px;color:#8b949e;line-height:1.7">{_m_detail}</div>
+<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px">{_m_evs}</div>'''
+    else:
+        _macro_html = '<div class="no-data">暂无宏观分析(运行 earnings_events.py 生成)</div>'
+except Exception as _me:
+    _macro_html = f'<div class="no-data">宏观分析加载失败: {_me}</div>'
+try:
+    _er = {}
+    if EARN_REPORT_F.exists():
+        with open(EARN_REPORT_F, "r", encoding="utf-8") as f:
+            _er = json.load(f)
+    _evs = _er.get("events", [])
+    _trs = _er.get("trades", [])
+    if not _evs:
+        earnings_html = ('<div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;'
+                         'display:flex;justify-content:space-between;align-items:center">'
+                         '<div style="font-size:14px;font-weight:500">财报事件策略</div>'
+                         '<div style="font-size:12px;color:#888">需运行 earnings_events.py 生成数据</div></div>'
+                         '<div class="no-data">暂无财报事件监控数据，请先运行 python earnings_events.py</div>')
+    else:
+        _st_badge = {
+            "monitoring": ('<span class="badge neutral">监控中</span>', "#666"),
+            "published_wait_entry": ('<span class="badge neutral">已发布·等入场</span>', "#BA7517"),
+            "wait_entry": ('<span class="badge neutral">待入场</span>', "#BA7517"),
+            "traded": ('<span class="badge positive">已下单</span>', "#3B6D11"),
+            "in_position": ('<span class="badge positive">持仓中</span>', "#378ADD"),
+            "below_threshold": ('<span class="badge neutral">低于阈值</span>', "#888"),
+            "valuation_skip": ('<span class="badge negative">估值不匹配·放弃</span>', "#A32D2D"),
+            "entry_timeout": ('<span class="badge neutral">入场超时</span>', "#888"),
+            "trade_failed": ('<span class="badge negative">下单失败</span>', "#A32D2D"),
+            "closed_timeout": ('<span class="badge negative">时效平仓</span>', "#A32D2D"),
+            "closed_tp": ('<span class="badge positive">止盈平仓</span>', "#3B6D11"),
+            "closed_stop": ('<span class="badge negative">验证止损</span>', "#A32D2D"),
+            "ambushed": ('<span class="badge positive">埋伏持仓</span>', "#3B6D11"),
+            "pre_wait": ('<span class="badge neutral">埋伏观望</span>', "#888"),
+            "done": ('<span class="badge neutral">已处理</span>', "#888"),
+            "skip_no_inst": ('<span class="badge neutral">无合约</span>', "#888"),
+            "outside_window": ('<span class="badge neutral">窗口外</span>', "#888"),
+            "pending": ('<span class="badge neutral">待处理</span>', "#888"),
+        }
+        _rows = ""
+        for _e in _evs:
+            _sym = _e.get("symbol", "")
+            _nm = _e.get("name", _sym)
+            _date = _e.get("date", "")
+            _st = _e.get("status", "pending")
+            _badge, _bc = _st_badge.get(_st, ('<span class="badge neutral">?</span>', "#888"))
+            _est = _e.get("est_eps")
+            _act = _e.get("actual_eps")
+            _sur = _e.get("surprise_pct")
+            _vd = _e.get("verdict") or "-"
+            _sg = _e.get("signal") or "-"
+            _rs = _html.escape(str(_e.get("reason", "")))
+            _run = _e.get("pre_runup_pct")
+            if _run is not None:
+                _rc = "#A32D2D" if _run >= 0.30 else "#888"
+                _rs = (f'<span style="color:{_rc}">财报前10日已涨{_run*100:.0f}%</span><br>' + _rs)
+            _pre_sig = _e.get("pre_signal")
+            _pre_reason = _e.get("pre_reason")
+            _pre_score = _e.get("pre_score")
+            if _pre_sig is not None:
+                _pcol = {"long": "#3B6D11", "short": "#A32D2D", "none": "#888"}.get(_pre_sig, "#888")
+                _ptxt = {"long": "预判做多", "short": "预判做空", "none": "预判观望"}.get(_pre_sig, _pre_sig)
+                _rs = (f'<span style="color:{_pcol};font-weight:600">埋伏[{_ptxt}]'
+                       f'(score={_pre_score})</span><br>' + _rs)
+                if _pre_reason:
+                    _rs += f'<div style="color:#888;font-size:11px">{_html.escape(str(_pre_reason)[:60])}</div>'
+            _tm = _e.get("time") or "-"
+            # 预期差着色
+            _sur_html = "-"
+            if _sur is not None:
+                _c = "#3B6D11" if _sur > 0 else "#A32D2D"
+                _sur_html = f'<span style="color:{_c};font-weight:600">{_sur:+.1f}%</span>'
+            _est_t = f'${_est:.2f}' if _est is not None else "-"
+            _act_t = f'${_act:.2f}' if _act is not None else "-"
+            _vd_html = {"beat": '<span class="badge positive">超预期</span>',
+                        "miss": '<span class="badge negative">不及预期</span>',
+                        "in_line": '<span class="badge neutral">符合预期</span>'}.get(_vd, f'<span style="color:#888">{_vd}</span>')
+            # DCF 估值区间 (以DCF为主的多维度估值对比)
+            _val = _e.get("valuation") or {}
+            _val_html = "-"
+            if _val.get("dcf_low") and _val.get("dcf_high"):
+                _zl = {"低估": "#3B6D11", "高估": "#A32D2D"}.get(_val.get("current_zone"), "#BA7517")
+                _ztxt = _html.escape(str(_val.get("current_zone", "")))
+                _tt = _html.escape(f"{_val.get('pe_note','')} | {_val.get('note','')}")
+                _val_html = (f'<span style="font-size:12px">${_val["dcf_low"]:.1f}~${_val["dcf_high"]:.1f}'
+                             f' <span style="color:{_zl};font-weight:600">[{_ztxt}]</span></span>'
+                             f'<div style="font-size:11px;color:#888" title="{_tt}">{_html.escape(str(_val.get("note",""))[:24])}</div>')
+            _rows += (f'<tr style="border-bottom:1px solid #f0f0f0"><td style="padding:10px 12px;font-weight:600">{_sym}</td>'
+                      f'<td style="padding:10px 12px;color:#888;font-size:12px">{_nm}</td>'
+                      f'<td style="padding:10px 12px">{_date}</td>'
+                      f'<td style="padding:10px 12px;font-size:12px">{"盘后" if _tm == "amc" else "盘前" if _tm == "bmo" else _tm}</td>'
+                      f'<td style="padding:10px 12px">{_est_t}</td>'
+                      f'<td style="padding:10px 12px">{_act_t}</td>'
+                      f'<td style="padding:10px 12px">{_sur_html}</td>'
+                      f'<td style="padding:10px 12px">{_vd_html}</td>'
+                      f'<td style="padding:10px 12px">{_val_html}</td>'
+                      f'<td style="padding:10px 12px">{_sg}</td>'
+                      f'<td style="padding:10px 12px">{_badge}</td>'
+                      f'<td style="padding:10px 12px;font-size:12px;color:#666">{_rs}</td></tr>')
+        _tr_rows = ""
+        for _t in _trs:
+            _tr_rows += (f'<tr><td style="padding:10px 12px;font-weight:600">{_t.get("symbol","")}</td>'
+                         f'<td style="padding:10px 12px">{"做多" if _t.get("direction")=="long" else "做空"}</td>'
+                         f'<td style="padding:10px 12px">${_t.get("price",0):.2f}</td>'
+                         f'<td style="padding:10px 12px;font-size:12px;color:#666">{_html.escape(str(_t.get("reason","")))}</td></tr>')
+        _tr_html = (f'<table class="cal-table" style="margin-top:4px"><thead><tr><th>股票</th><th>方向</th><th>入场价</th><th>信号依据</th></tr></thead>'
+                    f'<tbody>{_tr_rows}</tbody></table>') if _tr_rows else '<div class="no-data">暂无成交记录</div>'
+        _n_mon = sum(1 for _e in _evs if _e.get("status") in ("monitoring", "pending", "outside_window", "skip_no_inst"))
+        _n_pub = sum(1 for _e in _evs if _e.get("status") in ("published_wait_entry", "wait_entry"))
+        _n_trd = sum(1 for _e in _evs if _e.get("status") == "traded")
+        _n_done = sum(1 for _e in _evs if _e.get("status") in ("below_threshold", "valuation_skip", "entry_timeout", "done", "closed_timeout", "closed_tp", "closed_stop", "trade_failed"))
+        earnings_html = f'''
+<div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+  <div style="font-size:14px;font-weight:500">财报事件策略 <span style="color:#888;font-size:12px">(财报前埋伏: 期权隐含波动+分析师预期预判方向, 收盘前5%仓建仓; 发布后验证: 对→移动止盈/错→2.5%止损; 多4x/空3x, 全仓cross, 时效6h)</span></div>
+  <div style="font-size:12px;color:#888">数据更新: {_html.escape(str(_er.get("ts","-")))} | 美东日: {_html.escape(str(_er.get("et_today","-")))}</div>
+</div>
+<div class="summary">
+  <div class="card"><div class="label">监控事件</div><div class="value blue">{_n_mon}</div></div>
+  <div class="card"><div class="label">已发布待入场</div><div class="value" style="color:#BA7517">{_n_pub}</div></div>
+  <div class="card"><div class="label">已成交</div><div class="value green">{_n_trd}</div></div>
+  <div class="card"><div class="label">已处理完</div><div class="value red">{_n_done}</div></div>
+</div>
+<div class="stock-section">
+  <div class="stock-header"><div class="stock-info"><span class="stock-sym">📊</span><span class="stock-name">财报预期 vs 实际</span><span class="macro-tag">{len(_evs)}</span></div></div>
+  <table class="cal-table">
+    <thead><tr><th>代码</th><th>公司</th><th>财报日</th><th>时段</th><th>预期EPS</th><th>实际EPS</th><th>预期差</th><th>结论</th><th>估值区间(DCF)</th><th>信号</th><th>状态</th><th>说明</th></tr></thead>
+    <tbody>{_rows}</tbody>
+  </table>
+</div>
+<div class="stock-section">
+  <div class="stock-header"><div class="stock-info"><span class="stock-sym">💰</span><span class="stock-name">财报事件成交记录</span><span class="macro-tag">{len(_trs)}</span></div></div>
+  {_tr_html}
+</div>
+<!-- 宏观经济 AI 分析: 经济数据 → 降息概率 → 利率 → 估值 -->
+<div class="stock-section" style="border-color:#6C5CE7;border-width:2px">
+  <div class="stock-header macro-header"><div class="stock-info"><span class="stock-sym">🏛️</span><span class="stock-name">宏观经济 AI 分析</span><span class="macro-tag">AI</span></div>
+  <div style="font-size:12px;color:#8b949e">{_html.escape(str((_er.get("macro") or {}).get("date","-")))} 更新</div></div>
+  <div style="padding:14px 20px">
+    {_macro_html}
+  </div>
+</div>'''
+        print(f"  Earnings events tab content loaded ({len(_evs)} events, {len(_trs)} trades)")
+except Exception as e:
+    earnings_html = f'<div class="no-data">财报事件数据加载失败: {e}</div>'
 
 # ===== Build Market Regime HTML =====
 regime_html = ""
@@ -1515,7 +1768,7 @@ html = f"""<!DOCTYPE html>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="refresh" content="300">
-<title>OKX 做T看板 + 新闻</title>
+<title>低频量化交易看板</title>
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{
@@ -1779,13 +2032,28 @@ a .title-cn:hover {{ color: #378ADD; }}
 .cal-table .date {{ color: #666; white-space: nowrap; }}
 .cal-table .sym {{ color: #999; font-size: 12px; }}
 .cal-table .note {{ color: #777; font-size: 13px; }}
+/* ===== 月历视图 ===== */
+.cal-nav {{ display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }}
+.cal-nav-btn {{ background: #f1f3f5; border: 1px solid #e5e5e5; border-radius: 6px; padding: 6px 14px; font-size: 13px; cursor: pointer; color: #555; }}
+.cal-nav-btn:hover {{ background: #e9ecef; border-color: #378ADD; color: #378ADD; }}
+.cal-title {{ font-size: 15px; font-weight: 600; color: #333; }}
+.cal-grid {{ display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; padding: 0 20px 16px; }}
+.cal-dow-row {{ border-bottom: 1px solid #f0f0f0; margin-bottom: 6px; }}
+.cal-dow {{ font-size: 11px; color: #888; text-align: center; padding: 6px 0; font-weight: 500; }}
+.cal-cell {{ min-height: 84px; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 4px 6px; overflow: hidden; }}
+.cal-cell.dim {{ background: #fafafa; opacity: 0.45; }}
+.cal-cell.today {{ border: 1px solid #378ADD; box-shadow: inset 0 0 0 1px #378ADD; }}
+.cal-day {{ font-size: 12px; font-weight: 600; color: #555; }}
+.cal-cell.today .cal-day {{ color: #378ADD; }}
+.cal-chip {{ display: block; font-size: 10px; padding: 1px 4px; border-radius: 3px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fff; cursor: default; }}
+.cal-chip.done {{ opacity: 0.5; }}
 </style>
 </head>
 <body>
 
 <div class="header">
   <div>
-    <h1>OKX USDT-SWAP 做T看板</h1>
+    <h1>低频量化交易看板</h1>
     <div class="time">更新时间: {now_str} (CST) | <span style="color:#888">双击update_all.bat刷新数据</span></div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -1795,12 +2063,14 @@ a .title-cn:hover {{ color: #378ADD; }}
 </div>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('dashboard')">看板</button>
+  <button class="tab-btn active" onclick="switchTab('dashboard')">美股做多看板</button>
+  <button class="tab-btn" onclick="switchTab('hk')">中概股做多看板</button>
+  <button class="tab-btn" onclick="switchTab('short')">美股做空看板</button>
   <button class="tab-btn" onclick="switchTab('regime')">美股行情判断</button>
   <button class="tab-btn" onclick="switchTab('news')">新闻分析</button>
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
+  <button class="tab-btn" onclick="switchTab('earnings')">财报事件</button>
   <button class="tab-btn" onclick="switchTab('positions')">持仓</button>
-  <button class="tab-btn" onclick="switchTab('short')">做空</button>
   <button class="tab-btn" onclick="switchTab('binance')">币安</button>
 </div>
 
@@ -1815,7 +2085,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   <table>
   <thead>
   <tr>
-    <th style="width:60px">股票</th><th style="width:60px">中文名</th><th style="width:70px">行业</th>
+    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
     <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
@@ -1826,11 +2096,40 @@ a .title-cn:hover {{ color: #378ADD; }}
   <tbody id="tbody"></tbody>
   </table>
   <div class="advice-box">
-    <h3>调仓建议 <span class="ai-tag">DeepSeek V4 Pro</span></h3>
+    <h3>调仓建议 <span class="ai-tag">DeepSeek V4 Flash</span></h3>
     <div class="advice-content">{advice_text}</div>
   </div>
   {wait_queue_html}
   {deposit_alert_html}
+</div>
+
+<div id="tab-short" class="tab-content">
+  <div class="short-rule-box">
+    <strong>做空总开关:</strong> 市场 regime 评分 <span id="short-regime-score"></span> (要求 &lt; {SHORT_REGIME_MAX})
+    → <span id="short-regime-status"></span><br>
+    开空需同时满足: <b>市场偏弱</b> + <b>负面新闻</b> + <b>高位 (pct ≥ 75%)</b>。<br>
+    阶梯 short1/2/3 = 75%/81%/87% 分位入场 (杠杆 3x/5x/7x, 仓位 17%/28%/40%); 回落至区间 55% 平 60%、45% 平剩余; 止损 = 入场价 + 5%。<br>
+    <span style="color:#888">注: 下方 Short1/2/3 价格为区间分位参考价; 策略实际挂单为 <b>现价×1.003</b> 限价(等反弹后成交), 与看板略有差异。</span>
+  </div>
+  <div class="summary" id="short-summary"></div>
+  <div class="legend">
+    <span><span class="dot" style="background:rgba(226,75,74,0.45)"></span> 做空区 (short1/2/3 入场)</span>
+    <span><span class="dot" style="background:rgba(151,196,89,0.30)"></span> 止盈区 (TP 55%/45%)</span>
+    <span><span style="display:inline-block;width:2px;height:10px;background:#444"></span> 当前价</span>
+  </div>
+  <table>
+  <thead>
+  <tr>
+    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
+    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px" title="pct≥75% 入场">Short1</th><th style="width:75px" title="pct≥81%">Short2</th><th style="width:75px" title="pct≥87%">Short3</th>
+    <th style="width:75px" title="回落至区间55%平60%">止盈1</th><th style="width:75px" title="回落至区间45%平剩余">止盈2</th>
+    <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:90px">状态</th>
+    <th style="width:100px">做空条件</th><th style="width:85px">空头持仓</th><th style="width:65px">杠杆</th>
+  </tr>
+  </thead>
+  <tbody id="short-tbody"></tbody>
+  </table>
 </div>
 
 <div id="tab-regime" class="tab-content">
@@ -1853,6 +2152,38 @@ a .title-cn:hover {{ color: #378ADD; }}
   {calendar_html}
 </div>
 
+<div id="tab-earnings" class="tab-content">
+  {earnings_html}
+</div>
+
+<div id="tab-hk" class="tab-content">
+  <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+    <div style="font-size:14px;font-weight:500">中概股做多看板</div>
+    <div style="font-size:12px;color:#888">更新: {now_str} | 非OKX合约, 价格/区间源: Yahoo Finance | 仅展示六步分析法结论与参考价</div>
+  </div>
+  <div class="summary" id="hk-summary"></div>
+  <div class="legend">
+    <span>评级来自六步分析法报告(2026-08-25); 指标计算与美股看板一致(10日区间+布林+分位); 未上市标的仅展示分析结论, 不参与交易</span>
+  </div>
+  <table>
+  <thead>
+  <tr>
+    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
+    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
+    <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
+    <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
+    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th><th style="width:70px" title="策略阶梯杠杆: Buy1/Buy2/Buy3">建议杠杆</th>
+  </tr>
+  </thead>
+  <tbody id="hk-tbody"></tbody>
+  </table>
+  <div class="stock-section" style="margin-top:16px">
+    <div class="stock-header"><div class="stock-info"><span class="stock-sym">🕐</span><span class="stock-name">未上市 / 无行情</span><span class="macro-tag">{len(_hk_extra_rows)}</span></div></div>
+    <div id="hk-extra"></div>
+  </div>
+</div>
+
 <div id="tab-positions" class="tab-content">
   <div class="pos-header-bar">
     <div style="font-size:14px;font-weight:500">持仓与账户</div>
@@ -1873,35 +2204,6 @@ a .title-cn:hover {{ color: #378ADD; }}
   </table>
 </div>
 
-<div id="tab-short" class="tab-content">
-  <div class="short-rule-box">
-    <strong>做空总开关:</strong> 市场 regime 评分 <span id="short-regime-score"></span> (要求 &lt; {SHORT_REGIME_MAX})
-    → <span id="short-regime-status"></span><br>
-    开空需同时满足: <b>市场偏弱</b> + <b>负面新闻</b> + <b>高位 (pct ≥ 75%)</b>。<br>
-    阶梯 short1/2/3 = 75%/81%/87% 分位入场 (杠杆 3x/5x/7x, 仓位 17%/28%/40%); 回落至区间 55% 平 60%、45% 平剩余; 止损 = 入场价 + 5%。<br>
-    <span style="color:#888">注: 下方 Short1/2/3 价格为区间分位参考价; 策略实际挂单为 <b>现价×1.003</b> 限价(等反弹后成交), 与看板略有差异。</span>
-  </div>
-  <div class="summary" id="short-summary"></div>
-  <div class="legend">
-    <span><span class="dot" style="background:rgba(226,75,74,0.45)"></span> 做空区 (short1/2/3 入场)</span>
-    <span><span class="dot" style="background:rgba(151,196,89,0.30)"></span> 止盈区 (TP 55%/45%)</span>
-    <span><span style="display:inline-block;width:2px;height:10px;background:#444"></span> 当前价</span>
-  </div>
-  <table>
-  <thead>
-  <tr>
-    <th style="width:60px">股票</th><th style="width:60px">中文名</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
-    <th style="width:75px" title="pct≥75% 入场">Short1</th><th style="width:75px" title="pct≥81%">Short2</th><th style="width:75px" title="pct≥87%">Short3</th>
-    <th style="width:75px" title="回落至区间55%平60%">止盈1</th><th style="width:75px" title="回落至区间45%平剩余">止盈2</th>
-    <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:90px">状态</th>
-    <th style="width:100px">做空条件</th><th style="width:85px">空头持仓</th><th style="width:65px">杠杆</th>
-  </tr>
-  </thead>
-  <tbody id="short-tbody"></tbody>
-  </table>
-</div>
-
 <div id="tab-binance" class="tab-content">
   {binance_tab_html}
 </div>
@@ -1918,7 +2220,13 @@ function switchTab(name) {{
   event.target.classList.add('active');
 }}
 
-const data = {data_json};
+const allData = {data_json};
+// 主看板/做空看板: 指数+美股 (排除港股); 中概股做多看板单独渲染
+const data = allData.filter(d => !d.is_hk);
+const hkData = allData.filter(d => d.is_hk);
+
+// 价格格式化: 大数(韩元/日元等)不显示小数
+const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
 
 // Summary cards
 const eligible = data.filter(d => d.eligible);
@@ -1926,7 +2234,7 @@ const buyZone = data.filter(d => d.zone && d.zone.startsWith('BUY'));
 const sellZone = data.filter(d => d.zone && d.zone.startsWith('SELL'));
 document.getElementById('summary').innerHTML = `
   <div class="card"><div class="label">监控股票</div><div class="value blue">${{data.length}}</div></div>
-  <div class="card"><div class="label">Eligible (可交易)</div><div class="value green">${{eligible.length}}</div></div>
+  <div class="card"><div class="label">可交易股票</div><div class="value green">${{eligible.length}}</div></div>
   <div class="card"><div class="label">买入区</div><div class="value green">${{buyZone.length}}</div></div>
   <div class="card"><div class="label">卖出区</div><div class="value red">${{sellZone.length}}</div></div>
 `;
@@ -1966,14 +2274,14 @@ for (const d of data) {{
     <td class="sym">${{d.sym}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">$${{d.px.toFixed(2)}}</td>
-    <td class="num" style="font-size:12px;color:#888">$${{d.alow}} - $${{d.ahigh}}</td>
+    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#3B6D11">$${{d.p_buy1.toFixed(2)}}${{newsTag}}</td>
-    <td class="num" style="color:#639922">$${{d.p_buy2.toFixed(2)}}${{newsTag}}</td>
-    <td class="num" style="color:#97C459">$${{d.p_buy3.toFixed(2)}}${{newsTag}}</td>
-    <td class="num" style="color:#BA7517">$${{d.p_sell1.toFixed(2)}}${{newsTag}}</td>
-    <td class="num" style="color:#A32D2D">$${{d.p_sell2.toFixed(2)}}${{newsTag}}</td>
+    <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}${{newsTag}}</td>
+    <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}${{newsTag}}</td>
+    <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}${{newsTag}}</td>
+    <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}${{newsTag}}</td>
+    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pxf(d.p_sell2)}}${{newsTag}}</td>
     <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
     <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
@@ -1989,11 +2297,93 @@ for (const d of data) {{
       </div>
     </td>
     <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
-    <td class="num">${{d.ratio}}</td>
+    <td class="num" title="{{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="{{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">{{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
     <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
     </tr>`;
+}}
+
+// ===== 中概股做多看板 (与美股看板相同指标列) =====
+const hkTbody = document.getElementById('hk-tbody');
+// 中概股四栏统计: 监控股票 / 可交易股票 / 买入区 / 卖出区
+const hkEligible = hkData.filter(d => d.eligible);
+const hkBuyZone = hkData.filter(d => d.zone && d.zone.startsWith('BUY'));
+const hkSellZone = hkData.filter(d => d.zone && d.zone.startsWith('SELL'));
+document.getElementById('hk-summary').innerHTML = `
+  <div class="card"><div class="label">监控股票</div><div class="value blue">${{hkData.length}}</div></div>
+  <div class="card"><div class="label">可交易股票</div><div class="value green">${{hkEligible.length}}</div></div>
+  <div class="card"><div class="label">买入区</div><div class="value green">${{hkBuyZone.length}}</div></div>
+  <div class="card"><div class="label">卖出区</div><div class="value red">${{hkSellZone.length}}</div></div>
+`;
+for (const d of hkData) {{
+  if (d.error) {{
+    hkTbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="20" style="color:#aaa">${{d.error}}</td></tr>`;
+    continue;
+  }}
+  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
+  const buy1W = d.buy1_pct * 100;
+  const buy2W = d.buy2_pct * 100;
+  const buy3W = d.buy3_pct * 100;
+  const sell1W = d.sell1_pct * 100;
+  const sell2W = d.sell2_pct * 100;
+  const eligClass = d.eligible ? 'eligible' : 'ineligible';
+  const eligText = d.eligible ? 'Y' : 'N';
+  const bollColor = d.boll_pct === null ? '#aaa' : d.boll_pct < 0 ? '#3B6D11' : d.boll_pct > 1 ? '#A32D2D' : d.boll_pct > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
+  const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
+  const _lv = (d.vol || 0) > 0.10 ? '3/5/7x' : (d.vol || 0) > 0.075 ? '4/6/9x' : '4/7/10x';
+  const leverText = (d.eligible || d.has_pos) ? _lv : '-';
+  const leverClass = (d.eligible || d.has_pos) ? 'lever-10' : '';
+  const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
+  hkTbody.innerHTML += `
+  <tr>
+    <td class="sym">${{d.sym}}${{ratingTag}}</td>
+    <td class="name">${{d.name}}</td>
+    <td class="name">${{d.industry}}</td>
+    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
+    <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
+    <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}</td>
+    <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}</td>
+    <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}</td>
+    <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}</td>
+    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pxf(d.p_sell2)}}</td>
+    <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
+    <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
+    <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
+    <td class="bar-cell">
+      <div class="bar-wrap">
+        <div class="bar-buy1" style="left:0;width:${{buy1W}}%"></div>
+        <div class="bar-buy2" style="left:0;width:${{buy2W}}%"></div>
+        <div class="bar-buy3" style="left:0;width:${{buy3W}}%"></div>
+        <div class="bar-sell1" style="left:${{sell1W}}%;width:${{sell2W - sell1W}}%"></div>
+        <div class="bar-sell2" style="left:${{sell2W}}%;width:${{100 - sell2W}}%"></div>
+        <div class="bar-pct" style="left:${{pctW}}%"></div>
+        <div class="bar-pct-label" style="left:${{pctW}}%">${{d.zone}}</div>
+      </div>
+    </td>
+    <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
+    <td class="num" title="{{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="{{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">{{d.ratio>=999 ? '∞' : d.ratio}}</td>
+    <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
+    <td class="${{eligClass}}">${{eligText}}</td>
+    <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
+  </tr>`;
+}}
+// 未上市/无行情标的 (MOONSHOT 等)
+const hkExtra = {hk_extra_json};
+const hkExtraEl = document.getElementById('hk-extra');
+if (hkExtra.length > 0) {{
+  let exHtml = '';
+  for (const h of hkExtra) {{
+    exHtml += `<div style="padding:10px 20px;font-size:13px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+      <span style="font-weight:600;white-space:nowrap">${{h.name}}</span>
+      <span style="font-size:11px;color:#8b949e;white-space:nowrap">${{h.market}} | 评级: ${{h.rating}}</span>
+      <span style="color:#777;line-height:1.6;white-space:normal;flex:1;min-width:300px">${{h.note}}</span>
+    </div>`;
+  }}
+  hkExtraEl.innerHTML = exHtml;
 }}
 
 // Positions tab
@@ -2135,7 +2525,7 @@ for (const d of data) {{
   // 指数行(QQQ/SPY)无做空字段 → 只显示基础行情
   const hasShort = d.short1_px !== undefined && d.short1_px !== null;
   const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
-  const fmt = v => (v !== undefined && v !== null) ? '$' + v.toFixed(2) : '-';
+  const fmt = (v, ccy) => (v !== undefined && v !== null) ? ccy + (v >= 1000 ? v.toFixed(0) : v.toFixed(2)) : '-';
   const zone = d.short_zone || '-';
   const zcls = d.short_zone_class || 'szone-low';
   // 做空条件: 市场 + 新闻
@@ -2160,14 +2550,14 @@ for (const d of data) {{
     <td class="sym">${{d.sym}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">$${{d.px.toFixed(2)}}</td>
-    <td class="num" style="font-size:12px;color:#888">$${{d.alow}} - $${{d.ahigh}}</td>
+    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#E67E22">${{fmt(d.short1_px)}}</td>
-    <td class="num" style="color:#C0392B">${{fmt(d.short2_px)}}</td>
-    <td class="num" style="color:#A32D2D;font-weight:600">${{fmt(d.short3_px)}}</td>
-    <td class="num" style="color:#3B6D11">${{fmt(d.short_tp1)}}</td>
-    <td class="num" style="color:#639922">${{fmt(d.short_tp2)}}</td>
+    <td class="num" style="color:#E67E22">${{fmt(d.short1_px, d.ccy)}}</td>
+    <td class="num" style="color:#C0392B">${{fmt(d.short2_px, d.ccy)}}</td>
+    <td class="num" style="color:#A32D2D;font-weight:600">${{fmt(d.short3_px, d.ccy)}}</td>
+    <td class="num" style="color:#3B6D11">${{fmt(d.short_tp1, d.ccy)}}</td>
+    <td class="num" style="color:#639922">${{fmt(d.short_tp2, d.ccy)}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
     <td class="bar-cell">
       <div class="bar-wrap">
@@ -2186,6 +2576,45 @@ for (const d of data) {{
   </tr>`;
 }}
 
+// ===== 日历月历视图 (一行一周, 事件放入对应日期格子) =====
+const calEvents = {cal_events_json};
+const calByDate = {{}};
+for (const ev of calEvents) {{
+  if (!ev.date || ev.date.indexOf('??') >= 0) continue;
+  if (!calByDate[ev.date]) calByDate[ev.date] = [];
+  calByDate[ev.date].push(ev);
+}}
+const calTypeColor = (s) => s === 'FED' ? '#6C5CE7' : s === 'ECON' ? '#00838F' : '#3B5BDB';
+const calTypeIcon = (s) => s === 'FED' ? '🏦' : s === 'ECON' ? '📊' : '📅';
+const calNow = new Date();
+let calY = calNow.getFullYear(), calM = calNow.getMonth();
+const calTodayStr = calY + '-' + String(calM + 1).padStart(2, '0') + '-' + String(calNow.getDate()).padStart(2, '0');
+function renderCal() {{
+  const first = new Date(calY, calM, 1);
+  const startDow = (first.getDay() + 6) % 7;
+  const daysInMonth = new Date(calY, calM + 1, 0).getDate();
+  let html = '';
+  for (let i = 0; i < startDow; i++) html += '<div class="cal-cell dim"></div>';
+  for (let day = 1; day <= daysInMonth; day++) {{
+    const ds = calY + '-' + String(calM + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+    const evs = calByDate[ds] || [];
+    let chips = '';
+    for (const ev of evs) {{
+      const tip = ((ev.period || '') + ' | ' + (ev.name || '') + (ev.note ? ' | ' + ev.note : '')).replace(/"/g, '&quot;');
+      chips += `<span class="cal-chip ${{ev.status}}" style="background:${{calTypeColor(ev.symbol)}}" title="${{tip}}">${{calTypeIcon(ev.symbol)}} ${{ev.name}}</span>`;
+    }}
+    html += `<div class="cal-cell${{ds === calTodayStr ? ' today' : ''}}"><div class="cal-day">${{day}}</div>${{chips}}</div>`;
+  }}
+  const total = startDow + daysInMonth;
+  const rem = total % 7;
+  if (rem > 0) for (let i = rem; i < 7; i++) html += '<div class="cal-cell dim"></div>';
+  document.getElementById('cal-grid').innerHTML = html;
+  document.getElementById('cal-title').textContent = calY + '年' + (calM + 1) + '月';
+}}
+renderCal();
+document.getElementById('cal-prev').addEventListener('click', () => {{ calM--; if (calM < 0) {{ calM = 11; calY--; }} renderCal(); }});
+document.getElementById('cal-next').addEventListener('click', () => {{ calM++; if (calM > 11) {{ calM = 0; calY++; }} renderCal(); }});
+
 </script>
 </body>
 </html>
@@ -2195,6 +2624,35 @@ if CLOUD_MODE:
     OUTPUT_F.parent.mkdir(parents=True, exist_ok=True)
 with open(OUTPUT_F, "w", encoding="utf-8") as fp:
     fp.write(html)
+
+# 本地模式: 自动调用 transform.py 应用深色主题(与线上 GitHub Pages 一致)。
+# 保证无论谁运行 dashboard.py(手动/计划任务), 本地 dashboard.html 始终是深色, 不被浅色覆盖。
+if not CLOUD_MODE:
+    try:
+        import subprocess as _sp
+        _tf = Path(r"C:\Users\15949\WorkBuddy\2026-08-04-21-02-03\transform.py")
+        if _tf.exists():
+            _r = _sp.run([sys.executable, str(_tf), str(OUTPUT_F), str(OUTPUT_F)],
+                         capture_output=True, text=True, timeout=120)
+            if _r.returncode == 0:
+                print("  [theme] 已应用深色主题(与线上一致)")
+            else:
+                print(f"  [WARN] 深色主题应用失败: {_r.stderr[-300:]}")
+            # 同步本地 web/ 镜像(直接打开 web\dashboard.html 时同样为最新内容+深色, 与线上一致)
+            _mirror = SCRIPT_DIR / "web" / "dashboard.html"
+            if _r.returncode == 0:
+                try:
+                    import shutil as _sh
+                    _mirror.parent.mkdir(parents=True, exist_ok=True)
+                    _sh.copyfile(OUTPUT_F, _mirror)   # 先用最新本地版覆盖镜像, 再应用深色
+                    _sp.run([sys.executable, str(_tf), str(_mirror), str(_mirror)],
+                            capture_output=True, text=True, timeout=120)
+                except Exception as _me:
+                    print(f"  [WARN] web 镜像同步失败: {_me}")
+        else:
+            print(f"  [WARN] transform.py 不存在: {_tf}")
+    except Exception as _e:
+        print(f"  [WARN] 深色主题应用异常: {_e}")
 
 print(f"Dashboard generated: {OUTPUT_F}")
 print(f"  Stocks: {len(results)}")

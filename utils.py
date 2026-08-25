@@ -4,9 +4,29 @@
 import os
 from pathlib import Path
 
-PROXY = os.getenv("HTTPS_PROXY") or os.getenv("HTTP_PROXY") or "http://127.0.0.1:7890"
-# 代理端口7890（Clash Verge mixed-port），如梯子更换端口需同步修改
-# NO_PROXY=1 时强制无代理直连(香港/海外服务器部署用, 直连 OKX/币安/Yahoo)
+def _detect_proxy():
+    """自动探测本机可用代理端口: 环境变量优先, 否则从常用端口选第一个可用.
+    覆盖 Clash Verge(7890/7897)、飞鸟 FlyingBird(7892)、v2ray(10809) 等.
+    NO_PROXY=1 时强制无代理直连(香港/海外服务器部署用, 直连 OKX/币安/Yahoo)."""
+    env = os.getenv("HTTPS_PROXY") or os.getenv("HTTP_PROXY")
+    if env:
+        return env
+    if os.getenv("NO_PROXY"):
+        return ""
+    import socket
+    for port in (7892, 7890, 7897, 10809, 10808):
+        try:
+            s = socket.create_connection(("127.0.0.1", port), timeout=0.3)
+            s.close()
+            return f"http://127.0.0.1:{port}"
+        except OSError:
+            continue
+    # 所有代理端口都不可用: 返回空串走直连(避免代理软件未启动时全部请求失败)
+    return ""
+
+
+PROXY = _detect_proxy()
+# 注释: 原硬编码 7890(Clash Verge mixed-port), 现自动探测, 更换梯子/端口无需改代码
 
 # 工作区根目录(股票池 watchlist_us、日历等): 本机用 Windows 路径, 服务器(Linux)默认 /opt/trader,
 # 均可通过 WORKSPACE_ROOT 环境变量覆盖
@@ -19,7 +39,8 @@ SCRIPT_DIR = Path(__file__).parent
 
 # --- 智能分流：国内直连，国外走代理 ---
 _CN_DOMAINS = {"gtimg.cn", "qq.com", "baidu.com", "sina.com.cn",
-               "eastmoney.com", "10jqka.com.cn", "cls.cn", "tushare.pro"}
+               "eastmoney.com", "10jqka.com.cn", "cls.cn", "tushare.pro",
+               "aliyuncs.com"}  # 阿里云百炼/千问 DashScope: 国内直连
 
 def _is_china_url(url: str) -> bool:
     """判断URL是否属于国内域名（无需代理）。"""
