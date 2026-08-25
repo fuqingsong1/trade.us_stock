@@ -264,16 +264,16 @@
           "source": "rule"
         },
         {
-          "title": "Why Broadcom Stock Crashed Today - Yahoo Finance",
-          "title_cn": "Why Broadcom Stock Crashed Today - Yahoo Finance",
+          "title": "Broadcom Has Seen Its Biggest Customer Drop a Key Chip Before. History Says What the Stock Did Next. - Yahoo Finance",
+          "title_cn": "Broadcom Has Seen Its Biggest Customer Drop a Key Chip Before. History Says What the Stock Did Next. - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-08-19",
+          "pubDate": "2026-08-24",
           "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1BhN2plcEJ5MENBNUlJZk9Md1NyVzJSa0FHdHFETjdoelE2VFdBZ0EzVTlvNVNMZ3E5QnczTjNmSTVZQTZkeTRWOEhXb0dmR3k0Z3BiYmhURWpKblBLXzQwS1RLekU0QUtIMnZiT3dDa2t5S2hYb1hLVktRS09yYlJkbE1oNGlTRHAyeG5tSHduWkQyUmJwX3MyOUlIZw?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQ01QZmlPejMwbzhjbVpaaEpNdnJoX2NkN0tnTzhqTWNnS3dsMVR6Q2k0ZzAwMFBsRTg2TkxwNXR0aGNZM3ZxWXJWRVhZaEtMUlFRa2pZbDhLbDRKU3I1NE93X3pPZU13NzJZRnU0U3VkandWd1ZJZlByMmJmYVZ3aWtXR2U3TDV1cjYtdVA2cXVLWk51Q1ZfRnkxek1tX3FxTlE?oc=5",
           "direction": "negative",
-          "impact_pct": -0.8,
+          "impact_pct": -1.1,
           "reason": "",
-          "type": "个股",
+          "type": "行业",
           "source": "rule"
         },
         {
@@ -532,14 +532,14 @@
           "source": "rule"
         },
         {
-          "title": "PDD Holdings' Profit Falls 12% in Q2 - marketscreener.com",
-          "title_cn": "PDD Holdings' Profit Falls 12% in Q2 - marketscreener.com",
+          "title": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
+          "title_cn": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
           "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "marketscreener.com",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTHItTHlIUEo1S1Vuc1dfR0xwS3hJM0ZCUjlFdC0wdm1XdGtEZkdxMDluZVFTUG5fNVBpbWJBMF9QY0g0THkzb0hPVDlxcjNmVE1jV0NyLVJLWnpjR0hpYnpkUE9mTXpQeWNsYXd3cWZvb0VINHVRVHhOMUI3bHNGWk1NekxpQ3YzRmxuU0NLLWM?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.8,
+          "pubDate": "2026-08-23",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONDB2Njd4cXZHcEZNSGlPcGdWcUl4RFc0VDY2NWJVcWY4amh2WEoxOV9Ca09GekZ4RWptVXFJQkVLN3UxR3RCUm4wajY1RUl6RnZ2eUNhaVFOMS04QnM4YnRhWUxiVFRsUHJfbEc2MHVidVR6MUJyc3djenBOYnNteF9GcE1aamNfcWFlQTRULVpObG1FQjZQRTlfcXNzM05VVmhJ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -631,7 +631,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-25 14:10:27",
+  "generated_at": "2026-08-25 14:27:58",
   "macro_summary": "",
-  "cached_at": "2026-08-25T14:12:28.305509"
+  "cached_at": "2026-08-25T14:29:55.774027"
 }
