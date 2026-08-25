@@ -123,14 +123,14 @@
           "source": "rule"
         },
         {
-          "title": "Raymond James upgrades AMD stock rating on AI server growth outlook - Investing.com",
-          "title_cn": "Raymond James upgrades AMD stock rating on AI server growth outlook - Investing.com",
+          "title": "AMD Stock Gains After Upgrade: Analyst Sees ‘Strongest Combination’ Of Earnings Leverage, Data Center Gains - Stocktwits",
+          "title_cn": "AMD Stock Gains After Upgrade: Analyst Sees ‘Strongest Combination’ Of Earnings Leverage, Data Center Gains - Stocktwits",
           "summary": "",
           "pubDate": "2026-08-25",
-          "provider": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNZW5Hc1doTnFtRlNBcXRfUE9CNDQ0bnNudnAtR1dhTDByU3NjcHpWeXFlbXFCR1RORURkMDdXYnExaWNhdHo0OEJXUHBzck5SaDFiWnVienZkQUNSWXpFbFEtc0tadjlpcVdLcWoyM1l3M2tIcjNMQzFOMHBmcW1oYlgzZm9xZEdTWUZ3a1Mtd0YxSkNzNHVfSmlMY0w3ZkxZVVBYYnNKVDdldnJBeEphaXh4NWJxUnlzbUZIRzktQzBnMGZKZlE?oc=5",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxONGh2UmRLSjdha2lNN2tkcHBtTG9DcUFGSFhvbGdXUVN6Zjd5WTdjc25tT0t3dkx3SUlFLThXR0QyM25GTWFMMWFoa09Sd1FTbUlYUlB6VUEtVzJKdlRfNXVpTTBvdk9YSkxmOEpaYldIaUQ1YlliTk5SMm9MdzBjV1VYSXZkUmtZQjVSRXplZEc4d0ljQ28yWC1hNUlIXzk1cGhDRm15c1NBVklnanZZWlZqblJUZ2FoXzB0aElxYzRybVEtNF9jUUp6dUd0a2NPTS0yZG93?oc=5",
           "direction": "positive",
-          "impact_pct": 1.6,
+          "impact_pct": 1.8,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -264,16 +264,16 @@
           "source": "rule"
         },
         {
-          "title": "Broadcom Has Seen Its Biggest Customer Drop a Key Chip Before. History Says What the Stock Did Next. - Yahoo Finance",
-          "title_cn": "Broadcom Has Seen Its Biggest Customer Drop a Key Chip Before. History Says What the Stock Did Next. - Yahoo Finance",
+          "title": "Why Broadcom Stock Crashed Today - Yahoo Finance",
+          "title_cn": "Why Broadcom Stock Crashed Today - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-08-24",
+          "pubDate": "2026-08-19",
           "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQQ01QZmlPejMwbzhjbVpaaEpNdnJoX2NkN0tnTzhqTWNnS3dsMVR6Q2k0ZzAwMFBsRTg2TkxwNXR0aGNZM3ZxWXJWRVhZaEtMUlFRa2pZbDhLbDRKU3I1NE93X3pPZU13NzJZRnU0U3VkandWd1ZJZlByMmJmYVZ3aWtXR2U3TDV1cjYtdVA2cXVLWk51Q1ZfRnkxek1tX3FxTlE?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNb1BhN2plcEJ5MENBNUlJZk9Md1NyVzJSa0FHdHFETjdoelE2VFdBZ0EzVTlvNVNMZ3E5QnczTjNmSTVZQTZkeTRWOEhXb0dmR3k0Z3BiYmhURWpKblBLXzQwS1RLekU0QUtIMnZiT3dDa2t5S2hYb1hLVktRS09yYlJkbE1oNGlTRHAyeG5tSHduWkQyUmJwX3MyOUlIZw?oc=5",
           "direction": "negative",
-          "impact_pct": -1.1,
+          "impact_pct": -0.8,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         },
         {
@@ -455,6 +455,19 @@
           "source": "rule"
         },
         {
+          "title": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
+          "title_cn": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
+          "summary": "",
+          "pubDate": "2026-08-20",
+          "provider": "Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYlM3alo4dTBPQ2R0Y3ZaRFkwcHQ4NVRmTkdyNmNGemhLeld0X2lkVnl5YlVOX09xUHh2ampiX0c4cUhrZHRaZEpnVEdVUGkzeWRsZ21PZV9pc0dnQkFuanR3SGZuNkhHcTVBVkpWRC11MmJGZERiWWQ0TlNfOFNRQlpqM3hleVBGVDN5M2tVajI0eFdINTFTQ3BMZFNPNEtOanA0eHBxS0dVcHJQU1RxWGZhS3J6Y2c?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
           "title_cn": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
           "summary": "",
@@ -470,7 +483,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -618,7 +631,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-25 14:03:32",
+  "generated_at": "2026-08-25 14:10:27",
   "macro_summary": "",
-  "cached_at": "2026-08-25T14:05:43.883452"
+  "cached_at": "2026-08-25T14:12:28.305509"
 }
