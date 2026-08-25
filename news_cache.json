@@ -466,19 +466,6 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
-          "title_cn": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
-          "summary": "",
-          "pubDate": "2026-08-21",
-          "provider": "富途牛牛",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdFpDM1JNaHpYX2tQYnF0WXZGZVB1Vzh1ODNUOENBRWxLU0QzUEY1OFpVX2w4ZW82WHoyaDhMelhycnpuYk05a1JqWXgtT1ZuRVpXbEpPMWxNYnlUbmRLYmx2V0FWb0lFS2ViLXNDWk4zTTJyalBNZkpKdlNhVlVZOEJIbWlwRkN1NDZTVW9BaFRLMDRrekpqTHVpdkp3Zw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -532,12 +519,12 @@
           "source": "rule"
         },
         {
-          "title": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
-          "title_cn": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
+          "title": "PDD’s Q2 Earnings Show Revenue Up 8% But Profit Fell 12% Anyway. Here’s What It Means for the Stock. - TIKR.com",
+          "title_cn": "PDD’s Q2 Earnings Show Revenue Up 8% But Profit Fell 12% Anyway. Here’s What It Means for the Stock. - TIKR.com",
           "summary": "",
-          "pubDate": "2026-08-23",
-          "provider": "Quiver Quantitative",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONDB2Njd4cXZHcEZNSGlPcGdWcUl4RFc0VDY2NWJVcWY4amh2WEoxOV9Ca09GekZ4RWptVXFJQkVLN3UxR3RCUm4wajY1RUl6RnZ2eUNhaVFOMS04QnM4YnRhWUxiVFRsUHJfbEc2MHVidVR6MUJyc3djenBOYnNteF9GcE1aamNfcWFlQTRULVpObG1FQjZQRTlfcXNzM05VVmhJ?oc=5",
+          "pubDate": "2026-08-25",
+          "provider": "TIKR.com",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZFlHRlc2MEZFTUJDUnUtQ3BWay0yUmM2eGQ2Q0U1Mk80aG90RUFSc2QwY3EzMUZjNE83ZGN3cHhKV1haTFZlTUZaTzhzU2ZVQ0dPZjAtMnNseG9JZ1J3ZXhKOWlSWHRBMDI2V1pMT0pCeXV5dXRmMXZ2UklGcWI3ZWhFaEJDOWg1NWs5cWVWRE5XNzRId3hOWlRUWlJUeE5RVGU0MG0wcldYSXYtS1R3Y0NrOGhLUUNDcXZSbw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -545,12 +532,12 @@
           "source": "rule"
         },
         {
-          "title": "PDD’s Q2 Earnings Show Revenue Up 8% But Profit Fell 12% Anyway. Here’s What It Means for the Stock. - TIKR.com",
-          "title_cn": "PDD’s Q2 Earnings Show Revenue Up 8% But Profit Fell 12% Anyway. Here’s What It Means for the Stock. - TIKR.com",
+          "title": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
+          "title_cn": "PDD Holdings Stock (PDD) Opinions on Upcoming Quarterly Earnings - Quiver Quantitative",
           "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "TIKR.com",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZFlHRlc2MEZFTUJDUnUtQ3BWay0yUmM2eGQ2Q0U1Mk80aG90RUFSc2QwY3EzMUZjNE83ZGN3cHhKV1haTFZlTUZaTzhzU2ZVQ0dPZjAtMnNseG9JZ1J3ZXhKOWlSWHRBMDI2V1pMT0pCeXV5dXRmMXZ2UklGcWI3ZWhFaEJDOWg1NWs5cWVWRE5XNzRId3hOWlRUWlJUeE5RVGU0MG0wcldYSXYtS1R3Y0NrOGhLUUNDcXZSbw?oc=5",
+          "pubDate": "2026-08-23",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxONDB2Njd4cXZHcEZNSGlPcGdWcUl4RFc0VDY2NWJVcWY4amh2WEoxOV9Ca09GekZ4RWptVXFJQkVLN3UxR3RCUm4wajY1RUl6RnZ2eUNhaVFOMS04QnM4YnRhWUxiVFRsUHJfbEc2MHVidVR6MUJyc3djenBOYnNteF9GcE1aamNfcWFlQTRULVpObG1FQjZQRTlfcXNzM05VVmhJ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -631,7 +618,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-25 14:27:58",
+  "generated_at": "2026-08-25 14:31:23",
   "macro_summary": "",
-  "cached_at": "2026-08-25T14:29:55.774027"
+  "cached_at": "2026-08-25T14:33:20.674334"
 }
