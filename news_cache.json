@@ -367,16 +367,16 @@
           "source": "rule"
         },
         {
-          "title": "CRWV Stock Rebounds After 5-Day Slump – CoreWeave Teams With Rescale To Expand AI Cloud Reach - Stocktwits",
-          "title_cn": "CRWV Stock Rebounds After 5-Day Slump – CoreWeave Teams With Rescale To Expand AI Cloud Reach - Stocktwits",
+          "title": "Wedbush Fund Advisers LLC Buys New Position in CoreWeave Inc. $CRWV - MarketBeat",
+          "title_cn": "Wedbush Fund Advisers LLC Buys New Position in CoreWeave Inc. $CRWV - MarketBeat",
           "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNRUhBcDVackE5Q2pNbERpbE14ZGp3ZWFUSEZuMmRGVEZyMkVvM2JqV3pVTlZhbXRyYUpPSFVTa2hkUXRjT2ZhaEhXYjJtODB0SFBvTk9aWldVUW9iSTdTUHJHRFNWSFhGNFkyOUNEc2FUZWREdVU4LXJ6UG9BZFJqQmcwVEZQMWR5VXpvR0ZtNWczN0NKRHNSVXpFWXI1Y1JIcU1qMENhZmptRDBvdEtJQm5GYkplX0hiRTZRNFJpdGV6VUE0VktOQlp3?oc=5",
+          "pubDate": "2026-08-26",
+          "provider": "MarketBeat",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOQjcxdXI2aldYcVRYM2poWkV2RUlTbVFSUVFCaVRocEdHMHJwZ1N3MWZwN1VWbEpvSGZMTGhSMk10WUk2NF9qTWJYN0s4TjEtb2NVOVpNcWxVOTRmdllSckl5TlNQZUc5MzFFNFlPSTY2Q3dlaEVUREJlQXFUWm93dXA4M3V4eEI2T3JEeXlrSFdVNEx1QTJXZGo0WTZkd1BYd0JKUWJvd1BkWDVvRnotOUl4cE1KbjZ0cUJUOHoyQ3hjRUly?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -520,6 +520,19 @@
           "source": "rule"
         },
         {
+          "title": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
+          "title_cn": "Pop Mart (09992) announced its interim results, reporting profit attributable to shareholders of RMB 5.038 billion, a 10.1% year-on-year increase, while revenue from plush products continued its strong growth momentum. - Moomoo",
+          "summary": "",
+          "pubDate": "2026-08-20",
+          "provider": "Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYlM3alo4dTBPQ2R0Y3ZaRFkwcHQ4NVRmTkdyNmNGemhLeld0X2lkVnl5YlVOX09xUHh2ampiX0c4cUhrZHRaZEpnVEdVUGkzeWRsZ21PZV9pc0dnQkFuanR3SGZuNkhHcTVBVkpWRC11MmJGZERiWWQ0TlNfOFNRQlpqM3hleVBGVDN5M2tVajI0eFdINTFTQ3BMZFNPNEtOanA0eHBxS0dVcHJQU1RxWGZhS3J6Y2c?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
           "title_cn": "[Major Banks] Morgan Stanley cuts Pop Mart (09992.HK) target price to HK$203; H1 sales miss expectations while core operating margin beats forecasts - 富途牛牛",
           "summary": "",
@@ -535,7 +548,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -544,6 +557,19 @@
       "has_position": false,
       "is_eligible": true,
       "news": [
+        {
+          "title": "PDD Holdings Shares Rise After Second-Quarter Earnings Beat - Yahoo Finance",
+          "title_cn": "PDD Holdings Shares Rise After Second-Quarter Earnings Beat - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNWJYNzN4S3RrdHdnRGd0NWpQbjNfdDQ2UUltTHViMXNNbjZoR2VsT1QxNi1YM3MzLWxSaWVteTRYRktTbDh1UWhfcFNYdVl3WE8xcU1VQ0FkUC1DTXhCdV9Oa1NQUWhHQWtGM01oN1YxZ1U0UmgydHg5RkRSbm5jWGxvVS1PYWdNMFkzLWFXOUdkdTJ1OHJtZDU5cFI?oc=5",
+          "direction": "positive",
+          "impact_pct": 3.1,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
         {
           "title": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
           "title_cn": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
@@ -571,19 +597,6 @@
           "source": "rule"
         },
         {
-          "title": "Why PDD Holdings Stock Slumped Today - Yahoo Finance",
-          "title_cn": "Why PDD Holdings Stock Slumped Today - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-24",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPYnhpNnVyYWw4RUdQQmhid0lxNmxOa19RZmRNSFVxS1htYnpZclBsSTluNE1aSEd0clFVUVJBTTNqRzd1SHMxaHRhZkxOdHBZc21FYW5GV2R3ZUoxckw3T2E2elBSTmxFdVhUYzB2WGZSZE9WVVdyWGdlWEZWNjU4c2x3?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Why PDD Holdings Stock Slumped Today - The Motley Fool",
           "title_cn": "Why PDD Holdings Stock Slumped Today - The Motley Fool",
           "summary": "",
@@ -597,14 +610,14 @@
           "source": "rule"
         },
         {
-          "title": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
-          "title_cn": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
+          "title": "Why PDD Holdings Stock Slumped Today - AOL.com",
+          "title_cn": "Why PDD Holdings Stock Slumped Today - AOL.com",
           "summary": "",
           "pubDate": "2026-08-25",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWlZRTnhMZmVpM1JCVTgwcmVwamhreTltd0dGbE9NREJ4c0laalZfT2U5ZVk2ZTJPUnNjUlBSUWI3UHpaLWh3MXpHd1A3YzE4TGtjX3ZnMUFETXZUOVpLSVZ0QzRmTW1fRnBpMWxCWmZUV0JjV3dnaVpzWjlzczhqNUg0a0FFYXdIWDJhTlhuakF0Q0c0Und2TEhBakxmdzgyb0JDeUxvY2tkMHhmZEZoY1NxeHpINVljV2NOVG40amlpRnJrTks00gHMAUFVX3lxTE1VZHV6LXpUZlk0XzRTbkhNUmljNklUdWFTaHA4a3gxRXhwbXBoUGF3Tjc1WjNNY2V3cS1nV0RhUzRBV3FidU8yREs3Nk9MWm1ZX0lzMGtJTHZtODhURXJ5VWgtUmE5Z1JhZ185UEhETi1vdlB5a0tnbjVXaXgxbS1jcWhCOGJ4a1BoQUljYWFMSTNNOEVDdW5wdWNSSFRNUkNJSERkSFF4VXNobkxGOGZNZzVmNEZNbVNhQjVHSW1TenpTX1VTUElVeU1tUQ?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.6,
+          "provider": "AOL.com",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBjRUNaOTJmZlRzcExOSjJDS0VpLWxPb2lqTGVrR25fbnRzYUM5THRzTzhHalRjeV9jc2lzbVduemJ0eHpvMVc4c18xZFJwaTNTUnoyanpZdlJIY2dTZkNRbXhFaTNESUVBaHRwcGFtU1IyWmE1QlYxZzhnQnJiVEE?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -631,12 +644,12 @@
       "source": "rule"
     },
     {
-      "title": "County Nonfarm Employment Declined Slightly from July 2025 - nrtoday.com",
-      "title_cn": "County Nonfarm Employment Declined Slightly from July 2025 - nrtoday.com",
+      "title": "COUNTY NONFARM EMPLOYMENT DECLINED SLIGHTLY FROM JULY - KQEN News Radio",
+      "title_cn": "COUNTY NONFARM EMPLOYMENT DECLINED SLIGHTLY FROM JULY - KQEN News Radio",
       "summary": "",
       "pubDate": "2026-08-26",
-      "provider": "nrtoday.com",
-      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZ2R1dUtmMVhVTHFuNWp5X1ZvSmpIczJMRjM3TVRDSFJjYjd4TTcxbEVoNkhMWGhhRTBwdmhNZlZiWGNobUFGYWVNbDNYa19pNGtMVEpJeFY2X2hObXFLUW1felFFdEJEalQ2d21OdlN3TF9XeWo5UkFienlhSy1OY1pOR1RaWV9qQUFpYWFkdmtpdGJVY3lZdFdlZmhoeGlxMDN6VVZuY3hxcmNBM3Jia0JYcmFFT0l2SDA1Z25KQjY5UWQ0ZUIyeWNSRkU3ZWtPYzJ0QWJ3?oc=5",
+      "provider": "KQEN News Radio",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQX2hPTllLVElEd0NKRlE2QjM0YjJpYnVmSlNRajUwTzJiMHRVVnRiRVpMY0JvaFVQX2xUeFNQUEo0R3hMcVhvYUxKMHdvZlJYRFVLQ1V1SEx0VGxramFuVGE2VFdMLWkxMm1IMzM1YXN3UlhiUHZqaFoxcUVXUE9fcTA2dnlUT0lQSDVzbTRnOEwta2I3cWc?oc=5",
       "direction": "negative",
       "impact_pct": -0.8,
       "reason": "",
@@ -683,7 +696,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-26 14:09:16",
+  "generated_at": "2026-08-26 14:26:18",
   "macro_summary": "",
-  "cached_at": "2026-08-26T14:11:17.409744"
+  "cached_at": "2026-08-26T14:28:19.371032"
 }
