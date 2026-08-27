@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-26",
+  "updated": "2026-08-27",
   "events": [
     {
       "date": "2026-01-27",
@@ -411,7 +411,7 @@
       "symbol": "NVDA",
       "name": "英伟达",
       "period": "Q2 FY2027",
-      "status": "upcoming",
+      "status": "done",
       "file": "英伟达-NVDA-六步分析法-20260826.md",
       "note": "8月下旬 | 已更新(08/26)"
     },
@@ -421,8 +421,8 @@
       "name": "迈威尔",
       "period": "Q2 FY2027",
       "status": "upcoming",
-      "file": "迈威尔-MRVL-六步分析法-20260605.md",
-      "note": "8月下旬"
+      "file": "迈威尔-MRVL-六步分析法-20260827.md",
+      "note": "8月下旬 | 已更新(08/27)"
     },
     {
       "date": "2026-08-28",
