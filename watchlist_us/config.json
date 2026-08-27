@@ -75,8 +75,8 @@
     {
       "name": "礼来",
       "symbol": "LLY",
-      "buy": 900,
-      "sell": 1300,
+      "buy": 950,
+      "sell": 1350,
       "industry": "制药",
       "note": "强烈增持，GLP-1爆发，指引上调"
     },
@@ -347,8 +347,8 @@
     {
       "name": "三星电子",
       "symbol": "005930.KS",
-      "buy": 320000,
-      "sell": 400000,
+      "buy": 260000,
+      "sell": 380000,
       "ccy": "KRW",
       "market": "韩股",
       "industry": "半导体",
