@@ -213,12 +213,12 @@
           "source": "rule"
         },
         {
-          "title": "AMD Stock Quote Price and Forecast - CNN",
-          "title_cn": "AMD Stock Quote Price and Forecast - CNN",
+          "title": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
+          "title_cn": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
           "summary": "",
-          "pubDate": "2026-08-26",
-          "provider": "CNN",
-          "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFBndUxfbjJEeVZYMi1wd2lPajZ3LTVYZkF0NVZ2Q1RuNDBPWkhGN184UlFoQ09FdmNBdl8wNFYtMURTNUU0Qm14aWVwcXFuV28?oc=5",
+          "pubDate": "2026-08-27",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByaWs5cnpDTTNpSUk2N0FZMG9ZSmgyMGE1ampTZ0ppWDNEbWh1bF84UUpjQ2lYVjVzZ0ZXbkRsSjhtMUVSdFZnMWJ2aFFuMnBWUmtnb0hDNmJUdHduZk5NbEJodlRSOVViNjNmdEZ4TG1VXy10eTlKOW04V3dIQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -581,7 +581,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-28 23:06:53",
+  "generated_at": "2026-08-28 23:13:02",
   "macro_summary": "",
-  "cached_at": "2026-08-28T23:08:41.966154"
+  "cached_at": "2026-08-28T23:14:58.251923"
 }
