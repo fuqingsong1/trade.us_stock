@@ -97,19 +97,6 @@
           "source": "rule"
         },
         {
-          "title": "NVIDIA Stock (NVDA) Opinions on Post-Earnings AI Growth Prospects - Quiver Quantitative",
-          "title_cn": "NVIDIA Stock (NVDA) Opinions on Post-Earnings AI Growth Prospects - Quiver Quantitative",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "Quiver Quantitative",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYjhLRXY4T1p0RnlSU0xKcTB4aEJfQ2pyX1Zxb1RyRWk3UTBjWm5HMGtBZkdYMy1PZmZuaklHTXBTTVdLZHZNMmhjMEpJY08xZUxXbFNHNGpJQkVJU2xPNTE5YVRBT3Q5U3c5V3BRYnVaaWVmQ3hzU1VZYVBtbld5NjVIQzYybVRiR00yUUwwd1RSbzQ5U3BxaWhHa29WTkJHUFI3OA?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.2,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "title_cn": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "summary": "",
@@ -146,6 +133,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "4 reasons Nvidia stock is lagging - Yahoo Finance",
+          "title_cn": "4 reasons Nvidia stock is lagging - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-26",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNTJJQmNESWJDR1M1M1FnZ0tEemVqVnRtMWcybG5jLXJLMVJfZkFycnVZZzY0bUVrQ1Fkam9NNGctd0Rsa2ZIOUJUMXZIdUFVY19Vd0hLcDlOQXhITUxqSk9vVElqR3habjZNWTU0WDkxSEFMcVA5NXhtSEliNjJnT2Q0YmdMMF9lSFE4MUVHeTZSdlkxTnFxdkk0VFZaQQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -238,6 +238,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Why Did Marvell Technology Stock Drop Today? - Yahoo Finance",
+          "title_cn": "Why Did Marvell Technology Stock Drop Today? - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-28",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMnVqSTl2NGlRZ0NadDJZb3BiUW15bF9KQWRVZC1FRUs3R1dFVXBmWjhiVUd5S2l4Q3hSSWl5X3R3eWxESThFMXBESUpPS1JDR3JYWERXdE9rS1FiaEttRzBsR0tDSXFWY3NDSnp3Q0dqRnMtQTJtZ0k2TUlKSE05ZzVNN0dRX1FhdU5tS01peGdJNy1PeDhwNjY4MHl3QQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.1,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Marvell (MRVL) Stock Falls 10% After Q2 Earnings: Buy the Dip? - Zacks Investment Research",
           "title_cn": "Marvell (MRVL) Stock Falls 10% After Q2 Earnings: Buy the Dip? - Zacks Investment Research",
           "summary": "",
@@ -264,38 +277,25 @@
           "source": "rule"
         },
         {
+          "title": "MRVL Stock Jumps After-Hours On S&P 500 Inclusion - Stocktwits",
+          "title_cn": "MRVL Stock Jumps After-Hours On S&P 500 Inclusion - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-08-27",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZkxQLWRoVXAxVmVVNHMyNWNaLW9DeW1OcUdIZWYwd0h6ZU1iNXNpNDVYcEN6N3RxdDNzQW84cXJNRmdkZ3l1eG1YZUFuUkJXZDdUUm9FNWJ3SlZMSUo0NkdQSU5LbkhKTEQxOHNkblJWbFFYWVVwbmphTXNmV2wzMDlyOWF4cFNnbjVOd0RQb0xuRE12dHhKX0M3VU9VWlVCZVNFcUhZRXMtSU02ci1GSUtidm5MeGxi?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.7,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Marvell shares tumble 6% as outlook underwhelms despite 37% revenue growth - CNBC",
           "title_cn": "Marvell shares tumble 6% as outlook underwhelms despite 37% revenue growth - CNBC",
           "summary": "",
           "pubDate": "2026-08-28",
           "provider": "CNBC",
           "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xYl9tcXFQeFdWemVHTXBxVXNiaFFPLVJUU3R5V05Vd0xBdFU1NGd4VnJBZUZpNHREZlJSX2pYcXhCX0VibHMxS0kxNkZnLXdtaWhCNmw1Y3Fla2tSQ3YwRjNoRzNrVlExZjEtaHN2dlA5UGVJaUY3b9IBfkFVX3lxTE1Pdk0zWE1wQl80T2FEaWFlU05kMUYtSEY4SEtXVkVOWU9CVWJZM2p1NWk0dXNQenVzWWhsc2U3THJnQ290d3J3Y1hremFfcVJUZ3YwQ2pNbG9ETzNfUlNhMkdyQ2NZRUw4dzJYbEpXS2pEU2pPSkZJV25SMTRCdw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Marvell Technology (MRVL) Shares Fell After Earnings - Yahoo Finance",
-          "title_cn": "Marvell Technology (MRVL) Shares Fell After Earnings - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPWkJXM3liLXgxNExPZnYzYW9FeG10QzB1cUdHZWxsdEpnUHRUY0lrQ3BFazdJNGJMcDBGV0NfdkFJQy03Y1h1NU9TQjFoNDNOb2JNV3d5cWNqd2hjaFd1Mm1hblo5aTFiSjB6R3R0akF4ZU16MFRSeU9uTzZydllpWDFWUmlLWlNCYmNLOWxlcU1GdWNFOENJaExVOHZQMnpwUXc?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "5 Stocks Investors Couldn't Stop Buzzing About This Week: NVDA, MRVL, CRM and More - Benzinga",
-          "title_cn": "5 Stocks Investors Couldn't Stop Buzzing About This Week: NVDA, MRVL, CRM and More - Benzinga",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "Benzinga",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPUVZ6c3IzLS1OUmU1NzdXajd6bWNpRkVSb0xqVHRaZVk0ZlNWdUlkRERrUWdabzYzRV9UMTZpbWdMWFRJdThkazlqeDAxbklKVnZJNDRRLXIxaEd4ZFFMeHgzXzhlbzFpQXJPODFPMU9LS1FmN3EwWlFzQXYyMi1FQTdFcEMzdFVnazZaUWtQVURYOUdyRjlkdmxDLWg1M3ZnZDAzWlJ3ODVkOEoyQTFRcUwtZWFWYXd5c2EyVloxWmx2M3VVd0NpOEVlQm5sdE1U?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -383,6 +383,57 @@
       "stock_summary": "",
       "total_impact": 0,
       "net_direction": "positive",
+      "next_earnings": "未公布"
+    },
+    {
+      "symbol": "00700.HK",
+      "name": "腾讯控股",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Tencent (00700.HK) repurchased 672,000 shares for HK$300 million on August 26. - Moomoo",
+          "title_cn": "Tencent (00700.HK) repurchased 672,000 shares for HK$300 million on August 26. - Moomoo",
+          "summary": "",
+          "pubDate": "2026-08-26",
+          "provider": "Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSVNkRkNpWWx3Njh0bTUzVFZMS19zUlFyQURJbVJGS0ZTN216NVNtNEtDdElHYVpNZmFMTERQNUNuZ3JuY0E4SDg3R1lnR1JKODhWTTJCTGRYTTQ1N0pXVnlqSGZpWmE0dHlxQXUtdTJ6bS1HSGRTOE9xeTkyeVpOYmRndjg0NUNEc2tMSzdmOFNvR0paTWJjRXQ2TnJpci04b0dCVmFR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - Moomoo",
+          "title_cn": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - Moomoo",
+          "summary": "",
+          "pubDate": "2026-08-28",
+          "provider": "Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZ3NsQjIyMEl5aVhLN2pkQ1VNRmNfdzZQMGJyZWZhazBkS1duT3I0TXNhSE5pc1hHN0NUd0pjNmlVYkczZkVYUDFlLXRPN0paSjl5NEdLSHppX2tFRVM5TEUzMWNBTEN4SEZJdjgzQlpZT3M5eDdqNkJqdElXaFdZTWgydkxlTzF1bDFDVkczWldlSjQ0TXVhcHRjS1ZoV01TMTM4OVZia2NIUVlVSmRiSEp1Ymw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "腾讯控股(00700.HK)：重构AI研发体系 深耕办公AGENT新入口 - Futubull - 富途牛牛",
+          "title_cn": "腾讯控股(00700.HK)：重构AI研发体系 深耕办公AGENT新入口 - Futubull - 富途牛牛",
+          "summary": "",
+          "pubDate": "2026-08-23",
+          "provider": "富途牛牛",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOF9UQ0dZczdTTm1sTHQ2c09taUg4NjB4N0t2MVM1ZkRwMWo4YXZOSktzX0U3N01tLW9sb2JHV1d3UEZuWnF1Y3UxVjc4VURKc1hBQ1Q0R08zRXl4eHpCWkROZm4xaGV4b2xrMGJVa3hwUy1UQWNGeGVJQVBpZ1ZvQWtPdE9teW9JNFZNMjkyaFV1NmVhbXFFZ0YzQ0dva0pURzRhX0Vlaw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -530,7 +581,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-29 17:05:27",
+  "generated_at": "2026-08-29 17:14:43",
   "macro_summary": "",
-  "cached_at": "2026-08-29T17:08:09.726932"
+  "cached_at": "2026-08-29T17:16:31.774487"
 }
