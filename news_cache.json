@@ -97,6 +97,19 @@
           "source": "rule"
         },
         {
+          "title": "NVIDIA Stock (NVDA) Opinions on Post-Earnings AI Growth Prospects - Quiver Quantitative",
+          "title_cn": "NVIDIA Stock (NVDA) Opinions on Post-Earnings AI Growth Prospects - Quiver Quantitative",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYjhLRXY4T1p0RnlSU0xKcTB4aEJfQ2pyX1Zxb1RyRWk3UTBjWm5HMGtBZkdYMy1PZmZuaklHTXBTTVdLZHZNMmhjMEpJY08xZUxXbFNHNGpJQkVJU2xPNTE5YVRBT3Q5U3c5V3BRYnVaaWVmQ3hzU1VZYVBtbld5NjVIQzYybVRiR00yUUwwd1RSbzQ5U3BxaWhHa29WTkJHUFI3OA?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "title_cn": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "summary": "",
@@ -133,19 +146,6 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "行业",
-          "source": "rule"
-        },
-        {
-          "title": "4 reasons Nvidia stock is lagging - Yahoo Finance",
-          "title_cn": "4 reasons Nvidia stock is lagging - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-26",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNTJJQmNESWJDR1M1M1FnZ0tEemVqVnRtMWcybG5jLXJLMVJfZkFycnVZZzY0bUVrQ1Fkam9NNGctd0Rsa2ZIOUJUMXZIdUFVY19Vd0hLcDlOQXhITUxqSk9vVElqR3habjZNWTU0WDkxSEFMcVA5NXhtSEliNjJnT2Q0YmdMMF9lSFE4MUVHeTZSdlkxTnFxdkk0VFZaQQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
           "source": "rule"
         }
       ],
@@ -341,12 +341,12 @@
           "source": "rule"
         },
         {
-          "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
-          "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
+          "title": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
+          "title_cn": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
           "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2Z6WlJrd3RCU2tmUHNrVmlVSW1jUDVIZTdLbFlkWVNUUjZ5UWZocGp6UW0tX0RPQjhqbXhrYmtEeTBteDY4eGZXQ1dmZUEtWG9Ubkd6dlhaVGU1Mk9HSEhLVDYtaURWdXJyeVNWanZHcW5DdUFUZTFMRDEyd3pPWUZFT1JBVENDZVQ3WGlXRGQ4eXdLdGl1MlptTUNlMkMwVTVEZ0JHNmxFQkl5WHFSRXdVdmV6OWUyWGJRcw?oc=5",
+          "pubDate": "2026-08-25",
+          "provider": "University of New Hampshire",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1TVURXSnF6N2xpR0ZzYUpRQlVqdlg0dl9sclRqVG1kTTY4b0haOS1DbmdDTDZTYmFXTG9hVmZxTTFobF9LOVFyanlvSjRjLXZvRlBJZldzdkhlZ1pjeVR3TzZpNDd2aC1qcDdudzNmbnY3akJKbTFpNlAzTQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -354,12 +354,12 @@
           "source": "rule"
         },
         {
-          "title": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
-          "title_cn": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
+          "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
+          "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
           "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "University of New Hampshire",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1TVURXSnF6N2xpR0ZzYUpRQlVqdlg0dl9sclRqVG1kTTY4b0haOS1DbmdDTDZTYmFXTG9hVmZxTTFobF9LOVFyanlvSjRjLXZvRlBJZldzdkhlZ1pjeVR3TzZpNDd2aC1qcDdudzNmbnY3akJKbTFpNlAzTQ?oc=5",
+          "pubDate": "2026-08-27",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2Z6WlJrd3RCU2tmUHNrVmlVSW1jUDVIZTdLbFlkWVNUUjZ5UWZocGp6UW0tX0RPQjhqbXhrYmtEeTBteDY4eGZXQ1dmZUEtWG9Ubkd6dlhaVGU1Mk9HSEhLVDYtaURWdXJyeVNWanZHcW5DdUFUZTFMRDEyd3pPWUZFT1JBVENDZVQ3WGlXRGQ4eXdLdGl1MlptTUNlMkMwVTVEZ0JHNmxFQkl5WHFSRXdVdmV6OWUyWGJRcw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -581,7 +581,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-29 17:14:43",
+  "generated_at": "2026-08-29 17:23:42",
   "macro_summary": "",
-  "cached_at": "2026-08-29T17:16:31.774487"
+  "cached_at": "2026-08-29T17:25:35.092300"
 }
