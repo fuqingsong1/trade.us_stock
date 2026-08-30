@@ -84,19 +84,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Nvidia stock jumps after early dip following results; AI fever is unabated - Reuters",
-          "title_cn": "Nvidia stock jumps after early dip following results; AI fever is unabated - Reuters",
-          "summary": "",
-          "pubDate": "2026-08-26",
-          "provider": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVUtIdlFrOWRSZkItb0NtNVd0ZjFxcFZERm9aLTBCRnFyMU9kVEotOC1mWld3amlVczc4N3EyOE42Ui1VY3U5VXlkU2RkTU51ODd4RnVyYy04cXFOSWp3bVdQQWlLYkJIbUxTcUNZUXE5MkVKY0g5NHBBeGItNjlvd1VQdGV0NHBJSlFCVURkcko5M01xblFRS2lkdG1PZGV3cWdhTg?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.9,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "title_cn": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "summary": "",
@@ -147,11 +134,24 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
+        },
+        {
+          "title": "Cathie Wood buys $53 million of popular semiconductor stock - thestreet.com",
+          "title_cn": "Cathie Wood buys $53 million of popular semiconductor stock - thestreet.com",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "thestreet.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQeEFUMzhSYzU1MkFscl9CZXcyMUM4U2pqNk5NaWlkWThFOXhzbEdDZUMzZVZkZlF3Q05XMVdsTS14RjRacUpsTG9jQ21zNGhranEtNUJGWkNnOURlUFJtb3Z1RUJGUXRmUERsN1JMV1NVSHY0U2YyakdmUV9aSnQtTkZXVFBzY3BYcENvakg0a2xZWGRDcVRBR2I0eWc3VF9MLUl4S09mdUk5ZVlBOUNyemhRaw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -542,19 +542,6 @@
       "source": "rule"
     },
     {
-      "title": "Warsh Speaks and Rate-Hike Odds Rise | What’s News for Aug. 28 - WSJ",
-      "title_cn": "Warsh Speaks and Rate-Hike Odds Rise | What’s News for Aug. 28 - WSJ",
-      "summary": "",
-      "pubDate": "2026-08-30",
-      "provider": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA2cTdEc2hzZ2M3VWIwYVRiQkxEUnVibFJYMU1WZVV1TjU3UG1oclNDS1ZNTWZBZUh3dHhnRlNuZF91RF9EV0VJZkd2X1dwTDNmN3NoR09ZcVFlRFROOHNTZXcwRkJZTkFPeDJzQkFXOEVtUFlOM1NUXzgzUy0?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Fed Chair Warsh signals rate hikes may be needed with inflation still elevated - ABC News - Breaking News, Latest News and Videos",
       "title_cn": "Fed Chair Warsh signals rate hikes may be needed with inflation still elevated - ABC News - Breaking News, Latest News and Videos",
       "summary": "",
@@ -566,9 +553,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "Fed has 'work to do' if price rises don't ease for Americans, Warsh says - BBC",
+      "title_cn": "Fed has 'work to do' if price rises don't ease for Americans, Warsh says - BBC",
+      "summary": "",
+      "pubDate": "2026-08-28",
+      "provider": "BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5OWnNkcmpDX2puSWhLUktFSWNzSjJlU0l4dEM4UjF1bDBUNlFPVXRRMkJGUFd0RlpEWXc5UndqUmFLeTl6V2loWE1MUXRIcDRZRG41akZjR1VsQQ?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-30 17:38:16",
+  "generated_at": "2026-08-30 17:46:30",
   "macro_summary": "",
-  "cached_at": "2026-08-30T17:40:15.364735"
+  "cached_at": "2026-08-30T17:48:24.013926"
 }
