@@ -430,6 +430,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
+          "title_cn": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
+          "summary": "",
+          "pubDate": "2026-08-24",
+          "provider": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQko3Zno2NmVqbTctUHFMbTAwLWJNclZFZjc1VXVrLTNRNTQ5UWVET3hGdGczelZHRVFzUW85Y2xwandZU19oY2VTOWxPM1BkQ3BfWWZ0bXpxQzdQa04zVFI5Qm03RFBvLTQycHlVXzRkZUc0bzFzYW1KeXNMRGlaMGVEYnhZQWxTNy1UVTN0bHYzZU1nam52aTVlNWZsVEtzNGZ1NXM0cTluN0xwNVRr?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
           "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
           "summary": "",
@@ -477,19 +490,6 @@
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPd051aDdlVDhQSGdzRHVvZFpvQ294U0Ewdkp0bVJRZENEMzV1aE1uVzYteTF4MGg0akpUTnJLYnBvOHg5RDY3SlR4MC1WUzh3UlJGMFotdVZ1ZFVrQUNzUWZEV0lnR3VSeWx6bUdwbk9vQnd6a19SdnVvNnlLRm5sc1pWdWZpdFZOT1B1emlmaVhLdWprMFJEeV9n?oc=5",
           "direction": "negative",
           "impact_pct": -0.4,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
-          "title_cn": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWlZRTnhMZmVpM1JCVTgwcmVwamhreTltd0dGbE9NREJ4c0laalZfT2U5ZVk2ZTJPUnNjUlBSUWI3UHpaLWh3MXpHd1A3YzE4TGtjX3ZnMUFETXZUOVpLSVZ0QzRmTW1fRnBpMWxCWmZUV0JjV3dnaVpzWjlzczhqNUg0a0FFYXdIWDJhTlhuakF0Q0c0Und2TEhBakxmdzgyb0JDeUxvY2tkMHhmZEZoY1NxeHpINVljV2NOVG40amlpRnJrTks00gHMAUFVX3lxTE1VZHV6LXpUZlk0XzRTbkhNUmljNklUdWFTaHA4a3gxRXhwbXBoUGF3Tjc1WjNNY2V3cS1nV0RhUzRBV3FidU8yREs3Nk9MWm1ZX0lzMGtJTHZtODhURXJ5VWgtUmE5Z1JhZ185UEhETi1vdlB5a0tnbjVXaXgxbS1jcWhCOGJ4a1BoQUljYWFMSTNNOEVDdW5wdWNSSFRNUkNJSERkSFF4VXNobkxGOGZNZzVmNEZNbVNhQjVHSW1TenpTX1VTUElVeU1tUQ?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -568,7 +568,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-30 17:28:56",
+  "generated_at": "2026-08-30 17:38:16",
   "macro_summary": "",
-  "cached_at": "2026-08-30T17:30:54.198676"
+  "cached_at": "2026-08-30T17:40:15.364735"
 }
