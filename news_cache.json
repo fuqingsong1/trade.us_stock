@@ -84,6 +84,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Nvidia stock jumps after early dip following results; AI fever is unabated - Reuters",
+          "title_cn": "Nvidia stock jumps after early dip following results; AI fever is unabated - Reuters",
+          "summary": "",
+          "pubDate": "2026-08-26",
+          "provider": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVUtIdlFrOWRSZkItb0NtNVd0ZjFxcFZERm9aLTBCRnFyMU9kVEotOC1mWld3amlVczc4N3EyOE42Ui1VY3U5VXlkU2RkTU51ODd4RnVyYy04cXFOSWp3bVdQQWlLYkJIbUxTcUNZUXE5MkVKY0g5NHBBeGItNjlvd1VQdGV0NHBJSlFCVURkcko5M01xblFRS2lkdG1PZGV3cWdhTg?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.9,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "title_cn": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - NVIDIA Newsroom",
           "summary": "",
@@ -134,24 +147,11 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
-        },
-        {
-          "title": "Cathie Wood buys $53 million of popular semiconductor stock - thestreet.com",
-          "title_cn": "Cathie Wood buys $53 million of popular semiconductor stock - thestreet.com",
-          "summary": "",
-          "pubDate": "2026-08-30",
-          "provider": "thestreet.com",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQeEFUMzhSYzU1MkFscl9CZXcyMUM4U2pqNk5NaWlkWThFOXhzbEdDZUMzZVZkZlF3Q05XMVdsTS14RjRacUpsTG9jQ21zNGhranEtNUJGWkNnOURlUFJtb3Z1RUJGUXRmUERsN1JMV1NVSHY0U2YyakdmUV9aSnQtTkZXVFBzY3BYcENvakg0a2xZWGRDcVRBR2I0eWc3VF9MLUl4S09mdUk5ZVlBOUNyemhRaw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "positive",
       "next_earnings": "未公布"
     },
     {
@@ -171,6 +171,19 @@
           "impact_pct": -1.6,
           "reason": "",
           "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
+          "title_cn": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNUnpYbjBJdnhJaDZsSGVHN1Z4TFdEaldGT08ySWRRdjhaeUlwOGpiT25Pd1U4dHlQa3pkeV9LTjQybkRNM2lCay1FZl9KV1ozenFfUjRBcGo2VmpJUzNQaHd5S2swYjY3MUxGeUZiYy1QTU5WU3VwOUx3X1VBWFJ1b25iY0NuNmRLUFdFMkVEbENnSHVPdnNCRzNQQ1BScHB5clJzSGdGUDN5WmRXU1ZYaHZyWHFVLU1tc0ZhckVBR3FPanFwVDVVMXBuMlFnLWFma1BBRzNLTW9Ya2UyTkHSAeMBQVVfeXFMT1lzXzhpWlgxenlQZmVqYzBPbnBVN1dBanBVeGRDNURXSmpFOFlJZ3pxaE1mWVJOVmM2LVNxS2xzdDhsNmgwbjFfRzIyNzBtNDBvV212M3hWU0VhcnI3ajRxVTB5WkNaWWQybjBTdmduZ0RVUkN5NDdJSHVQLWl0MEVIUXRDWDdPVHFtQ3V2N0tXcGVYd2V6RDV0bzEyb18yb291Z1E5QXlTRWdSTk5JLVdlazJlX0hWRjN4dloxdnFCS3kzNkNkSk1maWRJX3B6Zi1kWmtHNVBsMU9nWE9oUGZRUWs?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.1,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         },
         {
@@ -211,24 +224,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
-          "title_cn": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
-          "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByaWs5cnpDTTNpSUk2N0FZMG9ZSmgyMGE1ampTZ0ppWDNEbWh1bF84UUpjQ2lYVjVzZ0ZXbkRsSjhtMUVSdFZnMWJ2aFFuMnBWUmtnb0hDNmJUdHduZk5NbEJodlRSOVViNjNmdEZ4TG1VXy10eTlKOW04V3dIQQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "positive",
       "next_earnings": "未公布"
     },
     {
@@ -568,7 +568,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-30 17:46:30",
+  "generated_at": "2026-08-30 18:06:29",
   "macro_summary": "",
-  "cached_at": "2026-08-30T17:48:24.013926"
+  "cached_at": "2026-08-30T18:08:31.088587"
 }
