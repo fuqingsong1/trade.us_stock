@@ -7,19 +7,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "TSMC ADRs Jump 2% as Nvidia Extends the Foundry Runway - Yahoo Finance",
-          "title_cn": "TSMC ADRs Jump 2% as Nvidia Extends the Foundry Runway - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNb3FzMVRoOUdYUHk3dmlMOW9OOXpwa0ZSZXVKX0VBUERndXN4MlFWeEpMWU1raTF1aldEbkx4NEJhUTZLZ19JZzdXVzNNMXZhdWdQelk3NHA3ZzV5YlNZbHdWWWpTTEJSV0ZhemVfZHpnVVZneU05VlJHdHM0Q1M2eUVHc1NzQ3EwNXNfYXk2cXZadw?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Prediction: TSMC Stock Will Soar After Aug. 26 Thanks to Nvidia’s Historic Quarter - The Motley Fool",
           "title_cn": "Prediction: TSMC Stock Will Soar After Aug. 26 Thanks to Nvidia’s Historic Quarter - The Motley Fool",
           "summary": "",
@@ -27,7 +14,7 @@
           "provider": "The Motley Fool",
           "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOcUtlUDE2cG9QUlJDS1hRaGlWR2kzeloxalNraTl1QmRRX3hpdGlEeEJ6UnFxUXMxUEJManNEQ0ZITmtwR3dtb0liUjlLVHJCYTdmcUItY1NieHVkQWZKUk5kOHFFNFpTTjN2aXZRVDktT19lSFJnWTBYaFpENzhkNEYtcU1vbk90T1dLcFJvZ2s0Nm51SWloRG1FbE9PcWF4T3lnUDh3NGJTZGpsTEZoV0VHdThFNmI5a2ZqMWs1bGE?oc=5",
           "direction": "positive",
-          "impact_pct": 0.8,
+          "impact_pct": 0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -46,19 +33,6 @@
           "source": "rule"
         },
         {
-          "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
-          "title_cn": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVmNkR05rOTRKSkVUekJIUHpFNVZtSWhWYXQ4dlNIY25SWXlOSFZQTFZCMFg0NUVCaFZ3ZGI5ck1JaWZodFdSYnhoT2NMRjZsVjRyOTRlUWZId3JkYlk3eGgzekZmQmxhelFEVlIzeDhoNFlaVVpGcHFHZUVLUFJWaVp1MGtkRGtWeGR0YTZpdU9iRUdnQl9FNTBsLXg3Zw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Why Is TSMC Stock Rising In Premarket Today? - Stocktwits",
           "title_cn": "Why Is TSMC Stock Rising In Premarket Today? - Stocktwits",
           "summary": "",
@@ -69,6 +43,32 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC Stock Forecast: TSM Reported $35.9B Revenue. Why Is Demand Still Outpacing Supply? - TradingKey",
+          "title_cn": "TSMC Stock Forecast: TSM Reported $35.9B Revenue. Why Is Demand Still Outpacing Supply? - TradingKey",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "TradingKey",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPRDNVeXY1UmNhRlc1N0Vrb2cxc0VzVTJsSFdqUUk0bTFNdUE0WElNeGFtS3I1ZjlwRjg5WVRRWjR0THJDZkl0SXAzOE5DNVhqREtJMm5PUFc1bjM5MkJ5cmNuckRZODlwQVFGdk5MSEVVSDc0d2xlbjI0V2FHYlp2Z0tTdnlOeW1UZ0V4M1ZRa2V4M1JmcXZramdTVjA0OVRqNkRvMkl3a1V6ZjZQcFdGUjFFMk9WZG92aVlHVTdhQld5OW9PMVBPWG5R?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - The Globe and Mail",
+          "title_cn": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - The Globe and Mail",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "The Globe and Mail",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNMkM1am5kN0NEdDFSaGFWZDFLMXFGZ05LNFk2MmF2SHBpSVVXaUtRWWd3Z29LR3ZoakdjZ3h0TW10M3owOE81MHVMYkNSb1IzTzBaNnY3b2NNRWJCRFZoc3NWTjYzZEw1THdVbmdGU29XcEM4RUlnTzJEMWVhek9TQ2g2ZTFKel84dWZKRVl3RThvbEdfWmFKenY1M0hyalUyd1RqMWxTQkJSNUpnYlhmbXB1WWd2aDNwN3RoZ3lHMVFBakY1dXMxdEVlMEZxblFWSzA0aDY5SWstcmUyakZxSU53?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -91,7 +91,7 @@
           "provider": "Reuters",
           "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVUtIdlFrOWRSZkItb0NtNVd0ZjFxcFZERm9aLTBCRnFyMU9kVEotOC1mWld3amlVczc4N3EyOE42Ui1VY3U5VXlkU2RkTU51ODd4RnVyYy04cXFOSWp3bVdQQWlLYkJIbUxTcUNZUXE5MkVKY0g5NHBBeGItNjlvd1VQdGV0NHBJSlFCVURkcko5M01xblFRS2lkdG1PZGV3cWdhTg?oc=5",
           "direction": "positive",
-          "impact_pct": 1.2,
+          "impact_pct": 0.9,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -103,6 +103,19 @@
           "pubDate": "2026-08-26",
           "provider": "NVIDIA Newsroom",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "History Says This Is What Happens to Nvidia Stock in September - Yahoo Finance",
+          "title_cn": "History Says This Is What Happens to Nvidia Stock in September - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOb2c5eGpDRXdvdC1LTEZPT0V5d19DLXVqQkNJX2RrbWx0ZVBqZGVET25FTmQ3bXN0bzdJTWdhSGRfQkdfdTdCSGx6Y2xMVUtldF9zLThIcFF4UERTZmVUX2pJSDBPLTAwaTMySGNYbG1XLWQyUjAyMFdsYTkzMzBkcWxjTW9wRy1QS1UzNXJROWlQOXE4cU1Pa3VEQVh6dnc?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -134,19 +147,6 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
-        },
-        {
-          "title": "4 reasons Nvidia stock is lagging - Yahoo Finance",
-          "title_cn": "4 reasons Nvidia stock is lagging - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-26",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNTJJQmNESWJDR1M1M1FnZ0tEemVqVnRtMWcybG5jLXJLMVJfZkFycnVZZzY0bUVrQ1Fkam9NNGctd0Rsa2ZIOUJUMXZIdUFVY19Vd0hLcDlOQXhITUxqSk9vVElqR3habjZNWTU0WDkxSEFMcVA5NXhtSEliNjJnT2Q0YmdMMF9lSFE4MUVHeTZSdlkxTnFxdkk0VFZaQQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -161,6 +161,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Nvidia Added Twice AMD’s Data-Center Revenue in One Quarter - Dr. Robert Castellano's Semiconductor Deep Dive Newsletter",
+          "title_cn": "Nvidia Added Twice AMD’s Data-Center Revenue in One Quarter - Dr. Robert Castellano's Semiconductor Deep Dive Newsletter",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "Dr. Robert Castellano's Semiconductor Deep Dive Newsletter",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMWZSM3BHVmVxNGRfUXI3aE1MRjVWQkx3RU9DVFhpbUk2YUVoY3JmQ2NfbFpKUWlEeURZV2VMZWZsTGJFb29Xdmo5aE5UWGtEUVg0U2hkU04yUnVzXzc1YXpEZnNFUmlZRkRpaWY5Tk5JMExPU0tEX0swNG5MSUZUbXI2Zw?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.6,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
           "title_cn": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
           "summary": "",
@@ -168,33 +181,7 @@
           "provider": "Investor's Business Daily",
           "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNcGxxZE5Kc0MzcWdtdkw5NmZwZ0xvcWE2bEtmamlzZXBpUkpxNWREajVrM3R5aFU5QlF6YUxtSnhJbDB3M19XN1dZbGZzZUdrdEhRSmdHdTBkQmZWZ0UwMlRweFdUdzJrX1ZiTHNEYkhMSTlLYUZTTVVTdzhaOHBMaXNZamRNcENIOVdHbVpUUzViQWQzNXU1NC13bw?oc=5",
           "direction": "positive",
-          "impact_pct": 1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
-          "title_cn": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNUnpYbjBJdnhJaDZsSGVHN1Z4TFdEaldGT08ySWRRdjhaeUlwOGpiT25Pd1U4dHlQa3pkeV9LTjQybkRNM2lCay1FZl9KV1ozenFfUjRBcGo2VmpJUzNQaHd5S2swYjY3MUxGeUZiYy1QTU5WU3VwOUx3X1VBWFJ1b25iY0NuNmRLUFdFMkVEbENnSHVPdnNCRzNQQ1BScHB5clJzSGdGUDN5WmRXU1ZYaHZyWHFVLU1tc0ZhckVBR3FPanFwVDVVMXBuMlFnLWFma1BBRzNLTW9Ya2UyTkHSAeMBQVVfeXFMT1lzXzhpWlgxenlQZmVqYzBPbnBVN1dBanBVeGRDNURXSmpFOFlJZ3pxaE1mWVJOVmM2LVNxS2xzdDhsNmgwbjFfRzIyNzBtNDBvV212M3hWU0VhcnI3ajRxVTB5WkNaWWQybjBTdmduZ0RVUkN5NDdJSHVQLWl0MEVIUXRDWDdPVHFtQ3V2N0tXcGVYd2V6RDV0bzEyb18yb291Z1E5QXlTRWdSTk5JLVdlazJlX0hWRjN4dloxdnFCS3kzNkNkSk1maWRJX3B6Zi1kWmtHNVBsMU9nWE9oUGZRUWs?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Advanced Micro Devices (NASDAQ:AMD) Upgraded at Wall Street Zen - MarketBeat",
-          "title_cn": "Advanced Micro Devices (NASDAQ:AMD) Upgraded at Wall Street Zen - MarketBeat",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "MarketBeat",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNMHJnNHNxQnc2emZjZTZOdGlVZjJVX1pPdm9jbUQ1NXFKc05TZ2N1dnFHWFdEY291Y0Vsc25ZZzR5QTdiakk1a3RWU3p6eF9ES1VJTGwwWG1pWUhOYkRzR3htLWJmeU50bFQ3Q2ZGVTN3WjBVWVhwM0ZPNnY5T3pEMnZVTUlZeG91VFl1cjdZbEpMcDBBNmlicGVteUNUQ2FIUWVMZG15bE1FcnFmcFNUZXJnRm1Dcm1yTm9TSk9sR00?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
+          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -224,11 +211,24 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
+          "title_cn": "Cathie Wood’s ARK Just Dumped AMD Stock. What She’s Buying Instead. - Barron's",
+          "summary": "",
+          "pubDate": "2026-08-27",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByaWs5cnpDTTNpSUk2N0FZMG9ZSmgyMGE1ampTZ0ppWDNEbWh1bF84UUpjQ2lYVjVzZ0ZXbkRsSjhtMUVSdFZnMWJ2aFFuMnBWUmtnb0hDNmJUdHduZk5NbEJodlRSOVViNjNmdEZ4TG1VXy10eTlKOW04V3dIQQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -238,14 +238,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Why Did Marvell Technology Stock Drop Today? - Yahoo Finance",
-          "title_cn": "Why Did Marvell Technology Stock Drop Today? - Yahoo Finance",
+          "title": "Marvell raises annual forecasts, but shares fall as Google deal questions linger - Reuters",
+          "title_cn": "Marvell raises annual forecasts, but shares fall as Google deal questions linger - Reuters",
           "summary": "",
-          "pubDate": "2026-08-28",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMnVqSTl2NGlRZ0NadDJZb3BiUW15bF9KQWRVZC1FRUs3R1dFVXBmWjhiVUd5S2l4Q3hSSWl5X3R3eWxESThFMXBESUpPS1JDR3JYWERXdE9rS1FiaEttRzBsR0tDSXFWY3NDSnp3Q0dqRnMtQTJtZ0k2TUlKSE05ZzVNN0dRX1FhdU5tS01peGdJNy1PeDhwNjY4MHl3QQ?oc=5",
+          "pubDate": "2026-08-27",
+          "provider": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPUlF3Z2g0RTZaeDNWUEhvbFFuVm1BSUNST2JfRXpoQTdSRHdHRldQeVJWblJxVTRtc2ZEUGtDNHNGU3Z4dmI3blYtZmlCbHpNcG40S1JVd0pUREEyTHdoaWN5QjZ4dVg0czFLQVkxUVRGNFZNbUhsbHRLVjJYdHVIZ2lYcFh3MkNCWnoxQzRaSkphQVVhNFhSRjJwV3dZX2dfVjNVNmVIWllpX3BJTUE?oc=5",
           "direction": "negative",
-          "impact_pct": -1.1,
+          "impact_pct": -1.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -258,33 +258,33 @@
           "provider": "Zacks Investment Research",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPdENocm1vX3pLcUJQUTFXTDhZek5SMjlqU3ZJdE5lOWFCZ0V4NlZMU3FPVGQ4aXRiT2Z6bnZTM1VSY0NIcjRCUmpWaW51anI5QXV3bUFuU2NqTWxIVzUyM2x0a3hMaFpNNW1QLVZoZWpyOGpNazZsRG9menFYTjJfR2FpRkM1V001ZFJJNXBiMVZsUGF4bERZSWFBa2dCVEU?oc=5",
           "direction": "negative",
-          "impact_pct": -1.0,
+          "impact_pct": -0.7,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "Marvell Technology (MRVL) Stock Price Falls As AI Ambitions Meet Valuation Doubts - simplywall.st",
-          "title_cn": "Marvell Technology (MRVL) Stock Price Falls As AI Ambitions Meet Valuation Doubts - simplywall.st",
+          "title": "Will Marvell Stock (MRVL) Rise or Fall After Q2 Earnings Today? - TipRanks",
+          "title_cn": "Will Marvell Stock (MRVL) Rise or Fall After Q2 Earnings Today? - TipRanks",
           "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxONFNtM3p6akVQc1dpZWdrLWdRM0pvbHBiSHNWVlE4QmxHa000dl9mMTRFMGx1aGlLOXdodklTUTFGQXN6WVFsMzRGMmtmeTcxYkZLa0ktNTBJa25uUnczbmc3YUg3MjYwMFB5bzR6anlvZ1QyS29hSHFiZXlYRENEVXlHaFhqTXVDM0RyME1HUlRZUkRWVVhZTE5wbjlkcnVQb0tLakNsTTU1SEhVemtFbm9hTUJQeFlHSXNDM1ZXMGUtOHhSa25lOVg5TnkzS2JpU3RDLUVvLVdEbmPSAeABQVVfeXFMTUgxNjJ4empWN19QYzZjazNwT1F6dmg3ajBQSmh3SjYyUGJjOUhlQVN1ZzFNZHV5WkhScjhjSURndVFJejVxUHFWRFVsNTMydENOWEJrR3F5bDRXdUR0QVpMNnV5aXoySW1xZzEzRkw4YVFQSzM1OW9GdzhsT0FEaEV6V1lKUjd0VEllZGVCUWJHWWREcnh0LTUxQV9vSXNQcjlteXFUTXRqWGc4M3NQd1FfS3duSjZTT09CdV9VbVF2QlB2SXpLY1ZObDg3RG5iNDRMVk5zSXlwTUpWZ09XNmY?oc=5",
+          "pubDate": "2026-08-27",
+          "provider": "TipRanks",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQTjZuYzRtbC1JY2R5ZThpRnNIb0U1aXFTRjZHcDNFVFY1S1NNQllYM0FTa3NSTGxIU01WTjluMHAzQVJDR1B6NWVhb3hUOG5La0cxSVB2VDhBa0czYXhBdFF3T29tMFZHY1NPbEVraW13LVR3eWVZZW9xSE9rTUhLY0FkcW4xVEx2bXNSZXA0cW5DSVR3?oc=5",
           "direction": "negative",
-          "impact_pct": -0.8,
+          "impact_pct": -0.5,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         },
         {
-          "title": "MRVL Stock Jumps After-Hours On S&P 500 Inclusion - Stocktwits",
-          "title_cn": "MRVL Stock Jumps After-Hours On S&P 500 Inclusion - Stocktwits",
+          "title": "Marvell Technology (MRVL) Shares Fell After Earnings - Yahoo Finance",
+          "title_cn": "Marvell Technology (MRVL) Shares Fell After Earnings - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZkxQLWRoVXAxVmVVNHMyNWNaLW9DeW1OcUdIZWYwd0h6ZU1iNXNpNDVYcEN6N3RxdDNzQW84cXJNRmdkZ3l1eG1YZUFuUkJXZDdUUm9FNWJ3SlZMSUo0NkdQSU5LbkhKTEQxOHNkblJWbFFYWVVwbmphTXNmV2wzMDlyOWF4cFNnbjVOd0RQb0xuRE12dHhKX0M3VU9VWlVCZVNFcUhZRXMtSU02ci1GSUtidm5MeGxi?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.7,
+          "pubDate": "2026-08-29",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPWkJXM3liLXgxNExPZnYzYW9FeG10QzB1cUdHZWxsdEpnUHRUY0lrQ3BFazdJNGJMcDBGV0NfdkFJQy03Y1h1NU9TQjFoNDNOb2JNV3d5cWNqd2hjaFd1Mm1hblo5aTFiSjB6R3R0akF4ZU16MFRSeU9uTzZydllpWDFWUmlLWlNCYmNLOWxlcU1GdWNFOENJaExVOHZQMnpwUXc?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -322,7 +322,33 @@
           "provider": "The Globe and Mail",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPMjJOZ3BGejBOSmtGSURURWFOdTJrQjBWeUdSQTEtWFNtdVM4dUQ2bTNxOHMzSXE0d2c4R19EQ01WQmx4a1VWLWVYYmhJbTBZS1VGUlFIdHJFZ0dDM1JZWjE0N1RWSUxORGl2cjRLYkNldWk4OTBJazRYYXpFbXFxRTlaUmQyN0FOcGRHeEl5UHJSMjZ5NUxXU2lmZVpQY21KbTlBSlBPYWVIcDlZcHFWNFJwdVVxaERad0M1SmhpWm9GMlFCWlZ4MHltZUYzZw?oc=5",
           "direction": "positive",
-          "impact_pct": 1.6,
+          "impact_pct": 1.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
+          "title_cn": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMXVtYmFPeUQ2cWkta1JBbzJnNGtGZ2ZRSFU0VTRwaUVuZ0NVblJHdGcyblQ2Um9GUzlYQW54UUhyQW1YQ2RISTBaQU91U1NVbVE0RHJfOVpFQlAtN2VSc3otbG5fOEJFX3RSTmNaNDFCUWJxVXpUZHZ1MVpZLUJIUzB5YUN5aWRscjI4OVB3dU1OaGNXTktnOFB5YzdzaWF6S2N4RlF0UzlSd3A1eW5TekI0R05JdjdQRGswMU80b0FDb3c?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "UnitedHealth Beats Q1 2026 and Raises Guidance - Is UNH Stock a Buy After Jumping 8%? - TradingKey",
+          "title_cn": "UnitedHealth Beats Q1 2026 and Raises Guidance - Is UNH Stock a Buy After Jumping 8%? - TradingKey",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "TradingKey",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNeVh0WFN6TXVzUmhmdTNvWGdpOXJxdmFLUml1V09vZi1zSHZTMDduOUhZUXdWc2h1d3U5QnJUZDl4aHJqZXplcndqZnlIYmlvb0x0eVdSaHFEN1FrcENkV0s3N3BYM0g2NndDUmtJeVZnZnlOcDh6NXJXLVB0ZE1UVjZYLXBXRUt1WXAxQ1FMY1YwbmVpMWhkaV8wb2swaGs2VFVKekkySHVyT2hKYzNrcnJ2X3UwZEE?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -341,38 +367,12 @@
           "source": "rule"
         },
         {
-          "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
-          "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
+          "title": "UnitedHealth Group (UNH), Why Is The Market Paying Closer Attention Now? - simplywall.st",
+          "title_cn": "UnitedHealth Group (UNH), Why Is The Market Paying Closer Attention Now? - simplywall.st",
           "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2Z6WlJrd3RCU2tmUHNrVmlVSW1jUDVIZTdLbFlkWVNUUjZ5UWZocGp6UW0tX0RPQjhqbXhrYmtEeTBteDY4eGZXQ1dmZUEtWG9Ubkd6dlhaVGU1Mk9HSEhLVDYtaURWdXJyeVNWanZHcW5DdUFUZTFMRDEyd3pPWUZFT1JBVENDZVQ3WGlXRGQ4eXdLdGl1MlptTUNlMkMwVTVEZ0JHNmxFQkl5WHFSRXdVdmV6OWUyWGJRcw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
-          "title_cn": "UNH Alums Tell Us Their Favorite Places on Campus - University of New Hampshire",
-          "summary": "",
-          "pubDate": "2026-08-25",
-          "provider": "University of New Hampshire",
-          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1TVURXSnF6N2xpR0ZzYUpRQlVqdlg0dl9sclRqVG1kTTY4b0haOS1DbmdDTDZTYmFXTG9hVmZxTTFobF9LOVFyanlvSjRjLXZvRlBJZldzdkhlZ1pjeVR3TzZpNDd2aC1qcDdudzNmbnY3akJKbTFpNlAzTQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Is UnitedHealth (UNH) the Healthcare Stock to Watch Right Now? - Yahoo Finance",
-          "title_cn": "Is UnitedHealth (UNH) the Healthcare Stock to Watch Right Now? - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-27",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPLUw2MnVaTl9aZW5SVEg4NTNYeThUNlBKaFpISEZ1WV9ETER4S1RFMS1DWVNGN0xHa2V0aHFPNjdUU1VtR1RJV2x3QnplejAwNDhoSzNQN2VPb2NfUV81SVkyOWs2aDN1VUZMbXI1bXpRV0o4MHZuYlZiTFhnX1dJQ01mNnNKeC1Eem9wQXhUZnM0NkVfbTZYQlRsX0RrTTFNSVE?oc=5",
+          "pubDate": "2026-08-29",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOZXZRWldzUjRKakFWazZhUU1ZSWpCM3lhOFljTmYycklveVFZUWxJMkxXMzVscmhLbS1pRG5Va3NKWUJseWVpbVRDeFpfVno3ZmVUR1UtOWZkdmIyOXpBUjBJWDRqUURFV1dZbU9Tck0xcFVQM3Z2SmRGU0xzclJUbGNSU1dtYU4tUnVfb1hyYWxIVl9xYnAxTnM0NmlZQjVmU2lLM3h2a1NQc3V5MEZETGZPOGJIUTR6c3N5cHhIX2JuSEx3MTN0ZFN6MXhheHYyTHfSAdcBQVVfeXFMTjZySndsckhRczJMeFZBUkNkUHk4R05mMlV0akNHWlo0VjZXMkotampocC1tdHlZN0hFLW90dFRpTFhIUWpHZzVKYXE3YmxueTAwM2FNNUVIbWFmYWs4VDhWNThUU2JSSTZ4YlBFWFRWU1haZ2l4Rm5EQjkxTzVQSTFTVmxtRmhuVFdqUDZqMVpvbWtLT2RPeFhKU09TM2lMRGgybXNtNmI0cUlROV9vNU5uczcyUExKNlBCT1lGRS1KcDItQkRVbWN4cllteU1ZaWtZUnV2WVE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -416,19 +416,6 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "腾讯控股(00700.HK)：重构AI研发体系 深耕办公AGENT新入口 - Futubull - 富途牛牛",
-          "title_cn": "腾讯控股(00700.HK)：重构AI研发体系 深耕办公AGENT新入口 - Futubull - 富途牛牛",
-          "summary": "",
-          "pubDate": "2026-08-23",
-          "provider": "富途牛牛",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOOF9UQ0dZczdTTm1sTHQ2c09taUg4NjB4N0t2MVM1ZkRwMWo4YXZOSktzX0U3N01tLW9sb2JHV1d3UEZuWnF1Y3UxVjc4VURKc1hBQ1Q0R08zRXl4eHpCWkROZm4xaGV4b2xrMGJVa3hwUy1UQWNGeGVJQVBpZ1ZvQWtPdE9teW9JNFZNMjkyaFV1NmVhbXFFZ0YzQ0dva0pURzRhX0Vlaw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -443,19 +430,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
-          "title_cn": "Temu-owner PDD revenue misses estimates, profit falls on 'intense' China competition - Reuters",
-          "summary": "",
-          "pubDate": "2026-08-24",
-          "provider": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPQko3Zno2NmVqbTctUHFMbTAwLWJNclZFZjc1VXVrLTNRNTQ5UWVET3hGdGczelZHRVFzUW85Y2xwandZU19oY2VTOWxPM1BkQ3BfWWZ0bXpxQzdQa04zVFI5Qm03RFBvLTQycHlVXzRkZUc0bzFzYW1KeXNMRGlaMGVEYnhZQWxTNy1UVTN0bHYzZU1nam52aTVlNWZsVEtzNGZ1NXM0cTluN0xwNVRr?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.8,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
           "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
           "summary": "",
@@ -463,7 +437,7 @@
           "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQS2MzaEZyazdlSVB1YlNsak5iU0lMdzNsOTB4bXpkRUx6Zk1WQm1oUndYdEJjNXI5Zm03dHlhZ3NVSlhwMFlueXk2VU9mYURlSU93dkxIRlN4d01TaE9MMVM2Tk5wRE8wRm40TEJ2b1daRFp6WDVMOVJWX0ltbTZmYUlpak1YVFM1WW41MURKbTMzRFBGdGRyYlFpRmRrQ2tOMVFqOU9ZZmtIOFQ0VHR3Vk1BVm9lX25mbWZZRHU4Nl9FQ0NHRXFxNEVkVUJQUQ?oc=5",
           "direction": "negative",
-          "impact_pct": -0.7,
+          "impact_pct": -0.5,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -506,6 +480,19 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
+          "title_cn": "PDD Holdings (PDD) Stock Faces Margin Pressure Despite Revenue Growth - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-08-25",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOWlZRTnhMZmVpM1JCVTgwcmVwamhreTltd0dGbE9NREJ4c0laalZfT2U5ZVk2ZTJPUnNjUlBSUWI3UHpaLWh3MXpHd1A3YzE4TGtjX3ZnMUFETXZUOVpLSVZ0QzRmTW1fRnBpMWxCWmZUV0JjV3dnaVpzWjlzczhqNUg0a0FFYXdIWDJhTlhuakF0Q0c0Und2TEhBakxmdzgyb0JDeUxvY2tkMHhmZEZoY1NxeHpINVljV2NOVG40amlpRnJrTks00gHMAUFVX3lxTE1VZHV6LXpUZlk0XzRTbkhNUmljNklUdWFTaHA4a3gxRXhwbXBoUGF3Tjc1WjNNY2V3cS1nV0RhUzRBV3FidU8yREs3Nk9MWm1ZX0lzMGtJTHZtODhURXJ5VWgtUmE5Z1JhZ185UEhETi1vdlB5a0tnbjVXaXgxbS1jcWhCOGJ4a1BoQUljYWFMSTNNOEVDdW5wdWNSSFRNUkNJSERkSFF4VXNobkxGOGZNZzVmNEZNbVNhQjVHSW1TenpTX1VTUElVeU1tUQ?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -516,27 +503,27 @@
   ],
   "macro": [
     {
-      "title": "Jobs report, Broadcom results pose next hurdles for stock market rally - Yahoo Finance",
-      "title_cn": "Jobs report, Broadcom results pose next hurdles for stock market rally - Yahoo Finance",
+      "title": "The Jobs Report May Force A September Rate Hike And Send Rates Soaring - Seeking Alpha",
+      "title_cn": "The Jobs Report May Force A September Rate Hike And Send Rates Soaring - Seeking Alpha",
       "summary": "",
-      "pubDate": "2026-08-28",
-      "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQeDA2cUZ0QzNPRTVuNzBlRVNTZFpJUTdTYldHb1BzYTJyd2k2T2dwVlZ5ZDJXTE9GX0dzMl8zTVhpYXljTXMwN1hlV2RlX05sUFA2YU42MWpEQkY5OElMdklmMUJBZ2tYbUR1OExkTXBpTzNvSFBqZGl5YkRabmJfUlNSeVVsVWN5R2hjaTlNM3pEaS0wRHlRVWIyR05UdXc?oc=5",
+      "pubDate": "2026-08-30",
+      "provider": "Seeking Alpha",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZVk1SUVSc2RIakM2ano5bDdRRFUyTXE0ZzNjOEd2S013akxkYzB3Wm1iQ3FkODBHdE52ME9KMW9SUllRRGNmWThFMlZpdEQ1RWZjTXo1YmhTWVRkVkVzZkpRN1FtMXE2QVRxbC1nV3kzUkRHZlJ3dnY4R3dNXzVRYnNIdDk1bzYyc2FsMGdKaXc3ZGVuUFptSGNvZ2ZiRk1lZnlheG1rYzFUajRLMVZZaQ?oc=5",
       "direction": "positive",
-      "impact_pct": 2.0,
+      "impact_pct": 3.3,
       "reason": "",
       "type": "宏观",
       "source": "rule"
     },
     {
-      "title": "US employment growth only modestly lower than thought in BLS revision - Reuters",
-      "title_cn": "US employment growth only modestly lower than thought in BLS revision - Reuters",
+      "title": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
+      "title_cn": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
       "summary": "",
       "pubDate": "2026-08-28",
-      "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMXlpYmpFaW9aU2EycHliTjVzcl82OXNJMVVpNWhZS0t0VktaR1Vzbl9HY1h5UHlXLWNFOUtFR19XRElKc1FqTUNBRWNIcjlmLWhSbkhBWE1lR2VQUEtVdVJQSWZCQjMycDA2Qlc3V1cxT1hjYkJySFpFZTJOdEF3U3plc0ozcXdtamJtbm9MTl9xYmUtdmtaY1d4Mk0tQXBORU90WDEta3NpcXpnYXdyU2NaaFhEaDVi?oc=5",
-      "direction": "positive",
-      "impact_pct": 1.6,
+      "provider": "The Hill",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMHoyMlNQSms4ZWpONFBvV2J3X1M0VEFXSGJMejJhTU9Sa0hiUk9YN3hHXzdtMm5CVDBYOEFmWm9Nb0VQSGN5TDRfMVBvOXFUc25hQkxsUUdFVy1qb3gtR0M5eXhPR095bDBjQWY5b1JWaGpZNlg0WXV3WmRSRy01NHdPdjRBcnpJaE5IUDdNTk1kd05LS0x6SU5yS2F5d9IBowFBVV95cUxOTGVBenJqczBCVjYza19scUpyd0dkMGR2Q1AyV0pQNzlWZThDQmN4U1Z2c05LbGhEeHRJZVg4bnh3N3pZNUJhdm8xZ19HNHoweWk2b3R3SDJJQkdXZ0pBU1pOajg2ZTNLdS1MUkYwV2Jnd1gtdGhWREpWQlJMZGJqMFo3c3JkUmVBdlg3MmdOV05kbTlYM3NNakpvb0RPMkZiQ0pV?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
       "reason": "",
       "type": "宏观",
       "source": "rule"
@@ -555,6 +542,19 @@
       "source": "rule"
     },
     {
+      "title": "Warsh Speaks and Rate-Hike Odds Rise | What’s News for Aug. 28 - WSJ",
+      "title_cn": "Warsh Speaks and Rate-Hike Odds Rise | What’s News for Aug. 28 - WSJ",
+      "summary": "",
+      "pubDate": "2026-08-30",
+      "provider": "WSJ",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA2cTdEc2hzZ2M3VWIwYVRiQkxEUnVibFJYMU1WZVV1TjU3UG1oclNDS1ZNTWZBZUh3dHhnRlNuZF91RF9EV0VJZkd2X1dwTDNmN3NoR09ZcVFlRFROOHNTZXcwRkJZTkFPeDJzQkFXOEVtUFlOM1NUXzgzUy0?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "Fed Chair Warsh signals rate hikes may be needed with inflation still elevated - ABC News - Breaking News, Latest News and Videos",
       "title_cn": "Fed Chair Warsh signals rate hikes may be needed with inflation still elevated - ABC News - Breaking News, Latest News and Videos",
       "summary": "",
@@ -566,22 +566,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
-      "title_cn": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
-      "summary": "",
-      "pubDate": "2026-08-28",
-      "provider": "The Hill",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMHoyMlNQSms4ZWpONFBvV2J3X1M0VEFXSGJMejJhTU9Sa0hiUk9YN3hHXzdtMm5CVDBYOEFmWm9Nb0VQSGN5TDRfMVBvOXFUc25hQkxsUUdFVy1qb3gtR0M5eXhPR095bDBjQWY5b1JWaGpZNlg0WXV3WmRSRy01NHdPdjRBcnpJaE5IUDdNTk1kd05LS0x6SU5yS2F5d9IBowFBVV95cUxOTGVBenJqczBCVjYza19scUpyd0dkMGR2Q1AyV0pQNzlWZThDQmN4U1Z2c05LbGhEeHRJZVg4bnh3N3pZNUJhdm8xZ19HNHoweWk2b3R3SDJJQkdXZ0pBU1pOajg2ZTNLdS1MUkYwV2Jnd1gtdGhWREpWQlJMZGJqMFo3c3JkUmVBdlg3MmdOV05kbTlYM3NNakpvb0RPMkZiQ0pV?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-08-29 17:46:03",
+  "generated_at": "2026-08-30 17:21:50",
   "macro_summary": "",
-  "cached_at": "2026-08-29T17:47:52.724627"
+  "cached_at": "2026-08-30T17:23:48.346304"
 }
