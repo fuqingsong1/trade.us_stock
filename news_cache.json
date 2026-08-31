@@ -84,6 +84,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Nvidia: Stock Price To Catch Up To Earnings Growth (NASDAQ:NVDA) - Seeking Alpha",
+          "title_cn": "Nvidia: Stock Price To Catch Up To Earnings Growth (NASDAQ:NVDA) - Seeking Alpha",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSFhoRFRWZXlKblBTc3JMYk43QldXNEh5NGxmbHVzRkFCZEZNSk5DM2hhMGE5WjBsT2czekNRWGtCT1hPdkp4UXFWbERpb1V2ZTNybXRzZmR0bTlpRmRxMGNWLThidmNzSGtVTW5UbWFpaHpuOWlnQmdhN1A3TmdZSG1vczhKWUh2VnBfVU9HYjJ5NWwtdTVBUUhNRS1RLUZrZnNLd2pKenF0QklUVnc?oc=5",
+          "direction": "positive",
+          "impact_pct": 2.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Nvidia Stock: Cathie Wood Buy $53M in Shares. Why Growth Investors Are Returning. - Barron's",
           "title_cn": "Nvidia Stock: Cathie Wood Buy $53M in Shares. Why Growth Investors Are Returning. - Barron's",
           "summary": "",
@@ -123,25 +136,12 @@
           "source": "rule"
         },
         {
-          "title": "Prediction: Nvidia Stock Will Trade at $350 on This Date - 24/7 Wall St.",
-          "title_cn": "Prediction: Nvidia Stock Will Trade at $350 on This Date - 24/7 Wall St.",
+          "title": "Prediction: Nvidia Stock Will Trade at $350 on This Date - 247wallst.com",
+          "title_cn": "Prediction: Nvidia Stock Will Trade at $350 on This Date - 247wallst.com",
           "summary": "",
           "pubDate": "2026-08-31",
-          "provider": "24/7 Wall St.",
+          "provider": "247wallst.com",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNjZlNmJYaFgzS1N5RGtrcF9palRuX1J0WFR0OTFwQzd5Z0tsOE9FaWg3WHNfRThfZkt0UEYxN1V0OFRrRGZaTC1VTXJXRGRzSUI0bTdveE9wVnZ6N1Y0b1VHWVZobXlITTJpR2lweC1EUjI5UkREWURCS3B5NHVTZ0tQX1JSRS1KTi1idXdtTXJ5bXVYUURmS1FubGZEMEE?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - nvidianews.nvidia.com",
-          "title_cn": "NVIDIA Announces Financial Results for Second Quarter Fiscal 2027 - nvidianews.nvidia.com",
-          "summary": "",
-          "pubDate": "2026-08-26",
-          "provider": "nvidianews.nvidia.com",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOcjZPeVV6eC01Z2tWOHlyVEhmMG9uZDgyaXdvVTV3MVVMWGdKVVhJdlNiRHBvejd0UnlSNFJfTFA4dXAxUk9fVi1RQ2h2VU1kd2FkSUoydEJheDVMNWRnYUdMa2RFcG8zcTROTl9ZX1lJQ0tRU1VZR2pkQjFRdEtkM0tpUUlOcXhsYTFGcGY5RHFQYWZyNkh6LXVCSmN0Y1J3WWc?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -171,6 +171,19 @@
           "impact_pct": 1.2,
           "reason": "",
           "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Cathie Wood Buys Nvidia Dip After $442B Rally, Sells $74.5M of AMD Stock - Cryptonews.net",
+          "title_cn": "Cathie Wood Buys Nvidia Dip After $442B Rally, Sells $74.5M of AMD Stock - Cryptonews.net",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "Cryptonews.net",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1SbDlFT3Riek5lYjVPS3BRMDlLMEZ3ZEFGWVZPcldyM2syU09nVHFRc2hjX1BxNzVOb3dibERJd3phOUZLN2NLbWRVUlZmYVp4UFQ5ZzhpOXU?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         },
         {
@@ -206,19 +219,6 @@
           "pubDate": "2026-08-27",
           "provider": "Barron's",
           "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByaWs5cnpDTTNpSUk2N0FZMG9ZSmgyMGE1ampTZ0ppWDNEbWh1bF84UUpjQ2lYVjVzZ0ZXbkRsSjhtMUVSdFZnMWJ2aFFuMnBWUmtnb0hDNmJUdHduZk5NbEJodlRSOVViNjNmdEZ4TG1VXy10eTlKOW04V3dIQQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Intel vs. AMD: Why the Market Share Number Is Misleading - Barchart.com",
-          "title_cn": "Intel vs. AMD: Why the Market Share Number Is Misleading - Barchart.com",
-          "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "Barchart.com",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPWHFsNWNyaFF6dlV2MW9SeUUydVVQLXpIQ3ROa0Jjd25JbV9JYlBCNUVJSzlMVDB4TUJyck1Pc2lubkFXOXZqc1kyaXk0Mml0WVR5QS1NaDdjQXprY29OVHBQUi1YbkR1QUlNOE5ua09VUkhtQW8tanVVcGptN2YzeDI5RkdGZDBsak5KOHRNZV9feTJIeEV0RU1hZE54TEU?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -353,11 +353,11 @@
           "source": "rule"
         },
         {
-          "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
-          "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
+          "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 247wallst.com",
+          "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 247wallst.com",
           "summary": "",
           "pubDate": "2026-08-27",
-          "provider": "24/7 Wall St.",
+          "provider": "247wallst.com",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQS2MzaEZyazdlSVB1YlNsak5iU0lMdzNsOTB4bXpkRUx6Zk1WQm1oUndYdEJjNXI5Zm03dHlhZ3NVSlhwMFlueXk2VU9mYURlSU93dkxIRlN4d01TaE9MMVM2Tk5wRE8wRm40TEJ2b1daRFp6WDVMOVJWX0ltbTZmYUlpak1YVFM1WW41MURKbTMzRFBGdGRyYlFpRmRrQ2tOMVFqOU9ZZmtIOFQ0VHR3Vk1BVm9lX25mbWZZRHU4Nl9FQ0NHRXFxNEVkVUJQUQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.4,
@@ -426,11 +426,11 @@
       "source": "rule"
     },
     {
-      "title": "Warsh indicates Fed could raise rates to cool inflation - thehill.com",
-      "title_cn": "Warsh indicates Fed could raise rates to cool inflation - thehill.com",
+      "title": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
+      "title_cn": "Warsh indicates Fed could raise rates to cool inflation - The Hill",
       "summary": "",
       "pubDate": "2026-08-28",
-      "provider": "thehill.com",
+      "provider": "The Hill",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOMHoyMlNQSms4ZWpONFBvV2J3X1M0VEFXSGJMejJhTU9Sa0hiUk9YN3hHXzdtMm5CVDBYOEFmWm9Nb0VQSGN5TDRfMVBvOXFUc25hQkxsUUdFVy1qb3gtR0M5eXhPR095bDBjQWY5b1JWaGpZNlg0WXV3WmRSRy01NHdPdjRBcnpJaE5IUDdNTk1kd05LS0x6SU5yS2F5d9IBowFBVV95cUxOTGVBenJqczBCVjYza19scUpyd0dkMGR2Q1AyV0pQNzlWZThDQmN4U1Z2c05LbGhEeHRJZVg4bnh3N3pZNUJhdm8xZ19HNHoweWk2b3R3SDJJQkdXZ0pBU1pOajg2ZTNLdS1MUkYwV2Jnd1gtdGhWREpWQlJMZGJqMFo3c3JkUmVBdlg3MmdOV05kbTlYM3NNakpvb0RPMkZiQ0pV?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -478,7 +478,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-31 19:29:26",
+  "generated_at": "2026-08-31 19:36:08",
   "macro_summary": "",
-  "cached_at": "2026-08-31T19:31:31.481928"
+  "cached_at": "2026-08-31T19:38:05.209167"
 }
