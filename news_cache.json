@@ -174,19 +174,6 @@
           "source": "rule"
         },
         {
-          "title": "Cathie Wood Buys Nvidia Dip After $442B Rally, Sells $74.5M of AMD Stock - Cryptonews.net",
-          "title_cn": "Cathie Wood Buys Nvidia Dip After $442B Rally, Sells $74.5M of AMD Stock - Cryptonews.net",
-          "summary": "",
-          "pubDate": "2026-08-31",
-          "provider": "Cryptonews.net",
-          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1SbDlFT3Riek5lYjVPS3BRMDlLMEZ3ZEFGWVZPcldyM2syU09nVHFRc2hjX1BxNzVOb3dibERJd3phOUZLN2NLbWRVUlZmYVp4UFQ5ZzhpOXU?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.2,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
           "title_cn": "AMD Stock Upgraded To Strong Buy. Here’s Why. - Investor's Business Daily",
           "summary": "",
@@ -219,6 +206,19 @@
           "pubDate": "2026-08-27",
           "provider": "Barron's",
           "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFByaWs5cnpDTTNpSUk2N0FZMG9ZSmgyMGE1ampTZ0ppWDNEbWh1bF84UUpjQ2lYVjVzZ0ZXbkRsSjhtMUVSdFZnMWJ2aFFuMnBWUmtnb0hDNmJUdHduZk5NbEJodlRSOVViNjNmdEZ4TG1VXy10eTlKOW04V3dIQQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Intel vs. AMD: Why the Market Share Number Is Misleading - Barchart.com",
+          "title_cn": "Intel vs. AMD: Why the Market Share Number Is Misleading - Barchart.com",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "Barchart.com",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPWHFsNWNyaFF6dlV2MW9SeUUydVVQLXpIQ3ROa0Jjd25JbV9JYlBCNUVJSzlMVDB4TUJyck1Pc2lubkFXOXZqc1kyaXk0Mml0WVR5QS1NaDdjQXprY29OVHBQUi1YbkR1QUlNOE5ua09VUkhtQW8tanVVcGptN2YzeDI5RkdGZDBsak5KOHRNZV9feTJIeEV0RU1hZE54TEU?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -478,7 +478,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-08-31 19:36:08",
+  "generated_at": "2026-08-31 19:41:51",
   "macro_summary": "",
-  "cached_at": "2026-08-31T19:38:05.209167"
+  "cached_at": "2026-08-31T19:43:50.748560"
 }
