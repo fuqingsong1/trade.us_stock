@@ -20,11 +20,11 @@
           "source": "rule"
         },
         {
-          "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
-          "title_cn": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
+          "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - finance.yahoo.com",
+          "title_cn": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-08-29",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVmNkR05rOTRKSkVUekJIUHpFNVZtSWhWYXQ4dlNIY25SWXlOSFZQTFZCMFg0NUVCaFZ3ZGI5ck1JaWZodFdSYnhoT2NMRjZsVjRyOTRlUWZId3JkYlk3eGgzekZmQmxhelFEVlIzeDhoNFlaVVpGcHFHZUVLUFJWaVp1MGtkRGtWeGR0YTZpdU9iRUdnQl9FNTBsLXg3Zw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon stock just entered the danger zone - Yahoo Finance",
-          "title_cn": "Amazon stock just entered the danger zone - Yahoo Finance",
+          "title": "Amazon stock just entered the danger zone - finance.yahoo.com",
+          "title_cn": "Amazon stock just entered the danger zone - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOZ2RVVUtINXJyMDgxTkJxajJxWFJDdVl3c2d6dFlxRkhEYmVjQ0Q5aHQ1VU4zX0R5S0M4Qm5feVR2Yy1zWmdLcEgzZGh6eXdTeHF5UHg3ZjRiUWtxQWRKZV8wTTBoU1N3TDVTRFQyWktlLXZVRVhZRTVCQ1N4SUhfRm5NVVZXZnNNVnhHb0Z2VzJiblRHcjl0enF5N2JrYm1pYXhaTk9hQWg?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -161,14 +161,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - CNBC",
-          "title_cn": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - CNBC",
+          "title": "Cramer’s Radical Fix for Nvidia: 5x the Buybacks, Repurchase 10% of Stock - finance.yahoo.com",
+          "title_cn": "Cramer’s Radical Fix for Nvidia: 5x the Buybacks, Repurchase 10% of Stock - finance.yahoo.com",
           "summary": "",
-          "pubDate": "2026-09-01",
-          "provider": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYkpNWUhfalJRbEtDNWlDRTNrUEFNQUtfQXQ1bmpWWWFENVVoN2hLTG1tbGxFakdaQ25MRTJxMUJyVUJtbFEwUTJTaHUyMXpRS0MyWng3YVh6a0FvbzZXbVJHVlpWZloybGZVQnR3UlN0VXZGV21hbmg3RXhRaTk0b0hJNm9HN0NLbHU0Zk1iTko0bEhUZHJUY0dZLUlLQzZwWmJjVmlvRE5McWJ4bmRjdkMzZndCd1RqRmc?oc=5",
+          "pubDate": "2026-09-02",
+          "provider": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOdi1lNjlUZ3I5bkh6eFZ6T1pCbEFtTF9fMF9SZWpwQWVLUExFeTIyelNOUk1Jelp4UTl0Z1FncHdfREx3VVlvaEo0NzV2YmE1Qm9HY001R0I1bGpTdHVfWGQzZmpHWGdvYU5qTHo5OG52WHE2bHdnbEN2UVhoUzlKMWZqX0FmZG5jbDZPTnhHM21PdnphNkVsdA?oc=5",
           "direction": "positive",
-          "impact_pct": 2.2,
+          "impact_pct": 1.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -238,11 +238,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Why Is AMD Stock Sliding on Friday? - Yahoo Finance",
-          "title_cn": "Why Is AMD Stock Sliding on Friday? - Yahoo Finance",
+          "title": "Why Is AMD Stock Sliding on Friday? - finance.yahoo.com",
+          "title_cn": "Why Is AMD Stock Sliding on Friday? - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-08-28",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMkhpLWo4Tkc4V1Q0MTlJZUVIWDZleG92R0czanZ0SHVEbUtfdjVDX001RDR2WmFUZ2dWOXpzTkx2ZUVaLThSRXh6TDdiREdpN1VuMFZoeWloY3h2VEdKb3MtRHBQUW1YNnFkbzZ2TkR3dHdzaGhtMDFNM2dIaURDV3UwVlQ0OF9oaXczaEJYaEFieTVMMnZyZQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -405,19 +405,6 @@
           "source": "rule"
         },
         {
-          "title": "Wall Street Analysts Believe Marvell (MRVL) Could Rally 34.31%: Here's is How to Trade - Yahoo Finance",
-          "title_cn": "Wall Street Analysts Believe Marvell (MRVL) Could Rally 34.31%: Here's is How to Trade - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-31",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPdUtTQ2JtUFJJd3lheUVHMWdpbUlPTjVtVDVjcFJuVlQ1ZFFocFpSMnBMdHhmVm9XYVY3Vk1BYk84dnVtX2M4dThYLVZUNWNuRnhCbmJfMDEyV0oxTFhvVFFuTWFkVkZiTVIxUkpwbXdKMUg4OTVXb0dRdWxmUDJ0bzk0V3RFUXJ1dDFmQjNLTjh5Y2E5aURIXzRWZjZLV20wS3FF?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Marvell Technology (MRVL) Stock Price Falls As AI Ambitions Meet Valuation Doubts - simplywall.st",
           "title_cn": "Marvell Technology (MRVL) Stock Price Falls As AI Ambitions Meet Valuation Doubts - simplywall.st",
           "summary": "",
@@ -431,11 +418,11 @@
           "source": "rule"
         },
         {
-          "title": "Marvell Technology (MRVL) Could Be 25% Below Fair Value After Raised Revenue Outlook - Yahoo Finance",
-          "title_cn": "Marvell Technology (MRVL) Could Be 25% Below Fair Value After Raised Revenue Outlook - Yahoo Finance",
+          "title": "Marvell Technology (MRVL) Could Be 25% Below Fair Value After Raised Revenue Outlook - finance.yahoo.com",
+          "title_cn": "Marvell Technology (MRVL) Could Be 25% Below Fair Value After Raised Revenue Outlook - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOWjloRXI3ZXpxYXRRcndOWHhrMG1fck9qZV9NaHRQay05VHdmUlNVX0RGM2RMcExDSDl5cVg5ZzJwZFh0OG1FTy1NMHM3Qld2YVBGelk2ZE9TUkNfb2pWOHBQeF9LVEpLU3dad21zMWN0OURUSzduV21EczgzNHBNOTY3UU9xWkYzdmRqR2ZGSmhqMmVvaFdfUjYxZDBCZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -455,11 +442,24 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "Monthly top ideas from Oppenheimer include MA, MRVL, CMG, and more - Seeking Alpha",
+          "title_cn": "Monthly top ideas from Oppenheimer include MA, MRVL, CMG, and more - Seeking Alpha",
+          "summary": "",
+          "pubDate": "2026-09-02",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOV0FNWFlqMk9LS0ZWaF9BX1dBaUNJbVYtVkp6RXBhVnBJckRMRk83QnpoNGxROTFzaHZBRXBDOEZLUVBPTHM2QjlyY2dFUFNWcHFsUTVJUmRnbldaN1N2Y1F5UTA1a1BWVzhsNkhucGlRc1ZPWnUweDZwYnB0ek1fS3pjZVNOTEZIcWdkendxa1g2Z3ZYQ0ZPT1E4UExTeWpBYnhZ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -469,11 +469,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Brokers Suggest Investing in UnitedHealth (UNH): Read This Before Placing a Bet - Yahoo Finance",
-          "title_cn": "Brokers Suggest Investing in UnitedHealth (UNH): Read This Before Placing a Bet - Yahoo Finance",
+          "title": "Brokers Suggest Investing in UnitedHealth (UNH): Read This Before Placing a Bet - finance.yahoo.com",
+          "title_cn": "Brokers Suggest Investing in UnitedHealth (UNH): Read This Before Placing a Bet - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNc0xCVlFaY3Fxa3ZueFRJMEtWVS1YNU5jNEtXMVl1TDRJdlFIM0YxWFFMc0k4b2FwMnE0Y2ZUdVNFYktKalhiRUpoSWhTUl9lY3lRNW5fQTZmVWRKSi1qajJ4U1RiYXpxelFYWHpuU1Z1bmlfTVhfSUFIR2Z0dUNDWVZORm92YTF4ZXd5VkVaZWRoWUt6U3g2UUpwSEptRW5PRUZ0cEE3ZWcxaVU?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -682,12 +682,12 @@
   ],
   "macro": [
     {
-      "title": "Wall Street divided on Fed policy path as Barclays joins hawkish camp - Reuters",
-      "title_cn": "Wall Street divided on Fed policy path as Barclays joins hawkish camp - Reuters",
+      "title": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
+      "title_cn": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
       "summary": "",
-      "pubDate": "2026-08-31",
-      "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRWRma3ZBQUUwejF6cXBtMk5QM29USnJ5czg5VDU4eEI0TWdBNlZITmZLT0lVTXRWTW9XYXdWRTZJRXRnc1pmUFJWU0N3NE55c1RQdk96VzQzZ1RHZWVCVzVRQmZRZW9iTko2TzFGMDlNWUFXOXVNRFpaLXgxTUxZZFRwN19SWmRvbUgyUEVxN3ducGJrTEZGRFE2bGVPbkVDLU9WczBLVQ?oc=5",
+      "pubDate": "2026-09-02",
+      "provider": "stories.td.com",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPX2YtbUhqalUwNEJxOGwwOFk0a3ZRRTc3UmtaaEVEajd0N2xtUjk1cjA0cEtFbnk3VlZMVVpTMi1ITUh2bkJQZl9nQmZxM1h4SjNLSDMzVFdVbVVsNG1ZNGVaeGROUzJYWFA4NXBJMXBlaTloLUhZWjdTTDVDZkRIczlaMFZxZlE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -695,12 +695,25 @@
       "source": "rule"
     },
     {
-      "title": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
-      "title_cn": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
+      "title": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
+      "title_cn": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
       "summary": "",
       "pubDate": "2026-09-02",
-      "provider": "stories.td.com",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPX2YtbUhqalUwNEJxOGwwOFk0a3ZRRTc3UmtaaEVEajd0N2xtUjk1cjA0cEtFbnk3VlZMVVpTMi1ITUh2bkJQZl9nQmZxM1h4SjNLSDMzVFdVbVVsNG1ZNGVaeGROUzJYWFA4NXBJMXBlaTloLUhZWjdTTDVDZkRIczlaMFZxZlE?oc=5",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1R1MzRzd281NmluU3cyRUNUV1VRY2h0UFFKbU40ZVExWWVXdGIwNGltaEwyUXJ4UWVzU3owNXlsd3FFbTBYVTRxMW1SQlBvLTRpT1dSeE9TRG5qbmUwUmJSa3NYZ29IRGxFRmZLVzBKdjNpZXFPZGhEamJOWmRiX3VQNlBmNDJMM0ZTS0xBSks3Z2NfOUJURGZPU1pWWGJrVGRMT2o5dFczNXhxdVhCSXpBZ1VGT1FCazgzcg?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Fed Chair Warsh not ruling out interest rate hike amid inflation concerns - PBS",
+      "title_cn": "Fed Chair Warsh not ruling out interest rate hike amid inflation concerns - PBS",
+      "summary": "",
+      "pubDate": "2026-08-28",
+      "provider": "PBS",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRUozWk5NQ1U2TFVwaG1VUWxkeU1BQy1vTm5FUWJORHBZTmhwcnAzZFFUVkNtVUVuYXFweGlxOE1jUndZQWR4U244NXFEcWFILVVuNXdoanZzYlNBb0RpY2FucUZRTGlhQVZUdVhJWFNZODZkQU5BRXd2Rk1SQmJqc0k1R2l3RktXOVFDVVdScnlhdVZ4RTBlOUsyRklLZklhZHd1MzFFMGZFbXc?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -732,22 +745,9 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
-    },
-    {
-      "title": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
-      "title_cn": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
-      "summary": "",
-      "pubDate": "2026-09-02",
-      "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1R1MzRzd281NmluU3cyRUNUV1VRY2h0UFFKbU40ZVExWWVXdGIwNGltaEwyUXJ4UWVzU3owNXlsd3FFbTBYVTRxMW1SQlBvLTRpT1dSeE9TRG5qbmUwUmJSa3NYZ29IRGxFRmZLVzBKdjNpZXFPZGhEamJOWmRiX3VQNlBmNDJMM0ZTS0xBSks3Z2NfOUJURGZPU1pWWGJrVGRMT2o5dFczNXhxdVhCSXpBZ1VGT1FCazgzcg?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
     }
   ],
-  "generated_at": "2026-09-02 17:14:08",
+  "generated_at": "2026-09-02 17:22:53",
   "macro_summary": "",
-  "cached_at": "2026-09-02T17:16:09.514684"
+  "cached_at": "2026-09-02T17:24:53.988620"
 }
