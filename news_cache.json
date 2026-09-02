@@ -136,11 +136,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon Stock Could Surprise Investors Over the Next 12 Months - 247wallst.com",
-          "title_cn": "Amazon Stock Could Surprise Investors Over the Next 12 Months - 247wallst.com",
+          "title": "Amazon Stock Could Surprise Investors Over the Next 12 Months - 24/7 Wall St.",
+          "title_cn": "Amazon Stock Could Surprise Investors Over the Next 12 Months - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWDBJT1Q0b21ZZDlzNmUybzZPbi1nejdpS05MZWIxdHRhVmlaZk5DVUpmU2ZHcTBYMFpTTHdES005WWtkOVBCSUxOdFdoazZjdFVpbGwzcV9DclFiMVIyMnp1bDBCcGF2dHZHS0xVRnM3QmN1NVlHTzJaTXFKamxBenlQRTRmdXpwZ1NHUU04bzVJYV8yUmwzVjBYRnF4MXNxQVgzVDNJamE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -161,27 +161,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - cnbc.com",
-          "title_cn": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - cnbc.com",
+          "title": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - CNBC",
+          "title_cn": "Jim Cramer says Nvidia should do a half-trillion dollar, Apple-style stock buyback - CNBC",
           "summary": "",
           "pubDate": "2026-09-01",
-          "provider": "cnbc.com",
+          "provider": "CNBC",
           "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYkpNWUhfalJRbEtDNWlDRTNrUEFNQUtfQXQ1bmpWWWFENVVoN2hLTG1tbGxFakdaQ25MRTJxMUJyVUJtbFEwUTJTaHUyMXpRS0MyWng3YVh6a0FvbzZXbVJHVlpWZloybGZVQnR3UlN0VXZGV21hbmg3RXhRaTk0b0hJNm9HN0NLbHU0Zk1iTko0bEhUZHJUY0dZLUlLQzZwWmJjVmlvRE5McWJ4bmRjdkMzZndCd1RqRmc?oc=5",
           "direction": "positive",
           "impact_pct": 2.2,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Nvidia Just Returned a Record $26 Billion to Shareholders After Increasing Its Dividend by 2,400%. I Predict Another Massive Dividend Increase. - The Motley Fool",
-          "title_cn": "Nvidia Just Returned a Record $26 Billion to Shareholders After Increasing Its Dividend by 2,400%. I Predict Another Massive Dividend Increase. - The Motley Fool",
-          "summary": "",
-          "pubDate": "2026-09-02",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQQWxTQmlzVlgzaFo4M3g0V2VoODNmQ0JvN19aOTR0S1pKNUlBUktkcXBRUkdiNDhvRjNTWDlMNTdob3QyMjVfbnBNZjlKOHZ4T2FyZEhDTGd6emdUazRNTHdFQ0ZxdGtqdTloa24zU2FjOHRlRFJDa0lHZV9yTUp5ZDBJcVJWb250UHAyLU52TzUweThKZ2tVaw?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -195,6 +182,19 @@
           "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSFhoRFRWZXlKblBTc3JMYk43QldXNEh5NGxmbHVzRkFCZEZNSk5DM2hhMGE5WjBsT2czekNRWGtCT1hPdkp4UXFWbERpb1V2ZTNybXRzZmR0bTlpRmRxMGNWLThidmNzSGtVTW5UbWFpaHpuOWlnQmdhN1A3TmdZSG1vczhKWUh2VnBfVU9HYjJ5NWwtdTVBUUhNRS1RLUZrZnNLd2pKenF0QklUVnc?oc=5",
           "direction": "positive",
           "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "NVIDIA (NVDA) Stock Rebounds 5% as Inference Partnership Boosts Outlook - FXLeaders",
+          "title_cn": "NVIDIA (NVDA) Stock Rebounds 5% as Inference Partnership Boosts Outlook - FXLeaders",
+          "summary": "",
+          "pubDate": "2026-09-02",
+          "provider": "FXLeaders",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWDhkVGxMY2dsQUdiYTdnVzAxX2xsMkEwLU5CVDhOVmxmX1l3MktjT1hkN081ZURLdHlmM1EwR3NaVGhDOTd4ckdNRWNFckdTZnZLZVNoNnNpWFVfRGRmdkJMOXRnejdEaktMTjgybWNVSE5fV3d3V1NfNUZIcVItQUhSazBpN1p6NjdiVlFNdDdwTWFXbFl2cnY1VzJlUkR6dEc5YXM5MDR5UzFxUTdWYg?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -238,25 +238,25 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
-          "title_cn": "Advanced Micro Devices (AMD) Stock Could Be 22% Undervalued On Analyst Upgrade - simplywall.st",
+          "title": "Why Is AMD Stock Sliding on Friday? - Yahoo Finance",
+          "title_cn": "Why Is AMD Stock Sliding on Friday? - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-08-29",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxNUnpYbjBJdnhJaDZsSGVHN1Z4TFdEaldGT08ySWRRdjhaeUlwOGpiT25Pd1U4dHlQa3pkeV9LTjQybkRNM2lCay1FZl9KV1ozenFfUjRBcGo2VmpJUzNQaHd5S2swYjY3MUxGeUZiYy1QTU5WU3VwOUx3X1VBWFJ1b25iY0NuNmRLUFdFMkVEbENnSHVPdnNCRzNQQ1BScHB5clJzSGdGUDN5WmRXU1ZYaHZyWHFVLU1tc0ZhckVBR3FPanFwVDVVMXBuMlFnLWFma1BBRzNLTW9Ya2UyTkHSAeMBQVVfeXFMT1lzXzhpWlgxenlQZmVqYzBPbnBVN1dBanBVeGRDNURXSmpFOFlJZ3pxaE1mWVJOVmM2LVNxS2xzdDhsNmgwbjFfRzIyNzBtNDBvV212M3hWU0VhcnI3ajRxVTB5WkNaWWQybjBTdmduZ0RVUkN5NDdJSHVQLWl0MEVIUXRDWDdPVHFtQ3V2N0tXcGVYd2V6RDV0bzEyb18yb291Z1E5QXlTRWdSTk5JLVdlazJlX0hWRjN4dloxdnFCS3kzNkNkSk1maWRJX3B6Zi1kWmtHNVBsMU9nWE9oUGZRUWs?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.4,
+          "pubDate": "2026-08-28",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQMkhpLWo4Tkc4V1Q0MTlJZUVIWDZleG92R0czanZ0SHVEbUtfdjVDX001RDR2WmFUZ2dWOXpzTkx2ZUVaLThSRXh6TDdiREdpN1VuMFZoeWloY3h2VEdKb3MtRHBQUW1YNnFkbzZ2TkR3dHdzaGhtMDFNM2dIaURDV3UwVlQ0OF9oaXczaEJYaEFieTVMMnZyZQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "AMD: The Next $1 Trillion Company - Seeking Alpha",
-          "title_cn": "AMD: The Next $1 Trillion Company - Seeking Alpha",
+          "title": "AMD: Buy This Post-Earnings Pullback - Seeking Alpha",
+          "title_cn": "AMD: Buy This Post-Earnings Pullback - Seeking Alpha",
           "summary": "",
-          "pubDate": "2026-09-02",
+          "pubDate": "2026-09-01",
           "provider": "Seeking Alpha",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8xODBtWWhDa1RCQThGVDFPMzhpb1h6cENOVzV2RDNXREFkeTVGTUNvWk5IQUpJWnRRZzNhakFMZzIyTy1XYU96UVB6T0RmNDdhTlAxR0xxV0JzVzBydlRfa3d4ekRDVU1SNEgtQkNiRlRsRFNmdXN2eDYwUFU?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOcTluTloyNU1VMENPQ2tkVVN1dWZKZWp1cEVzNkpVdVg2aGEzVjF3eTdDMngzM0NheWFqUFJnQmpEdEtqOURPZFRyazdTLUY4UkRlVHRDVzBaM0twNnJVNGVpQVF6b0VRMlRQaHZnOTZyS2pUSnlaSU1PRk5MQ292dENB?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -277,19 +277,6 @@
           "source": "rule"
         },
         {
-          "title": "AMD Stock Alert: Advanced Micro Devices Teams Up With Cisco on AI Infrastructure - Yahoo Finance",
-          "title_cn": "AMD Stock Alert: Advanced Micro Devices Teams Up With Cisco on AI Infrastructure - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-08-31",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOQ1E0OTNPd3JhbFUxR0V3OXZzcDNhMDBIaWRPMVNybEdpdURfdnNSbFYwakJkcW9CYjViX0RjQUtYQ3Q0U2J0bjVmTFJxV0NpaG91QkVWbU80eEducTZoM240OTktdlExVWVhS29EWTE0R2M2RTZJZFMzd1o1Y2tFRUtBWFBUd3pBSF83YWVfTGxaX2tHem5jZUIwRQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Here's What September Has Done to AMD Stock Over the Past 10 Years - The Motley Fool",
           "title_cn": "Here's What September Has Done to AMD Stock Over the Past 10 Years - The Motley Fool",
           "summary": "",
@@ -301,11 +288,24 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "Advanced Micro Devices, Inc. $AMD Shares Bought by Navellier & Associates Inc. - MarketBeat",
+          "title_cn": "Advanced Micro Devices, Inc. $AMD Shares Bought by Navellier & Associates Inc. - MarketBeat",
+          "summary": "",
+          "pubDate": "2026-09-02",
+          "provider": "MarketBeat",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPUThBbnE1aE5fbGZMbnVMaXZwZUlZczdDMGtKUTFFbElhdVE0VTZCZ1d5ZDljbjRGTk9VQzdLcW5nUGJqaTh3bHJnWEpycWc1Ml9MSy1TelphVzNqTXdQUjJNb0h2YmFGVHlDNmFieVM3RXVXZjBhRHdxMmFHWm90ZUV1QjQ1SlhJREgteXg3ZnF2QzU0OFBDc1R5alB5TGI2eW1pb0x5TEdrRGxmNWFqTmE1ZmJPbnNsT0xpcEE2ZFpTdWFvNG9SdWQ1aGZiZw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -444,11 +444,11 @@
           "source": "rule"
         },
         {
-          "title": "Jim Cramer Cheered Marvell’s $12 Billion Google Deal but the Stock Just Fell Nearly 10% - 247wallst.com",
-          "title_cn": "Jim Cramer Cheered Marvell’s $12 Billion Google Deal but the Stock Just Fell Nearly 10% - 247wallst.com",
+          "title": "Jim Cramer Cheered Marvell’s $12 Billion Google Deal but the Stock Just Fell Nearly 10% - 24/7 Wall St.",
+          "title_cn": "Jim Cramer Cheered Marvell’s $12 Billion Google Deal but the Stock Just Fell Nearly 10% - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQTllnYzZDMFAxT1BRek1XSUpyTDBwcjMxanE0Ui1BZi1QTHctZkFSMWJuRUFkSWJMa1FuaGFPa0stczlucEpXTV9SSllzSXo5S2Q3cjFCSGoya2RHTHY0dmRDdWhnemdyWDlFSGFPZzBybE5HWnY2LW5NLVM0V0JaWThrQ29QVUkwRFFMNU5rMzdMYkRtb1ViVFBibmxZNTJOQXdRanRXZ1FqQmszS25keWdhaTVpZG1IT3FfV2w0RnloWVNYVDRR?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -482,11 +482,11 @@
           "source": "rule"
         },
         {
-          "title": "UNH Stock Gets Cheaper Only If The Margins Come Back - trefis.com",
-          "title_cn": "UNH Stock Gets Cheaper Only If The Margins Come Back - trefis.com",
+          "title": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
+          "title_cn": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
           "summary": "",
           "pubDate": "2026-08-31",
-          "provider": "trefis.com",
+          "provider": "Trefis",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRS1iZTNIN3dibHVIX2cyemJzbTUzLVlOYV9TSmNISy1FWFo4V09FNGY0el9KTEdJNEdNNnQyMjR3RlUtcjZqcVE0S2l2MkUzeXkwOHg4SnlWdS14NGJqVlZQVWJlbGFEaFc1OWpQSVBUTU5SSjVoejl2N0RncWszTkVqMmhGLVBFd2VHczJhSDB4YTBZNlFRVGFxcm1acnhWTjJwVEw4YjlVYTJjS1VzV0tn?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -546,11 +546,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - moomoo.com",
-          "title_cn": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - moomoo.com",
+          "title": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - Moomoo",
+          "title_cn": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - Moomoo",
           "summary": "",
           "pubDate": "2026-09-01",
-          "provider": "moomoo.com",
+          "provider": "Moomoo",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSTVvX1NMMVlMSjA3T1pOX1F3X3lQTDBZQWliMkRzSUF0eDZCMjFETmdSRmZmYXlab2cteEdiczEzQ1VHay1OZ2RMVFprbWNsal9hRkJ3NGZsZTMwQm9EMzJDZVRsamZUU1h2cUF1V0d6Sy11X2pvR0RCdFBNeFhyMEJCYUZnZjlFUjBhVmhDQnJBbXFlOUo4dGcwenhhN21lTi0xYmpnanQxczN5ZGtpRy1UVk8?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -559,11 +559,11 @@
           "source": "rule"
         },
         {
-          "title": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - moomoo.com",
-          "title_cn": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - moomoo.com",
+          "title": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - Moomoo",
+          "title_cn": "Tencent (00700) repurchased 659,000 shares for approximately HK$300 million on August 28. - Moomoo",
           "summary": "",
           "pubDate": "2026-08-28",
-          "provider": "moomoo.com",
+          "provider": "Moomoo",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNZ3NsQjIyMEl5aVhLN2pkQ1VNRmNfdzZQMGJyZWZhazBkS1duT3I0TXNhSE5pc1hHN0NUd0pjNmlVYkczZkVYUDFlLXRPN0paSjl5NEdLSHppX2tFRVM5TEUzMWNBTEN4SEZJdjgzQlpZT3M5eDdqNkJqdElXaFdZTWgydkxlTzF1bDFDVkczWldlSjQ0TXVhcHRjS1ZoV01TMTM4OVZia2NIUVlVSmRiSEp1Ymw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -584,11 +584,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "$POP MART (09992.HK)$$KB LAMINATES (01888.HK)$$HUA HONG GRACE (01347.HK)$ Cominicate - moomoo.com",
-          "title_cn": "$POP MART (09992.HK)$$KB LAMINATES (01888.HK)$$HUA HONG GRACE (01347.HK)$ Cominicate - moomoo.com",
+          "title": "$POP MART (09992.HK)$$KB LAMINATES (01888.HK)$$HUA HONG GRACE (01347.HK)$ Cominicate - Moomoo",
+          "title_cn": "$POP MART (09992.HK)$$KB LAMINATES (01888.HK)$$HUA HONG GRACE (01347.HK)$ Cominicate - Moomoo",
           "summary": "",
           "pubDate": "2026-08-28",
-          "provider": "moomoo.com",
+          "provider": "Moomoo",
           "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNckp0SmlMQjItZm1WcHdUd1pWUFVITnVaRGVEakxPUGxSdFFHdmZSVGNBYUwwZUtlZmxGa014UU1CdmpkYkRUMTI3N3MyNUQwRVFwRjAtNFIzeW1tNWItUWRUXzB2QVVzTnVReVpBWDRvdllYQ3E4U1NOT2ZuS3JPR09vczdtSG1nTmkxMExVY0poU0JpbTJSV2U2b1FNalBJd2VsZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -622,11 +622,11 @@
           "source": "rule"
         },
         {
-          "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 247wallst.com",
-          "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 247wallst.com",
+          "title": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
+          "title_cn": "China E-Commerce Stocks Sink While Baidu Climbs 4%: Alibaba Falls 4%, PDD Holdings Declines 3% - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-08-27",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQS2MzaEZyazdlSVB1YlNsak5iU0lMdzNsOTB4bXpkRUx6Zk1WQm1oUndYdEJjNXI5Zm03dHlhZ3NVSlhwMFlueXk2VU9mYURlSU93dkxIRlN4d01TaE9MMVM2Tk5wRE8wRm40TEJ2b1daRFp6WDVMOVJWX0ltbTZmYUlpak1YVFM1WW41MURKbTMzRFBGdGRyYlFpRmRrQ2tOMVFqOU9ZZmtIOFQ0VHR3Vk1BVm9lX25mbWZZRHU4Nl9FQ0NHRXFxNEVkVUJQUQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.2,
@@ -682,19 +682,6 @@
   ],
   "macro": [
     {
-      "title": "US private payroll growth slows in August as manufacturing sheds jobs - WTVB",
-      "title_cn": "US private payroll growth slows in August as manufacturing sheds jobs - WTVB",
-      "summary": "",
-      "pubDate": "2026-09-02",
-      "provider": "WTVB",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbVViUWhJTEdlM1ZZUVBhbWVxVHBVM0NHbXRtMDItb0ViODFwYWx4VENYVEktMUZUbVA5NGltczlWTS0wU2tha0NBcjV4T2RwWmszODNnNk1VdUVHMTJjLWpnSDVKZmI2a3FLTUNQSHJQcDUzakIzdUdPYldjaEZ2TlRwM0JGQlN6RWc?oc=5",
-      "direction": "positive",
-      "impact_pct": 1.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Wall Street divided on Fed policy path as Barclays joins hawkish camp - Reuters",
       "title_cn": "Wall Street divided on Fed policy path as Barclays joins hawkish camp - Reuters",
       "summary": "",
@@ -708,11 +695,11 @@
       "source": "rule"
     },
     {
-      "title": "The Bank of Canada holds its interest rate on September 2 - TD Stories",
-      "title_cn": "The Bank of Canada holds its interest rate on September 2 - TD Stories",
+      "title": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
+      "title_cn": "The Bank of Canada holds its interest rate on September 2 - stories.td.com",
       "summary": "",
       "pubDate": "2026-09-02",
-      "provider": "TD Stories",
+      "provider": "stories.td.com",
       "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPX2YtbUhqalUwNEJxOGwwOFk0a3ZRRTc3UmtaaEVEajd0N2xtUjk1cjA0cEtFbnk3VlZMVVpTMi1ITUh2bkJQZl9nQmZxM1h4SjNLSDMzVFdVbVVsNG1ZNGVaeGROUzJYWFA4NXBJMXBlaTloLUhZWjdTTDVDZkRIczlaMFZxZlE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -721,12 +708,12 @@
       "source": "rule"
     },
     {
-      "title": "The Odds of a September Rate Hike Have Nearly Doubled, Courtesy of Fed Chair Kevin Warsh -- Here's What He Just Said - Yahoo Finance",
-      "title_cn": "The Odds of a September Rate Hike Have Nearly Doubled, Courtesy of Fed Chair Kevin Warsh -- Here's What He Just Said - Yahoo Finance",
+      "title": "Trump presses Fed to lower interest rates. It may do the opposite - usatoday.com",
+      "title_cn": "Trump presses Fed to lower interest rates. It may do the opposite - usatoday.com",
       "summary": "",
       "pubDate": "2026-09-01",
-      "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxORWVscE1Zb040TU8xc19EUHJNVFhQcEtvTk44dW8xRjAyckpteWhRT1ZWYmJ2NlpwcG4tdGdtVnV5U3ZVNWhORVJfbldzYm1uMy1lUzB4aEQxRkJjUDY5djdJTDdPNGJibWJOdF8wci1hTjhPYU5CWnFFamtsUEhYUjF5LVduMVdPalhNeWVEVVpZVEFWaE5WN2E1YXY?oc=5",
+      "provider": "usatoday.com",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOW1HMWVELXRDcWFjVDA5VEdEZ195enpBbnBvRFJmMjg5MFd4NTBZWWdoV1dVVEpnMFliRExJSVREQVJWbkRVWmRDbFdfN3VTdXRTVjRIZ0VlR2xJZENCaER4MVdCODgtV2VIalh1TU0zNFAxLTA3MTVFU0ROeWQ1dktwVnNTaDlPOTU4RmdCbEdJYVlQZHo0UzQxSUdkV0tENlYtSzNtYUM?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -734,12 +721,25 @@
       "source": "rule"
     },
     {
-      "title": "Trump presses Fed to lower interest rates. It may do the opposite - USA Today",
-      "title_cn": "Trump presses Fed to lower interest rates. It may do the opposite - USA Today",
+      "title": "Fed Rate Hike September 2026: Markets Brace for 25bps Move Amid Inflation Fears - Intellectia AI",
+      "title_cn": "Fed Rate Hike September 2026: Markets Brace for 25bps Move Amid Inflation Fears - Intellectia AI",
       "summary": "",
-      "pubDate": "2026-09-01",
-      "provider": "USA Today",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOW1HMWVELXRDcWFjVDA5VEdEZ195enpBbnBvRFJmMjg5MFd4NTBZWWdoV1dVVEpnMFliRExJSVREQVJWbkRVWmRDbFdfN3VTdXRTVjRIZ0VlR2xJZENCaER4MVdCODgtV2VIalh1TU0zNFAxLTA3MTVFU0ROeWQ1dktwVnNTaDlPOTU4RmdCbEdJYVlQZHo0UzQxSUdkV0tENlYtSzNtYUM?oc=5",
+      "pubDate": "2026-09-02",
+      "provider": "Intellectia AI",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE55eVRqTHpWQzctbjlzQ0FEZThvbmg1Y0gzdlVMaEdyMXZQOVJoaDJtMEx0U0FMRXQ3WTNqMWdvcFZGb0NLeFNTV3IyN3g3TThfY3VuSzhKdWtJMFdJMmxXckZncGdBQ2s?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
+      "title_cn": "Warsh's Jackson Hole encore may put Trump's inflation record under a microscope - Reuters",
+      "summary": "",
+      "pubDate": "2026-09-02",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQR1R1MzRzd281NmluU3cyRUNUV1VRY2h0UFFKbU40ZVExWWVXdGIwNGltaEwyUXJ4UWVzU3owNXlsd3FFbTBYVTRxMW1SQlBvLTRpT1dSeE9TRG5qbmUwUmJSa3NYZ29IRGxFRmZLVzBKdjNpZXFPZGhEamJOWmRiX3VQNlBmNDJMM0ZTS0xBSks3Z2NfOUJURGZPU1pWWGJrVGRMT2o5dFczNXhxdVhCSXpBZ1VGT1FCazgzcg?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -747,7 +747,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-02 17:07:09",
+  "generated_at": "2026-09-02 17:14:08",
   "macro_summary": "",
-  "cached_at": "2026-09-02T17:09:06.204282"
+  "cached_at": "2026-09-02T17:16:09.514684"
 }
