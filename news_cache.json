@@ -1,20 +1,251 @@
 {
   "stocks": [
     {
+      "symbol": "ASML",
+      "name": "阿斯麦",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "ASML Holding (ASML) Rally Keeps Valuation Questions In Focus - Yahoo Finance",
+          "title_cn": "ASML Holding (ASML) Rally Keeps Valuation Questions In Focus - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSU9SQXRHZHJfNnNlVmFuYjRkbks2MGU3cmRaWExxWm9uSTlPWE50SXpTUWtONEpWSUk0TUNDdjluZW9KbS1RTDZLVUJsZVIxUWJ2aDktaExULWpuVDhVNUtjQ0dVeW9ncXRYSUhzZ0FxeGNFdDh0dzZVU0dXcDFZbHNTY2Y4LVp0NE1NTHJ3ekZIZExkWmZlRXRB?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.4,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "ASML (NasdaqGS:ASML) Stock Looks Fully Priced After 161% Run Yet Earnings Stay Rich - simplywall.st",
+          "title_cn": "ASML (NasdaqGS:ASML) Stock Looks Fully Priced After 161% Run Yet Earnings Stay Rich - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxON21BZ2FHMjQtdTVyeTV2RHR5aUJGMVh4c1ByM1NsXzNhM1puRW1COVhYaHZvTnEzWEU4SG1IcVlkcm9scTdrZnFDUEt5T3lnekpDQVBBTUhwN3hTdGltQ1NjQk1uemc4TTAxZW5xTUl2NGdwY2dBdEF4VlVLN1k4X0E2amwyNjZDbVFVVk5rSktZaUVRV09fY0UxYTg1cjM0U0VNN3B2d3M5ZFMwdkRiZGxZaFFFMHNqWk1SZzFNaUViQVYwR0syUmYySk1KY1RjbE130gHYAUFVX3lxTE5aQklMeWJlRXNiamRqeUhWdGtvTDVFMFFzSVdOSDFBT1doM24xWjZSR1hhdDBvOC1wZUpDMF8yTjBkMUpMQmhhVVVLVkRVcU9UaUhnUkg1OERJc1VDTFhqdG9jR0xTTWtRVU1nTFlVY0ZxYTZURTBnUjFGa2dGOWk5QTkySTBRaVJyenAyWTdBMW41TW1rNldxRmNvVXM3OGEtaGZEdDc0eDA2SGRmclV3TGFfOGdFVkNlbElDZEc3dG9OdWdqRXZyb0xqZUtURTVETUk3dndQYQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "ASML Stock Price Prediction 2026-2027 | ASML Forecast - 24/7 Wall St.",
+          "title_cn": "ASML Stock Price Prediction 2026-2027 | ASML Forecast - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-09-01",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOd0twMi02czVOOFZOb2NzTDU5em9odDNlUGs1S1Q1SngwQXZjaGlDcU1zSnVVTXFnZjdKWnYzaE5SV0pWazlERm5TZmtjeGlBeXBHZ2hiS2FsdDlIcGRWS183Ny1ITHd0a2VrN091bE1SSXhnRGtBRWN2UXZWVGs4eU54WmhKYXpDNVljT3ZrQU1rQQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Fitch affirms ASML rating at ’A+’ on lithography leadership By Investing.com - Investing.com India",
+          "title_cn": "Fitch affirms ASML rating at ’A+’ on lithography leadership By Investing.com - Investing.com India",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "Investing.com India",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOUnZTV1RIc3RHYUFVclYyS2NQZDByR05qV1BYRi1TaDRsR2xfUFRYSkoyLXh1QlgwTWZaN3FBNlNSbjNucGg0X2Z3cnRFUkZLRU5Mc0xEaGtubFJuakU0ZkxVOEw4YXI5b2dyZkh2Sk5OWUFoekFQSzlvVXFXdEVBTW05X2NCUVdvVzNxUmxhODNfbHRnN1hWZkNyY01wa2lqVUM0Q0F5LWFaZUkwaG9qZHh6aHBVOXV4?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "ASML Holding (ENXTAM:ASML) Is The Sole Supplier For High Bandwidth Memory Lithography - Yahoo Finance",
+          "title_cn": "ASML Holding (ENXTAM:ASML) Is The Sole Supplier For High Bandwidth Memory Lithography - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-28",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNbkNuNHJyVDl4R2dRbEZJcUlTMW90LWdrU2RMNmJNQ0JfTmZpLWQ4UWxUY1FpM2dGRTc0MGJOdHRpaW5FMjNHSTFjWVdRWFdxWUtPWllSZV9CZ0NBS2lLbFU3NENQLTlEYXpDV2Y2bkxiM1pha0tTcGhERWF1MTNSWGo3LS1UN09TNGNOblhRRHlXdGd2WU9mX1lB?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "positive",
+      "next_earnings": "2026-10-14"
+    },
+    {
+      "symbol": "TSM",
+      "name": "台积电",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "TSMC Inches Closer to $2 Trillion Market Cap As Chip Stocks Rebound: Top Executive Buys Stock - Stocktwits",
+          "title_cn": "TSMC Inches Closer to $2 Trillion Market Cap As Chip Stocks Rebound: Top Executive Buys Stock - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-09-02",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQbXpNSVhtMEltV3VEQUw0aUdHQ1pXa25NTGZPY3VZVHc3dGx4NnNvYS15ZUhqQkFHXzc4M19DOVcyWnZ0aDNyNUI4cU5xZmZTZHN3MExBT0lKUTlBM2h0ZTB0NFFFdVpTUGdtSndCbnVPcVo2YVNLUHlxX2JpdWNXV25xem1xeklGZjQ2c0d2OHAxV0N2U2JuaW1wN2pDdlhmeGJ3UkhGeDFUQWhtS05aUG1tZ18wdGI5Ym93RWctZDZWV2dob2didHRnbHRXcHk0WDd1RmpRSVUya1B3TzBqY19KNld2UzBmVUxn?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Why the head of Taiwan’s stock exchange wants you to look past TSMC—and embrace the ‘technology island’ - Fortune",
+          "title_cn": "Why the head of Taiwan’s stock exchange wants you to look past TSMC—and embrace the ‘technology island’ - Fortune",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "Fortune",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPSDBxUnF3c3Z2NnZQNEpYQWd1a0NWOFROMlVxcV9QSHJFcHhKeU5GclJoQVgyTXNiRU5KeEdjZW11QUlvb3VrWGJLazJ4OHg3VzA3ZWF3a3IwMXJqX2tkRDdIUWV6aW9qaldYSTJ4aEhLNm90c0R2WGtyUDJFYU9hdw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Microsoft Azure Revenue Reveal Puts TSMC Stock And AI Infrastructure Leaders In Play - simplywall.st",
+          "title_cn": "Microsoft Azure Revenue Reveal Puts TSMC Stock And AI Infrastructure Leaders In Play - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxNczdDWk9VcFBhVW5zV0hWaU5nYU9KSEFEV240VG9FOVFPdWNBeGdUV1RmTmtMMVk2VTNidnEwLUpEMTBZWHViV1M3TXJyTTBYTmlNMHJGWnRlaktITjY2RnFzdDlEX3I2NWNLR09oc1h1ZnBLM29STUJnRmJBNWFDeG1ReF9XYUVNQ0Mwc01TWmRVQmNsRk1kWDNTVFFmOTQ3MkphZFNib2RsOUR3X0VRTzhQTENRcEdOdlFEc2ZadzZ2OGQwNl9tR1pYS29MT3JVTEdWWWpNbW8zNEswaGU4UWR5Ni1IVXplWlJXMGpLU3dfZnFOdkRDQ2kteTXSAfwBQVVfeXFMTXM3Q1pPVXBQYVVuc1dIVmlOZ2FPSkhBRFduNFRvRTlRT3VjQXhnVFdUZk5rTDFZNlUzYnZxMC1KRDEwWVh1YldTN01yck0wWE5pTTByRlp0ZWpLSE42NkZxc3Q5RF9yNjVjS0dPaHNYdWZwSzNvUk1CZ0ZiQTVhQ3htUXhfV2FFTUNDMHNNU1pkVUJjbEZNZFgzU1RRZjk0NzJKYWRTYm9kbDlEd19FUU84UExDUXBHTnZRRHNmWnc2djhkMDZfbUdaWEtvTE9yVUxHVllqTW1vMzRLMGhlOFFkeTYtSFV6ZVpSVzBqS1N3X2ZxTnZEQ0NpLXk1?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
+          "title_cn": "TSMC vs. ASML: Which Semiconductor Giant Is the Better Stock Buy? - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-08-29",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOVmNkR05rOTRKSkVUekJIUHpFNVZtSWhWYXQ4dlNIY25SWXlOSFZQTFZCMFg0NUVCaFZ3ZGI5ck1JaWZodFdSYnhoT2NMRjZsVjRyOTRlUWZId3JkYlk3eGgzekZmQmxhelFEVlIzeDhoNFlaVVpGcHFHZUVLUFJWaVp1MGtkRGtWeGR0YTZpdU9iRUdnQl9FNTBsLXg3Zw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "TSMC (TSM) Stock Forecast: June Revenue Up 68%, Q2 Earnings Tomorrow; Is $438 the Next Stop? - tradingkey.com",
+          "title_cn": "TSMC (TSM) Stock Forecast: June Revenue Up 68%, Q2 Earnings Tomorrow; Is $438 the Next Stop? - tradingkey.com",
+          "summary": "",
+          "pubDate": "2026-08-30",
+          "provider": "tradingkey.com",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNZ1JnUDhUX2U1ZXlyTk1ZZlJZQUlCanB0VnhQVTE2RktleVdTd2Z5a2JxS25KZGJuYTIzc1duU2lvVkZXMU16WlVSRzB3a2tkQW11czBQUF80VFdJX1pQM2tBelY1akNLaEZlbXF3QVJ5eVNKNGM2TWh1S3ByREV5TDBmUmRTT05kSDNxMXhaZVhDSEhOYXc4WjRJVm9CN0xaLTVQbW1RLWR5WXhzb1RhZ0dFRFdCM3ltVmx3dy1VQ3JqSFlnMjU0ejFGN2V1cWNa?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "2026-10-15"
+    },
+    {
+      "symbol": "NVDA",
+      "name": "英伟达",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - fool.com",
+          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - fool.com",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "fool.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQV0NaLXZEUk03ZnNiMzFkNGd4LVk2VXUyOXlxS19fNDRKZnZOX1FjakI0ZnpVWV9IeFlycm5OdmxUdWRTYXhZaktmR0dDMk90TS1UX2EtN3dxV2d3NGJMdnZBOExYU0NVS09BSm55T1J3NzEyeS1tUFFlNV94TFZ3ZkRJWEFGczA1NllnVHU5ZFNnZ29PbndDcQ?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia Agrees to Acquire Hugging Face for $12.9 Billion to Expand AI Infrastructure - TIKR.com",
+          "title_cn": "Nvidia Agrees to Acquire Hugging Face for $12.9 Billion to Expand AI Infrastructure - TIKR.com",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "TIKR.com",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPVXZlMWhzanQ4akJGQ25CMENHU2UxOG9QSFpsR1pid3ZTWkNTMUhadWFoRGIwMnZfRXQ4UW5RdDQyaTd4R0tJazBxa2R2amdxc1Z3Wm1XUlVxSlVzTC1BRkE4WGxoS01WNkRjZUdBak1vXzlGVlhGTEdJeTZ3YWp4NUUzTm1rZw?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.8,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia: Stock Price To Catch Up To Earnings Growth (NASDAQ:NVDA) - Seeking Alpha",
+          "title_cn": "Nvidia: Stock Price To Catch Up To Earnings Growth (NASDAQ:NVDA) - Seeking Alpha",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSFhoRFRWZXlKblBTc3JMYk43QldXNEh5NGxmbHVzRkFCZEZNSk5DM2hhMGE5WjBsT2czekNRWGtCT1hPdkp4UXFWbERpb1V2ZTNybXRzZmR0bTlpRmRxMGNWLThidmNzSGtVTW5UbWFpaHpuOWlnQmdhN1A3TmdZSG1vczhKWUh2VnBfVU9HYjJ5NWwtdTVBUUhNRS1RLUZrZnNLd2pKenF0QklUVnc?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Analysts Expect Nvidia Stock to Soar 47%, But You Shouldn’t Rush to Buy NVDA Here - Barchart.com",
+          "title_cn": "Analysts Expect Nvidia Stock to Soar 47%, But You Shouldn’t Rush to Buy NVDA Here - Barchart.com",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "Barchart.com",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOM3E2UG1XNVBrT2N2UGxrM0lRQk1LY0QwV0Fpc2djT3FwTWpyWEhIYkV3V0hWTFZlTEhUU1NwQmhVLV9UMmctV3BEWUQ5d0V2MXluWWVZTXBnT1N5R1g3WWhFMW0xR1RTV2FuanlfUktCcVBCbm5wcHk0TVU2V0ZqRmpfVG9rZFVhdWludEVJQXdWMXVYUWhza0RPdEtsSUZhTGlkS2hZQ0dkdWM4Qm8zeFNaLW9lMzlfLVdVSHYzOA?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.6,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Hugging Face approached Nvidia’s Huang weeks ahead of $12.9B acquisition, CEO tells CNBC - cnbc.com",
+          "title_cn": "Hugging Face approached Nvidia’s Huang weeks ahead of $12.9B acquisition, CEO tells CNBC - cnbc.com",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdkNmN2xvLUV5ZmwxTUJ2dHV0dGtLT0VwcU1EZFRMWGhMTjNpbUNQeDBoTm5FMkh4SktTVnoyWXFLVk1VSzFSV2Mtd0xuYkd4ei03VVdsUlJEa0k4MlJjRlJYRmtiOHlrcDliRmF4MmJZcl9iRExOZUtxck9mYmVuWG5JWHRWbTd6dnBUcXpkeXNmLVpxTC12TmEtQ1duUmh6SnNpU1BuY0_SAa4BQVVfeXFMTjByalk1Q0lUekR1RXVHeWxTakJPZ2htN0syWlIzWHhHRU5hR2xycjhtSTktd19BTEJiX1hjdFA1RW9JdzhYcUwyempqcV9GcWRqNjVCQVBUMUhKS0xGSXE0NENVOEZHYmhlRWVndm9LTGVOd09sY2Vtc08xRi1mX2lJRVYxVGNXblJhV1ptRmNiVmMyUXJxSW9OZ2t1UDBsR1R4UG9DOTRrazYxZEhR?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "positive",
+      "next_earnings": "未公布"
+    },
+    {
       "symbol": "AMD",
       "name": "超威半导体",
       "has_position": false,
       "is_eligible": true,
       "news": [
         {
-          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - The Motley Fool",
-          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - The Motley Fool",
+          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - fool.com",
+          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - fool.com",
           "summary": "",
           "pubDate": "2026-09-03",
-          "provider": "The Motley Fool",
+          "provider": "fool.com",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQV0NaLXZEUk03ZnNiMzFkNGd4LVk2VXUyOXlxS19fNDRKZnZOX1FjakI0ZnpVWV9IeFlycm5OdmxUdWRTYXhZaktmR0dDMk90TS1UX2EtN3dxV2d3NGJMdnZBOExYU0NVS09BSm55T1J3NzEyeS1tUFFlNV94TFZ3ZkRJWEFGczA1NllnVHU5ZFNnZ29PbndDcQ?oc=5",
           "direction": "positive",
-          "impact_pct": 2.0,
+          "impact_pct": 1.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -46,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "Better AI Infrastructure Stock: Nvidia vs. AMD - The Motley Fool",
-          "title_cn": "Better AI Infrastructure Stock: Nvidia vs. AMD - The Motley Fool",
+          "title": "Better AI Infrastructure Stock: Nvidia vs. AMD - fool.com",
+          "title_cn": "Better AI Infrastructure Stock: Nvidia vs. AMD - fool.com",
           "summary": "",
           "pubDate": "2026-09-03",
-          "provider": "The Motley Fool",
+          "provider": "fool.com",
           "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOT1VUdGZvU3FpZTNaS2dGRjZyQ0xmUzJPYVc5WEVKWEt0RU16LUszT2JsS2MwaEowNTJ1QXNBMWJsTHBBZUg2aHFPbzZUVnloTlE3Zjh0WHB4Y2gxZHNRNXFwempxaWlfMjhIMF9uNDJZUTA1VlJnYTBGai13OUtzYWlIQ3Y5Q3RHYlZyRXNLcHA?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -78,44 +309,31 @@
       "next_earnings": "未公布"
     },
     {
-      "symbol": "COHR",
-      "name": "高意",
+      "symbol": "UNH",
+      "name": "联合健康",
       "has_position": false,
       "is_eligible": true,
       "news": [
         {
-          "title": "Is COHR Stock a Buy as AI Growth Meets Premium Valuation and Risk? - Yahoo Finance",
-          "title_cn": "Is COHR Stock a Buy as AI Growth Meets Premium Valuation and Risk? - Yahoo Finance",
+          "title": "How Can Healthcare Inflation Fuel Growth for MRSH, UNH & CNC? - Zacks Investment Research",
+          "title_cn": "How Can Healthcare Inflation Fuel Growth for MRSH, UNH & CNC? - Zacks Investment Research",
           "summary": "",
           "pubDate": "2026-09-03",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPeHV3dEx2SlNGSnlCc2dtOFJsVENIQlVQVVJsM1czSDJHNDFGTm82dGFWR1p2bjBaYmt2Q3Vad3RQWVV4dWdhVWJpMTMtUTRrbTlQcUZPMENWSFhEN3ZrT1JHbHhUMVZlTlV3dDZhb0hJZmtXVzBOMkdKSy1NYVQ3STVScnJDVEdzeURUdG4tOThoc2M?oc=5",
+          "provider": "Zacks Investment Research",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNa2tEYU9sRWFqMHVNckpXMEl6MHg0RzktRVBpQmR0aTlpTHkyRVp5MlBxc0VIMjVydEE4TTcxVGJ1SVhiaC1BVGFiR0w4ekIxWjQ1WUFBUnQ3YnItcUd3ZXY0SFQ2VHdtelQtNVlCR2hZWmlYaTBtNFhJRUJELWM2VEFiaGstNWhuR1YydlFKUmI4Rk5XM0hwTWUzN1FSSms?oc=5",
           "direction": "positive",
-          "impact_pct": 1.4,
+          "impact_pct": 0.8,
           "reason": "",
-          "type": "行业",
+          "type": "宏观",
           "source": "rule"
         },
         {
-          "title": "COHR Falls 17% in a Month: Is the Sell-Off an Opportunity? - Yahoo Finance",
-          "title_cn": "COHR Falls 17% in a Month: Is the Sell-Off an Opportunity? - Yahoo Finance",
+          "title": "Is UnitedHealth Finally Turning the Corner After a Tough 2025? - tradingview.com",
+          "title_cn": "Is UnitedHealth Finally Turning the Corner After a Tough 2025? - tradingview.com",
           "summary": "",
           "pubDate": "2026-09-03",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPNDRfR1FscGxfaXMyQU1Udk82TXRBYjZYb19BNVF4UlBudGNDUk9oNWtWZVV0cXVrTnlKTzR2V1RueFhHSVhzcUE5NnRoc0ZqUmRrOXJMbFdGVlJUZ3djTFF3U1ItY0laaG9ZeWlmU0w2NXhFRE5LazNtSGZHYTdWV1VaS1pCWjhxbjJWZWNrNUU1bU0?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.4,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Coherent Corp. (COHR) director sells 2,272 shares - stocktitan.net",
-          "title_cn": "Coherent Corp. (COHR) director sells 2,272 shares - stocktitan.net",
-          "summary": "",
-          "pubDate": "2026-09-03",
-          "provider": "stocktitan.net",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOUFBuUTRPb3ozTzB2RjVOdF9la2NMWEt2RVBSTVdXdkU1T1JwTTktNXZUdGdVaTFpTkRCTEZnYlJPNHF0Z3lQckttaEN2SmJZblg0aXhjXzg0TE1NTFh1d3Zsa0dWZ1A0bWxNLUlKczh6ZEVrenJmNTJ5UUQyVTdaMlpBVUZ6LXdRdnp0QURfZXdkVVFuakg0aXRoamRSVEVrVk9mMzlBWF9hWjA?oc=5",
+          "provider": "tradingview.com",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSl9CSXk4b2dILTVnUDVzd3lyeDhHT2lTZkpHOWRDeFpkaEZVRUNVOUpCTHB0a1dzR25MTUR2Q1V2eE5ZTUp2SkczSXNXZzJRamZKaUF4Znp6YkV2QTl1bldzS0d5MzJOLV9YdkNtZTR6Rl9EY1pMX2JzTVY2a2Z4Ykc1Tm9Yb3AtTUJiSTN0aDNpNXRFNUxwM2o0N3Yya2lQd2FfbFd6MWh6dmY3blk2eG00VGF4ZEVV?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -123,12 +341,12 @@
           "source": "rule"
         },
         {
-          "title": "Coherent Fell Hard Over 3 Months: It Will Nearly Double According to These Analysts - 24/7 Wall St.",
-          "title_cn": "Coherent Fell Hard Over 3 Months: It Will Nearly Double According to These Analysts - 24/7 Wall St.",
+          "title": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
+          "title_cn": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
           "summary": "",
-          "pubDate": "2026-09-03",
-          "provider": "24/7 Wall St.",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQU2xrR0VXWE5XLUtyRVp2QmpmZjdmR21Za1FWMlB5MEVCOHVLd0hCQjUxOU42R0lXN29OTFlaZnZXcDVWY0VvbWtCWThzRUlWZzBSMGR0T05MX0xCRzJRNFdjMWUxMzdMb2M4b0VWMzJkTWphdXJJTnJyWDBMN1FnR2xNVDNlaEhaZjBJM0RLN3lCSDVxbzZ4Sk5rcFpzYUtnVGF6UHdUZnh5aEdwWUtpcEdXVm55MVZ6dDNfM3k4U2liX0Y2?oc=5",
+          "pubDate": "2026-08-31",
+          "provider": "Trefis",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRS1iZTNIN3dibHVIX2cyemJzbTUzLVlOYV9TSmNISy1FWFo4V09FNGY0el9KTEdJNEdNNnQyMjR3RlUtcjZqcVE0S2l2MkUzeXkwOHg4SnlWdS14NGJqVlZQVWJlbGFEaFc1OWpQSVBUTU5SSjVoejl2N0RncWszTkVqMmhGLVBFd2VHczJhSDB4YTBZNlFRVGFxcm1acnhWTjJwVEw4YjlVYTJjS1VzV0tn?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -136,12 +354,25 @@
           "source": "rule"
         },
         {
-          "title": "Coherent Grants Performance-Based Stock Awards to Executives - The Globe and Mail",
-          "title_cn": "Coherent Grants Performance-Based Stock Awards to Executives - The Globe and Mail",
+          "title": "CNC, UNH, CVS, HUM Stocks Slip After-Hours — Trump Administration Reportedly Seeks To Scrap Subsidies On Certain Medicare Plans - Stocktwits",
+          "title_cn": "CNC, UNH, CVS, HUM Stocks Slip After-Hours — Trump Administration Reportedly Seeks To Scrap Subsidies On Certain Medicare Plans - Stocktwits",
           "summary": "",
-          "pubDate": "2026-09-01",
-          "provider": "The Globe and Mail",
-          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOMmhncVI0UDB4eHo4TDVMYWU2RVBYb3BGaUdwUTBkbzJkaTR0LXRnZHZmQ1BDazNNV0I2VFd4NXJBSGItdTJISDlrRGt3dlpSbnVNTHJyLVN0bDFNaFhHaDdzWkpsTTFMQm9JVEdhYmQxTGdtZWZyUThBN3lzT2MxQlY4aFNtVWxQTGJSSDNpQTAxWWQtOEVmdTcwWllkbWphMFNyYkdtc2FCdzJaMEsxUlQ1alBzc19aT2c5aGdRVlhFaWJhMTFuazFxbFZFQnUxNjFTdjJYVnA5cEhLaXBZcg?oc=5",
+          "pubDate": "2026-09-02",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQVjhVY1gtTmZVVHhKa2hlVndMdUdhZDhKWWhhNkV0QWNUU2g4aUxJMjR4a1R0ZjRvVXBXdmlqUFVrNDFYOTI2WkV2ZFRGR09Bd0RSdElfZWtraTllalRDLUlvNTk2VjBTemZFMl90dHpESjRwS2phTFR1S05XbG9RU3FBaGNGdDdNdmlXbmg4SGx6NFBJQnpHTzRoOEFxcGdfOWZUcW8xbVFhZFZUSlN3S253eENqM3B0MTM5ZU15UVFJRUZtQllWN3pzQ2F1YnZqeElQaVZOUF9Ia2FCQXNKSTdDalJmSDY2OGdRUkZlVVFlb3FHTHpzdVN6UHBhWkJaR1NXMDVSVnJlRTFrcFBwMjVBNDE?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "UnitedHealth Group (UNH) Stock Analysis: A Healthcare Titan With 20.94% Potential Upside - DirectorsTalk Interviews",
+          "title_cn": "UnitedHealth Group (UNH) Stock Analysis: A Healthcare Titan With 20.94% Potential Upside - DirectorsTalk Interviews",
+          "summary": "",
+          "pubDate": "2026-08-31",
+          "provider": "DirectorsTalk Interviews",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNUVZxajRWYXAwbjVaSkZuTW9BdklBRGF3LTlnOU1LdHIydTFJSlhQRjl4NVk3VGdIYzFlRm02QWFqam9qa0wxOVhJNEp2XzN2YkFjeU9jY1J0SkdWeTBoLVFvVElOTl84NTdqcUJXTnl3czI1YTNVQ3ZwaEltSDdMOG5laWUwUm9HemlIU2FJWnc0bHNLaExDYmlaQWgtRWRVQ3o1Z3N3ZWw4LWJmb2NJelFNT3BCbTFaaUhxWGJnd25FUlNrVDIxVnpJWUNudmNS?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -151,8 +382,8 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
-      "next_earnings": "未公布"
+      "net_direction": "positive",
+      "next_earnings": "2026-10-27"
     },
     {
       "symbol": "01024.HK",
@@ -161,11 +392,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Hong Kong Stock Market Close (Sep 1) | Hang Seng Index falls 0.93%; Kuaishou-W (01024) rises over 3% against the trend; several mainland Chinese bank stocks hit new record highs - Moomoo",
-          "title_cn": "Hong Kong Stock Market Close (Sep 1) | Hang Seng Index falls 0.93%; Kuaishou-W (01024) rises over 3% against the trend; several mainland Chinese bank stocks hit new record highs - Moomoo",
+          "title": "Hong Kong Stock Market Close (Sep 1) | Hang Seng Index falls 0.93%; Kuaishou-W (01024) rises over 3% against the trend; several mainland Chinese bank stocks hit new record highs - moomoo.com",
+          "title_cn": "Hong Kong Stock Market Close (Sep 1) | Hang Seng Index falls 0.93%; Kuaishou-W (01024) rises over 3% against the trend; several mainland Chinese bank stocks hit new record highs - moomoo.com",
           "summary": "",
           "pubDate": "2026-09-01",
-          "provider": "Moomoo",
+          "provider": "moomoo.com",
           "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPVFpkNmctVHB6VXFsRkpQV1BCZlFvR3d6bG1DbVduSTRmNlNJVjE2SHRRYU1oTXpQWmpFdVE2QW5qOURENnJwV0k1b3N5MlJHU0lnWGNiWkhYZjZsZ0QzY0lJRmFqYnVDNDZOMjE3OGxRYjVUdEpUVzlUcGZKcHdoX0poQ25Ybmx1VE51M2s4cl9BUExSdEFz?oc=5",
           "direction": "negative",
           "impact_pct": -0.5,
@@ -187,11 +418,11 @@
           "source": "rule"
         },
         {
-          "title": "Zhitong Hong Kong Stock Connect Holdings Analysis | August 25 - Moomoo",
-          "title_cn": "Zhitong Hong Kong Stock Connect Holdings Analysis | August 25 - Moomoo",
+          "title": "Zhitong Hong Kong Stock Connect Holdings Analysis | August 25 - moomoo.com",
+          "title_cn": "Zhitong Hong Kong Stock Connect Holdings Analysis | August 25 - moomoo.com",
           "summary": "",
           "pubDate": "2026-08-28",
-          "provider": "Moomoo",
+          "provider": "moomoo.com",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNanJYMkJKalhfR0pTRnBuUndfdHhwdlJTVnNJRTNaVEgtYngycE1TN3pPSGZTU2R4R1RINGpCNkZySFFQSlJCVllfbnZ5WFotTEpGRDBtY3NvMmdTNUJ1TDN2Qkg3REpacGhnc0tZcFdIWTlSTVNLeEFiTzJlUmUwUktWUVEwaXd4b1NKa0tNQzNUS0lJbjcxRm16Z2VkMDViS2dJ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -203,44 +434,6 @@
       "stock_summary": "",
       "total_impact": 0,
       "net_direction": "negative",
-      "next_earnings": "未公布"
-    },
-    {
-      "symbol": "PDD",
-      "name": "拼多多",
-      "has_position": false,
-      "is_eligible": true,
-      "news": [
-        {
-          "title": "PDD Holdings (NASDAQ: PDD) director plans ADS sale - stocktitan.net",
-          "title_cn": "PDD Holdings (NASDAQ: PDD) director plans ADS sale - stocktitan.net",
-          "summary": "",
-          "pubDate": "2026-09-03",
-          "provider": "stocktitan.net",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQU1lOSlRfbGVxSVJDakN0WG9RZGd6OEhrMGtfLU94WmRmSS1HQlYxdFNqUjhLMC1jM3FwS0lCT29HOGV4WW1IY0k4Ny1hNk1pRTVaRzQzQ1FjN1JscjhHVzBldnMtbk5GWXIyUjFVYm1INlBPRGJUUE9ORF9QMGNyNklYbGloVVFNQldzdHV5Qi1ZOGV3b0Fz?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Public Employees Retirement System of Ohio Acquires Shares of 124,422 PDD Holdings Inc. Sponsored ADR $PDD - MarketBeat",
-          "title_cn": "Public Employees Retirement System of Ohio Acquires Shares of 124,422 PDD Holdings Inc. Sponsored ADR $PDD - MarketBeat",
-          "summary": "",
-          "pubDate": "2026-09-01",
-          "provider": "MarketBeat",
-          "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQeV9lQy11MEtyT2F0MWpNNlFDTlZHSm1xM003YTFnREp5RmR4XzRUZ3p0SEYxQW9VemozbWt6TmJ1U3ctQnh3NUVoZzZLcklKaFA2NmVjamJndnV6YTNBdXpSeHFvVXg2UG5sb2NrcHVPZFBwV1hTZWRtVjlLdjREaFluYThBd3cyWjRJQUU1ak1kaUZGRFV3YzBmQlJnTDNyV0dJa1FBSlowaVhmcFJMUTNTRnU0dzJMYzdYQWVkWlhaemJTUEljLXlna3JPS3dfM3hIQnlSa1BaUkJKb0J4SUZ3dXpoTHpjUzVwcGtXcURNV2xLalJn?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        }
-      ],
-      "stock_summary": "",
-      "total_impact": 0,
-      "net_direction": "neutral",
       "next_earnings": "未公布"
     }
   ],
@@ -259,12 +452,12 @@
       "source": "rule"
     },
     {
-      "title": "What to expect from Friday’s jobs report – and AI in the future - CNN",
-      "title_cn": "What to expect from Friday’s jobs report – and AI in the future - CNN",
+      "title": "NFIB Jobs Report: Main Street Employment Softens in August - nfib.com",
+      "title_cn": "NFIB Jobs Report: Main Street Employment Softens in August - nfib.com",
       "summary": "",
       "pubDate": "2026-09-03",
-      "provider": "CNN",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOb0VzMDM5MVZIclkwaVY1T2NxSzhFOXpBc3M1MVpEa2RxQnZ2UFc1NExNbFNVeWtzdzJWZ3hHNFY0bzU2RGRjYkludDVlV1lwS1lZdHZZLUpaamVEY25Ma3NkTlFnSFNTRGFSSEFFcndXUVFEal9WUlhyM04wNE5fWGZwSFZ2MFE?oc=5",
+      "provider": "nfib.com",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQdm5OOWRzS3JvZzI4YXpBRVVNbnVvNFM5RjQtY3BGVWxQZ2RKZUs1eUpYX0kwVzJ0OHNWUjJqOUJabVF3WWlwOHVzeExvYnpidWUtQkxYb0dNZVhqWHdJSHF5eTY4T251TFdxZkN4dy1CZVB3MUY5TUxQQXBjNVgybXNSejA0N0ZwUGxsM0RwQ3dRWXU4UnBYOWhpRjkwcnM?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -298,11 +491,11 @@
       "source": "rule"
     },
     {
-      "title": "Revisions Published with (Thankfully) Little Fanfare - americanactionforum.org",
-      "title_cn": "Revisions Published with (Thankfully) Little Fanfare - americanactionforum.org",
+      "title": "Revisions Published with (Thankfully) Little Fanfare - The American Action Forum",
+      "title_cn": "Revisions Published with (Thankfully) Little Fanfare - The American Action Forum",
       "summary": "",
       "pubDate": "2026-09-03",
-      "provider": "americanactionforum.org",
+      "provider": "The American Action Forum",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVE43TW5UWUFLa2RNZ0VwWmZmUGR1WFh3Wno2Qy1EZTZFUjJGRGpWZ2xJdXRXWXdJQlRUNXRxVktJQUN5Njk3cE1kRFhhd0dmNkJYbHJjMWJYYTNvZGRYN1ZHelBSeXoxMTBya2lCRDJRQl8tODJDOGtYYmdoaExIWFlHVDVmRWMxWlRCWkk0WEVYeGJuT2FaQVFNNkZiYlk?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -311,7 +504,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-03 17:01:26",
+  "generated_at": "2026-09-03 17:17:47",
   "macro_summary": "",
-  "cached_at": "2026-09-03T17:07:27.034352"
+  "cached_at": "2026-09-03T17:22:33.787248"
 }
