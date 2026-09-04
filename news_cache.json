@@ -7,32 +7,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Nvidia stock extends gains to hover near all-time highs - Yahoo Finance",
-          "title_cn": "Nvidia stock extends gains to hover near all-time highs - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-09-04",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSGVMeExLRmhXbU9hZDlfbHIzTGl3RkR4bDVyVEJoZFVCc1ZRdnNZT3M5Tlo3VnlBYzRMN0h2aWpEZ3JGMHdGUFhWeldUWEg0U0w0NzVCZXk5YTJiYk1YaFR2bUtPUEhyTDJURHZKY2pSN2xDRVV1M29uQlhiQTlJSlp6SDIyWV9hNE9CXzNtdG1yUFRfWm9HYWxTMmJoVVJObDM2NXdlaXptQUlhcE1GRkdn?oc=5",
-          "direction": "positive",
-          "impact_pct": 2.1,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - Yahoo Finance",
-          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-09-03",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRHFONTV6a2dyS1NhbEZqbWNLU2dScnJXalNTdUhPbkZNRG1zNzZDN0hTcVZaVkFORW9aMDh4RXZNWTNEeGlrVHRkY3JyS0JzUzFGTkNPcmpkckRqbGtIczFZUldxWVFjRlgzMnBzWFNINmxpUWZxeWJ0WjRJR1c5czR0ZkJuYnRSZG9UQUVVcERoVmpXLXZSYmxOVUZKVnpOLUZxZXF3?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.7,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Nvidia Just Delivered a Massive Warning to AMD and Intel Stock Investors - The Motley Fool",
           "title_cn": "Nvidia Just Delivered a Massive Warning to AMD and Intel Stock Investors - The Motley Fool",
           "summary": "",
@@ -41,6 +15,32 @@
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOU25YSnJCZklGcV9YSVdkWUxndGZMdmdnUU5Hel80TmZuOFZvS2JQdDZSb0JmU2N1RVJBczJlMjg1aGlvdXRJMGhQZWdHRGM5aWx0SWlhVVdRZmhxZFlLekk1TEduTC1VdVhXTkZHZ0NLTmJIRXRPamJZN3NoRHh3Y3hhWjZMVFJxTFRBakNWYW1CaGpaUFRmaUFfRGlhSFFMQ005TGx2bE5IWXhhVk9DRDZOaW9Idw?oc=5",
           "direction": "negative",
           "impact_pct": -1.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia stock extends gains to hover near all-time highs - finance.yahoo.com",
+          "title_cn": "Nvidia stock extends gains to hover near all-time highs - finance.yahoo.com",
+          "summary": "",
+          "pubDate": "2026-09-04",
+          "provider": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSGVMeExLRmhXbU9hZDlfbHIzTGl3RkR4bDVyVEJoZFVCc1ZRdnNZT3M5Tlo3VnlBYzRMN0h2aWpEZ3JGMHdGUFhWeldUWEg0U0w0NzVCZXk5YTJiYk1YaFR2bUtPUEhyTDJURHZKY2pSN2xDRVV1M29uQlhiQTlJSlp6SDIyWV9hNE9CXzNtdG1yUFRfWm9HYWxTMmJoVVJObDM2NXdlaXptQUlhcE1GRkdn?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - finance.yahoo.com",
+          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - finance.yahoo.com",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "finance.yahoo.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRHFONTV6a2dyS1NhbEZqbWNLU2dScnJXalNTdUhPbkZNRG1zNzZDN0hTcVZaVkFORW9aMDh4RXZNWTNEeGlrVHRkY3JyS0JzUzFGTkNPcmpkckRqbGtIczFZUldxWVFjRlgzMnBzWFNINmxpUWZxeWJ0WjRJR1c5czR0ZkJuYnRSZG9UQUVVcERoVmpXLXZSYmxOVUZKVnpOLUZxZXF3?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -97,11 +97,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - Yahoo Finance",
-          "title_cn": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - Yahoo Finance",
+          "title": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - finance.yahoo.com",
+          "title_cn": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZEFoRUJtT21fQklBSTUxRjVSYVF5Q05aOTJyQ01SVlhLUFRzT0VZd0JuMGRUVDZSaWsyNmJYT2NvVkE2LVJyaWJhVWp1S0Juc1lQajlWSnBqd3FhaXZQbXc4cmJEOFhpa1NpREU4MU42WVR6cUpVdHkxMEdLR3EzWFY4LWpJTF9SMHV2dGpkbmdSQVJnQU1ZYU9B?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "2 Reasons to Like UNH and 1 to Stay Skeptical - tradingview.com",
-          "title_cn": "2 Reasons to Like UNH and 1 to Stay Skeptical - tradingview.com",
+          "title": "2 Reasons to Like UNH and 1 to Stay Skeptical - TradingView",
+          "title_cn": "2 Reasons to Like UNH and 1 to Stay Skeptical - TradingView",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "tradingview.com",
+          "provider": "TradingView",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaGVDSXdOaGdpbVVKWG9JaDZHbEFwby1ERXp0VVNkOFJfRV82VFNYZlZKZzMyOGpCQ0pKODdzR2gya2FyN1p1Mld3MG1aQ2NTMTFSV1pLS2VTbGluN21VbHNPOEMwcDZWRVlpdjZzc2NOQkh6TjVJa3dOc3NRZE1OQ09EUFk1Nk13UW9qRE1PWmRCYTgtUnhIUHZMREc3LVEwY2dSd1ZCZmxmZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -324,7 +324,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-04 16:57:36",
+  "generated_at": "2026-09-04 17:06:15",
   "macro_summary": "",
-  "cached_at": "2026-09-04T17:00:08.555757"
+  "cached_at": "2026-09-04T17:08:42.494339"
 }
