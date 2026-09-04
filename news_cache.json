@@ -7,6 +7,32 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Nvidia stock extends gains to hover near all-time highs - Yahoo Finance",
+          "title_cn": "Nvidia stock extends gains to hover near all-time highs - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-04",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSGVMeExLRmhXbU9hZDlfbHIzTGl3RkR4bDVyVEJoZFVCc1ZRdnNZT3M5Tlo3VnlBYzRMN0h2aWpEZ3JGMHdGUFhWeldUWEg0U0w0NzVCZXk5YTJiYk1YaFR2bUtPUEhyTDJURHZKY2pSN2xDRVV1M29uQlhiQTlJSlp6SDIyWV9hNE9CXzNtdG1yUFRfWm9HYWxTMmJoVVJObDM2NXdlaXptQUlhcE1GRkdn?oc=5",
+          "direction": "positive",
+          "impact_pct": 2.1,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - Yahoo Finance",
+          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-03",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRHFONTV6a2dyS1NhbEZqbWNLU2dScnJXalNTdUhPbkZNRG1zNzZDN0hTcVZaVkFORW9aMDh4RXZNWTNEeGlrVHRkY3JyS0JzUzFGTkNPcmpkckRqbGtIczFZUldxWVFjRlgzMnBzWFNINmxpUWZxeWJ0WjRJR1c5czR0ZkJuYnRSZG9UQUVVcERoVmpXLXZSYmxOVUZKVnpOLUZxZXF3?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.7,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Nvidia Just Delivered a Massive Warning to AMD and Intel Stock Investors - The Motley Fool",
           "title_cn": "Nvidia Just Delivered a Massive Warning to AMD and Intel Stock Investors - The Motley Fool",
           "summary": "",
@@ -20,37 +46,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia stock extends gains to hover near all-time highs - finance.yahoo.com",
-          "title_cn": "Nvidia stock extends gains to hover near all-time highs - finance.yahoo.com",
+          "title": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies - CNBC",
+          "title_cn": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies - CNBC",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "finance.yahoo.com",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSGVMeExLRmhXbU9hZDlfbHIzTGl3RkR4bDVyVEJoZFVCc1ZRdnNZT3M5Tlo3VnlBYzRMN0h2aWpEZ3JGMHdGUFhWeldUWEg0U0w0NzVCZXk5YTJiYk1YaFR2bUtPUEhyTDJURHZKY2pSN2xDRVV1M29uQlhiQTlJSlp6SDIyWV9hNE9CXzNtdG1yUFRfWm9HYWxTMmJoVVJObDM2NXdlaXptQUlhcE1GRkdn?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.2,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - finance.yahoo.com",
-          "title_cn": "Prediction: Nvidia Stock Will Outperform AMD Through 2028 - finance.yahoo.com",
-          "summary": "",
-          "pubDate": "2026-09-03",
-          "provider": "finance.yahoo.com",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQRHFONTV6a2dyS1NhbEZqbWNLU2dScnJXalNTdUhPbkZNRG1zNzZDN0hTcVZaVkFORW9aMDh4RXZNWTNEeGlrVHRkY3JyS0JzUzFGTkNPcmpkckRqbGtIczFZUldxWVFjRlgzMnBzWFNINmxpUWZxeWJ0WjRJR1c5czR0ZkJuYnRSZG9UQUVVcERoVmpXLXZSYmxOVUZKVnpOLUZxZXF3?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies - cnbc.com",
-          "title_cn": "Nvidia's investments grow to $99 billion as chip giant becomes major backer of AI companies - cnbc.com",
-          "summary": "",
-          "pubDate": "2026-09-04",
-          "provider": "cnbc.com",
+          "provider": "CNBC",
           "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE4xY1VMRWpNNnF5TVZFV3I1c2pRVURDaEN6VERDQTctRXpsdWxQLUxqanlZUWhlTnl1ekRvNWUzdS0xMHl3dlBfVUdvcWFqSUw1RnBnTzdoMUtSV2ZBb3NCbTFUWmZXX2VnaGthTTFKTzN2UFVNS0lmNNIBfkFVX3lxTE5vS2VVMndVYUJ6SkU0aC14VzMwY3dKYkNTekowZnJZUW9zNllkeTg5d0kyNlk3Y0pNei1FOHNqZ2NKbFV1QWNrbWpocGRTLUpWTmZWR185dlh0S3VCdTd0Rjdpc1lSX1o0NDI0cTNDOThSMXVyRkxLMFpkZjl4QQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -97,11 +97,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - finance.yahoo.com",
-          "title_cn": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - finance.yahoo.com",
+          "title": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - Yahoo Finance",
+          "title_cn": "UnitedHealth Stock Rises 39% in 6 Months: Should Investors Still Buy? - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZEFoRUJtT21fQklBSTUxRjVSYVF5Q05aOTJyQ01SVlhLUFRzT0VZd0JuMGRUVDZSaWsyNmJYT2NvVkE2LVJyaWJhVWp1S0Juc1lQajlWSnBqd3FhaXZQbXc4cmJEOFhpa1NpREU4MU42WVR6cUpVdHkxMEdLR3EzWFY4LWpJTF9SMHV2dGpkbmdSQVJnQU1ZYU9B?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "2 Reasons to Like UNH and 1 to Stay Skeptical - TradingView",
-          "title_cn": "2 Reasons to Like UNH and 1 to Stay Skeptical - TradingView",
+          "title": "2 Reasons to Like UNH and 1 to Stay Skeptical - tradingview.com",
+          "title_cn": "2 Reasons to Like UNH and 1 to Stay Skeptical - tradingview.com",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "TradingView",
+          "provider": "tradingview.com",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaGVDSXdOaGdpbVVKWG9JaDZHbEFwby1ERXp0VVNkOFJfRV82VFNYZlZKZzMyOGpCQ0pKODdzR2gya2FyN1p1Mld3MG1aQ2NTMTFSV1pLS2VTbGluN21VbHNPOEMwcDZWRVlpdjZzc2NOQkh6TjVJa3dOc3NRZE1OQ09EUFk1Nk13UW9qRE1PWmRCYTgtUnhIUHZMREc3LVEwY2dSd1ZCZmxmZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -298,11 +298,11 @@
       "source": "rule"
     },
     {
-      "title": "Trump tells Fed to slash rates or he'll end trade with countries with U.S. surpluses - cnbc.com",
-      "title_cn": "Trump tells Fed to slash rates or he'll end trade with countries with U.S. surpluses - cnbc.com",
+      "title": "Trump tells Fed to slash rates or he'll end trade with countries with U.S. surpluses - CNBC",
+      "title_cn": "Trump tells Fed to slash rates or he'll end trade with countries with U.S. surpluses - CNBC",
       "summary": "",
       "pubDate": "2026-09-04",
-      "provider": "cnbc.com",
+      "provider": "CNBC",
       "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE52cjlSWm5LQ1doMElfb2xlcWFaUkRoWlV6Smt6dFdRQ3dRUEdaYzNZWl9YVHMza1pxN3JUTklKQ2pMOEVmalhSUGlGMklmOHB6WE9zZWRTakJ0cHUxRGZSajkxclRkbEZ0VkNXeFhqUHbSAXZBVV95cUxPZ1RsQW1NOWNfdUswMm9MTlE3VGtFdmpDc19ZWnR1Mm1BaXZfcGdmcXhYRGpmRDdZZ3FmNl9MOUp0YVJmUVVZTlZLSkFOQVVmRmpCVmdmZ0x3UlY0NXVkYUVCV0pFNGkxUWVLcHQ5WDJhRVNkMnV3?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -324,7 +324,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-04 16:50:04",
+  "generated_at": "2026-09-04 16:57:36",
   "macro_summary": "",
-  "cached_at": "2026-09-04T16:52:36.344331"
+  "cached_at": "2026-09-04T17:00:08.555757"
 }
