@@ -246,14 +246,14 @@
   ],
   "macro": [
     {
-      "title": "Jobs Report Live Updates: U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
-      "title_cn": "Jobs Report Live Updates: U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
+      "title": "U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
+      "title_cn": "U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
       "summary": "",
       "pubDate": "2026-09-05",
       "provider": "The New York Times",
       "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1uWnNDV3Q2ZXZINW9nT3FBQ1ktcUxBQ2ZIazNtN3JIYU4yaWJHWnJWQm83UlpyR3N1N0JkWk56b0JEWTFub1YwdmNDeUpLTlh4dVQtLUduY19QZDB6T1M1RFB1dXcyNlJJaktzVE5MdXMwVWFzN1lZ?oc=5",
       "direction": "positive",
-      "impact_pct": 1.8,
+      "impact_pct": 1.5,
       "reason": "",
       "type": "宏观",
       "source": "rule"
@@ -272,11 +272,11 @@
       "source": "rule"
     },
     {
-      "title": "Citigroup delays Fed rate-cut forecast to 2027 after strong U.S. jobs report - reuters.com",
-      "title_cn": "Citigroup delays Fed rate-cut forecast to 2027 after strong U.S. jobs report - reuters.com",
+      "title": "Citigroup delays Fed rate-cut forecast to 2027 after strong U.S. jobs report - Reuters",
+      "title_cn": "Citigroup delays Fed rate-cut forecast to 2027 after strong U.S. jobs report - Reuters",
       "summary": "",
       "pubDate": "2026-09-04",
-      "provider": "reuters.com",
+      "provider": "Reuters",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQQnlBSDN4T3YxTDREQ3A2YnFhZ1lUN2E2dm1tZmxjb0tLaHFLUlFSN3NOdERlUFM0ZjBXZUhYOU54T2tKeU5saXBLWjk3dDZxTHl0ZXIxem40LU80bVE1V1ZwYVdUalhtMmVtSGtpRVFCX3F5NVpuUWlOR3o3UDZjcVBVd3N1SFBoR2NIT040R3VGX2xzZm91cVZEQ1JndFFoT3JqdzZWWl9PR2s0OGp2RWVsUUJteGM?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -311,7 +311,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-05 16:16:38",
+  "generated_at": "2026-09-05 16:53:48",
   "macro_summary": "",
-  "cached_at": "2026-09-05T16:18:59.932063"
+  "cached_at": "2026-09-05T16:56:18.499716"
 }
