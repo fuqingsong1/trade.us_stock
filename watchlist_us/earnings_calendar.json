@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-04",
+  "updated": "2026-09-05",
   "events": [
     {
       "date": "2026-01-27",
@@ -438,7 +438,7 @@
       "symbol": "ECON",
       "name": "非农就业报告",
       "period": "经济数据",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "8月数据"
     },
