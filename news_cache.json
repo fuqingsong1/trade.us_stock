@@ -33,11 +33,11 @@
           "source": "rule"
         },
         {
-          "title": "Despite Revenue Skyrocketing More Than 100%, Nvidia Stock Trades at 24 Times Forward Earnings. Is the Market Warning Investors About What's to Come? - The Globe and Mail",
-          "title_cn": "Despite Revenue Skyrocketing More Than 100%, Nvidia Stock Trades at 24 Times Forward Earnings. Is the Market Warning Investors About What's to Come? - The Globe and Mail",
+          "title": "Despite Revenue Skyrocketing More Than 100%, Nvidia Stock Trades at 24 Times Forward Earnings. Is the Market Warning Investors About What's to Come? - theglobeandmail.com",
+          "title_cn": "Despite Revenue Skyrocketing More Than 100%, Nvidia Stock Trades at 24 Times Forward Earnings. Is the Market Warning Investors About What's to Come? - theglobeandmail.com",
           "summary": "",
           "pubDate": "2026-09-06",
-          "provider": "The Globe and Mail",
+          "provider": "theglobeandmail.com",
           "url": "https://news.google.com/rss/articles/CBMixgJBVV95cUxQWEtiU0VaUFcybGU3RTlJQmlfZzBDZ3RvVUlJNE9QVUF1eGdvVXBBWHJTLVJ5RWtLQjlRczFNWG1rRWhudkpZYTQ4N0hfYTcwOHRmV0hsbEQ4bXNQUXh2MWxuR3BnYVNiYXIwM1l2QmNBVXRULUE0NVRyam1lZVhPVGxDZE9sZG9aVFAtQkpXaW8tdTVRSElLV1RLdlpDclZyOXhrdldSczFlUnk4TG5yc3E5V2J5X2x5V245VnRoUTNkUHpMMzd6OUxRQTZWT0pzbHFhSFkwRjk4ek94NUVldDJZXzhvWE9Mai1weVJpZ0l4cldjZk5MalR3REtNeklmanBmS0ttTHJvUWdZTUtzNHdQX0hnMmJrRkpqLXRFalA4a0F4OHdMdXhUaTBMLWtkVlExanQ4TWMyMnpJc1A2STl0VkJBZw?oc=5",
           "direction": "negative",
           "impact_pct": -1.2,
@@ -84,16 +84,16 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "UNH, HUM, CNC Stocks Rally On Medicare Advantage Rate Surprise - Stocktwits",
-          "title_cn": "UNH, HUM, CNC Stocks Rally On Medicare Advantage Rate Surprise - Stocktwits",
+          "title": "How Can Healthcare Inflation Fuel Growth for MRSH, UNH & CNC? - Zacks Investment Research",
+          "title_cn": "How Can Healthcare Inflation Fuel Growth for MRSH, UNH & CNC? - Zacks Investment Research",
           "summary": "",
-          "pubDate": "2026-09-05",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbnM5clVSc1VaTjU1ZUFoVzBkcFo0eDlkeF9JWnEwV3R0TVNxelZYN0xXT3U5ZnNVeXZTWlhKMno2LTVXQjdjd2NPNDVtNC1CaHJqN3dtYl9LbnF3blBlTTQ2cU9sbE82ck43UlZqM0x3Y3k1YjJnTjNwN19FbnRSN2NQNl9qbkNVdU1UclBnYjloY0p4M0JFLVFjaVNJbXR3aGs2OUxISEMxcTVaTmlJQVlqaHlRaWZJMlVsRHg5eWZYQQ?oc=5",
+          "pubDate": "2026-09-03",
+          "provider": "Zacks Investment Research",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNa2tEYU9sRWFqMHVNckpXMEl6MHg0RzktRVBpQmR0aTlpTHkyRVp5MlBxc0VIMjVydEE4TTcxVGJ1SVhiaC1BVGFiR0w4ekIxWjQ1WUFBUnQ3YnItcUd3ZXY0SFQ2VHdtelQtNVlCR2hZWmlYaTBtNFhJRUJELWM2VEFiaGstNWhuR1YydlFKUmI4Rk5XM0hwTWUzN1FSSms?oc=5",
           "direction": "positive",
-          "impact_pct": 1.0,
+          "impact_pct": 0.3,
           "reason": "",
-          "type": "个股",
+          "type": "宏观",
           "source": "rule"
         },
         {
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
-          "title_cn": "UNH Stock Gets Cheaper Only If The Margins Come Back - Trefis",
+          "title": "UNH Stock Gets Cheaper Only If The Margins Come Back - trefis.com",
+          "title_cn": "UNH Stock Gets Cheaper Only If The Margins Come Back - trefis.com",
           "summary": "",
           "pubDate": "2026-08-31",
-          "provider": "Trefis",
+          "provider": "trefis.com",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRS1iZTNIN3dibHVIX2cyemJzbTUzLVlOYV9TSmNISy1FWFo4V09FNGY0el9KTEdJNEdNNnQyMjR3RlUtcjZqcVE0S2l2MkUzeXkwOHg4SnlWdS14NGJqVlZQVWJlbGFEaFc1OWpQSVBUTU5SSjVoejl2N0RncWszTkVqMmhGLVBFd2VHczJhSDB4YTBZNlFRVGFxcm1acnhWTjJwVEw4YjlVYTJjS1VzV0tn?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -153,31 +153,6 @@
       "total_impact": 0,
       "net_direction": "positive",
       "next_earnings": "2026-10-27"
-    },
-    {
-      "symbol": "00700.HK",
-      "name": "腾讯控股",
-      "has_position": false,
-      "is_eligible": true,
-      "news": [
-        {
-          "title": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - Moomoo",
-          "title_cn": "Southbound Capital Flow | Southbound capital recorded net purchases of HKD 7.757 billion; increased holdings in tech and internet stocks, with over HKD 1.1 billion accumulated in Tencent (00700) throughout the day - Moomoo",
-          "summary": "",
-          "pubDate": "2026-09-01",
-          "provider": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSTVvX1NMMVlMSjA3T1pOX1F3X3lQTDBZQWliMkRzSUF0eDZCMjFETmdSRmZmYXlab2cteEdiczEzQ1VHay1OZ2RMVFprbWNsal9hRkJ3NGZsZTMwQm9EMzJDZVRsamZUU1h2cUF1V0d6Sy11X2pvR0RCdFBNeFhyMEJCYUZnZjlFUjBhVmhDQnJBbXFlOUo4dGcwenhhN21lTi0xYmpnanQxczN5ZGtpRy1UVk8?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        }
-      ],
-      "stock_summary": "",
-      "total_impact": 0,
-      "net_direction": "neutral",
-      "next_earnings": "未公布"
     },
     {
       "symbol": "PDD",
@@ -259,19 +234,6 @@
   ],
   "macro": [
     {
-      "title": "Stocks Fall After Hot Jobs Report - WSJ",
-      "title_cn": "Stocks Fall After Hot Jobs Report - WSJ",
-      "summary": "",
-      "pubDate": "2026-09-06",
-      "provider": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOGV0QmpMTThWUF9sWGY3OGZuTHpuTlR2Qmh3ZlF6ZmxISEJ4TVI3Ry1lamdEUnRYSWY2bm1qYXJ5R0FGeHhCZUxrdUlzaEdsa1E0VG54bjVsZ29INnFlcmhxT2x1OGNnOXpwendIUzdMSHpIei1ENXJENlhIU2tmdEZtZw?oc=5",
-      "direction": "negative",
-      "impact_pct": -2.1,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
       "title_cn": "U.S. Hiring Jumps, an Encouraging Sign for the Economy - The New York Times",
       "summary": "",
@@ -285,12 +247,12 @@
       "source": "rule"
     },
     {
-      "title": "U.S. payrolls rose 162,000 in August, much more than expected; unemployment rate at 4.1% - CNBC",
-      "title_cn": "U.S. payrolls rose 162,000 in August, much more than expected; unemployment rate at 4.1% - CNBC",
+      "title": "Trump turns up the heat on Warsh as Fed rate hike looms - CNBC",
+      "title_cn": "Trump turns up the heat on Warsh as Fed rate hike looms - CNBC",
       "summary": "",
-      "pubDate": "2026-09-04",
+      "pubDate": "2026-09-05",
       "provider": "CNBC",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5CWWEzcDI3bDlYbmQwMXd3dXdEWFRfeFl1RnpKamFQcXk4cFZpeHk3b29CSENaam5iaWFUb3podkRBY1MySFVPdWhiR2tqMVNtODFOUXptNjVTR2xyaG4xUml3TDdyX0NmWWI5Y9IBckFVX3lxTFBEV2xVamRtYmZwNllaVV92YW5DSlBUbDhJSkJKX1ZKZFlPMXpFOHByaWhNeUs0Q2U4WWM5OVBLMTFMaTdPSGZBeTVESmZkOUh4aFdQWmZNNGpETFh0bVY2dFFsN2oxRnE3dXFVeHhwNnhXUQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5DYTJSa3ZaZFdjOVppNUhHcUgwZUkzNzNkQ2dQbkxfZTV2czZOREZKemRxUDhtSlgyLVQ1eEQyRlVxRWFZNXVQSVdFUTVfc0FqMzFBSXE4Qkl1VWtzdmdQWllkSkl5QjJqZXpSOEVYWUpEU3d1TFNQeVNqX07SAYIBQVVfeXFMTi1HQkxWWlgzN1hYVGt2elQwUUVzcWJIai1VclJVUkNwVDI0ME9ZRjBlSzBtT0xoMTFVMWJfUkdWT0VPZmdrc0RRLXVDd0hkeFBpMEhMNzZhSTZ2SUx1QkQ2RW5UTVk2a3VPVjgwWWdoX1Q3b0I5THlCMHdJWHJGMWFidw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -298,12 +260,12 @@
       "source": "rule"
     },
     {
-      "title": "The US economy added 162,000 jobs in August, more than double expectations - CNN",
-      "title_cn": "The US economy added 162,000 jobs in August, more than double expectations - CNN",
+      "title": "Fed governor Waller muddies outlook on possible rate hike later this month - PBS",
+      "title_cn": "Fed governor Waller muddies outlook on possible rate hike later this month - PBS",
       "summary": "",
       "pubDate": "2026-09-04",
-      "provider": "CNN",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBiT2NjNllyVE8wc0VhNlRqc3RncHB5NGlMWjFvdl9xRThZLUtkVnJzU0pENlZIc0k5bk9OM1AwRWVUQ3lyeHFjUHhyWXJ6OG9IbDBaZVpSeDlVR3dvQWpUZnhmdmxvaVE3SG1mQQ?oc=5",
+      "provider": "PBS",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYkprM1h1WDVtVjB0dDlscGZNeUxuUkw3TWhYZFhDYkZyYl93UmJSM3NYcXdRN2tfQzRuS2V4WTBBb2VtVmE2VTlGcnU2Nk9KeUVfYjBIbkswX2pMUHNfSk5xT2FDVXBaaHllX2lUZEgyVjdzR1F3REJIN284SnF6WUtha0Vtb0NSVmNCSm1FTUFPYXJzYW9fcERTNHFYYXY4TGg4a1FhM0VmdFJoWnhlTdIBtgFBVV95cUxPY1VTZzBtaXdkUll5UEFzY0daeWtWUGM0U05nTk96SHNveVdEd3RtdG9fMjNuSjB4bHdSSmtTdmlJYUlVZmotQWs1Qk9sMFdwcDNhelJ5NElBM2tRaDFxU2d5LW9sVzQzMGhyd0t4a3ZrNS1kVElnaGNfR0xLYl9yU3FwOU1EenpWeUhZTHh6bDRYMVR2RjZIMnUxODBBNWJEcE5aQ0NsSklQU0xZdE9aZ1F6MXpWZw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -311,12 +273,25 @@
       "source": "rule"
     },
     {
-      "title": "U.S. Adds a Whopping 162,000 Jobs in a Bright Spot for the Economy - WSJ",
-      "title_cn": "U.S. Adds a Whopping 162,000 Jobs in a Bright Spot for the Economy - WSJ",
+      "title": "Strong job gains signal Fed hike as Trump levels new rate-cut demand - Reuters",
+      "title_cn": "Strong job gains signal Fed hike as Trump levels new rate-cut demand - Reuters",
       "summary": "",
       "pubDate": "2026-09-04",
-      "provider": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA3SzBnampFcGJ1cG9oY0tubUtWX09mV05nTkl2NkV6cEZPcTZoZlh5c2dNVkVlSExISWl5SFZHNDNnU25IRW83WmtCSDZtRlZ5Q3BBR0RvbEpyQ0NMWWwyVlF6YW9zMEo5ZXZleldvX29Wdm43MXVqTkVkbWJFdw?oc=5",
+      "provider": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOF9yZEh3LUNwbXhOOE05b01rVHlLVld4OXkwYXdOczZxZF9DUTUxVU9Ta3pCTGRla0RfMXZTR1phZEx6aVU0VmRWcGVZZzlsd3dhZF9yYjc0UHFfaUZMNEoxaElSSE1YSzY5aEExTEMzNV9oOVpSSEc1SXlsZ0R5UkF4cFFMTWVxQi1SYk43cDlhU204aklNNzhB?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
+      "title": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
+      "title_cn": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
+      "summary": "",
+      "pubDate": "2026-09-05",
+      "provider": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNX3NMLXhhYU1lOVVLWU9sY0k0SDUyQnEwMG9SZ1RzNHZobTIyYk9KWGJlOGhic3FKdlQ2NXlIVDF6SW1oRlNWZlY2NHlNLWlnNGoybzAwLWlkV3V1Q1ZtM21KS2FLTy02NEF6VjY4UmFNc2hYa21mRURlSkJYZWxtc1R3VmRYZFlKNUU3NzZiMkZGNGJZcG1xZUNCN0RQNkRndEVPb9IBqgFBVV95cUxOU1FSZ3pWOURaQUxBS296TzBtRFFGclJXTnpLYWwzZXU1Q01kcVZUczBxUDAwR3FaYmFZdzlXUWM2T0Q3TDVldm9nSVY4OERYRUtkdm5sdndPSU1ETU1yc3BuMEpXLTd2VFFZRTVQcWdMZFdEZ0EzYjhTS200RFBkZy1jbE01WVhVbEgyX1Z2dXc4MWxmbXd6cl9pSlp2TDRldkdkS2hwOVE0Zw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -324,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-06 16:10:06",
+  "generated_at": "2026-09-06 16:16:43",
   "macro_summary": "",
-  "cached_at": "2026-09-06T16:12:46.095002"
+  "cached_at": "2026-09-06T16:19:52.660436"
 }
