@@ -479,7 +479,7 @@ LANDING_HTML = '''<!-- ════ Landing Page ════ -->
       <div class="candle red sm"></div>
       <div class="candle green"></div>
     </div>
-    <div class="landing-title">低频量化交易看板</div>
+    <div class="landing-title">交易看板</div>
     <div class="landing-subtitle">US STOCK &middot; LOW-FREQ QUANT  SYSTEM</div>
     <div class="landing-desc">多标的做T区间可视化 &middot; 策略运行状态监控 &middot; 全球财经新闻聚合</div>
     <div class="landing-stats">
@@ -549,9 +549,9 @@ def apply_text_replacements(html):
     """应用所有命名、脱敏、颜色修复"""
 
     # --- 标题 ---
-    html = html.replace('OKX 做T看板 + 新闻', '低频量化交易看板')
-    html = html.replace('OKX USDT-SWAP 做T看板', '低频量化交易看板')
-    html = html.replace('美股 低频量化交易看板', '低频量化交易看板')
+    html = html.replace('OKX 做T看板 + 新闻', '交易看板')
+    html = html.replace('OKX USDT-SWAP 做T看板', '交易看板')
+    html = html.replace('美股 低频量化交易看板', '交易看板')
 
     # --- Tab 命名 ---
     html = html.replace('switchTab(\'dashboard\')">看板<', 'switchTab(\'dashboard\')">做多看板<')

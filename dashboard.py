@@ -1817,7 +1817,7 @@ html = f"""<!DOCTYPE html>
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta http-equiv="refresh" content="300">
-<title>低频量化交易看板</title>
+<title>交易看板</title>
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{
@@ -2105,7 +2105,7 @@ a .title-cn:hover {{ color: #378ADD; }}
 
 <div class="header">
   <div>
-    <h1>低频量化交易看板</h1>
+    <h1>交易看板</h1>
     <div class="time">更新时间: {now_str} (CST) | <span style="color:#888">双击update_all.bat刷新数据</span></div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
