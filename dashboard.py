@@ -2301,12 +2301,12 @@ for (const d of data) {{
   <tr class="${{posClass.trim()}}">
     ${{logoCell(d.sym)}}
     <td class="sym">${{d.sym}}</td>
-    <td class="name">${{d.name}}</td>
-    <td class="name">${{d.industry}}</td>
+    <td class="name" style="font-weight:500">${{d.name}}</td>
+    <td class="name" style="font-weight:500">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
     <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
-    <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
+    <td class="num" style="font-size:12px;color:${{valColor}};font-weight:500">${{valText}}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}${{newsTag}}</td>
     <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}${{newsTag}}</td>
@@ -2326,7 +2326,7 @@ for (const d of data) {{
         <div class="bar-pct-label" style="left:${{pctW}}%">${{d.zone}}</div>
       </div>
     </td>
-    <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
+    <td class="${{d.zone_class}}" style="font-size:12px;font-weight:600">${{d.zone}}</td>
     <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
@@ -2376,12 +2376,12 @@ for (const d of hkData) {{
   <tr>
     ${{logoCell(d.sym)}}
     <td class="sym">${{d.sym}}${{ratingTag}}</td>
-    <td class="name">${{d.name}}</td>
-    <td class="name">${{d.industry}}</td>
+    <td class="name" style="font-weight:500">${{d.name}}</td>
+    <td class="name" style="font-weight:500">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
     <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
-    <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
+    <td class="num" style="font-size:12px;color:${{valColor}};font-weight:500">${{valText}}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}</td>
     <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}</td>
@@ -2401,7 +2401,7 @@ for (const d of hkData) {{
         <div class="bar-pct-label" style="left:${{pctW}}%">${{d.zone}}</div>
       </div>
     </td>
-    <td class="${{d.zone_class}}" style="font-size:12px">${{d.zone}}</td>
+    <td class="${{d.zone_class}}" style="font-size:12px;font-weight:600">${{d.zone}}</td>
     <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
