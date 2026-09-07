@@ -143,7 +143,7 @@ tr.eligible-no-pos:hover td { background: rgba(63,185,80,0.16); }
 .lev-badge-10 { background:rgba(88,166,255,0.12); color:#58a6ff; border-color:rgba(88,166,255,0.2); }
 .lever-10 { color: #3fb950; font-weight: 600; }
 .lever-7 { color: #56d364; font-weight: 600; }
-.stock-logo { height: 16px; width: auto; max-width: 22px; border-radius: 3px; object-fit: contain; display: block; }
+.stock-logo { height: 16px; width: 22px; max-width: 22px; margin: 0 auto; display: block; border-radius: 3px; object-fit: contain; }
 .logo-col { width: 28px; min-width: 28px; }
 .logo-cell { width: 28px; min-width: 28px; max-width: 28px; padding: 0 2px !important; text-align: center; overflow: hidden; }
 tr.has-position td.sym { position: relative; }

@@ -1815,7 +1815,8 @@ logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 # =====================================================================
 dashboard_js = r'''
 
-const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${LOGO_DOMAINS[sym]}&sz=64';}else{this.remove();}" alt=""></td>` : '<td class="logo-cell"></td>';
+const WHITE_LOGOS = {DIS:1, MRVL:1, AMD:1, STX:1, MU:1}; // 深色logo转白, 避免与深色背景混淆
+const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${LOGO_DOMAINS[sym]}&sz=64';}else{this.remove();}" alt=""></td>` : '<td class="logo-cell"></td>';
 
 // 价格格式化: 大数(韩元/日元等)不显示小数
 const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
@@ -2171,7 +2172,7 @@ tr.has-position {{ background: rgba(55, 138, 221, 0.07); }}
 tr.has-obs {{ background: rgba(136, 136, 136, 0.06); }}
 tr.eligible-no-pos {{ background: rgba(151, 196, 89, 0.15); }}
 .lever-10 {{ color: #3B6D11; font-weight: 600; }}
-.stock-logo {{ height: 16px; width: auto; max-width: 22px; border-radius: 3px; object-fit: contain; display: block; }}
+.stock-logo {{ height: 16px; width: 22px; max-width: 22px; margin: 0 auto; display: block; border-radius: 3px; object-fit: contain; }}
 .logo-col {{ width: 28px; min-width: 28px; }}
 .logo-cell {{ width: 28px; min-width: 28px; max-width: 28px; padding: 0 2px !important; text-align: center; overflow: hidden; }}
 .lever-7 {{ color: #639922; font-weight: 600; }}
