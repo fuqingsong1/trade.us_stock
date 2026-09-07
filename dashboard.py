@@ -1769,6 +1769,27 @@ short_lev_str = "/".join(str(v) for v in SHORT_LEV_TIER.values())  # "3/5/7" 供
 now_str = ((datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
            if CLOUD_MODE else datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
+# 股票 Logo: 符号 → 公司域名, 用于 Clearbit Logo API(https://logo.clearbit.com/{domain})
+LOGO_DOMAINS = {
+    "NOK": "nokia.com", "ASML": "asml.com", "ADBE": "adobe.com", "IBM": "ibm.com",
+    "HPE": "hpe.com", "DELL": "dell.com", "TSM": "tsmc.com", "META": "meta.com",
+    "MSFT": "microsoft.com", "LLY": "lilly.com", "NFLX": "netflix.com", "GOOGL": "google.com",
+    "AMZN": "amazon.com", "NVDA": "nvidia.com", "AAPL": "apple.com", "SNDK": "sandisk.com",
+    "TSLA": "tesla.com", "AMD": "amd.com", "ORCL": "oracle.com", "INTC": "intel.com",
+    "COST": "costco.com", "MU": "micron.com", "ARM": "arm.com", "AVGO": "broadcom.com",
+    "PLTR": "palantir.com", "RKLB": "rocketlabusa.com", "COHR": "coherent.com",
+    "HIMS": "hims.com", "HOOD": "robinhood.com", "QCOM": "qualcomm.com", "GLW": "corning.com",
+    "GEV": "gevernova.com", "CSCO": "cisco.com", "WDC": "westerndigital.com",
+    "MSTR": "microstrategy.com", "MRVL": "marvell.com", "LITE": "lumentum.com",
+    "SPCX": "spacex.com", "SKHY": "skhynix.com", "CRWV": "coreweave.com", "NBIS": "nebius.com",
+    "AMAT": "amat.com", "DIS": "disney.com", "WMT": "walmart.com", "UNH": "unitedhealthgroup.com",
+    "JNJ": "jnj.com", "JPM": "jpmorganchase.com", "SONY": "sony.com", "BX": "blackstone.com",
+    "NVO": "novonordisk.com", "KO": "coca-cola.com", "TXN": "ti.com", "CAT": "caterpillar.com",
+    "STX": "seagate.com",
+    "005930.KS": "samsung.com", "005380.KS": "hyundai.com", "066570.KS": "lg.com", "285A.T": "kioxia.com",
+}
+logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
+
 html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1899,6 +1920,8 @@ tr.has-position {{ background: rgba(55, 138, 221, 0.07); }}
 tr.has-obs {{ background: rgba(136, 136, 136, 0.06); }}
 tr.eligible-no-pos {{ background: rgba(151, 196, 89, 0.15); }}
 .lever-10 {{ color: #3B6D11; font-weight: 600; }}
+.stock-logo {{ width: 22px; height: 22px; border-radius: 5px; object-fit: contain; display: block; }}
+.logo-col {{ width: 34px; min-width: 34px; }}
 .lever-7 {{ color: #639922; font-weight: 600; }}
 tr.has-position td.sym {{ position: relative; }}
 tr.has-position td.sym::before {{ content: ''; position: absolute; left: 0; top: 25%; height: 50%; width: 3px; background: #378ADD; border-radius: 2px; }}
@@ -2094,9 +2117,9 @@ a .title-cn:hover {{ color: #378ADD; }}
   <table>
   <thead>
   <tr>
-    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
+    <th class="logo-col"></th><th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
     <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
-    <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
+    <th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
     <th style="width:50px">盈亏比</th><th style="width:60px">潜在亏损</th><th style="width:55px">可交易</th>
@@ -2148,9 +2171,9 @@ a .title-cn:hover {{ color: #378ADD; }}
   <table>
   <thead>
   <tr>
-    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
+    <th class="logo-col"></th><th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
     <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
-    <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
+    <th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
     <th style="width:50px">盈亏比</th><th style="width:60px">潜在亏损</th><th style="width:55px">可交易</th>
@@ -2204,6 +2227,8 @@ const allData = {data_json};
 // 主看板: 指数+美股 (排除港股); 中概股做多看板单独渲染
 const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
+const LOGO_DOMAINS = {logo_domains_json};
+const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${{LOGO_DOMAINS[sym]}}" onerror="this.remove()" alt=""></td>` : '<td class="logo-cell"></td>';
 
 // 价格格式化: 大数(韩元/日元等)不显示小数
 const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
@@ -2247,6 +2272,7 @@ for (const d of data) {{
 
   tbody.innerHTML += `
   <tr class="${{posClass.trim()}}">
+    ${{logoCell(d.sym)}}
     <td class="sym">${{d.sym}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
@@ -2254,7 +2280,6 @@ for (const d of data) {{
     <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}${{newsTag}}</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}${{newsTag}}</td>
     <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}${{newsTag}}</td>
     <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}${{newsTag}}</td>
@@ -2313,6 +2338,7 @@ for (const d of hkData) {{
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
   hkTbody.innerHTML += `
   <tr>
+    ${{logoCell(d.sym)}}
     <td class="sym">${{d.sym}}${{ratingTag}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
@@ -2320,7 +2346,6 @@ for (const d of hkData) {{
     <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}</td>
     <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}</td>
     <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}</td>
