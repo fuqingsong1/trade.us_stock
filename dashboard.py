@@ -2242,7 +2242,7 @@ for (const d of data) {{
   // eligible 绿色背景仅限买入区, SELL区/上半区的高分位股票不标绿, 避免误导
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
   const posBadge = d.has_pos ? `<span class="pos-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(1)}}</span>` : (d.is_obs ? `<span class="obs-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(2)}}</span>` : '-');
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{pxf(d.buy_cfg)}} - ${{d.ccy}}${{pxf(d.sell_cfg)}}` : '-';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
   const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${{d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'}};margin-left:2px">📰${{(d.news_shift_pct*100).toFixed(0)}}%</span>` : '';
 
   tbody.innerHTML += `
@@ -2309,7 +2309,7 @@ for (const d of hkData) {{
   const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
   const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{pxf(d.buy_cfg)}} - ${{d.ccy}}${{pxf(d.sell_cfg)}}` : '-';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
   hkTbody.innerHTML += `
   <tr>
