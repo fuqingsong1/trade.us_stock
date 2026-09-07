@@ -20,14 +20,14 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Investment Portfolio Spans Intel to SpaceX. Why It Can Surge. - barrons.com",
-          "title_cn": "Nvidia’s Investment Portfolio Spans Intel to SpaceX. Why It Can Surge. - barrons.com",
+          "title": "Nvidia’s Investment Portfolio Spans Intel to SpaceX. Why It Can Surge. - Barron's",
+          "title_cn": "Nvidia’s Investment Portfolio Spans Intel to SpaceX. Why It Can Surge. - Barron's",
           "summary": "",
           "pubDate": "2026-09-07",
-          "provider": "barrons.com",
+          "provider": "Barron's",
           "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOckVFc2tmUEM1SHdWTEQ4NzlOSk03QWtMb2ZiWkczV2RrenZDUUVNTFBHdkJPcnhkRWF0dXBRWmViU1dJR2Z6ZHR3Zlo1MVdHeF9TZE5vRkxOMmtaOXM3UUg0azhEN2dSRXF4LWNkeXBKWEFGS2hPZksybzZpWlBITzBqRUE0SFBzd0E?oc=5",
           "direction": "positive",
-          "impact_pct": 1.6,
+          "impact_pct": 3.1,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -46,14 +46,14 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia stock moves closer to all-time high - Yahoo Finance",
-          "title_cn": "Nvidia stock moves closer to all-time high - Yahoo Finance",
+          "title": "Nvidia stock moves closer to all-time high - finance.yahoo.com",
+          "title_cn": "Nvidia stock moves closer to all-time high - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-04",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNNUhYQzNDeE0tUk5IOExEUk9IcG5ydGZwQ3cwNGFVb2d0bWZIMXpFNGR2d0ZpczA3UlhVa2EzT0VtNXczV1VZWllzMkJZQ0dPc25zNWd6OXo3aDV6TFhjVndOX3pKUkxVOEJsSktsbEpKLWlSTHVvdkdEZUdtU3ZrbnZZU1p4QjhlWFlOY0lfejFNZUZ4eFNEQ3lVUVkxRXk3?oc=5",
           "direction": "positive",
-          "impact_pct": 0.8,
+          "impact_pct": 0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -136,11 +136,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth (UNH) Stock May Look Reasonable Despite IRS Tax Scrutiny - Yahoo Finance",
-          "title_cn": "UnitedHealth (UNH) Stock May Look Reasonable Despite IRS Tax Scrutiny - Yahoo Finance",
+          "title": "UnitedHealth (UNH) Stock May Look Reasonable Despite IRS Tax Scrutiny - finance.yahoo.com",
+          "title_cn": "UnitedHealth (UNH) Stock May Look Reasonable Despite IRS Tax Scrutiny - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-02",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSTZxel9QbkEtREV3T3JzNUdCaXFTLVpRaFVvQnZsTjhobzc1b3Y2QXMtaHFkaUd3ZHdpUWFtT2M1MENpTVM1cFlkQ2RhOFQ5UVY1X21kd3UxaThTM2lPSWozRGFjRHI5T2doWHAweWlRNzVLcjY3UjI1MDIyUzNGakY2T2tfM1ZjdGRFZWpuTGpfQWZKSlpJ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -350,7 +350,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-07 18:13:58",
+  "generated_at": "2026-09-07 18:24:42",
   "macro_summary": "",
-  "cached_at": "2026-09-07T18:16:41.694816"
+  "cached_at": "2026-09-07T18:27:24.671222"
 }
