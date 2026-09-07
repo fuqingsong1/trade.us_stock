@@ -3,6 +3,8 @@ name: 看板自动更新
 on:
   workflow_dispatch:        # 手动触发: 仓库 Actions 页面点 Run workflow
   schedule:
+    # 北京时间 20:54 强制刷新 (UTC 12:54 = 北京 20:54)
+    - cron: "54 12 * * *"   # 20:54
     # 北京时间 21:00-22:00 (UTC+8), 分钟数错开避免 GitHub 限流
     - cron: "3 13 * * *"    # 21:03
     - cron: "16 13 * * *"   # 21:16
