@@ -860,6 +860,7 @@ for s in stocks:
         "buy_cfg": buy_price/fx, "sell_cfg": sell_price/fx,
         "report_date": s.get("report_date", ""),
         "stale_valuation": bool(s.get("report_date") and _past_report.get(sym) and _past_report[sym] > s.get("report_date", "")),
+        "round_price": s.get("ccy", "USD") in ("KRW", "JPY"),   # 韩/日股换算美元后全档取整显示
         # 全仓持仓 margin 可能为空串 → 用 margin_est(名义价值估算) 判断真实持仓/观察仓
         "has_pos": pos_info is not None and pos_info["margin_est"] >= 1,
         "is_obs": pos_info is not None and pos_info["margin_est"] < 1,
@@ -955,6 +956,7 @@ for idx_info in INDEX_MONITORS:
         "zone": zone, "zone_class": zone_class,
         "buy_cfg": 0, "sell_cfg": 0,
         "report_date": "", "stale_valuation": False,
+        "round_price": False,
         "has_pos": False, "is_obs": False,
         "pos_size": 0, "pos_entry": 0, "pos_lever": 0, "pos_pnl": 0, "pos_margin": 0,
     })
@@ -2289,6 +2291,7 @@ for (const d of data) {{
   if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
   const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
   const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${{d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'}};margin-left:2px">📰${{(d.news_shift_pct*100).toFixed(0)}}%</span>` : '';
 
   tbody.innerHTML += `
@@ -2297,15 +2300,15 @@ for (const d of data) {{
     <td class="sym">${{d.sym}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
     <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
     <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}${{newsTag}}</td>
-    <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}${{newsTag}}</td>
-    <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}${{newsTag}}</td>
-    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pxf(d.p_sell2)}}${{newsTag}}</td>
+    <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}${{newsTag}}</td>
+    <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}${{newsTag}}</td>
+    <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}${{newsTag}}</td>
+    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}${{newsTag}}</td>
     <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
     <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
@@ -2362,6 +2365,7 @@ for (const d of hkData) {{
   if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
   const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
   hkTbody.innerHTML += `
   <tr>
@@ -2369,15 +2373,15 @@ for (const d of hkData) {{
     <td class="sym">${{d.sym}}${{ratingTag}}</td>
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
     <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
     <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}</td>
-    <td class="num" style="color:#97C459">${{d.ccy}}${{pxf(d.p_buy3)}}</td>
-    <td class="num" style="color:#BA7517">${{d.ccy}}${{pxf(d.p_sell1)}}</td>
-    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pxf(d.p_sell2)}}</td>
+    <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}</td>
+    <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}</td>
+    <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}</td>
+    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}</td>
     <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
     <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
