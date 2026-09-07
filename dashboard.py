@@ -2415,12 +2415,10 @@ a .title-cn:hover {{ color: #378ADD; }}
 <div id="tab-hk" class="tab-content">
   <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
     <div style="font-size:14px;font-weight:500">中概股做多看板</div>
-    <div style="font-size:12px;color:#888">更新: {now_str} | 非OKX合约, 价格/区间源: Yahoo Finance | 仅展示六步分析法结论与参考价</div>
+    <div style="font-size:12px;color:#888">更新: {now_str} | 价格/区间源: Yahoo Finance</div>
   </div>
   <div class="summary" id="hk-summary"></div>
-  <div class="legend">
-    <span>评级来自六步分析法报告(2026-08-25); 指标计算与美股看板一致(10日区间+布林+分位); 未上市标的仅展示分析结论, 不参与交易</span>
-  </div>
+  <div class="legend"></div>
   <table>
   <thead>
   <tr>
