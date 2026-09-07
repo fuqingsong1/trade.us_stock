@@ -1808,6 +1808,239 @@ LOGO_DOMAINS = {
 }
 logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 
+# =====================================================================
+# dashboard_js: 两张表的行渲染 + 汇总 + 手动"刷新数据"按钮的浏览器端重算。
+# 用普通(非f)字符串承载, 内部 JS 的 ${...} 与 { } 均无需转义, 通过 {dashboard_js} 注入 f-string。
+# 部署在静态 GitHub Pages(无后端), 故刷新只能前端调 Yahoo 接口拉行情、重算当下列并重绘。
+# =====================================================================
+dashboard_js = r'''
+
+const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${LOGO_DOMAINS[sym]}&sz=64';}else{this.remove();}" alt=""></td>` : '<td class="logo-cell"></td>';
+
+// 价格格式化: 大数(韩元/日元等)不显示小数
+const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
+const PLACE_LIVE = 0.05;
+
+// ---- 汇总卡片 ----
+function renderSummaries(){
+  const e = data.filter(d => d.eligible), bz = data.filter(d => d.zone && d.zone.startsWith('BUY')), sz = data.filter(d => d.zone && d.zone.startsWith('SELL'));
+  document.getElementById('summary').innerHTML = `
+  <div class="card"><div class="label">监控股票</div><div class="value blue">${data.length}</div></div>
+  <div class="card"><div class="label">可交易股票</div><div class="value green">${e.length}</div></div>
+  <div class="card"><div class="label">买入区</div><div class="value green">${bz.length}</div></div>
+  <div class="card"><div class="label">卖出区</div><div class="value red">${sz.length}</div></div>`;
+  const he = hkData.filter(d => d.eligible), hbz = hkData.filter(d => d.zone && d.zone.startsWith('BUY')), hsz = hkData.filter(d => d.zone && d.zone.startsWith('SELL'));
+  document.getElementById('hk-summary').innerHTML = `
+  <div class="card"><div class="label">监控股票</div><div class="value blue">${hkData.length}</div></div>
+  <div class="card"><div class="label">可交易股票</div><div class="value green">${he.length}</div></div>
+  <div class="card"><div class="label">买入区</div><div class="value green">${hbz.length}</div></div>
+  <div class="card"><div class="label">卖出区</div><div class="value red">${hsz.length}</div></div>`;
+}
+
+// ---- 美股行 ----
+function usRow(d){
+  if (d.error) return `<tr><td class="sym">${d.sym}</td><td colspan="21" style="color:#aaa">${d.error}</td></tr>`;
+  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
+  const buy1W = d.buy1_pct * 100, buy2W = d.buy2_pct * 100, buy3W = d.buy3_pct * 100;
+  const sell1W = d.sell1_pct * 100, sell2W = d.sell2_pct * 100;
+  const eligClass = d.eligible ? 'eligible' : 'ineligible', eligText = d.eligible ? 'Y' : 'N';
+  const bollColor = d.boll_pct === null ? '#aaa' : d.boll_pct < 0.2 ? '#3B6D11' : d.boll_pct > 1 ? '#A32D2D' : d.boll_pct > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
+  const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
+  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
+  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
+  const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.ccy}${d.sell_cfg.toFixed(0)}` : '-';
+  const _rd = d.report_date || ''; let rdText = '-';
+  if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
+  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
+  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
+  const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'};margin-left:2px">📰${(d.news_shift_pct*100).toFixed(0)}%</span>` : '';
+  return `
+  <tr class="${posClass.trim()}">
+    ${logoCell(d.sym)}
+    <td class="sym">${d.sym}</td>
+    <td class="name" style="font-weight:500">${d.name}</td>
+    <td class="name" style="font-weight:500">${d.industry}</td>
+    <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
+    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
+    <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${d.ccy}${pfr(d.ahigh)}</td>
+    <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
+    <td class="num" style="color:#639922">${d.ccy}${pfr(d.p_buy2)}${newsTag}</td>
+    <td class="num" style="color:#97C459">${d.ccy}${pfr(d.p_buy3)}${newsTag}</td>
+    <td class="num" style="color:#BA7517">${d.ccy}${pfr(d.p_sell1)}${newsTag}</td>
+    <td class="num" style="color:#A32D2D">${d.ccy}${pfr(d.p_sell2)}${newsTag}</td>
+    <td class="num" style="color:${bollColor};font-weight:${bollWt}">${bollText}</td>
+    <td class="num" style="color:${bollWColor};font-weight:${bollWWt}">${bollWText}</td>
+    <td class="num" style="font-weight:500">${(d.pct*100).toFixed(1)}%</td>
+    <td class="bar-cell"><div class="bar-wrap">
+      <div class="bar-buy1" style="left:0;width:${buy1W}%"></div>
+      <div class="bar-buy2" style="left:0;width:${buy2W}%"></div>
+      <div class="bar-buy3" style="left:0;width:${buy3W}%"></div>
+      <div class="bar-sell1" style="left:${sell1W}%;width:${sell2W - sell1W}%"></div>
+      <div class="bar-sell2" style="left:${sell2W}%;width:${100 - sell2W}%"></div>
+      <div class="bar-pct" style="left:${pctW}%"></div>
+      <div class="bar-pct-label" style="left:${pctW}%">${d.zone}</div>
+    </div></td>
+    <td class="${d.zone_class}" style="font-size:12px;font-weight:600">${d.zone}</td>
+    <td class="num" title="${d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}" style="${d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}">${d.ratio>=999 ? '∞' : d.ratio}</td>
+    <td class="num" style="color:${d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}">${d.loss_rate}%</td>
+    <td class="${eligClass}">${eligText}</td>
+  </tr>`;
+}
+
+// ---- 中概股行 ----
+function hkRow(d){
+  if (d.error) return `<tr><td class="sym">${d.sym}</td><td colspan="21" style="color:#aaa">${d.error}</td></tr>`;
+  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
+  const buy1W = d.buy1_pct * 100, buy2W = d.buy2_pct * 100, buy3W = d.buy3_pct * 100;
+  const sell1W = d.sell1_pct * 100, sell2W = d.sell2_pct * 100;
+  const eligClass = d.eligible ? 'eligible' : 'ineligible', eligText = d.eligible ? 'Y' : 'N';
+  const bollColor = d.boll_pct === null ? '#aaa' : d.boll_pct < 0.2 ? '#3B6D11' : d.boll_pct > 1 ? '#A32D2D' : d.boll_pct > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
+  const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
+  const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
+  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
+  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.ccy}${d.sell_cfg.toFixed(0)}` : '-';
+  const _rd = d.report_date || ''; let rdText = '-';
+  if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
+  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
+  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
+  const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${d.rating}</span>` : '';
+  return `
+  <tr>
+    ${logoCell(d.sym)}
+    <td class="sym">${d.sym}${ratingTag}</td>
+    <td class="name" style="font-weight:500">${d.name}</td>
+    <td class="name" style="font-weight:500">${d.industry}</td>
+    <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
+    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
+    <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${d.ccy}${pfr(d.ahigh)}</td>
+    <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
+    <td class="num" style="color:#639922">${d.ccy}${pfr(d.p_buy2)}</td>
+    <td class="num" style="color:#97C459">${d.ccy}${pfr(d.p_buy3)}</td>
+    <td class="num" style="color:#BA7517">${d.ccy}${pfr(d.p_sell1)}</td>
+    <td class="num" style="color:#A32D2D">${d.ccy}${pfr(d.p_sell2)}</td>
+    <td class="num" style="color:${bollColor};font-weight:${bollWt}">${bollText}</td>
+    <td class="num" style="color:${bollWColor};font-weight:${bollWWt}">${bollWText}</td>
+    <td class="num" style="font-weight:500">${(d.pct*100).toFixed(1)}%</td>
+    <td class="bar-cell"><div class="bar-wrap">
+      <div class="bar-buy1" style="left:0;width:${buy1W}%"></div>
+      <div class="bar-buy2" style="left:0;width:${buy2W}%"></div>
+      <div class="bar-buy3" style="left:0;width:${buy3W}%"></div>
+      <div class="bar-sell1" style="left:${sell1W}%;width:${sell2W - sell1W}%"></div>
+      <div class="bar-sell2" style="left:${sell2W}%;width:${100 - sell2W}%"></div>
+      <div class="bar-pct" style="left:${pctW}%"></div>
+      <div class="bar-pct-label" style="left:${pctW}%">${d.zone}</div>
+    </div></td>
+    <td class="${d.zone_class}" style="font-size:12px;font-weight:600">${d.zone}</td>
+    <td class="num" title="${d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}" style="${d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}">${d.ratio>=999 ? '∞' : d.ratio}</td>
+    <td class="num" style="color:${d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}">${d.loss_rate}%</td>
+    <td class="${eligClass}">${eligText}</td>
+  </tr>`;
+}
+
+function renderTables(){ document.getElementById('tbody').innerHTML = data.map(usRow).join(''); document.getElementById('hk-tbody').innerHTML = hkData.map(hkRow).join(''); }
+
+// ---- 浏览器端重算(供"刷新数据"按钮) ----
+function computeZone(pct, d){
+  const pe = PLACE_LIVE, b1=d.buy1_pct||0.27, b2=d.buy2_pct||0.19, b3=d.buy3_pct||0.11, s1=d.sell1_pct||0.70, s2=d.sell2_pct||0.78;
+  if (pct <= b3 + pe) return ['BUY3区','zone-buy3'];
+  if (pct <= b2 + pe) return ['BUY2区','zone-buy2'];
+  if (pct <= b1 + pe) return ['BUY1区','zone-buy1'];
+  if (pct >= s2 - pe) return ['SELL2区','zone-sell2'];
+  if (pct >= s1 - pe) return ['SELL1区','zone-sell1'];
+  return (pct < 0.50) ? ['下半区','zone-lower'] : ['上半区','zone-upper'];
+}
+
+// 用 single-period 收盘数组算 %B
+function bollPB(closes, px){
+  const c = closes.slice(-20); if (c.length < 5) return null;
+  const ma = c.reduce((a,b)=>a+b,0)/c.length;
+  const sd = Math.sqrt(c.reduce((s,x)=>s+(x-ma)*(x-ma),0)/c.length);
+  const up = ma + 2*sd, lo = ma - 2*sd;
+  return (up > lo) ? (px - lo)/(up - lo) : 0.5;
+}
+
+function recalc(d, dv, wv, fx){
+  if (!dv || !dv.chart || !dv.chart.result || !dv.chart.result[0]) return;
+  const Q = dv.chart.result[0].indicators.quote[0];
+  const meta = dv.chart.result[0].meta || {};
+  const close = (Q.close||[]).filter(v=>v!=null), high=(Q.high||[]).filter(v=>v!=null), low=(Q.low||[]).filter(v=>v!=null);
+  let px = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : close[close.length-1];
+  if (px == null || !close.length) return;
+  const k = (fx && fx > 0) ? fx : 1;
+  const pxd = px / k;
+  const al = Math.min.apply(null, low.slice(-10)), ah = Math.max.apply(null, high.slice(-10));
+  const alow = al, ahigh = ah;
+  const pct = (ahigh > alow) ? Math.max(0, Math.min(1,(pxd - alow)/(ahigh - alow))) : 0.5;
+  const boll_pct = bollPB(close, pxd);
+  let boll_pct_w = null;
+  if (wv && wv.chart && wv.chart.result && wv.chart.result[0]) { const wc = wv.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); if(wc.length) boll_pct_w = bollPB(wc, pxd); }
+  const w = ahigh - alow;
+  const p_buy2 = (alow + w*(d.buy2_pct||0.19))/k, p_buy3=(alow + w*(d.buy3_pct||0.11))/k;
+  const p_sell1 = (alow + w*(d.sell1_pct||0.70))/k, p_sell2=(alow + w*(d.sell2_pct||0.78))/k;
+  const vol = (ahigh > alow) ? (ahigh-alow)/((ahigh+alow)/2) : d.vol || 0;
+  let ratio = 0, loss_rate = -999;
+  if (d.buy_cfg > 0 && d.sell_cfg > 0) { const win = d.sell_cfg - pxd, loss = pxd - d.buy_cfg; ratio = loss > 0 ? Math.round(win/loss*100)/100 : 999; loss_rate = Math.round((d.buy_cfg - pxd)/pxd*100*10)/10; }
+  const eligible = (ratio > LIVE_REORDER && loss_rate > -10);
+  const zone = computeZone(pct, d);
+  Object.assign(d, { px: pxd, alow, ahigh, pct, boll_pct, boll_pct_w, p_buy2, p_buy3, p_sell1, p_sell2, vol, ratio, loss_rate, eligible, zone: zone[0], zone_class: zone[1] });
+}
+
+const YAHOO = 'https://query1.finance.yahoo.com/v8/finance/chart/';
+async function getYChart(sym, interval, range){
+  const u = YAHOO + encodeURIComponent(sym) + '?interval=' + interval + '&range=' + range + '&includePrePost=false';
+  const r = await fetch(u, { headers: { 'Accept': 'application/json' } });
+  if (!r.ok) throw new Error('http' + r.status);
+  return r.json();
+}
+// 通用并发池
+async function mapPool(arr, limit, fn){
+  const out = new Array(arr.length); let idx = 0;
+  const workers = Array(limit).fill(0).map(async () => {
+    while (true) { const j = idx++; if (j >= arr.length) break; out[j] = await fn(arr[j], j); }
+  });
+  await Promise.all(workers);
+  return out;
+}
+
+async function refreshLive(){
+  const btn = document.querySelector('.header .refresh');
+  const orig = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '刷新中…(约15-40秒)';
+  const syms = [];
+  for (const d of [...data, ...hkData]) if (!d.error && !d.is_index) syms.push(d.sym);
+  const fxCache = {};
+  async function fxOf(sym){
+    const token = sym.endsWith('.KS') ? 'KRW=X' : sym.endsWith('.T') ? 'JPY=X' : null;
+    if (!token) return 1;
+    if (!(token in fxCache)) { try { const j = await getYChart(token, '1d', '5d'); fxCache[token] = (j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta) ? j.chart.result[0].meta.regularMarketPrice : null; } catch(e) { fxCache[token] = null; } }
+    return fxCache[token] || 1;
+  }
+  const getD = (sym) => data.find(x=>x.sym===sym) || hkData.find(x=>x.sym===sym);
+  await mapPool(syms, 6, async (sym) => {
+    const d = getD(sym); if (!d) return;
+    let dv = null, wv = null;
+    try { dv = await getYChart(sym, '1d', '6mo'); } catch(e) {}
+    try { wv = await getYChart(sym, '1wk', '2y'); } catch(e) {}
+    recalc(d, dv, wv, await fxOf(sym));
+  });
+  renderSummaries(); renderTables();
+  btn.disabled = false; btn.innerHTML = orig;
+  btn.innerHTML = '已刷新 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'});
+}
+
+// 初始渲染
+renderSummaries(); renderTables();
+'''
+
 html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -2110,7 +2343,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   </div>
   <div style="display:flex;align-items:center;gap:12px">
     <div style="font-size:13px">{status_html}</div>
-    <button class="refresh" onclick="location.reload(true)">刷新数据</button>
+    <button class="refresh" onclick="refreshLive()">刷新数据</button>
   </div>
 </div>
 
@@ -2211,7 +2444,7 @@ a .title-cn:hover {{ color: #378ADD; }}
     <div style="font-size:14px;font-weight:500">持仓与账户</div>
     <div style="display:flex;align-items:center;gap:12px">
       <span id="pos-update-time" style="font-size:12px;color:#888"></span>
-      <button class="refresh" onclick="location.reload(true)" style="padding:4px 12px;font-size:12px">刷新</button>
+      <button class="refresh" onclick="refreshLive()" style="padding:4px 12px;font-size:12px">刷新</button>
     </div>
   </div>
   <div class="summary" id="pos-summary"></div>
@@ -2247,166 +2480,8 @@ const allData = {data_json};
 const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
 const LOGO_DOMAINS = {logo_domains_json};
-const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${{LOGO_DOMAINS[sym]}}" onerror="if(!this.dataset.f){{this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${{LOGO_DOMAINS[sym]}}&sz=64';}}else{{this.remove();}}" alt=""></td>` : '<td class="logo-cell"></td>';
-
-// 价格格式化: 大数(韩元/日元等)不显示小数
-const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
-
-// Summary cards
-const eligible = data.filter(d => d.eligible);
-const buyZone = data.filter(d => d.zone && d.zone.startsWith('BUY'));
-const sellZone = data.filter(d => d.zone && d.zone.startsWith('SELL'));
-document.getElementById('summary').innerHTML = `
-  <div class="card"><div class="label">监控股票</div><div class="value blue">${{data.length}}</div></div>
-  <div class="card"><div class="label">可交易股票</div><div class="value green">${{eligible.length}}</div></div>
-  <div class="card"><div class="label">买入区</div><div class="value green">${{buyZone.length}}</div></div>
-  <div class="card"><div class="label">卖出区</div><div class="value red">${{sellZone.length}}</div></div>
-`;
-
-// Table rows
-const tbody = document.getElementById('tbody');
-for (const d of data) {{
-  if (d.error) {{
-    tbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="21" style="color:#aaa">${{d.error}}</td></tr>`;
-    continue;
-  }}
-  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
-  const buy1W = d.buy1_pct * 100;
-  const buy2W = d.buy2_pct * 100;
-  const buy3W = d.buy3_pct * 100;
-  const sell1W = d.sell1_pct * 100;
-  const sell2W = d.sell2_pct * 100;
-
-  const eligClass = d.eligible ? 'eligible' : 'ineligible';
-  const eligText = d.eligible ? 'Y' : 'N';
-  const bollColor = d.boll_pct === null ? '#aaa' : d.boll_pct < 0.2 ? '#3B6D11' : d.boll_pct > 1 ? '#A32D2D' : d.boll_pct > 0.8 ? '#BA7517' : '#2c2c2a';
-  const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
-  const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
-  const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
-  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
-  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
-  // eligible 绿色背景仅限买入区, SELL区/上半区的高分位股票不标绿, 避免误导
-  const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
-  const posBadge = d.has_pos ? `<span class="pos-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(1)}}</span>` : (d.is_obs ? `<span class="obs-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(2)}}</span>` : '-');
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
-  const _rd = d.report_date || '';
-  let rdText = '-';
-  if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
-  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
-  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
-  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
-  const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${{d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'}};margin-left:2px">📰${{(d.news_shift_pct*100).toFixed(0)}}%</span>` : '';
-
-  tbody.innerHTML += `
-  <tr class="${{posClass.trim()}}">
-    ${{logoCell(d.sym)}}
-    <td class="sym">${{d.sym}}</td>
-    <td class="name" style="font-weight:500">${{d.name}}</td>
-    <td class="name" style="font-weight:500">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
-    <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
-    <td class="num" style="font-size:12px;color:${{valColor}};font-weight:500">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888;font-weight:500">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
-    <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}${{newsTag}}</td>
-    <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}${{newsTag}}</td>
-    <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}${{newsTag}}</td>
-    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}${{newsTag}}</td>
-    <td class="num" style="color:${{bollColor}};font-weight:${{bollWt}}">${{bollText}}</td>
-    <td class="num" style="color:${{bollWColor}};font-weight:${{bollWWt}}">${{bollWText}}</td>
-    <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
-    <td class="bar-cell">
-      <div class="bar-wrap">
-        <div class="bar-buy1" style="left:0;width:${{buy1W}}%"></div>
-        <div class="bar-buy2" style="left:0;width:${{buy2W}}%"></div>
-        <div class="bar-buy3" style="left:0;width:${{buy3W}}%"></div>
-        <div class="bar-sell1" style="left:${{sell1W}}%;width:${{sell2W - sell1W}}%"></div>
-        <div class="bar-sell2" style="left:${{sell2W}}%;width:${{100 - sell2W}}%"></div>
-        <div class="bar-pct" style="left:${{pctW}}%"></div>
-        <div class="bar-pct-label" style="left:${{pctW}}%">${{d.zone}}</div>
-      </div>
-    </td>
-    <td class="${{d.zone_class}}" style="font-size:12px;font-weight:600">${{d.zone}}</td>
-    <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
-    <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
-    <td class="${{eligClass}}">${{eligText}}</td>
-    </tr>`;
-}}
-
-// ===== 中概股做多看板 (与美股看板相同指标列) =====
-const hkTbody = document.getElementById('hk-tbody');
-// 中概股四栏统计: 监控股票 / 可交易股票 / 买入区 / 卖出区
-const hkEligible = hkData.filter(d => d.eligible);
-const hkBuyZone = hkData.filter(d => d.zone && d.zone.startsWith('BUY'));
-const hkSellZone = hkData.filter(d => d.zone && d.zone.startsWith('SELL'));
-document.getElementById('hk-summary').innerHTML = `
-  <div class="card"><div class="label">监控股票</div><div class="value blue">${{hkData.length}}</div></div>
-  <div class="card"><div class="label">可交易股票</div><div class="value green">${{hkEligible.length}}</div></div>
-  <div class="card"><div class="label">买入区</div><div class="value green">${{hkBuyZone.length}}</div></div>
-  <div class="card"><div class="label">卖出区</div><div class="value red">${{hkSellZone.length}}</div></div>
-`;
-for (const d of hkData) {{
-  if (d.error) {{
-    hkTbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="21" style="color:#aaa">${{d.error}}</td></tr>`;
-    continue;
-  }}
-  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
-  const buy1W = d.buy1_pct * 100;
-  const buy2W = d.buy2_pct * 100;
-  const buy3W = d.buy3_pct * 100;
-  const sell1W = d.sell1_pct * 100;
-  const sell2W = d.sell2_pct * 100;
-  const eligClass = d.eligible ? 'eligible' : 'ineligible';
-  const eligText = d.eligible ? 'Y' : 'N';
-  const bollColor = d.boll_pct === null ? '#aaa' : d.boll_pct < 0.2 ? '#3B6D11' : d.boll_pct > 1 ? '#A32D2D' : d.boll_pct > 0.8 ? '#BA7517' : '#2c2c2a';
-  const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
-  const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
-  const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
-  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
-  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
-  const _rd = d.report_date || '';
-  let rdText = '-';
-  if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
-  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
-  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
-  const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
-  const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
-  hkTbody.innerHTML += `
-  <tr>
-    ${{logoCell(d.sym)}}
-    <td class="sym">${{d.sym}}${{ratingTag}}</td>
-    <td class="name" style="font-weight:500">${{d.name}}</td>
-    <td class="name" style="font-weight:500">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">${{d.ccy}}${{pfr(d.px)}}</td>
-    <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
-    <td class="num" style="font-size:12px;color:${{valColor}};font-weight:500">${{valText}}</td>
-    <td class="num" style="font-size:12px;color:#888;font-weight:500">${{d.ccy}}${{pfr(d.alow)}} - ${{d.ccy}}${{pfr(d.ahigh)}}</td>
-    <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#639922">${{d.ccy}}${{pfr(d.p_buy2)}}</td>
-    <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}</td>
-    <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}</td>
-    <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}</td>
-    <td class="num" style="color:${{bollColor}};font-weight:${{bollWt}}">${{bollText}}</td>
-    <td class="num" style="color:${{bollWColor}};font-weight:${{bollWWt}}">${{bollWText}}</td>
-    <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
-    <td class="bar-cell">
-      <div class="bar-wrap">
-        <div class="bar-buy1" style="left:0;width:${{buy1W}}%"></div>
-        <div class="bar-buy2" style="left:0;width:${{buy2W}}%"></div>
-        <div class="bar-buy3" style="left:0;width:${{buy3W}}%"></div>
-        <div class="bar-sell1" style="left:${{sell1W}}%;width:${{sell2W - sell1W}}%"></div>
-        <div class="bar-sell2" style="left:${{sell2W}}%;width:${{100 - sell2W}}%"></div>
-        <div class="bar-pct" style="left:${{pctW}}%"></div>
-        <div class="bar-pct-label" style="left:${{pctW}}%">${{d.zone}}</div>
-      </div>
-    </td>
-    <td class="${{d.zone_class}}" style="font-size:12px;font-weight:600">${{d.zone}}</td>
-    <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
-    <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
-    <td class="${{eligClass}}">${{eligText}}</td>
-  </tr>`;
-}}
+const LIVE_REORDER = {REORDER_PCT};
+{dashboard_js}
 // 未上市/无行情标的 (MOONSHOT 等)
 const hkExtra = {hk_extra_json};
 const hkExtraEl = document.getElementById('hk-extra');
