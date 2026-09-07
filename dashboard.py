@@ -693,6 +693,16 @@ for s in stocks:
     industry = s.get("industry", "")
     note = s.get("note", "")
     ccy = CCY_MAP.get(s.get("ccy", "USD"), "$")
+    # 韩股/日股: 用实时汇率(USDKRW/USDJPY)把当地价/区间/估值统一换算成美元显示。
+    # 分位/波动率/盈亏比/亏损率等相对指标不依赖币种, 换算前后不变, 故只需缩放价格类字段。
+    fx = 1.0
+    _local_ccy = s.get("ccy", "USD")
+    if _local_ccy in ("KRW", "JPY"):
+        _fxt = "KRW=X" if _local_ccy == "KRW" else "JPY=X"
+        _fxr = yahoo_price(_fxt)
+        if _fxr and _fxr > 0:
+            fx = _fxr
+        ccy = "$"   # 统一按美元显示
     inst_id = inst_map.get(sym, f"{sym}-USDT-SWAP")
     # OKX 合约与美股代码冲突的标的: 置空 inst_id 强制走 Yahoo, 避免误用加密货币价格(如 STX=Stacks)
     if sym in OKX_CONFLICT:
@@ -824,17 +834,17 @@ for s in stocks:
         "sym": sym, "name": name, "industry": industry, "note": note,
         "ccy": ccy,
         "is_hk": s.get("is_hk", False), "market": s.get("market", "美股"), "rating": s.get("rating", ""),
-        "px": px, "alow": actual_low, "ahigh": actual_high,
+        "px": px/fx, "alow": actual_low/fx, "ahigh": actual_high/fx,
         "vol": vol, "pct": pct, "src": src, "boll_pct": boll_pct, "boll_pct_w": boll_pct_w,
         "buy1_pct": buy1_pct, "buy2_pct": buy2_pct, "buy3_pct": buy3_pct,
         "sell1_pct": sell1_pct, "sell2_pct": sell2_pct,
-        "p_buy1": p_buy1, "p_buy2": p_buy2, "p_buy3": p_buy3,
-        "p_sell1": p_sell1, "p_sell2": p_sell2,
+        "p_buy1": p_buy1/fx, "p_buy2": p_buy2/fx, "p_buy3": p_buy3/fx,
+        "p_sell1": p_sell1/fx, "p_sell2": p_sell2/fx,
         "news_shift_pct": news_shift_pct,
 
         "ratio": ratio, "loss_rate": loss_rate, "eligible": eligible,
         "zone": zone, "zone_class": zone_class,
-        "buy_cfg": buy_price, "sell_cfg": sell_price,
+        "buy_cfg": buy_price/fx, "sell_cfg": sell_price/fx,
         # 全仓持仓 margin 可能为空串 → 用 margin_est(名义价值估算) 判断真实持仓/观察仓
         "has_pos": pos_info is not None and pos_info["margin_est"] >= 1,
         "is_obs": pos_info is not None and pos_info["margin_est"] < 1,
