@@ -1810,6 +1810,8 @@ LOGO_DOMAINS = {
     "01024.HK": "kuaishou.com", "09992.HK": "popmart.com", "02513.HK": "zhipuai.cn", "00100.HK": "minimaxi.com",
     "00625.HK": "shein.com", "00992.HK": "lenovo.com", "PDD": "pinduoduo.com",
     "300308.SZ": "zj-innolight.com", "603986.SS": "gigadevice.com", "688836.SS": "unitree.com", "688825.SS": "changxinmemory.com",
+    # 指数(标普500/纳指100): 有logo用logo, 否则前端回退首字母徽标
+    "SPY": "ssga.com", "QQQ": "invesco.com",
 }
 logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 
@@ -1861,7 +1863,8 @@ commodities_json = json.dumps(commodities, ensure_ascii=False)
 dashboard_js = r'''
 
 const WHITE_LOGOS = {DIS:1, MRVL:1, AMD:1, STX:1, MU:1}; // 深色logo转白, 避免与深色背景混淆
-const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${LOGO_DOMAINS[sym]}&sz=64';}else{this.remove();}" alt=""></td>` : '<td class="logo-cell"></td>';
+const _letBadge = (sym) => { const ch = ((sym.match(/[A-Za-z]/) || [])[0] || sym[0] || '?').toUpperCase(); return `<span class="logo-letter" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:4px;background:#34558b;color:#fff;font-size:11px;font-weight:600">${ch}</span>`; };
+const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(this.parentNode&&!this.parentNode.dataset.fb){this.parentNode.dataset.fb=1;this.outerHTML=_letBadge('${sym}');}" alt=""></td>` : `<td class="logo-cell">${_letBadge(sym)}</td>`;
 
 // 价格格式化: 大数(韩元/日元等)不显示小数
 const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
