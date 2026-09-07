@@ -2085,11 +2085,11 @@ a .title-cn:hover {{ color: #378ADD; }}
   <thead>
   <tr>
     <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
-    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th><th style="width:70px" title="策略阶梯杠杆: Buy1/Buy2/Buy3">建议杠杆</th>
+    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th>
   </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -2139,11 +2139,11 @@ a .title-cn:hover {{ color: #378ADD; }}
   <thead>
   <tr>
     <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
-    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th><th style="width:70px" title="策略阶梯杠杆: Buy1/Buy2/Buy3">建议杠杆</th>
+    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th>
   </tr>
   </thead>
   <tbody id="hk-tbody"></tbody>
@@ -2232,11 +2232,7 @@ for (const d of data) {{
   // eligible 绿色背景仅限买入区, SELL区/上半区的高分位股票不标绿, 避免误导
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
   const posBadge = d.has_pos ? `<span class="pos-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(1)}}</span>` : (d.is_obs ? `<span class="obs-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(2)}}</span>` : '-');
-  // 建议杠杆: 跟随策略阶梯杠杆, 按周波动率缩放 (与 strategy_v4._lev_tier_map 一致)
-  //   vol≤7.5%: 4/7/10x | 7.5-10%: 4/6/9x | >10%: 3/5/7x (超跌模式 4/5/6x 此处不单独区分)
-  const _lv = (d.vol || 0) > 0.10 ? '3/5/7x' : (d.vol || 0) > 0.075 ? '4/6/9x' : '4/7/10x';
-  const leverText = (d.eligible || d.has_pos) ? _lv : '-';
-  const leverClass = (d.eligible || d.has_pos) ? 'lever-10' : '';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{pxf(d.buy_cfg)}} - ${{d.ccy}}${{pxf(d.sell_cfg)}}` : '-';
   const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${{d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'}};margin-left:2px">📰${{(d.news_shift_pct*100).toFixed(0)}}%</span>` : '';
 
   tbody.innerHTML += `
@@ -2245,6 +2241,7 @@ for (const d of data) {{
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}${{newsTag}}</td>
@@ -2270,7 +2267,6 @@ for (const d of data) {{
     <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
-    <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
     </tr>`;
 }}
 
@@ -2303,9 +2299,7 @@ for (const d of hkData) {{
   const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
   const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
-  const _lv = (d.vol || 0) > 0.10 ? '3/5/7x' : (d.vol || 0) > 0.075 ? '4/6/9x' : '4/7/10x';
-  const leverText = (d.eligible || d.has_pos) ? _lv : '-';
-  const leverClass = (d.eligible || d.has_pos) ? 'lever-10' : '';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{pxf(d.buy_cfg)}} - ${{d.ccy}}${{pxf(d.sell_cfg)}}` : '-';
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
   hkTbody.innerHTML += `
   <tr>
@@ -2313,6 +2307,7 @@ for (const d of hkData) {{
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
+    <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#3B6D11">${{d.ccy}}${{pxf(d.p_buy1)}}</td>
@@ -2338,7 +2333,6 @@ for (const d of hkData) {{
     <td class="num" title="${{d.ratio>=999 ? '现价低于买入区, 强买信号' : ''}}" style="${{d.ratio>=999 ? 'color:#3B6D11;font-weight:600' : ''}}">${{d.ratio>=999 ? '∞' : d.ratio}}</td>
     <td class="num" style="color:${{d.loss_rate < -10 ? '#A32D2D' : '#3B6D11'}}">${{d.loss_rate}}%</td>
     <td class="${{eligClass}}">${{eligText}}</td>
-    <td class="num ${{leverClass}}" style="font-weight:500">${{leverText}}</td>
   </tr>`;
 }}
 // 未上市/无行情标的 (MOONSHOT 等)
