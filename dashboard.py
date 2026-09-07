@@ -2089,7 +2089,7 @@ a .title-cn:hover {{ color: #378ADD; }}
     <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
-    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th>
+    <th style="width:50px">盈亏比</th><th style="width:60px">潜在亏损</th><th style="width:55px">可交易</th>
   </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -2143,7 +2143,7 @@ a .title-cn:hover {{ color: #378ADD; }}
     <th style="width:75px">Buy1</th><th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
-    <th style="width:50px">Ratio</th><th style="width:60px">LossRate</th><th style="width:55px">Eligible</th>
+    <th style="width:50px">盈亏比</th><th style="width:60px">潜在亏损</th><th style="width:55px">可交易</th>
   </tr>
   </thead>
   <tbody id="hk-tbody"></tbody>
