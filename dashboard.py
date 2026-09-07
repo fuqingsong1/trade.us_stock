@@ -2065,7 +2065,6 @@ a .title-cn:hover {{ color: #378ADD; }}
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('dashboard')">美股做多看板</button>
   <button class="tab-btn" onclick="switchTab('hk')">中概股做多看板</button>
-  <button class="tab-btn" onclick="switchTab('short')">美股做空看板</button>
   <button class="tab-btn" onclick="switchTab('regime')">美股行情判断</button>
   <button class="tab-btn" onclick="switchTab('news')">新闻分析</button>
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
@@ -2101,35 +2100,6 @@ a .title-cn:hover {{ color: #378ADD; }}
   </div>
   {wait_queue_html}
   {deposit_alert_html}
-</div>
-
-<div id="tab-short" class="tab-content">
-  <div class="short-rule-box">
-    <strong>做空总开关:</strong> 市场 regime 评分 <span id="short-regime-score"></span> (要求 &lt; {SHORT_REGIME_MAX})
-    → <span id="short-regime-status"></span><br>
-    开空需同时满足: <b>市场偏弱</b> + <b>负面新闻</b> + <b>高位 (pct ≥ 75%)</b>。<br>
-    阶梯 short1/2/3 = 75%/81%/87% 分位入场 (杠杆 3x/5x/7x, 仓位 17%/28%/40%); 回落至区间 55% 平 60%、45% 平剩余; 止损 = 入场价 + 5%。<br>
-    <span style="color:#888">注: 下方 Short1/2/3 价格为区间分位参考价; 策略实际挂单为 <b>现价×1.003</b> 限价(等反弹后成交), 与看板略有差异。</span>
-  </div>
-  <div class="summary" id="short-summary"></div>
-  <div class="legend">
-    <span><span class="dot" style="background:rgba(226,75,74,0.45)"></span> 做空区 (short1/2/3 入场)</span>
-    <span><span class="dot" style="background:rgba(151,196,89,0.30)"></span> 止盈区 (TP 55%/45%)</span>
-    <span><span style="display:inline-block;width:2px;height:10px;background:#444"></span> 当前价</span>
-  </div>
-  <table>
-  <thead>
-  <tr>
-    <th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
-    <th style="width:75px" title="pct≥75% 入场">Short1</th><th style="width:75px" title="pct≥81%">Short2</th><th style="width:75px" title="pct≥87%">Short3</th>
-    <th style="width:75px" title="回落至区间55%平60%">止盈1</th><th style="width:75px" title="回落至区间45%平剩余">止盈2</th>
-    <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:90px">状态</th>
-    <th style="width:100px">做空条件</th><th style="width:85px">空头持仓</th><th style="width:65px">杠杆</th>
-  </tr>
-  </thead>
-  <tbody id="short-tbody"></tbody>
-  </table>
 </div>
 
 <div id="tab-regime" class="tab-content">
@@ -2221,7 +2191,7 @@ function switchTab(name) {{
 }}
 
 const allData = {data_json};
-// 主看板/做空看板: 指数+美股 (排除港股); 中概股做多看板单独渲染
+// 主看板: 指数+美股 (排除港股); 中概股做多看板单独渲染
 const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
 
@@ -2480,99 +2450,6 @@ if (posData.length > 0) {{
     <td>$${{totalMargin.toFixed(2)}}</td><td></td><td></td>
     <td class="${{totalPnl >= 0 ? 'pnl-pos' : 'pnl-neg'}}">${{totalPnl >= 0 ? '+' : ''}}${{totalPnl.toFixed(2)}}</td>
     <td></td><td></td>
-  </tr>`;
-}}
-
-// ===== 做空子页 (Short tab) =====
-const shortRegime = {short_regime_json};
-const SHORT_MAX = {SHORT_REGIME_MAX};
-const shortScore = (shortRegime && shortRegime.score !== undefined) ? shortRegime.score : 99;
-const shortAllowed = shortScore < SHORT_MAX;
-// 做空档位分位(与 strategy_v4 常量一致): TP2=45% TP1=55% S1=75% S2=81% S3=87%
-const TP2 = {SHORT_TP2_PCT} * 100;
-const TP1 = {SHORT_TP1_PCT} * 100;
-const S1 = {SHORT_ENTRY_MIN} * 100;
-const S2 = ({SHORT_ENTRY_MIN} + {SHORT_TIER_STEP}) * 100;
-const S3 = ({SHORT_ENTRY_MIN} + 2 * {SHORT_TIER_STEP}) * 100;
-const SHORT_LEV_STR = '{short_lev_str}';
-const shortScoreColor = shortScore < -3.5 ? '#8B0000' : shortScore < -1.5 ? '#A32D2D' : shortScore < 0.5 ? '#BA7517' : shortScore < 2 ? '#639922' : '#3B6D11';
-document.getElementById('short-regime-score').innerHTML =
-  `<b style="color:${{shortScoreColor}};font-size:15px">${{shortScore.toFixed(1)}}</b> <span style="color:#888;font-size:11px">(${{(shortRegime && shortRegime.stage) || '未知'}})</span>`;
-document.getElementById('short-regime-status').innerHTML = shortAllowed
-  ? '<b style="color:#3B6D11">✓ 放行做空</b>'
-  : '<b style="color:#A32D2D">✗ 关闭 (市场偏强)</b>';
-
-// 汇总卡片
-const shortEligible = data.filter(d => d.short_eligible);
-const shortHasPos = data.filter(d => d.short_has_pos);
-const shortHigh = data.filter(d => d.short_zone && d.short_zone.startsWith('SHORT'));
-const shortTP = data.filter(d => d.short_zone === '止盈区');
-document.getElementById('short-summary').innerHTML = `
-  <div class="card"><div class="label">监控股票</div><div class="value blue">${{data.length}}</div></div>
-  <div class="card"><div class="label">可做空</div><div class="value red">${{shortEligible.length}}</div></div>
-  <div class="card"><div class="label">空头持仓</div><div class="value blue">${{shortHasPos.length}}</div></div>
-  <div class="card"><div class="label">做空区 (75%+)</div><div class="value red">${{shortHigh.length}}</div></div>
-  <div class="card"><div class="label">止盈区</div><div class="value green">${{shortTP.length}}</div></div>
-`;
-
-// 做空表格行
-const shortTbody = document.getElementById('short-tbody');
-for (const d of data) {{
-  if (d.error) {{
-    shortTbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="17" style="color:#aaa">${{d.error}}</td></tr>`;
-    continue;
-  }}
-  // 指数行(QQQ/SPY)无做空字段 → 只显示基础行情
-  const hasShort = d.short1_px !== undefined && d.short1_px !== null;
-  const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
-  const fmt = (v, ccy) => (v !== undefined && v !== null) ? ccy + (v >= 1000 ? v.toFixed(0) : v.toFixed(2)) : '-';
-  const zone = d.short_zone || '-';
-  const zcls = d.short_zone_class || 'szone-low';
-  // 做空条件: 市场 + 新闻
-  let condHtml = '-';
-  if (hasShort) {{
-    const mk = d.short_ok_market;
-    const ns = d.short_news_neg;
-    const nv = d.short_news_val;
-    const nvTxt = nv ? `<span style="font-size:10px;color:#A32D2D">(${{nv}}%)</span>` : '';
-    condHtml = `<span style="color:${{mk ? '#3B6D11' : '#A32D2D'}}">市场${{mk ? '✓' : '✗'}}</span> <span style="color:${{ns ? '#A32D2D' : '#888'}}">新闻${{ns ? '✓' : '✗'}}</span>${{nvTxt}}`;
-  }}
-  // 空头持仓
-  let posHtml = '-';
-  if (d.short_has_pos) {{
-    const pnlCls = d.short_pos_pnl >= 0 ? 'pnl-pos' : 'pnl-neg';
-    posHtml = `<span class="short-badge">空 ${{d.short_pos_lever}}x</span> <span class="${{pnlCls}}">${{d.short_pos_pnl >= 0 ? '+' : ''}}${{d.short_pos_pnl.toFixed(2)}}</span><span style="color:#aaa;font-size:10px"> @${{d.short_pos_entry.toFixed(2)}}</span>`;
-  }}
-  // 建议杠杆: 与策略做空表一致(3/5/7x)
-  const levHtml = (hasShort && (d.short_eligible || d.short_has_pos)) ? `<span class="lever-10">${{SHORT_LEV_STR}}x</span>` : '-';
-  shortTbody.innerHTML += `
-  <tr class="${{d.short_has_pos ? 'short-pos' : ''}}">
-    <td class="sym">${{d.sym}}</td>
-    <td class="name">${{d.name}}</td>
-    <td class="name">${{d.industry}}</td>
-    <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
-    <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
-    <td class="num" style="color:#E67E22">${{fmt(d.short1_px, d.ccy)}}</td>
-    <td class="num" style="color:#C0392B">${{fmt(d.short2_px, d.ccy)}}</td>
-    <td class="num" style="color:#A32D2D;font-weight:600">${{fmt(d.short3_px, d.ccy)}}</td>
-    <td class="num" style="color:#3B6D11">${{fmt(d.short_tp1, d.ccy)}}</td>
-    <td class="num" style="color:#639922">${{fmt(d.short_tp2, d.ccy)}}</td>
-    <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
-    <td class="bar-cell">
-      <div class="bar-wrap">
-        <div class="bar-tp" style="left:${{TP2}}%;width:${{TP1 - TP2}}%"></div>
-        <div class="bar-short1" style="left:${{S1}}%;width:${{S2 - S1}}%"></div>
-        <div class="bar-short2" style="left:${{S2}}%;width:${{S3 - S2}}%"></div>
-        <div class="bar-short3" style="left:${{S3}}%;width:${{100 - S3}}%"></div>
-        <div class="bar-pct" style="left:${{pctW}}%"></div>
-        <div class="bar-pct-label" style="left:${{pctW}}%">${{zone}}</div>
-      </div>
-    </td>
-    <td class="${{zcls}}" style="font-size:12px">${{zone}}</td>
-    <td style="font-size:12px">${{condHtml}}</td>
-    <td style="font-size:12px">${{posHtml}}</td>
-    <td class="num" style="font-weight:500">${{levHtml}}</td>
   </tr>`;
 }}
 
