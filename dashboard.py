@@ -684,6 +684,19 @@ market_regime = _compute_market_regime()
 
 # ===== End Market Regime =====
 
+# 每只股票最近实际财报日(财报日历来 done 事件), 用于"最近财报日期"列与估值区间过期标红
+_past_report = {}
+try:
+    import json as _jce
+    _ce_evs = _jce.load(open(CALENDAR_F, "r", encoding="utf-8")).get("events", [])
+    for _ce in _ce_evs:
+        if _ce.get("status") == "done" and _ce.get("symbol") not in ("FED", "ECON"):
+            _cs, _cd = _ce.get("symbol"), _ce.get("date")
+            if _cs and _cd and not _cd.endswith("??") and _cd > _past_report.get(_cs, ""):
+                _past_report[_cs] = _cd
+except Exception:
+    _past_report = {}
+
 
 for s in stocks:
     sym = s["symbol"]
@@ -845,6 +858,8 @@ for s in stocks:
         "ratio": ratio, "loss_rate": loss_rate, "eligible": eligible,
         "zone": zone, "zone_class": zone_class,
         "buy_cfg": buy_price/fx, "sell_cfg": sell_price/fx,
+        "report_date": s.get("report_date", ""),
+        "stale_valuation": bool(s.get("report_date") and _past_report.get(sym) and _past_report[sym] > s.get("report_date", "")),
         # 全仓持仓 margin 可能为空串 → 用 margin_est(名义价值估算) 判断真实持仓/观察仓
         "has_pos": pos_info is not None and pos_info["margin_est"] >= 1,
         "is_obs": pos_info is not None and pos_info["margin_est"] < 1,
@@ -939,6 +954,7 @@ for idx_info in INDEX_MONITORS:
         "ratio": 0, "loss_rate": 0, "eligible": False,
         "zone": zone, "zone_class": zone_class,
         "buy_cfg": 0, "sell_cfg": 0,
+        "report_date": "", "stale_valuation": False,
         "has_pos": False, "is_obs": False,
         "pos_size": 0, "pos_entry": 0, "pos_lever": 0, "pos_pnl": 0, "pos_margin": 0,
     })
@@ -2118,7 +2134,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   <thead>
   <tr>
     <th class="logo-col"></th><th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">当前价</th><th style="width:60px" title="当前估值区间基于的最近财报">最近财报</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
@@ -2172,7 +2188,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   <thead>
   <tr>
     <th class="logo-col"></th><th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">当前价</th><th style="width:60px" title="当前估值区间基于的最近财报">最近财报</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
@@ -2248,7 +2264,7 @@ document.getElementById('summary').innerHTML = `
 const tbody = document.getElementById('tbody');
 for (const d of data) {{
   if (d.error) {{
-    tbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="20" style="color:#aaa">${{d.error}}</td></tr>`;
+    tbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="21" style="color:#aaa">${{d.error}}</td></tr>`;
     continue;
   }}
   const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
@@ -2268,6 +2284,11 @@ for (const d of data) {{
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
   const posBadge = d.has_pos ? `<span class="pos-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(1)}}</span>` : (d.is_obs ? `<span class="obs-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(2)}}</span>` : '-');
   const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
+  const _rd = d.report_date || '';
+  let rdText = '-';
+  if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
+  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
+  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
   const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${{d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'}};margin-left:2px">📰${{(d.news_shift_pct*100).toFixed(0)}}%</span>` : '';
 
   tbody.innerHTML += `
@@ -2277,7 +2298,8 @@ for (const d of data) {{
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
+    <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
+    <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}${{newsTag}}</td>
@@ -2319,7 +2341,7 @@ document.getElementById('hk-summary').innerHTML = `
 `;
 for (const d of hkData) {{
   if (d.error) {{
-    hkTbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="20" style="color:#aaa">${{d.error}}</td></tr>`;
+    hkTbody.innerHTML += `<tr><td class="sym">${{d.sym}}</td><td colspan="21" style="color:#aaa">${{d.error}}</td></tr>`;
     continue;
   }}
   const pctW = Math.max(0, Math.min(1, d.pct)) * 100;
@@ -2335,6 +2357,11 @@ for (const d of hkData) {{
   const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
   const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
+  const _rd = d.report_date || '';
+  let rdText = '-';
+  if (_rd) {{ const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }}
+  const valColor = d.stale_valuation ? '#A32D2D' : '#888';
+  const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${{d.rating}}</span>` : '';
   hkTbody.innerHTML += `
   <tr>
@@ -2343,7 +2370,8 @@ for (const d of hkData) {{
     <td class="name">${{d.name}}</td>
     <td class="name">${{d.industry}}</td>
     <td class="num" style="font-weight:500">${{d.ccy}}${{pxf(d.px)}}</td>
-    <td class="num" style="font-size:12px;color:#888">${{valText}}</td>
+    <td class="num" style="color:${{rdColor}};font-size:12px;font-weight:500">${{rdText}}</td>
+    <td class="num" style="font-size:12px;color:${{valColor}}">${{valText}}</td>
     <td class="num" style="font-size:12px;color:#888">${{d.ccy}}${{d.alow}} - ${{d.ccy}}${{d.ahigh}}</td>
     <td class="num" style="font-size:12px">${{(d.vol*100).toFixed(1)}}%</td>
     <td class="num" style="color:#639922">${{d.ccy}}${{pxf(d.p_buy2)}}</td>
