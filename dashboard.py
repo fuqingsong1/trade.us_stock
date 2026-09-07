@@ -1808,6 +1808,46 @@ LOGO_DOMAINS = {
 }
 logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 
+# ============================= 大宗商品子页面 =============================
+# 黄金/白银/布伦特原油/天然气/比特币: 统一用 Yahoo (商品 OKX/币安不覆盖; 比特币用 BTC-USD)。
+# 与美股/中概股不同, 无财报/估值/做T/盈亏比等列, 仅 当前价 + 日/周/月布林。
+COMMODS = [
+    {"sym": "GC=F",   "name": "黄金"},
+    {"sym": "SI=F",   "name": "白银"},
+    {"sym": "BZ=F",   "name": "布伦特原油"},
+    {"sym": "NG=F",   "name": "天然气"},
+    {"sym": "BTC-USD","name": "比特币"},
+]
+def _qry_closes(sym, interval, range_):
+    import requests as _rq
+    _kw = {}
+    if not CLOUD_MODE and PROXY:
+        _kw["proxies"] = {"http": PROXY, "https": PROXY}
+    u = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval={interval}&range={range_}&includePrePost=false"
+    j = _rq.get(u, timeout=20, headers={"User-Agent": "Mozilla/5.0"}, **_kw).json()
+    meta = j["chart"]["result"][0]["meta"]
+    q = j["chart"]["result"][0]["indicators"]["quote"][0]
+    closes = [c for c in (q.get("close") or []) if c is not None]
+    px = meta.get("regularMarketPrice") if meta.get("regularMarketPrice") is not None else (closes[-1] if closes else None)
+    return px, closes
+def _boll_b(closes, px):
+    import math as _m
+    if not px: return None
+    c = closes[-20:] if len(closes) >= 20 else closes
+    if len(c) < 5: return None
+    ma = sum(c) / len(c); sd = _m.sqrt(sum((x - ma) ** 2 for x in c) / len(c))
+    up, lo = ma + 2 * sd, ma - 2 * sd
+    return (px - lo) / (up - lo) if up > lo else 0.5
+commodities = []
+for _co in COMMODS:
+    _px, _dc = _qry_closes(_co["sym"], "1d", "6mo")
+    _pxw, _wc = _qry_closes(_co["sym"], "1wk", "2y")
+    _pxm, _mc = _qry_closes(_co["sym"], "1mo", "5y")
+    commodities.append({"sym": _co["sym"], "name": _co["name"], "ccy": "$",
+                        "px": _px if _px is not None else 0,
+                        "boll_d": _boll_b(_dc, _px), "boll_w": _boll_b(_wc, _pxw or _px), "boll_m": _boll_b(_mc, _pxm or _px)})
+commodities_json = json.dumps(commodities, ensure_ascii=False)
+
 # =====================================================================
 # dashboard_js: 两张表的行渲染 + 汇总 + 手动"刷新数据"按钮的浏览器端重算。
 # 用普通(非f)字符串承载, 内部 JS 的 ${...} 与 { } 均无需转义, 通过 {dashboard_js} 注入 f-string。
@@ -1852,7 +1892,7 @@ function usRow(d){
   const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
   const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.ccy}${d.sell_cfg.toFixed(0)}` : '-';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.sell_cfg.toFixed(0)}` : '-';
   const _rd = d.report_date || ''; let rdText = '-';
   if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
@@ -1868,7 +1908,7 @@ function usRow(d){
     <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
     <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
     <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
-    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${d.ccy}${pfr(d.ahigh)}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${pfr(d.ahigh)}</td>
     <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
     <td class="num" style="color:#639922">${d.ccy}${pfr(d.p_buy2)}${newsTag}</td>
     <td class="num" style="color:#97C459">${d.ccy}${pfr(d.p_buy3)}${newsTag}</td>
@@ -1906,7 +1946,7 @@ function hkRow(d){
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
   const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
   const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
-  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.ccy}${d.sell_cfg.toFixed(0)}` : '-';
+  const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${d.ccy}${d.buy_cfg.toFixed(0)} - ${d.sell_cfg.toFixed(0)}` : '-';
   const _rd = d.report_date || ''; let rdText = '-';
   if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
@@ -1922,7 +1962,7 @@ function hkRow(d){
     <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
     <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
     <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
-    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${d.ccy}${pfr(d.ahigh)}</td>
+    <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${pfr(d.ahigh)}</td>
     <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
     <td class="num" style="color:#639922">${d.ccy}${pfr(d.p_buy2)}</td>
     <td class="num" style="color:#97C459">${d.ccy}${pfr(d.p_buy3)}</td>
@@ -2012,6 +2052,22 @@ async function mapPool(arr, limit, fn){
   return out;
 }
 
+// ---- 大宗商品渲染/刷新(无财报/估值/做T/盈亏比列, 仅当前价+日/周/月布林) ----
+function _fb(v){ if(v==null||isNaN(v)) return '-'; const c = v<0.2?'#3B6D11': v>1?'#A32D2D': v>0.8?'#BA7517':'#2c2c2a'; const w = v<0.2?700:500; return `<span style="color:${c};font-weight:${w}">${(v*100).toFixed(1)}%</span>`; }
+function commodityRow(c){
+  const pxt = (c.px && c.px > 0) ? '$' + c.px.toFixed(2) : '-';
+  return `<tr><td class="name" style="font-weight:500">${c.name}</td><td class="sym">${c.sym}</td><td class="num" style="font-weight:500">${pxt}</td><td class="num">${_fb(c.boll_d)}</td><td class="num">${_fb(c.boll_w)}</td><td class="num">${_fb(c.boll_m)}</td></tr>`;
+}
+function renderCommod(){ const el = document.getElementById('commod-tbody'); if (el) el.innerHTML = commodities.map(commodityRow).join(''); }
+async function refreshCommodities(){
+  await mapPool(commodities, 4, async (c) => {
+    try { const d = await getYChart(c.sym, '1d', '6mo'); if (d && d.chart && d.chart.result && d.chart.result[0]) { const q = d.chart.result[0].indicators.quote[0], cl = q.close.filter(v=>v!=null), meta = d.chart.result[0].meta || {}; c.px = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : (cl[cl.length-1] || 0); c.boll_d = bollPB(cl, c.px); } } catch(e) {}
+    try { const w = await getYChart(c.sym, '1wk', '2y'); if (w && w.chart && w.chart.result && w.chart.result[0]) { const wc = w.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_w = bollPB(wc, c.px); } } catch(e) {}
+    try { const m = await getYChart(c.sym, '1mo', '5y'); if (m && m.chart && m.chart.result && m.chart.result[0]) { const mc = m.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_m = bollPB(mc, c.px); } } catch(e) {}
+  });
+  renderCommod();
+}
+
 async function refreshLive(){
   const btn = document.querySelector('.header .refresh');
   const orig = btn.innerHTML;
@@ -2033,13 +2089,14 @@ async function refreshLive(){
     try { wv = await getYChart(sym, '1wk', '2y'); } catch(e) {}
     recalc(d, dv, wv, await fxOf(sym));
   });
-  renderSummaries(); renderTables();
+  await refreshCommodities();
+  renderSummaries(); renderTables(); renderCommod();
   btn.disabled = false; btn.innerHTML = orig;
   btn.innerHTML = '已刷新 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'});
 }
 
 // 初始渲染
-renderSummaries(); renderTables();
+renderSummaries(); renderTables(); renderCommod();
 '''
 
 html = f"""<!DOCTYPE html>
@@ -2351,6 +2408,7 @@ a .title-cn:hover {{ color: #378ADD; }}
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('dashboard')">美股做多看板</button>
   <button class="tab-btn" onclick="switchTab('hk')">中概股做多看板</button>
+  <button class="tab-btn" onclick="switchTab('commodities')">大宗商品</button>
   <button class="tab-btn" onclick="switchTab('regime')">美股行情判断</button>
   <button class="tab-btn" onclick="switchTab('news')">新闻分析</button>
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
@@ -2438,6 +2496,23 @@ a .title-cn:hover {{ color: #378ADD; }}
   </div>
 </div>
 
+<div id="tab-commodities" class="tab-content">
+  <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
+    <div style="font-size:14px;font-weight:500">大宗商品</div>
+    <div style="font-size:12px;color:#888">价格源: Yahoo Finance | 布林: 20期收盘</div>
+  </div>
+  <div class="legend"><span><span class="dot" style="background:rgba(151,196,89,0.3)"></span> 布林&lt;20% 超卖(绿)</span> <span><span class="dot" style="background:rgba(186,117,23,0.3)"></span> 布林&gt;80% 偏热(橙)</span></div>
+  <table>
+  <thead>
+  <tr>
+    <th style="width:80px">名称</th><th style="width:120px">代码</th><th style="width:90px">当前价</th>
+    <th style="width:75px">日布林%</th><th style="width:75px">周布林%</th><th style="width:75px">月布林%</th>
+  </tr>
+  </thead>
+  <tbody id="commod-tbody"></tbody>
+  </table>
+</div>
+
 <div id="tab-positions" class="tab-content">
   <div class="pos-header-bar">
     <div style="font-size:14px;font-weight:500">持仓与账户</div>
@@ -2480,6 +2555,7 @@ const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
 const LOGO_DOMAINS = {logo_domains_json};
 const LIVE_REORDER = {REORDER_PCT};
+const commodities = {commodities_json};
 {dashboard_js}
 // 未上市/无行情标的 (MOONSHOT 等)
 const hkExtra = {hk_extra_json};
