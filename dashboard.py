@@ -1938,8 +1938,9 @@ tr.has-position {{ background: rgba(55, 138, 221, 0.07); }}
 tr.has-obs {{ background: rgba(136, 136, 136, 0.06); }}
 tr.eligible-no-pos {{ background: rgba(151, 196, 89, 0.15); }}
 .lever-10 {{ color: #3B6D11; font-weight: 600; }}
-.stock-logo {{ width: 22px; height: 22px; border-radius: 5px; object-fit: contain; display: block; }}
-.logo-col {{ width: 34px; min-width: 34px; }}
+.stock-logo {{ height: 16px; width: auto; max-width: 22px; border-radius: 3px; object-fit: contain; display: block; }}
+.logo-col {{ width: 28px; min-width: 28px; }}
+.logo-cell {{ width: 28px; min-width: 28px; max-width: 28px; padding: 0 2px !important; text-align: center; overflow: hidden; }}
 .lever-7 {{ color: #639922; font-weight: 600; }}
 tr.has-position td.sym {{ position: relative; }}
 tr.has-position td.sym::before {{ content: ''; position: absolute; left: 0; top: 25%; height: 50%; width: 3px; background: #378ADD; border-radius: 2px; }}
@@ -2246,7 +2247,7 @@ const allData = {data_json};
 const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
 const LOGO_DOMAINS = {logo_domains_json};
-const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${{LOGO_DOMAINS[sym]}}" onerror="this.remove()" alt=""></td>` : '<td class="logo-cell"></td>';
+const logoCell = (sym) => LOGO_DOMAINS[sym] ? `<td class="logo-cell"><img class="stock-logo" loading="lazy" src="https://logo.clearbit.com/${{LOGO_DOMAINS[sym]}}" onerror="if(!this.dataset.f){{this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${{LOGO_DOMAINS[sym]}}&sz=64';}}else{{this.remove();}}" alt=""></td>` : '<td class="logo-cell"></td>';
 
 // 价格格式化: 大数(韩元/日元等)不显示小数
 const pxf = (v) => v >= 1000 ? v.toFixed(0) : v.toFixed(2);
