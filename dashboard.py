@@ -255,7 +255,7 @@ for _h in cfg.get("hk_stocks", []):
         "buy": float(_h.get("buy") or 0), "sell": float(_h.get("sell") or 0),
         "industry": _h.get("industry", ""), "note": _h.get("note", ""),
         "ccy": _h.get("ccy", "HKD"), "market": _h.get("market", ""),
-        "rating": _h.get("rating", ""), "is_hk": True,
+        "rating": _h.get("rating", ""), "report_date": _h.get("report_date", ""), "is_hk": True,
     })
 stocks = list(stocks) + _hk_extra
 results = []
@@ -1805,6 +1805,11 @@ LOGO_DOMAINS = {
     "NVO": "novonordisk.com", "KO": "coca-cola.com", "TXN": "ti.com", "CAT": "caterpillar.com",
     "STX": "seagate.com",
     "005930.KS": "samsung.com", "005380.KS": "hyundai.com", "066570.KS": "lg.com", "285A.T": "kioxia.com",
+    # 中概股/港股/A股
+    "00700.HK": "tencent.com", "09988.HK": "alibaba.com", "03690.HK": "meituan.com", "01810.HK": "mi.com",
+    "01024.HK": "kuaishou.com", "09992.HK": "popmart.com", "02513.HK": "zhipuai.cn", "00100.HK": "minimaxi.com",
+    "00625.HK": "shein.com", "00992.HK": "lenovo.com", "PDD": "pinduoduo.com",
+    "300308.SZ": "zj-innolight.com", "603986.SS": "gigadevice.com", "688836.SS": "unitree.com", "688825.SS": "changxinmemory.com",
 }
 logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 
@@ -1956,10 +1961,11 @@ function hkRow(d){
   return `
   <tr>
     ${logoCell(d.sym)}
-    <td class="sym">${d.sym}${ratingTag}</td>
+    <td class="sym">${d.sym}</td>
     <td class="name" style="font-weight:500">${d.name}</td>
     <td class="name" style="font-weight:500">${d.industry}</td>
     <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
+    <td class="num" style="font-size:12px">${ratingTag || '-'}</td>
     <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
     <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
     <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${pfr(d.ahigh)}</td>
@@ -2481,7 +2487,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   <thead>
   <tr>
     <th class="logo-col"></th><th style="width:60px">股票</th><th style="width:60px">名称</th><th style="width:70px">行业</th>
-    <th style="width:75px">当前价</th><th style="width:60px" title="当前估值区间基于的最近财报">最近财报</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
+    <th style="width:75px">当前价</th><th style="width:70px">持仓建议</th><th style="width:60px" title="当前估值区间基于的最近财报">最近财报</th><th style="width:95px" title="config 买入区~卖出区">估值区间</th><th style="width:95px">做T区间</th><th style="width:60px">波动率</th>
     <th style="width:75px">Buy2</th><th style="width:75px">Buy3</th><th style="width:75px">Sell1</th><th style="width:75px">Sell2</th>
     <th style="width:65px">日布林%</th><th style="width:65px">周布林%</th>
     <th style="width:55px">分位</th><th style="width:150px">区间图</th><th style="width:60px">状态</th>
