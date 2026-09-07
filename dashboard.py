@@ -2282,6 +2282,8 @@ for (const d of data) {{
   const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
   const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
+  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
+  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
   // eligible 绿色背景仅限买入区, SELL区/上半区的高分位股票不标绿, 避免误导
   const posClass = d.has_pos ? ' has-position' : (d.is_index ? '' : (d.eligible && d.zone && d.zone.startsWith('BUY') ? ' eligible-no-pos' : ''));
   const posBadge = d.has_pos ? `<span class="pos-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(1)}}</span>` : (d.is_obs ? `<span class="obs-badge">${{d.pos_lever}}x $${{d.pos_margin.toFixed(2)}}</span>` : '-');
@@ -2309,8 +2311,8 @@ for (const d of data) {{
     <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}${{newsTag}}</td>
     <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}${{newsTag}}</td>
     <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}${{newsTag}}</td>
-    <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
-    <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
+    <td class="num" style="color:${{bollColor}};font-weight:${{bollWt}}">${{bollText}}</td>
+    <td class="num" style="color:${{bollWColor}};font-weight:${{bollWWt}}">${{bollWText}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
     <td class="bar-cell">
       <div class="bar-wrap">
@@ -2359,6 +2361,8 @@ for (const d of hkData) {{
   const bollText = d.boll_pct === null ? '-' : (d.boll_pct * 100).toFixed(1) + '%';
   const bollWColor = d.boll_pct_w === null ? '#aaa' : d.boll_pct_w < 0.2 ? '#3B6D11' : d.boll_pct_w > 1 ? '#A32D2D' : d.boll_pct_w > 0.8 ? '#BA7517' : '#2c2c2a';
   const bollWText = d.boll_pct_w === null ? '-' : (d.boll_pct_w * 100).toFixed(1) + '%';
+  const bollWt = (d.boll_pct !== null && d.boll_pct < 0.2) ? 700 : 500;
+  const bollWWt = (d.boll_pct_w !== null && d.boll_pct_w < 0.2) ? 700 : 500;
   const valText = (d.buy_cfg > 0 && d.sell_cfg > 0) ? `${{d.ccy}}${{d.buy_cfg.toFixed(0)}} - ${{d.ccy}}${{d.sell_cfg.toFixed(0)}}` : '-';
   const _rd = d.report_date || '';
   let rdText = '-';
@@ -2382,8 +2386,8 @@ for (const d of hkData) {{
     <td class="num" style="color:#97C459">${{d.ccy}}${{pfr(d.p_buy3)}}</td>
     <td class="num" style="color:#BA7517">${{d.ccy}}${{pfr(d.p_sell1)}}</td>
     <td class="num" style="color:#A32D2D">${{d.ccy}}${{pfr(d.p_sell2)}}</td>
-    <td class="num" style="color:${{bollColor}};font-weight:500">${{bollText}}</td>
-    <td class="num" style="color:${{bollWColor}};font-weight:500">${{bollWText}}</td>
+    <td class="num" style="color:${{bollColor}};font-weight:${{bollWt}}">${{bollText}}</td>
+    <td class="num" style="color:${{bollWColor}};font-weight:${{bollWWt}}">${{bollWText}}</td>
     <td class="num" style="font-weight:500">${{(d.pct*100).toFixed(1)}}%</td>
     <td class="bar-cell">
       <div class="bar-wrap">
