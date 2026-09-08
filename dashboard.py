@@ -1785,6 +1785,22 @@ else:
 
 # ===== End Market Regime HTML =====
 
+def _qry_closes(sym, interval, range_):
+    """Yahoo chart 收盘价查询: 用于落地页ticker涨跌幅与大宗商品布林. 返回 (px, closes, highs, lows)."""
+    import requests as _rq
+    _kw = {}
+    if not CLOUD_MODE and PROXY:
+        _kw["proxies"] = {"http": PROXY, "https": PROXY}
+    u = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval={interval}&range={range_}&includePrePost=false"
+    j = _rq.get(u, timeout=20, headers={"User-Agent": "Mozilla/5.0"}, **_kw).json()
+    meta = j["chart"]["result"][0]["meta"]
+    q = j["chart"]["result"][0]["indicators"]["quote"][0]
+    closes = [c for c in (q.get("close") or []) if c is not None]
+    highs = [h for h in (q.get("high") or []) if h is not None]
+    lows = [l for l in (q.get("low") or []) if l is not None]
+    px = meta.get("regularMarketPrice") if meta.get("regularMarketPrice") is not None else (closes[-1] if closes else None)
+    return px, closes, highs, lows
+
 # Build JSON data for embedding
 # 落地页 ticker 用标的: 附加当日涨跌幅%(用于封面循环展示)
 _TICK_SYMS = {"SPY", "QQQ", "NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "TSM", "AMD", "MU", "AVGO", "GLW", "COST", "PLTR"}
@@ -1875,20 +1891,6 @@ COMMODS = [
     {"sym": "NG=F",   "name": "天然气"},
     {"sym": "BTC-USD","name": "比特币"},
 ]
-def _qry_closes(sym, interval, range_):
-    import requests as _rq
-    _kw = {}
-    if not CLOUD_MODE and PROXY:
-        _kw["proxies"] = {"http": PROXY, "https": PROXY}
-    u = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval={interval}&range={range_}&includePrePost=false"
-    j = _rq.get(u, timeout=20, headers={"User-Agent": "Mozilla/5.0"}, **_kw).json()
-    meta = j["chart"]["result"][0]["meta"]
-    q = j["chart"]["result"][0]["indicators"]["quote"][0]
-    closes = [c for c in (q.get("close") or []) if c is not None]
-    highs = [h for h in (q.get("high") or []) if h is not None]
-    lows = [l for l in (q.get("low") or []) if l is not None]
-    px = meta.get("regularMarketPrice") if meta.get("regularMarketPrice") is not None else (closes[-1] if closes else None)
-    return px, closes, highs, lows
 def _boll_b(closes, px):
     import math as _m
     if not px: return None
