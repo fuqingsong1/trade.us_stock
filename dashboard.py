@@ -698,6 +698,17 @@ except Exception:
     _past_report = {}
 
 
+def _report_imminent(report_date):
+    """今天 - 最近财报日 > 80 天 → 财报临近(约每季90天一报). 解析失败返回False."""
+    try:
+        if not report_date:
+            return False
+        _rd = datetime.strptime(report_date.strip()[:10], "%Y-%m-%d")
+        return (datetime.now() - _rd).days > 80
+    except Exception:
+        return False
+
+
 for s in stocks:
     sym = s["symbol"]
     buy_price = float(s.get("buy", 0))
@@ -860,6 +871,8 @@ for s in stocks:
         "buy_cfg": buy_price/fx, "sell_cfg": sell_price/fx,
         "report_date": s.get("report_date", ""),
         "stale_valuation": bool(s.get("report_date") and _past_report.get(sym) and _past_report[sym] > s.get("report_date", "")),
+        # 财报临近: 今天 - 最近财报日 > 80 天 → 即将发布下一份财报(每季约90天)
+        "report_imminent": _report_imminent(s.get("report_date", "")),
         "round_price": s.get("ccy", "USD") in ("KRW", "JPY"),   # 韩/日股换算美元后全档取整显示
         # 全仓持仓 margin 可能为空串 → 用 margin_est(名义价值估算) 判断真实持仓/观察仓
         "has_pos": pos_info is not None and pos_info["margin_est"] >= 1,
@@ -955,7 +968,7 @@ for idx_info in INDEX_MONITORS:
         "ratio": 0, "loss_rate": 0, "eligible": False,
         "zone": zone, "zone_class": zone_class,
         "buy_cfg": 0, "sell_cfg": 0,
-        "report_date": "", "stale_valuation": False,
+        "report_date": "", "stale_valuation": False, "report_imminent": False,
         "round_price": False,
         "has_pos": False, "is_obs": False,
         "pos_size": 0, "pos_entry": 0, "pos_lever": 0, "pos_pnl": 0, "pos_margin": 0,
@@ -1980,6 +1993,7 @@ function usRow(d){
   if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
   const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const rdMark = d.report_imminent ? ' <span style="color:#A32D2D;font-size:10px">⚠️新财报·临近</span>' : '';
   const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
   const newsTag = d.news_shift_pct ? `<span style="font-size:10px;color:${d.news_shift_pct < 0 ? '#A32D2D' : '#3B6D11'};margin-left:2px">📰${(d.news_shift_pct*100).toFixed(0)}%</span>` : '';
   return `
@@ -1989,7 +2003,7 @@ function usRow(d){
     <td class="name" style="font-weight:500">${d.name}</td>
     <td class="name" style="font-weight:500">${d.industry}</td>
     <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
-    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
+    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}${rdMark}</td>
     <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
     <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${pfr(d.ahigh)}</td>
     <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
@@ -2034,6 +2048,7 @@ function hkRow(d){
   if (_rd) { const _p = _rd.split('-'); rdText = parseInt(_p[1]) + '.' + parseInt(_p[2]); }
   const valColor = d.stale_valuation ? '#A32D2D' : '#888';
   const rdColor = d.stale_valuation ? '#A32D2D' : '#999';
+  const rdMark = d.report_imminent ? ' <span style="color:#A32D2D;font-size:10px">⚠️新财报·临近</span>' : '';
   const pfr = d.round_price ? (v => v.toFixed(0)) : pxf;
   const ratingTag = d.rating ? `<span style="font-size:10px;background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:3px;margin-left:4px">${d.rating}</span>` : '';
   return `
@@ -2044,7 +2059,7 @@ function hkRow(d){
     <td class="name" style="font-weight:500">${d.industry}</td>
     <td class="num" style="font-weight:500">${d.ccy}${pfr(d.px)}</td>
     <td class="num" style="font-size:12px">${ratingTag || '-'}</td>
-    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}</td>
+    <td class="num" style="color:${rdColor};font-size:12px;font-weight:500">${rdText}${rdMark}</td>
     <td class="num" style="font-size:12px;color:${valColor};font-weight:500">${valText}</td>
     <td class="num" style="font-size:12px;color:#888;font-weight:500">${d.ccy}${pfr(d.alow)} - ${pfr(d.ahigh)}</td>
     <td class="num" style="font-size:12px">${(d.vol*100).toFixed(1)}%</td>
