@@ -52,6 +52,7 @@ body {
 .summary {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;
 }
+.summary-col5 { grid-template-columns: repeat(5, 1fr); }
 .summary .card {
   background: #161b22; border-radius: 10px; padding: 18px 16px;
   border: 1px solid #30363d; transition: all 0.2s;
@@ -417,7 +418,7 @@ a .title-cn:hover { color: #58a6ff; }
   .header { flex-wrap: wrap; gap: 8px; }
   .header h1 { font-size: 15px; }
   .header .time { font-size: 11px; }
-  .summary { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .summary, .summary-col5 { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .summary .card .value { font-size: 18px; }
   .summary .card .label { font-size: 10px; }
   .tab-btn { padding: 6px 12px; font-size: 11px; }
