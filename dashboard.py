@@ -1830,6 +1830,27 @@ LOGO_DOMAINS = {
 }
 logo_domains_json = json.dumps(LOGO_DOMAINS, ensure_ascii=False)
 
+# ===== 自托管 logo: 下载到仓库 logos/ 目录(仅缺省时下载), 网页从本站加载, 不依赖外部 CDN =====
+import os as _os
+_LOGO_DIR = SCRIPT_DIR / "logos"
+_LOGO_DIR.mkdir(exist_ok=True)
+for _lsym, _ld in LOGO_DOMAINS.items():
+    _lf = _LOGO_DIR / f"{_lsym}.svg"
+    if _lf.exists():
+        continue
+    try:
+        import requests as _rq
+        _kw = {}
+        if not CLOUD_MODE and PROXY:
+            _kw["proxies"] = {"http": PROXY, "https": PROXY}
+        _r = _rq.get(f"https://logo.clearbit.com/{_ld}?size=128", timeout=15,
+                     headers={"User-Agent": "Mozilla/5.0", "Accept": "image/svg+xml,image/png,*/*"}, **_kw)
+        if _r.ok and _r.content:
+            _lf.write_bytes(_r.content)
+    except Exception:
+        pass
+logo_selfhost_json = json.dumps([s for s in LOGO_DOMAINS if (_LOGO_DIR / f"{s}.svg").exists()], ensure_ascii=False)
+
 # ============================= 大宗商品子页面 =============================
 # 黄金/白银/布伦特原油/天然气/比特币: 统一用 Yahoo (商品 OKX/币安不覆盖; 比特币用 BTC-USD)。
 # 与美股/中概股不同, 无财报/估值/做T/盈亏比等列, 仅 当前价 + 日/周/月布林。
@@ -1905,11 +1926,14 @@ dashboard_js = r'''
 
 const WHITE_LOGOS = {DIS:1, MRVL:1, AMD:1, STX:1, MU:1, NVO:1}; // 深色logo转白, 避免与深色背景混淆
 const _letBadge = (sym) => { const ch = ((sym.match(/[A-Za-z]/) || [])[0] || sym[0] || '?').toUpperCase(); return `<span class="logo-letter" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:4px;background:#34558b;color:#fff;font-size:11px;font-weight:600">${ch}</span>`; };
-// 仅 SPY/QQQ 用首字母徽标; 其余: 有域名用 Clearbit logo(失败→Google favicon兜底→删除), 无域名留空
+// 仅 SPY/QQQ 用首字母徽标; 其余: 优先本站 logos/{sym}.svg, 否则 Clearbit(失败→Google favicon→删除), 无域名留空
 const logoCell = (sym) => {
   if (sym === 'SPY' || sym === 'QQQ') return `<td class="logo-cell">${_letBadge(sym)}</td>`;
-  if (LOGO_DOMAINS[sym]) return `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="https://logo.clearbit.com/${LOGO_DOMAINS[sym]}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://www.google.com/s2/favicons?domain=${LOGO_DOMAINS[sym]}&sz=64';}else{this.remove();}" alt=""></td>`;
-  return '<td class="logo-cell"></td>';
+  let src = '';
+  if (LOGO_DOMAINS[sym]) src = (SELF_LOGOS.indexOf(sym) >= 0) ? './logos/' + sym + '.svg' : 'https://logo.clearbit.com/' + LOGO_DOMAINS[sym];
+  if (src === '') return '<td class="logo-cell"></td>';
+  const fb = (src.indexOf('./') === 0) ? 'https://logo.clearbit.com/' + LOGO_DOMAINS[sym] : 'https://www.google.com/s2/favicons?domain=' + LOGO_DOMAINS[sym] + '&sz=64';
+  return `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="${src}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${fb}';}else{this.remove();}" alt=""></td>`;
 };
 
 // 价格格式化: 大数(韩元/日元等)不显示小数
@@ -2655,6 +2679,7 @@ const allData = {data_json};
 const data = allData.filter(d => !d.is_hk);
 const hkData = allData.filter(d => d.is_hk);
 const LOGO_DOMAINS = {logo_domains_json};
+const SELF_LOGOS = {logo_selfhost_json};
 const LIVE_REORDER = {REORDER_PCT};
 const commodities = {commodities_json};
 const WATCH_CARD = {regime_card_json};
