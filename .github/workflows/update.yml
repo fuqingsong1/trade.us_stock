@@ -45,6 +45,8 @@ jobs:
         run: |
           python collect_calendar.py || echo "::warning::财报日历生成失败, 使用现有数据"
           python watchlist_us/update_calendar.py || echo "::warning::日历页生成失败, 跳过 html"
+          # 校正每只股票真实最近财报日 (Yahoo earningsCallDate, 云端直连, 失败不阻塞)
+          python update_report_dates.py || echo "::warning::财报日校正失败, 使用现有 report_date"
 
       - name: 抓取新闻并分析
         env:
