@@ -442,7 +442,18 @@ a .title-cn:hover { color: #58a6ff; }
   .landing-orb-3 { width: 60px; height: 60px; }
   .landing-ring { width: 200px; height: 200px; }
   .landing-ring-2 { width: 280px; height: 280px; }
+  .landing-grid {
+    background-size: 40px 40px;
+  }
   .landing-footer { font-size: 10px; }
+  /* ── 手机端日历: 单元格高度自动扩展, 事件允许换行, 不再省略号截断 ── */
+  .cal-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; padding: 0 0 12px; }
+  .cal-cell { min-height: 48px; height: auto; overflow: visible; padding: 3px 2px; }
+  .cal-chip { white-space: normal; overflow: visible; text-overflow: unset; line-height: 1.25; word-break: break-all; font-size: 9px; }
+  .cal-dow { font-size: 9px; padding: 4px 0; }
+  .cal-title { font-size: 13px; }
+  .cal-nav { flex-wrap: wrap; gap: 4px; }
+  .cal-nav-btn { font-size: 10px; padding: 5px 8px; }
 }
 @media (max-width: 480px) {
   .summary { grid-template-columns: 1fr 1fr; gap: 6px; }
