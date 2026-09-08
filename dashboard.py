@@ -1911,7 +1911,7 @@ function renderSummaries(){
   <div class="card"><div class="label">可交易股票</div><div class="value green">${e.length}</div></div>
   <div class="card"><div class="label">买入区</div><div class="value green">${bz.length}</div></div>
   <div class="card"><div class="label">卖出区</div><div class="value red">${sz.length}</div></div>
-  <div class="card"><div class="label">建议仓位</div><div class="value ${_watchCls}">${_watchTxt}</div></div>`;
+  <div class="card"><div class="label">建议仓位</div><div class="value ${_watchCls}" style="font-size:14px;line-height:1.4">${_watchTxt}</div></div>`;
   const he = hkData.filter(d => d.eligible), hbz = hkData.filter(d => d.zone && d.zone.startsWith('BUY')), hsz = hkData.filter(d => d.zone && d.zone.startsWith('SELL'));
   document.getElementById('hk-summary').innerHTML = `
   <div class="card"><div class="label">监控股票</div><div class="value blue">${hkData.length}</div></div>
@@ -2096,7 +2096,7 @@ async function mapPool(arr, limit, fn){
 }
 
 // ---- 大宗商品渲染/刷新(无财报/估值/做T/盈亏比列, 仅当前价+日/周/月布林) ----
-function _fb(v){ if(v==null||isNaN(v)) return '-'; const c = v<0.2?'#3B6D11': v>1?'#A32D2D': v>0.8?'#BA7517':'#2c2c2a'; const w = v<0.2?700:500; return `<span style="color:${c};font-weight:${w}">${(v*100).toFixed(1)}%</span>`; }
+function _fb(v){ if(v==null||isNaN(v)) return '-'; const c = v<0.2?'#3B6D11': v>1?'#A32D2D': v>0.8?'#d2991d':'#58a6ff'; const w = v<0.2?700:500; return `<span style="color:${c};font-weight:${w}">${(v*100).toFixed(1)}%</span>`; }
 function commodityRow(c){
   const cpx = (v) => isFinite(v) ? (v >= 1000 ? v.toFixed(0) : v.toFixed(2)) : '-';
   const pbg = (v) => '$' + cpx(v);
@@ -2508,7 +2508,7 @@ a .title-cn:hover {{ color: #378ADD; }}
 </div>
 
 <div id="tab-dashboard" class="tab-content active">
-  <div class="summary" id="summary"></div>
+  <div class="summary summary-col5" id="summary"></div>
   <table>
   <thead>
   <tr>
