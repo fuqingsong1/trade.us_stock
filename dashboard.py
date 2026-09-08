@@ -1835,8 +1835,10 @@ def _qry_closes(sym, interval, range_):
     meta = j["chart"]["result"][0]["meta"]
     q = j["chart"]["result"][0]["indicators"]["quote"][0]
     closes = [c for c in (q.get("close") or []) if c is not None]
+    highs = [h for h in (q.get("high") or []) if h is not None]
+    lows = [l for l in (q.get("low") or []) if l is not None]
     px = meta.get("regularMarketPrice") if meta.get("regularMarketPrice") is not None else (closes[-1] if closes else None)
-    return px, closes
+    return px, closes, highs, lows
 def _boll_b(closes, px):
     import math as _m
     if not px: return None
@@ -1845,13 +1847,36 @@ def _boll_b(closes, px):
     ma = sum(c) / len(c); sd = _m.sqrt(sum((x - ma) ** 2 for x in c) / len(c))
     up, lo = ma + 2 * sd, ma - 2 * sd
     return (px - lo) / (up - lo) if up > lo else 0.5
+def _regime_zone(pct, vol):
+    b1, b2, b3, s1, s2 = (0.27, 0.19, 0.11, 0.75, 0.82) if vol > 0.075 else (0.32, 0.24, 0.16, 0.70, 0.78)
+    pe = 0.05
+    if pct <= b3 + pe: return "BUY3区", "zone-buy3"
+    if pct <= b2 + pe: return "BUY2区", "zone-buy2"
+    if pct <= b1 + pe: return "BUY1区", "zone-buy1"
+    if pct >= s2 - pe: return "SELL2区", "zone-sell2"
+    if pct >= s1 - pe: return "SELL1区", "zone-sell1"
+    return ("下半区", "zone-lower") if pct < 0.50 else ("上半区", "zone-upper")
+
 commodities = []
 for _co in COMMODS:
-    _px, _dc = _qry_closes(_co["sym"], "1d", "6mo")
-    _pxw, _wc = _qry_closes(_co["sym"], "1wk", "2y")
-    _pxm, _mc = _qry_closes(_co["sym"], "1mo", "5y")
+    _px, _dc, _dh, _dl = _qry_closes(_co["sym"], "1d", "6mo")
+    _pxw, _wc, _, _ = _qry_closes(_co["sym"], "1wk", "2y")
+    _pxm, _mc, _, _ = _qry_closes(_co["sym"], "1mo", "5y")
+    _hh = _dh[-10:] if _dh else []; _ll = _dl[-10:] if _dl else []
+    _al = min(_ll) if _ll else 0; _ah = max(_hh) if _hh else 0
+    _cur = _px if _px is not None else 0
+    _pct = (_cur - _al) / (_ah - _al) if _ah > _al else 0.5
+    _vol = (_ah - _al) / ((_ah + _al) / 2) if _ah > _al else 0
+    _bp1, _bp2, _bp3, _sp1, _sp2 = (0.27, 0.19, 0.11, 0.75, 0.82) if _vol > 0.075 else (0.32, 0.24, 0.16, 0.70, 0.78)
+    _w = _ah - _al
+    _zone, _zcls = _regime_zone(_pct, _vol)
     commodities.append({"sym": _co["sym"], "name": _co["name"], "ccy": "$",
-                        "px": _px if _px is not None else 0,
+                        "px": _cur, "alow": _al, "ahigh": _ah, "vol": _vol,
+                        "pct": round(min(max(_pct, 0), 1), 3),
+                        "bp1": _bp1, "bp2": _bp2, "bp3": _bp3, "sp1": _sp1, "sp2": _sp2,
+                        "p_buy2": _al + _w * _bp2, "p_buy3": _al + _w * _bp3,
+                        "p_sell1": _al + _w * _sp1, "p_sell2": _al + _w * _sp2,
+                        "zone": _zone, "zone_class": _zcls,
                         "boll_d": _boll_b(_dc, _px), "boll_w": _boll_b(_wc, _pxw or _px), "boll_m": _boll_b(_mc, _pxm or _px)})
 commodities_json = json.dumps(commodities, ensure_ascii=False)
 regime_card_json = json.dumps({"action": market_regime.get("action", ""), "exposure": market_regime.get("exposure", 0)}, ensure_ascii=False)
@@ -2073,15 +2098,62 @@ async function mapPool(arr, limit, fn){
 // ---- 大宗商品渲染/刷新(无财报/估值/做T/盈亏比列, 仅当前价+日/周/月布林) ----
 function _fb(v){ if(v==null||isNaN(v)) return '-'; const c = v<0.2?'#3B6D11': v>1?'#A32D2D': v>0.8?'#BA7517':'#2c2c2a'; const w = v<0.2?700:500; return `<span style="color:${c};font-weight:${w}">${(v*100).toFixed(1)}%</span>`; }
 function commodityRow(c){
-  const pxt = (c.px && c.px > 0) ? '$' + c.px.toFixed(2) : '-';
-  return `<tr><td class="name" style="font-weight:500">${c.name}</td><td class="sym">${c.sym}</td><td class="num" style="font-weight:500">${pxt}</td><td class="num">${_fb(c.boll_d)}</td><td class="num">${_fb(c.boll_w)}</td><td class="num">${_fb(c.boll_m)}</td></tr>`;
+  const cpx = (v) => isFinite(v) ? (v >= 1000 ? v.toFixed(0) : v.toFixed(2)) : '-';
+  const pbg = (v) => '$' + cpx(v);
+  const b2w = c.bp2 * 100, b3w = c.bp3 * 100, s1w = c.sp1 * 100, s2w = c.sp2 * 100, pctw = Math.max(0, Math.min(1, c.pct)) * 100;
+  return `<tr>
+    <td class="name" style="font-weight:500">${c.name}</td>
+    <td class="num" style="font-weight:500">${pbg(c.px)}</td>
+    <td class="num" style="color:#639922">${pbg(c.p_buy2)}</td>
+    <td class="num" style="color:#97C459">${pbg(c.p_buy3)}</td>
+    <td class="num" style="color:#BA7517">${pbg(c.p_sell1)}</td>
+    <td class="num" style="color:#A32D2D">${pbg(c.p_sell2)}</td>
+    <td class="num">${_fb(c.boll_d)}</td>
+    <td class="num">${_fb(c.boll_w)}</td>
+    <td class="num">${_fb(c.boll_m)}</td>
+    <td class="num" style="font-weight:500">${(c.pct*100).toFixed(1)}%</td>
+    <td class="bar-cell"><div class="bar-wrap">
+      <div class="bar-buy2" style="left:0;width:${b2w}%"></div>
+      <div class="bar-buy3" style="left:0;width:${b3w}%"></div>
+      <div class="bar-sell1" style="left:${s1w}%;width:${s2w - s1w}%"></div>
+      <div class="bar-sell2" style="left:${s2w}%;width:${100 - s2w}%"></div>
+      <div class="bar-pct" style="left:${pctw}%"></div>
+      <div class="bar-pct-label" style="left:${pctw}%">${c.zone}</div>
+    </div></td>
+    <td class="${c.zone_class}" style="font-size:12px;font-weight:600">${c.zone}</td>
+  </tr>`;
 }
 function renderCommod(){ const el = document.getElementById('commod-tbody'); if (el) el.innerHTML = commodities.map(commodityRow).join(''); }
 async function refreshCommodities(){
   await mapPool(commodities, 4, async (c) => {
-    try { const d = await getYChart(c.sym, '1d', '6mo'); if (d && d.chart && d.chart.result && d.chart.result[0]) { const q = d.chart.result[0].indicators.quote[0], cl = q.close.filter(v=>v!=null), meta = d.chart.result[0].meta || {}; c.px = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : (cl[cl.length-1] || 0); c.boll_d = bollPB(cl, c.px); } } catch(e) {}
-    try { const w = await getYChart(c.sym, '1wk', '2y'); if (w && w.chart && w.chart.result && w.chart.result[0]) { const wc = w.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_w = bollPB(wc, c.px); } } catch(e) {}
-    try { const m = await getYChart(c.sym, '1mo', '5y'); if (m && m.chart && m.chart.result && m.chart.result[0]) { const mc = m.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_m = bollPB(mc, c.px); } } catch(e) {}
+    try {
+      const d = await getYChart(c.sym, '1d', '6mo');
+      if (d && d.chart && d.chart.result && d.chart.result[0]) {
+        const q = d.chart.result[0].indicators.quote[0], cl = q.close.filter(v=>v!=null);
+        const hi = q.high ? q.high.filter(v=>v!=null) : [], lo = q.low ? q.low.filter(v=>v!=null) : [];
+        const meta = d.chart.result[0].meta || {};
+        const px = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : (cl[cl.length-1] || 0);
+        c.px = px; c.boll_d = bollPB(cl, px);
+        const al = lo.length ? Math.min.apply(null, lo.slice(-10)) : 0, ah = hi.length ? Math.max.apply(null, hi.slice(-10)) : 0;
+        c.alow = al; c.ahigh = ah;
+        const pct = (ah > al) ? Math.max(0, Math.min(1,(px - al)/(ah - al))) : 0.5; c.pct = pct;
+        const vol = (ah > al) ? (ah - al)/((ah + al)/2) : 0; c.vol = vol;
+        const bps = (vol > 0.075) ? [0.27,0.19,0.11,0.75,0.82] : [0.32,0.24,0.16,0.70,0.78];
+        c.bp1=bps[0]; c.bp2=bps[1]; c.bp3=bps[2]; c.sp1=bps[3]; c.sp2=bps[4];
+        const w = ah - al; const pe = PLACE_LIVE;
+        c.p_buy2 = al + w*bps[1]; c.p_buy3 = al + w*bps[2]; c.p_sell1 = al + w*bps[3]; c.p_sell2 = al + w*bps[4];
+        let z = ['上半区','zone-upper'];
+        if (pct <= bps[2]+pe) z=['BUY3区','zone-buy3'];
+        else if (pct <= bps[1]+pe) z=['BUY2区','zone-buy2'];
+        else if (pct <= bps[0]+pe) z=['BUY1区','zone-buy1'];
+        else if (pct >= bps[4]-pe) z=['SELL2区','zone-sell2'];
+        else if (pct >= bps[3]-pe) z=['SELL1区','zone-sell1'];
+        else z=(pct<0.50)?['下半区','zone-lower']:['上半区','zone-upper'];
+        c.zone=z[0]; c.zone_class=z[1];
+      }
+    } catch(e) {}
+    try { const wv = await getYChart(c.sym, '1wk', '2y'); if (wv && wv.chart && wv.chart.result && wv.chart.result[0]) { const wc = wv.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_w = bollPB(wc, c.px); } } catch(e) {}
+    try { const mv = await getYChart(c.sym, '1mo', '5y'); if (mv && mv.chart && mv.chart.result && mv.chart.result[0]) { const mc = mv.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_m = bollPB(mc, c.px); } } catch(e) {}
   });
   renderCommod();
 }
@@ -2517,8 +2589,10 @@ a .title-cn:hover {{ color: #378ADD; }}
   <table>
   <thead>
   <tr>
-    <th style="width:80px">名称</th><th style="width:120px">代码</th><th style="width:90px">当前价</th>
-    <th style="width:75px">日布林%</th><th style="width:75px">周布林%</th><th style="width:75px">月布林%</th>
+    <th style="width:80px">名称</th><th style="width:80px">当前价</th>
+    <th style="width:70px">Buy2</th><th style="width:70px">Buy3</th><th style="width:70px">Sell1</th><th style="width:70px">Sell2</th>
+    <th style="width:70px">日布林%</th><th style="width:70px">周布林%</th><th style="width:70px">月布林%</th>
+    <th style="width:55px">分位</th><th style="width:160px">区间图</th><th style="width:60px">状态</th>
   </tr>
   </thead>
   <tbody id="commod-tbody"></tbody>
