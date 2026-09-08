@@ -1824,7 +1824,7 @@ LOGO_DOMAINS = {
     "00700.HK": "tencent.com", "09988.HK": "alibaba.com", "03690.HK": "meituan.com", "01810.HK": "mi.com",
     "01024.HK": "kuaishou.com", "09992.HK": "popmart.com", "02513.HK": "zhipuai.cn", "00100.HK": "minimaxi.com",
     "00625.HK": "shein.com", "00992.HK": "lenovo.com", "PDD": "pinduoduo.com",
-    "300308.SZ": "zj-innolight.com", "603986.SS": "gigadevice.com", "688836.SS": "unitree.com", "688825.SS": "changxinmemory.com",
+    "300308.SZ": "innolight.com", "603986.SS": "gigadevice.com", "688836.SS": "unitree.com", "688825.SS": "changxinmemory.com",
     # 指数(标普500/纳指100): 有logo用logo, 否则前端回退首字母徽标
     "SPY": "ssga.com", "QQQ": "invesco.com",
 }
@@ -1927,9 +1927,10 @@ dashboard_js = r'''
 
 const WHITE_LOGOS = {MRVL:1, AMD:1, STX:1, MU:1, NVO:1}; // 深色logo转白, 避免与深色背景混淆
 const _letBadge = (sym) => { const ch = ((sym.match(/[A-Za-z]/) || [])[0] || sym[0] || '?').toUpperCase(); return `<span class="logo-letter" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:4px;background:#34558b;color:#fff;font-size:11px;font-weight:600">${ch}</span>`; };
-// 仅 SPY/QQQ 用首字母徽标; 其余: 优先本站 logos/{sym}.png, 否则 Google favicon(失败则删除), 无域名留空
+// 仅 SPY/QQQ/无logo满记 用首字母徽标; 其余: 优先本站 logos/{sym}.png, 否则 Google favicon(失败则删除), 无域名留空
+const LETTER_LOGO = {SPY:1, QQQ:1, GLW:1, '688825.SS':1};
 const logoCell = (sym) => {
-  if (sym === 'SPY' || sym === 'QQQ') return `<td class="logo-cell">${_letBadge(sym)}</td>`;
+  if (LETTER_LOGO[sym]) return `<td class="logo-cell">${_letBadge(sym)}</td>`;
   let src = '';
   if (LOGO_DOMAINS[sym]) src = (SELF_LOGOS.indexOf(sym) >= 0) ? './logos/' + sym + '.png' : 'https://www.google.com/s2/favicons?domain=' + LOGO_DOMAINS[sym] + '&sz=64';
   if (src === '') return '<td class="logo-cell"></td>';

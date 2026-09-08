@@ -90,7 +90,7 @@ def _request_with_retry(method, url, max_retries=3, base_delay=3, **kwargs):
                 print(f"    [RETRY] 最终失败{proxy_hint}(已重试{max_retries}次): {_err[:80]}")
     return None, _err
 
-from llm_client import call_deepseek, LLM_CFG
+from llm_client import call_deepseek, call_qwen, call_kimi, LLM_CFG
 
 # --- Rule-based keyword dictionaries ---
 POSITIVE_KW = {
@@ -642,7 +642,7 @@ def llm_analyze_batch(symbol, news_list, is_macro=False):
     Returns list of dicts with title_cn, direction, impact_pct, reason, type.
     Returns None if LLM is not available.
     """
-    if not LLM_CFG["api_key"]:
+    if not LLM_CFG["api_key"] and not LLM_CFG["qwen_api_key"] and not LLM_CFG["kimi_api_key"]:
         return None
 
     import requests as req
@@ -679,81 +679,81 @@ def llm_analyze_batch(symbol, news_list, is_macro=False):
 只返回JSON数组，不要其他文字。示例:
 [{{"title_cn":"...","direction":"positive","impact_pct":3,"reason":"AI芯片需求超预期推动收入增长","summary":"需求确认利好，可加仓","type":"个股"}}]"""
 
-    try:
-        time.sleep(3)  # Rate limit for DeepSeek V4 Pro
-        headers = {
-            "Authorization": f"Bearer {LLM_CFG['api_key']}",
-            "Content-Type": "application/json",
-        }
-        payload = {
-            "model": LLM_CFG["model"],
-            "messages": [{"role": "user", "content": prompt}],
-
-            "thinking": {"type": "enabled"},
-            "reasoning_effort": "high",
-        }
-        resp, _l_err = _request_with_retry("post",
-            f"{LLM_CFG['base_url']}/v1/chat/completions",
-            headers=headers, json=payload, timeout=120, max_retries=3, base_delay=3)
-        if resp is None:
-            print(f"  [WARN] LLM请求失败(已重试): {_l_err}")
-            return []
-        if resp.status_code == 200:
-            msg = resp.json()["choices"][0]["message"]
-            content = msg.get("content", "").strip()
-            reasoning = msg.get("reasoning_content", "").strip()
-            if not content:
-                content = reasoning
-            json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
-            if not json_match and reasoning:
-                json_match = re.search(r'\[\s*\{.*\}\s*\]', reasoning, re.DOTALL)
-            if not json_match:
-                combined = content + "\n" + reasoning
-                json_match = re.search(r'\[\s*\{.*\}\s*\]', combined, re.DOTALL)
-            if not json_match:
-                print(f"  [WARN] LLM返回无JSON, retry...")
-                time.sleep(5)
-                resp, _l_err = _request_with_retry("post",
-                    f"{LLM_CFG['base_url']}/v1/chat/completions",
-                    headers=headers, json=payload, timeout=120, max_retries=2, base_delay=3)
-                if resp is None:
-                    print(f"  [WARN] LLM retry失败: {_l_err}")
-                    return []
-                if resp.status_code == 200:
-                    msg = resp.json()["choices"][0]["message"]
-                    content = msg.get("content", "").strip() or msg.get("reasoning_content", "").strip()
-                    json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
-            if not json_match:
-                print(f"  [WARN] LLM返回无JSON, skip")
+    def _parse(content):
+        json_match = re.search(r'\[\s*\{.*\}\s*\]', content, re.DOTALL)
+        if not json_match:
+            return None
+        raw_json = json_match.group()
+        try:
+            return json.loads(raw_json)
+        except json.JSONDecodeError:
+            fixed = re.sub(r',\s*}', '}', raw_json)
+            fixed = re.sub(r',\s*]', ']', fixed)
+            try:
+                return json.loads(fixed)
+            except json.JSONDecodeError:
                 return None
-            if json_match:
-                raw_json = json_match.group()
-                try:
-                    result = json.loads(raw_json)
-                except json.JSONDecodeError:
-                    fixed = re.sub(r',\s*}', '}', raw_json)
-                    fixed = re.sub(r',\s*]', ']', fixed)
+
+    def _normalize(result):
+        for _item in result:
+            if isinstance(_item, dict):
+                _v = _item.get("impact_pct")
+                if _v is not None and not isinstance(_v, (int, float)):
                     try:
-                        result = json.loads(fixed)
-                    except json.JSONDecodeError:
-                        print(f"  [WARN] JSON解析失败, raw={raw_json[:80]}")
-                        return None
-                label = "macro" if is_macro else symbol
-                print(f"  LLM analyzed {len(result)} news for {label}")
-                # 类型归一化：LLM可能返回字符串impact_pct（如"+3"/"3"/"-2.5"），统一转数字
-                for _item in result:
-                    if isinstance(_item, dict):
-                        _v = _item.get("impact_pct")
-                        if _v is not None and not isinstance(_v, (int, float)):
-                            try:
-                                _item["impact_pct"] = int(float(str(_v).replace("+", "").replace("%", "")))
-                            except (ValueError, TypeError):
-                                _item["impact_pct"] = 0
-                        elif isinstance(_v, bool):
-                            _item["impact_pct"] = 0
-                return result
-        else:
-            print(f"  [WARN] LLM API error: {resp.status_code} {resp.text[:200]}")
+                        _item["impact_pct"] = int(float(str(_v).replace("+", "").replace("%", "")))
+                    except (ValueError, TypeError):
+                        _item["impact_pct"] = 0
+                elif isinstance(_v, bool):
+                    _item["impact_pct"] = 0
+        return result
+
+    # ---- 按顺序尝试: DeepSeek → Qwen → Kimi (保证云端也能产出中文) ----
+    try:
+        # DeepSeek (带 thinking 重试逻辑)
+        headers = {"Authorization": f"Bearer {LLM_CFG['api_key']}",
+                   "Content-Type": "application/json"} if LLM_CFG['api_key'] else None
+        if headers:
+            payload = {"model": LLM_CFG["model"], "messages": [{"role": "user", "content": prompt}],
+                       "thinking": {"type": "enabled"}, "reasoning_effort": "high"}
+            time.sleep(3)
+            resp, _l_err = _request_with_retry("post",
+                f"{LLM_CFG['base_url']}/v1/chat/completions",
+                headers=headers, json=payload, timeout=120, max_retries=3, base_delay=3)
+            if resp is not None and resp.status_code == 200:
+                msg = resp.json()["choices"][0]["message"]
+                content = msg.get("content", "").strip() or msg.get("reasoning_content", "").strip()
+                result = _parse(content)
+                if result:
+                    print(f"  LLM analyzed {len(result)} news for {symbol or 'macro'} (DeepSeek)")
+                    return _normalize(result)
+            elif resp is not None:
+                print(f"  [WARN] DeepSeek API error: {resp.status_code} {resp.text[:120]}")
+            else:
+                print(f"  [WARN] DeepSeek 请求失败: {_l_err}")
+
+        # Qwen 兜底 (阿里云, 国内可达)
+        if LLM_CFG["qwen_api_key"]:
+            content = llm_client.call_qwen(prompt, temperature=0.3, max_tokens=8192, max_retries=2)
+            if content:
+                result = _parse(content)
+                if result:
+                    print(f"  LLM analyzed {len(result)} news for {symbol or 'macro'} (Qwen兜底)")
+                    return _normalize(result)
+                print("  [WARN] Qwen 返回无JSON")
+            else:
+                print("  [WARN] Qwen 调用失败")
+
+        # Kimi 兜底
+        if LLM_CFG["kimi_api_key"]:
+            content = llm_client.call_kimi(prompt, temperature=0.3, max_tokens=8192, max_retries=2)
+            if content:
+                result = _parse(content)
+                if result:
+                    print(f"  LLM analyzed {len(result)} news for {symbol or 'macro'} (Kimi兜底)")
+                    return _normalize(result)
+                print("  [WARN] Kimi 返回无JSON")
+            else:
+                print("  [WARN] Kimi 调用失败")
     except Exception as e:
         print(f"  [WARN] LLM analysis failed: {e}")
     return None
@@ -1053,6 +1053,22 @@ total_impact规则：
             print(f"    [WARN] LLM总结失败 {symbol}: {resp.status_code}")
     except Exception as e:
         print(f"    [WARN] LLM总结异常 {symbol}: {e}")
+    # ---- DeepSeek 失败时的 Qwen/Kimi 兜底 ----
+    for _fn, _name in ((call_qwen, "Qwen"), (call_kimi, "Kimi")):
+        try:
+            _c = _fn(prompt, temperature=0.3, max_tokens=8192, max_retries=2)
+        except Exception:
+            _c = ""
+        if _c:
+            _m = re.search(r'\{[^{}]*"summary"[^{}]*"total_impact"[^{}]*\}', _c, re.DOTALL)
+            if _m:
+                try:
+                    _r = json.loads(_m.group())
+                    _impact = max(-20, min(20, int(_r.get("total_impact", 0))))
+                    print(f"    LLM总结 {symbol}: impact={_impact}% ({_name}兜底)")
+                    return {"summary": _r.get("summary", ""), "total_impact": _impact}
+                except Exception:
+                    pass
     return {"summary": "", "total_impact": 0}
 
 
@@ -1109,6 +1125,15 @@ def _llm_macro_summary(macro_news):
             print(f"  [WARN] LLM宏观总结失败: {resp.status_code}")
     except Exception as e:
         print(f"  [WARN] LLM宏观总结异常: {e}")
+    # ---- DeepSeek 失败时的 Qwen/Kimi 兜底 ----
+    for _fn, _name in ((call_qwen, "Qwen"), (call_kimi, "Kimi")):
+        try:
+            _c = _fn(prompt, temperature=0.3, max_tokens=8192, max_retries=2)
+        except Exception:
+            _c = ""
+        if _c:
+            print(f"  LLM宏观总结({_name}兜底): {_c[:40]}...")
+            return _c
     return ""
 
 
