@@ -385,7 +385,7 @@ a .title-cn:hover { color: #58a6ff; }
 }
 .landing-ticker-item {
   display: inline-block; margin: 0 28px; font-size: 12px; font-family: 'SF Mono', 'Consolas', monospace;
-  color: rgba(255,255,255,0.2);
+  color: #e6edf3;
 }
 .landing-ticker-item .t-up { color: #3fb950; }
 .landing-ticker-item .t-down { color: #f85149; }
@@ -521,23 +521,22 @@ function enterDashboard() {
   }
   setTimeout(tick, 1000);
 })();
-// 股票滚动条 - 从页面表格数据动态生成
+// 股票滚动条 - 使用页面当前数据(每天自动更新后即为最新价, 非硬编码)
 (function initTicker() {
-  var symbols = [
-    {s:'AAPL',p:'218.36',c:'+1.24%',u:1},{s:'MSFT',p:'467.52',c:'-0.83%',u:0},
-    {s:'NVDA',p:'138.25',c:'+3.67%',u:1},{s:'GOOGL',p:'193.17',c:'+0.45%',u:1},
-    {s:'AMZN',p:'229.15',c:'-1.22%',u:0},{s:'META',p:'616.84',c:'+2.10%',u:1},
-    {s:'TSLA',p:'248.72',c:'-2.55%',u:0},{s:'TSM',p:'200.39',c:'+4.18%',u:1},
-    {s:'SPY',p:'593.44',c:'+0.62%',u:1},{s:'QQQ',p:'501.83',c:'+0.31%',u:1},
-    {s:'IWM',p:'215.40',c:'-0.91%',u:0},{s:'DIA',p:'433.12',c:'+0.18%',u:1},
-    {s:'GLW',p:'48.53',c:'+1.75%',u:1},{s:'AMD',p:'115.28',c:'-3.42%',u:0},
-    {s:'INTC',p:'22.16',c:'-0.54%',u:0},{s:'BA',p:'174.35',c:'+0.88%',u:1},
-  ];
-  var items = symbols.map(function(s){
-    return '<span class="landing-ticker-item">'+s.s+' <span class="t-'+(s.u?'up':'down')+'">'+s.p+' '+s.c+'</span></span>';
-  }).join('');
+  var syms = ['SPY','QQQ','NVDA','AAPL','MSFT','AMZN','GOOGL','META','TSLA','TSM','AMD','MU','AVGO','GLW','COST','PLTR'];
+  var map = {};
+  try {
+    (typeof data !== 'undefined' ? data : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d.px; });
+    (typeof hkData !== 'undefined' ? hkData : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d.px; });
+  } catch(e) {}
+  function fmt(v){ return (v>=1000)?v.toFixed(0):v.toFixed(2); }
+  var items = syms.map(function(s){
+    var p = map[s];
+    if(p==null) return '';
+    return '<span class="landing-ticker-item">'+s+' <span class="t-up">$'+fmt(p)+'</span></span>';
+  }).filter(function(x){ return x!==''; }).join('');
   var inner = document.getElementById('landing-ticker-inner');
-  if(inner) inner.innerHTML = items + items;
+  if(inner && items) inner.innerHTML = items + items;
 })();
 </script>
 '''
