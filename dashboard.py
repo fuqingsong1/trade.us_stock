@@ -1131,10 +1131,13 @@ if STATE_F.exists():
     try:
         with open(STATE_F, "r", encoding="utf-8") as f:
             _st = json.load(f)
-        _wq = _st.get("wait_queue", [])
+        _wq = [r for r in results
+               if r.get("eligible") and not r.get("is_hk") and not r.get("is_index")
+               and not r.get("has_pos") and (r.get("zone") or "").startswith("BUY")]
+        _wq.sort(key=lambda r: r.get("ratio", 0), reverse=True)
         if _wq:
-            _wq_items = "".join(f'<span class="wq-item">⏳ {w["sym"]} <span class="wq-ratio">ratio={w.get("ratio",0)}</span></span>' for w in _wq)
-            wait_queue_html = f'<div class="wait-queue-box"><h3>等待队列 <span class="wq-count">{len(_wq)}</span></h3><div class="wq-list">{_wq_items}</div><div class="wq-note">持仓卖出后自动按ratio优先补位</div></div>'
+            _wq_items = "".join(f'<span class="wq-item">⏳ {w["sym"]} <span class="wq-ratio">ratio={"∞" if w.get("ratio",0)>=999 else w.get("ratio",0)}</span></span>' for w in _wq)
+            wait_queue_html = f'<div class="wait-queue-box"><h3>等待队列 <span class="wq-count">{len(_wq)}</span></h3><div class="wq-list">{_wq_items}</div><div class="wq-note">仅符合买入规则(ratio&gt;2、买入区、潜在亏损&gt;-10%)的标的, 持仓卖出后按ratio优先补位</div></div>'
         _da = _st.get("deposit_alert")
         if _da:
             deposit_alert_html = f'<div class="deposit-alert-box"><h3>⚠️ 入金提醒</h3><div class="da-detail">{_da["eligible"]}只eligible但仅{_da["positions"]}个持仓 | 每股预算: ${_da["per_stock_budget"]:.2f} | 可用: ${_da["available"]:.2f}</div><div class="da-action">建议入金 <strong>${_da["shortfall"]:.0f}</strong></div></div>'
