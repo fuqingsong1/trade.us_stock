@@ -1770,6 +1770,18 @@ else:
 # ===== End Market Regime HTML =====
 
 # Build JSON data for embedding
+# 落地页 ticker 用标的: 附加当日涨跌幅%(用于封面循环展示)
+_TICK_SYMS = {"SPY", "QQQ", "NVDA", "AAPL", "MSFT", "AMZN", "GOOGL", "META", "TSLA", "TSM", "AMD", "MU", "AVGO", "GLW", "COST", "PLTR"}
+for _r in results:
+    if _r.get("sym") in _TICK_SYMS:
+        try:
+            _pxc, _clc, _, _ = _qry_closes(_r["sym"], "1d", "5d")
+            if _pxc and len(_clc) >= 2 and _clc[-2]:
+                _r["chg"] = round((_pxc - _clc[-2]) / _clc[-2] * 100, 2)
+            else:
+                _r["chg"] = None
+        except Exception:
+            _r["chg"] = None
 data_json = json.dumps(results, ensure_ascii=False, indent=2)
 pos_data_json = json.dumps(all_positions, ensure_ascii=False, indent=2)
 acc_bal_json = json.dumps(account_balance, ensure_ascii=False, indent=2)

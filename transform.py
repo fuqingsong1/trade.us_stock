@@ -491,7 +491,7 @@ LANDING_HTML = '''<!-- ════ Landing Page ════ -->
   <div class="landing-ticker">
     <div class="landing-ticker-inner" id="landing-ticker-inner"></div>
   </div>
-  <div class="landing-footer">&copy; 2026 付青松 &middot; QUANT TRADING DASHBOARD</div>
+  <div class="landing-footer">&copy; 2026 &middot; QUANT TRADING DASHBOARD</div>
 </div>
 
 <!-- ════ 看板主内容 ════ -->
@@ -527,14 +527,20 @@ function enterDashboard() {
   var syms = ['SPY','QQQ','NVDA','AAPL','MSFT','AMZN','GOOGL','META','TSLA','TSM','AMD','MU','AVGO','GLW','COST','PLTR'];
   var map = {};
   try {
-    (typeof data !== 'undefined' ? data : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d.px; });
-    (typeof hkData !== 'undefined' ? hkData : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d.px; });
+    (typeof data !== 'undefined' ? data : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d; });
+    (typeof hkData !== 'undefined' ? hkData : []).forEach(function(d){ if(!d.error && d.px) map[d.sym]=d; });
   } catch(e) {}
   function fmt(v){ return (v>=1000)?v.toFixed(0):v.toFixed(2); }
   var items = syms.map(function(s){
-    var p = map[s];
-    if(p==null) return '';
-    return '<span class="landing-ticker-item">'+s+' <span class="t-up">$'+fmt(p)+'</span></span>';
+    var d = map[s];
+    if(d==null) return '';
+    var p = d.px;
+    var seg = '<span class="t-up">$'+fmt(p)+'</span>';
+    if(d.chg != null && !isNaN(d.chg)) {
+      var up = d.chg >= 0, cl = up ? 't-up' : 't-down', sg = up ? '+' : '';
+      seg += ' <span class="'+cl+'">'+sg+d.chg.toFixed(2)+'%</span>';
+    }
+    return '<span class="landing-ticker-item">'+s+' '+seg+'</span>';
   }).filter(function(x){ return x!==''; }).join('');
   var inner = document.getElementById('landing-ticker-inner');
   if(inner && items) inner.innerHTML = items + items;
