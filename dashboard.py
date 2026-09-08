@@ -1835,7 +1835,7 @@ import os as _os
 _LOGO_DIR = SCRIPT_DIR / "logos"
 _LOGO_DIR.mkdir(exist_ok=True)
 for _lsym, _ld in LOGO_DOMAINS.items():
-    _lf = _LOGO_DIR / f"{_lsym}.svg"
+    _lf = _LOGO_DIR / f"{_lsym}.png"
     if _lf.exists():
         continue
     try:
@@ -1843,13 +1843,14 @@ for _lsym, _ld in LOGO_DOMAINS.items():
         _kw = {}
         if not CLOUD_MODE and PROXY:
             _kw["proxies"] = {"http": PROXY, "https": PROXY}
-        _r = _rq.get(f"https://logo.clearbit.com/{_ld}?size=128", timeout=15,
-                     headers={"User-Agent": "Mozilla/5.0", "Accept": "image/svg+xml,image/png,*/*"}, **_kw)
-        if _r.ok and _r.content:
+        # Clearbit Logo API 已废弃, 改用 Google favicon(手机/云端均可加载), 转存为本地 PNG
+        _r = _rq.get(f"https://www.google.com/s2/favicons?domain={_ld}&sz=128", timeout=15,
+                     headers={"User-Agent": "Mozilla/5.0"}, allow_redirects=True, **_kw)
+        if _r.ok and _r.content and len(_r.content) > 100:
             _lf.write_bytes(_r.content)
     except Exception:
         pass
-logo_selfhost_json = json.dumps([s for s in LOGO_DOMAINS if (_LOGO_DIR / f"{s}.svg").exists()], ensure_ascii=False)
+logo_selfhost_json = json.dumps([s for s in LOGO_DOMAINS if (_LOGO_DIR / f"{s}.png").exists()], ensure_ascii=False)
 
 # ============================= 大宗商品子页面 =============================
 # 黄金/白银/布伦特原油/天然气/比特币: 统一用 Yahoo (商品 OKX/币安不覆盖; 比特币用 BTC-USD)。
@@ -1926,13 +1927,13 @@ dashboard_js = r'''
 
 const WHITE_LOGOS = {DIS:1, MRVL:1, AMD:1, STX:1, MU:1, NVO:1}; // 深色logo转白, 避免与深色背景混淆
 const _letBadge = (sym) => { const ch = ((sym.match(/[A-Za-z]/) || [])[0] || sym[0] || '?').toUpperCase(); return `<span class="logo-letter" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:4px;background:#34558b;color:#fff;font-size:11px;font-weight:600">${ch}</span>`; };
-// 仅 SPY/QQQ 用首字母徽标; 其余: 优先本站 logos/{sym}.svg, 否则 Clearbit(失败→Google favicon→删除), 无域名留空
+// 仅 SPY/QQQ 用首字母徽标; 其余: 优先本站 logos/{sym}.png, 否则 Google favicon(失败则删除), 无域名留空
 const logoCell = (sym) => {
   if (sym === 'SPY' || sym === 'QQQ') return `<td class="logo-cell">${_letBadge(sym)}</td>`;
   let src = '';
-  if (LOGO_DOMAINS[sym]) src = (SELF_LOGOS.indexOf(sym) >= 0) ? './logos/' + sym + '.svg' : 'https://logo.clearbit.com/' + LOGO_DOMAINS[sym];
+  if (LOGO_DOMAINS[sym]) src = (SELF_LOGOS.indexOf(sym) >= 0) ? './logos/' + sym + '.png' : 'https://www.google.com/s2/favicons?domain=' + LOGO_DOMAINS[sym] + '&sz=64';
   if (src === '') return '<td class="logo-cell"></td>';
-  const fb = (src.indexOf('./') === 0) ? 'https://logo.clearbit.com/' + LOGO_DOMAINS[sym] : 'https://www.google.com/s2/favicons?domain=' + LOGO_DOMAINS[sym] + '&sz=64';
+  const fb = (src.indexOf('./') === 0) ? 'https://www.google.com/s2/favicons?domain=' + LOGO_DOMAINS[sym] + '&sz=64' : src;
   return `<td class="logo-cell"><img class="stock-logo" loading="lazy" style="filter:${WHITE_LOGOS[sym]?'brightness(0) invert(1)':''}" src="${src}" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${fb}';}else{this.remove();}" alt=""></td>`;
 };
 
