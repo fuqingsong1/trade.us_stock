@@ -1854,6 +1854,7 @@ for _co in COMMODS:
                         "px": _px if _px is not None else 0,
                         "boll_d": _boll_b(_dc, _px), "boll_w": _boll_b(_wc, _pxw or _px), "boll_m": _boll_b(_mc, _pxm or _px)})
 commodities_json = json.dumps(commodities, ensure_ascii=False)
+regime_card_json = json.dumps({"action": market_regime.get("action", ""), "exposure": market_regime.get("exposure", 0)}, ensure_ascii=False)
 
 # =====================================================================
 # dashboard_js: 两张表的行渲染 + 汇总 + 手动"刷新数据"按钮的浏览器端重算。
@@ -1877,12 +1878,15 @@ const PLACE_LIVE = 0.05;
 
 // ---- 汇总卡片 ----
 function renderSummaries(){
+  const _watchTxt = WATCH_CARD.action || ('仓位 ' + Math.round((WATCH_CARD.exposure || 0) * 100) + '%');
+  const _watchCls = 'green';
   const e = data.filter(d => d.eligible), bz = data.filter(d => d.zone && d.zone.startsWith('BUY')), sz = data.filter(d => d.zone && d.zone.startsWith('SELL'));
   document.getElementById('summary').innerHTML = `
   <div class="card"><div class="label">监控股票</div><div class="value blue">${data.length}</div></div>
   <div class="card"><div class="label">可交易股票</div><div class="value green">${e.length}</div></div>
   <div class="card"><div class="label">买入区</div><div class="value green">${bz.length}</div></div>
-  <div class="card"><div class="label">卖出区</div><div class="value red">${sz.length}</div></div>`;
+  <div class="card"><div class="label">卖出区</div><div class="value red">${sz.length}</div></div>
+  <div class="card"><div class="label">建议仓位</div><div class="value ${_watchCls}">${_watchTxt}</div></div>`;
   const he = hkData.filter(d => d.eligible), hbz = hkData.filter(d => d.zone && d.zone.startsWith('BUY')), hsz = hkData.filter(d => d.zone && d.zone.startsWith('SELL'));
   document.getElementById('hk-summary').innerHTML = `
   <div class="card"><div class="label">监控股票</div><div class="value blue">${hkData.length}</div></div>
@@ -2564,6 +2568,7 @@ const hkData = allData.filter(d => d.is_hk);
 const LOGO_DOMAINS = {logo_domains_json};
 const LIVE_REORDER = {REORDER_PCT};
 const commodities = {commodities_json};
+const WATCH_CARD = {regime_card_json};
 {dashboard_js}
 // 未上市/无行情标的 (MOONSHOT 等)
 const hkExtra = {hk_extra_json};
