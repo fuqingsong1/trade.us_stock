@@ -1925,7 +1925,7 @@ regime_card_json = json.dumps({"action": market_regime.get("action", ""), "expos
 # =====================================================================
 dashboard_js = r'''
 
-const WHITE_LOGOS = {DIS:1, MRVL:1, AMD:1, STX:1, MU:1, NVO:1}; // 深色logo转白, 避免与深色背景混淆
+const WHITE_LOGOS = {MRVL:1, AMD:1, STX:1, MU:1, NVO:1}; // 深色logo转白, 避免与深色背景混淆
 const _letBadge = (sym) => { const ch = ((sym.match(/[A-Za-z]/) || [])[0] || sym[0] || '?').toUpperCase(); return `<span class="logo-letter" style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:4px;background:#34558b;color:#fff;font-size:11px;font-weight:600">${ch}</span>`; };
 // 仅 SPY/QQQ 用首字母徽标; 其余: 优先本站 logos/{sym}.png, 否则 Google favicon(失败则删除), 无域名留空
 const logoCell = (sym) => {
