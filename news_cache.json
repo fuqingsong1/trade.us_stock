@@ -7,14 +7,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Amazon Stock Falls as Inquiry Into Fatal Miami Plane Crash Ramps Up - barrons.com",
-          "title_cn": "Amazon Stock Falls as Inquiry Into Fatal Miami Plane Crash Ramps Up - barrons.com",
+          "title": "Amazon Stock Falls as Inquiry Into Fatal Miami Plane Crash Ramps Up - Barron's",
+          "title_cn": "Amazon Stock Falls as Inquiry Into Fatal Miami Plane Crash Ramps Up - Barron's",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "barrons.com",
+          "provider": "Barron's",
           "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFAza3NoTUFzMFJpcHEwZ2tBWFRMRnFjQ1dTTjlSZjdlS2hYMkdzcFBZemlGTHRURkpjX0tUdVU1RG9UUkM1Qmxzam80WXd5RzE2QUM1NmJFY2thRVRYeHMybEpqY0dnbFdTUnNUN0RXNkNuMElkdmQ5MGtzTk10UQ?oc=5",
           "direction": "negative",
-          "impact_pct": -1.9,
+          "impact_pct": -3.7,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -33,11 +33,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon Layoffs Continue: How to Play AMZN Stock Now in September 2026 - Barchart.com",
-          "title_cn": "Amazon Layoffs Continue: How to Play AMZN Stock Now in September 2026 - Barchart.com",
+          "title": "Amazon Layoffs Continue: How to Play AMZN Stock Now in September 2026 - barchart.com",
+          "title_cn": "Amazon Layoffs Continue: How to Play AMZN Stock Now in September 2026 - barchart.com",
           "summary": "",
           "pubDate": "2026-09-07",
-          "provider": "Barchart.com",
+          "provider": "barchart.com",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNR0ZLdWh4ZWtzTjFDTVlsZ01iUFNpaVJrRnhQTFphWEJFT2FHUzdTUFV6UHEyU3F5aW4tUkY2UkwyaDBEdURFWDllaW9IZzVBZy1xYWVOcEViejhiSDVMamQ3YVYzaFJIaWxpNDRnQjR5SmhiNTkzTWhfTWdUTTBkeXl4TVBsWXB3SUg5dW9NTnJ4RFh1UndkWDBsS0hwUjJacmViX21BSUd1b3BSbE5vV1hR?oc=5",
           "direction": "negative",
           "impact_pct": -0.7,
@@ -59,16 +59,16 @@
           "source": "rule"
         },
         {
-          "title": "Qualcomm issues warrants to Amazon to acquire $4 billion worth of chipmaker's stock as part of AI infrastructure deal - CNBC",
-          "title_cn": "Qualcomm issues warrants to Amazon to acquire $4 billion worth of chipmaker's stock as part of AI infrastructure deal - CNBC",
+          "title": "Amazon Stock At 20x P/E: A Textbook GARP Opportunity (NASDAQ:AMZN) - Seeking Alpha",
+          "title_cn": "Amazon Stock At 20x P/E: A Textbook GARP Opportunity (NASDAQ:AMZN) - Seeking Alpha",
           "summary": "",
-          "pubDate": "2026-09-08",
-          "provider": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNRV8zb0t6akRzdWkxb3lvRmxFUExhc2F2Tk5EOFJURTdfTzF2M2JZSXR2LU9EQVJSVXNwSVJWLTVpa2xXQVU4VlZjU21RZ2M1QmlKekd3cDJrUnhqVjBzLS0zVVRNeUU5dE5SMXRHV1RSVTN4MlBCWFlkWFRNTUxadWxOQ3JpZUh1N3JsU9IBkgFBVV95cUxOLVJPVjlLVVlKN20yWm5XbnpkbmV3X1VtQzdFazhVTld2cFpWVW92OUZlYjd6LUlRQmhDekI4X3NqN3JXY09ZMjJrTkc3dXMwdXFoT0pLc1RGbEFtVXpuY0ZlMHV2V0hSSzFOTUl1YlZJSkFzcjIxWGoyRlRUZ1VDV0ZjX1lDRk84elk5UWduaS0wUQ?oc=5",
+          "pubDate": "2026-09-05",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeFowWHBWcGZSbXhYMGFvSlpUdFVMbC03WTZNdHRvN2t4ZUhJRjl3TUJ3Ui1NLXBDU05sXzJpcEtSYVJkdjNuOVA2cXNaQm1VOTFLSzFPaUVTNFBub3dIaEVDZ0R3eUszRWdzNjhvSmQzbjZhb2VORHVFajVRb0Z5aDQ1TW1mS21VU1d1Y083dUplcF9L?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
-          "type": "行业",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "Prediction: Sept. 10 Will Be a Big Day for Nvidia Shareholders. Here’s What to Watch. - finance.yahoo.com",
-          "title_cn": "Prediction: Sept. 10 Will Be a Big Day for Nvidia Shareholders. Here’s What to Watch. - finance.yahoo.com",
+          "title": "Prediction: Sept. 10 Will Be a Big Day for Nvidia Shareholders. Here’s What to Watch. - Yahoo Finance",
+          "title_cn": "Prediction: Sept. 10 Will Be a Big Day for Nvidia Shareholders. Here’s What to Watch. - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPTFBrMVZXRmhNcmpkTlRaS0V2U2JuYWxpckNVZ0xyLWhXWHc3SFU1UV9OMDhPcjhMZjBTX3B5RTdhall1RERzcVFQV1Jnd2JoN0RmUlBwZ3RCN0pGdHJZNnFhQjVENS1uRGJEME9GeWJURmdwLUpEYkFnVC13RDRlTExtbGlWX2xLdmJTdFo4UC1iQ2N0dlE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -161,11 +161,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - quiverquant.com",
-          "title_cn": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - quiverquant.com",
+          "title": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - Quiver Quantitative",
+          "title_cn": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - Quiver Quantitative",
           "summary": "",
           "pubDate": "2026-09-09",
-          "provider": "quiverquant.com",
+          "provider": "Quiver Quantitative",
           "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOU2FwZHd3U2NhR3habGY3dmxzb1ktZkJjbTVNZjBDazBHT3poemo2cUNKY1g1VEFMRm53U2xBR3JYMjQ1cS1mMnYzRHNCcnlxQTRZa2Iwemcxc0RrQnM3S0ppbGxzUlptZnExeFhqMGRmUFJoUURJaXlaMV9TZTNVbmE3blBELTlkM19SV2VRclRlR2JwbV9wbk9IckhoOVJ6QnhiZk10UUVFbDlRWm9tMFQyakI0MnRDQk42VUlxWGxCQQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
@@ -263,11 +263,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "PDD (NASDAQ:PDD) Downgraded by Arete Research to Hold - marketbeat.com",
-          "title_cn": "PDD (NASDAQ:PDD) Downgraded by Arete Research to Hold - marketbeat.com",
+          "title": "PDD (NASDAQ:PDD) Downgraded by Arete Research to Hold - MarketBeat",
+          "title_cn": "PDD (NASDAQ:PDD) Downgraded by Arete Research to Hold - MarketBeat",
           "summary": "",
           "pubDate": "2026-09-09",
-          "provider": "marketbeat.com",
+          "provider": "MarketBeat",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPQWhVY1NOcmhNQXJvX0FPdEozdGt1aWpnMnRMVnFTLWhVd0wxbXFuOTlNQUZBYVlyU215NFEwelVTcjFnSV9pUXRQTWxpOXN5czdwTlM0TkxVU1BFdFBPM3Vhams5ZzlFRGZxZm5qTnZKRkh0ZWpUNFRDNk9ubm1kTkxOS1ExVDg5Q1ZTWGJna25nelQxSVM2eHpNYlE3QnpFX2p1dWxfUHR1bmV5NDBBQWlPNA?oc=5",
           "direction": "negative",
           "impact_pct": -1.3,
@@ -276,11 +276,11 @@
           "source": "rule"
         },
         {
-          "title": "PDD slips 3.4% as investors keep focusing on softer growth and margin pressure - quiverquant.com",
-          "title_cn": "PDD slips 3.4% as investors keep focusing on softer growth and margin pressure - quiverquant.com",
+          "title": "PDD slips 3.4% as investors keep focusing on softer growth and margin pressure - Quiver Quantitative",
+          "title_cn": "PDD slips 3.4% as investors keep focusing on softer growth and margin pressure - Quiver Quantitative",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "quiverquant.com",
+          "provider": "Quiver Quantitative",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQlZvaTdmT3ptSTd0Q0NxWS1IWTVPcVBGenRMMHJUcVNzbWhER3BmYTlYVUZMV0hKOE9nWnc1SnhHUFdzQVo3QXRyVHdpZ1E4THZ2Q0JVc1BVc0dCcVh6V2VaenczYWxmWUx6UkRpRUJ3cXdBWDJEUWNXOFFPd0xZYy1kal9CWXpMUWcxa1NMVjd1cjM4ZGppTjg3bFhnTDFvcTk0ZDRSLVVkS1htdkpFbmE4cw?oc=5",
           "direction": "positive",
           "impact_pct": 0.6,
@@ -289,11 +289,11 @@
           "source": "rule"
         },
         {
-          "title": "PDD Holdings Stock (PDD) Opinions on Recent Earnings Performance - quiverquant.com",
-          "title_cn": "PDD Holdings Stock (PDD) Opinions on Recent Earnings Performance - quiverquant.com",
+          "title": "PDD Holdings Stock (PDD) Opinions on Recent Earnings Performance - Quiver Quantitative",
+          "title_cn": "PDD Holdings Stock (PDD) Opinions on Recent Earnings Performance - Quiver Quantitative",
           "summary": "",
           "pubDate": "2026-09-09",
-          "provider": "quiverquant.com",
+          "provider": "Quiver Quantitative",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWjk0VlhIbWNQODNTdmpJcWxpSWF4b1JWX2UyUW9lc0FkOHA4UkZJcVVyV3FwX21BRS1yZ1FGVUF6c3NFYUV1NHFVNzd3cTdhZGRQWGs2MWY1ZUJqR1lMRGhtdTBQaDRXU0Q5YUViSERuS05tNVFLN2NIeWJhQXFDdUkyU2lWN1VhZWhUT2xfQV94V3lHZzRCLU42SHdtTGNtdE5N?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -302,11 +302,11 @@
           "source": "rule"
         },
         {
-          "title": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - finance.yahoo.com",
-          "title_cn": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - finance.yahoo.com",
+          "title": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - Yahoo Finance",
+          "title_cn": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOa09za1BpdGNZQlI2VlRUYTFKU1ZybE9fMldpUUVmV3pLR3pKTnpMa1M1bENQYTRobXB3RkVNLTlSZ1ViTFByNlFib1JhTTFhNTlUbTNTRUFwRUI4VWdaYkt4WEVfbjlrZmVyNU9hamNEaklwbWVGWk1yY0FmSjBqQXdnU0NLRHdWNElvTjNmUFhWV1RoSEt4OQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -439,7 +439,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-09 16:57:25",
+  "generated_at": "2026-09-09 17:08:12",
   "macro_summary": "",
-  "cached_at": "2026-09-09T17:00:07.577176"
+  "cached_at": "2026-09-09T17:10:52.057839"
 }
