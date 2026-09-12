@@ -20,14 +20,27 @@
           "source": "rule"
         },
         {
-          "title": "Prediction: Nvidia Will Overtake Apple in Stock Buybacks and Dividends Under New Apple CEO John Ternus - finance.yahoo.com",
-          "title_cn": "Prediction: Nvidia Will Overtake Apple in Stock Buybacks and Dividends Under New Apple CEO John Ternus - finance.yahoo.com",
+          "title": "Prediction: Nvidia Will Overtake Apple in Stock Buybacks and Dividends Under New Apple CEO John Ternus - Yahoo Finance",
+          "title_cn": "Prediction: Nvidia Will Overtake Apple in Stock Buybacks and Dividends Under New Apple CEO John Ternus - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-12",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQMk1pZ2hkOHdWcU1OZTN3cV9LRURGeFZDT1JTelEybjlWZWpLT2NQWVR3VThES3VzeEhjNTNrXzlyYWk1S2NCY3RTdUZ4MDJYdU9XODkzbFl6TnlISFhVV3k3eUQ4Rmp6MG5MUXViM2NwWUJkeUtlWWM3bmRpOU1LQlcxTjJFNlJaSVZPY3RrWVVPMi11dU1maC1TdkRJWU5jTEhtQ29B?oc=5",
           "direction": "positive",
-          "impact_pct": 1.6,
+          "impact_pct": 2.7,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia Stock Could Reach $490 by End of 2027 Based on Current Growth Projections - Yahoo Finance",
+          "title_cn": "Nvidia Stock Could Reach $490 by End of 2027 Based on Current Growth Projections - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-12",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTUFlTmxpeXY4cDVrYzFCRXYwcE5rVFY5cjMtbXdTU2RmMzZIQVFGcm5aTEdFRmwxLW9wQlFVQU9kcGFDYUhJYUhxakt5RHBndjJ1cFR1a3Y2eXgxUnhvUXpxMFo4SEZhbF9TdVVDYk5hMG5fcHU4dEp2YVIwdTRUZko5cUtUVXJkSGlCbzRWVGhxUVd6ZzNCTA?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.4,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -41,19 +54,6 @@
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQbVJ6OU5sREVFcFp4U3dDb1JKY3Z1Mmduamx1cjRRYS02enNXQ0RrYUxHSXdqSVBrSF9mbHFMcUQyT0tqSUlLZHNOQkp4RUV4U2FVYkFaR2tRbnI1UU9YSk5DbFNzRXJUMkRzSU0wS0VjOEltTWhYUlVPdXkyQUFqZXZjWWlQaGhmU3k3UGJEQlZORHlqcjFvMg?oc=5",
           "direction": "positive",
           "impact_pct": 1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Nvidia Stock Could Reach $490 by End of 2027 Based on Current Growth Projections - finance.yahoo.com",
-          "title_cn": "Nvidia Stock Could Reach $490 by End of 2027 Based on Current Growth Projections - finance.yahoo.com",
-          "summary": "",
-          "pubDate": "2026-09-12",
-          "provider": "finance.yahoo.com",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTUFlTmxpeXY4cDVrYzFCRXYwcE5rVFY5cjMtbXdTU2RmMzZIQVFGcm5aTEdFRmwxLW9wQlFVQU9kcGFDYUhJYUhxakt5RHBndjJ1cFR1a3Y2eXgxUnhvUXpxMFo4SEZhbF9TdVVDYk5hMG5fcHU4dEp2YVIwdTRUZko5cUtUVXJkSGlCbzRWVGhxUVd6ZzNCTA?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -84,14 +84,14 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "UnitedHealth Group (UNH) Stock Drops Despite Market Gains: Important Facts to Note - finance.yahoo.com",
-          "title_cn": "UnitedHealth Group (UNH) Stock Drops Despite Market Gains: Important Facts to Note - finance.yahoo.com",
+          "title": "UnitedHealth Group (UNH) Stock Drops Despite Market Gains: Important Facts to Note - Yahoo Finance",
+          "title_cn": "UnitedHealth Group (UNH) Stock Drops Despite Market Gains: Important Facts to Note - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-11",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaER0eV90dGhOR2pfdmFPRHByZFlSenVRWHdaWUExX1FLX3VFS09XOWdhdVU5ZGpTOXJiRDNSc3doRTFLR3dxZWR6aHlfNFFiUWYxT1dOa0N5WEp4TkVsZEREVW9HWGFQMTF1TWZBU1ljSTBCTklJVkRqRkxrcl9WMVcyX1hHQTJBaF9FbkVLYkdHa3V1cGFhM1BnU0drTFB5?oc=5",
           "direction": "negative",
-          "impact_pct": -0.6,
+          "impact_pct": -1.1,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -212,11 +212,11 @@
           "source": "rule"
         },
         {
-          "title": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - finance.yahoo.com",
-          "title_cn": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - finance.yahoo.com",
+          "title": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - Yahoo Finance",
+          "title_cn": "Here is What to Know Beyond Why PDD Holdings Inc. Sponsored ADR (PDD) is a Trending Stock - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOa09za1BpdGNZQlI2VlRUYTFKU1ZybE9fMldpUUVmV3pLR3pKTnpMa1M1bENQYTRobXB3RkVNLTlSZ1ViTFByNlFib1JhTTFhNTlUbTNTRUFwRUI4VWdaYkt4WEVfbjlrZmVyNU9hamNEaklwbWVGWk1yY0FmSjBqQXdnU0NLRHdWNElvTjNmUFhWV1RoSEt4OQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -272,11 +272,11 @@
       "source": "rule"
     },
     {
-      "title": "August jobs report shows hope — and warning signs — for Black workers - amsterdamnews.com",
-      "title_cn": "August jobs report shows hope — and warning signs — for Black workers - amsterdamnews.com",
+      "title": "August jobs report shows hope — and warning signs — for Black workers - New York Amsterdam News",
+      "title_cn": "August jobs report shows hope — and warning signs — for Black workers - New York Amsterdam News",
       "summary": "",
       "pubDate": "2026-09-10",
-      "provider": "amsterdamnews.com",
+      "provider": "New York Amsterdam News",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQQzZIdlRlRmVMSVMyRGFUOTFkMjlhYU1fc1EtRmRBVnBxay1vdHB4MC1LTW1vNlVORXBraEpyMXJRWFN1TExkcklSSTRaTGFZbUNuQ1V0clNRUU50Ni14MjdWY0dGSlpXZUs1N3l2X0JQREF2am1OM0dMcG5SMzNsSTJoSDFMYWVESy1tZFVsMEQyaWRpem1mZV83V2VEYi16NUFaek1MU0pxaFhN?oc=5",
       "direction": "negative",
       "impact_pct": -0.6,
@@ -324,7 +324,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-12 16:12:48",
+  "generated_at": "2026-09-12 16:18:51",
   "macro_summary": "",
-  "cached_at": "2026-09-12T16:16:40.506669"
+  "cached_at": "2026-09-12T16:22:50.480386"
 }
