@@ -7,11 +7,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Chinese Nvidia rival Enflame soars 206% on stock market debut as AI demand stays hot - CNBC",
-          "title_cn": "Chinese Nvidia rival Enflame soars 206% on stock market debut as AI demand stays hot - CNBC",
+          "title": "Chinese Nvidia rival Enflame soars 206% on stock market debut as AI demand stays hot - cnbc.com",
+          "title_cn": "Chinese Nvidia rival Enflame soars 206% on stock market debut as AI demand stays hot - cnbc.com",
           "summary": "",
           "pubDate": "2026-09-11",
-          "provider": "CNBC",
+          "provider": "cnbc.com",
           "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNb3NRZnFyUlUzaHZKaEZCV19MVjJ6U0tHRnh3eXc1NzBTRWk0U3VYOEZrSlJLaWdxdWRaaFh1MXVpbjRzb3lKNzBtY0NrQ3ZabmxKNXdWVHJaeW5Pb1ZHemIyTmtwQ2RxMTBWRXVfUjBxZjhoRzNWSjFtWDlPYUpTNFZRVlBEZF9YOWdXdEdzMETSAZYBQVVfeXFMT2gyeDQ0M2xEdTM5MFh5MHdoYUd6elJxSUxVYTdQaGtpdkgxelRnRUpCYTczQzN3dDRHc0kzaHBDdnNJTGdCOXk4eXlhOWdBbHgzVjFfRF9Nc19pblI3MnZmOVBqUmRIMlNET3R1SGUwaUl2Y3hnVi1RdmcxLU1GbUNzdDdJeF9fdXZVcnBkTkJpazB0XzlB?oc=5",
           "direction": "positive",
           "impact_pct": 2.9,
@@ -59,11 +59,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia supplier Wistron's shares drop after it announces $1.5 billion global stock sale - CNBC",
-          "title_cn": "Nvidia supplier Wistron's shares drop after it announces $1.5 billion global stock sale - CNBC",
+          "title": "Nvidia supplier Wistron's shares drop after it announces $1.5 billion global stock sale - cnbc.com",
+          "title_cn": "Nvidia supplier Wistron's shares drop after it announces $1.5 billion global stock sale - cnbc.com",
           "summary": "",
           "pubDate": "2026-09-08",
-          "provider": "CNBC",
+          "provider": "cnbc.com",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFA3cUkxRTNkckFPV0E1alVORURUem9QV3RSYWxaV1RScXY5X200LWRWVU02WVdjUHlrTElOd1loNlYwcmFJdTRUWGUwX01GdUcydjJySHlxVGVJWFEycjlHQW1RQm93czVPdEdvMTB3eVcwX1Uwb0N4R2NoZ9IBgAFBVV95cUxQSlprSjA1bjhJMlUtdzVaX2NKc05GSlhfRHBaVVdzSll4QzM4bGtrRGt0T3gyMnVxLWRQSHJSVWlDcno5UlhJaTVtczloMVFLRm1WdEZUc3kwQTZQMEhQeWRDZzNtNG13bi1GLUV5bnhXT3FVME9oa3lzOG5aTlo2Mg?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
@@ -92,6 +92,19 @@
           "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaER0eV90dGhOR2pfdmFPRHByZFlSenVRWHdaWUExX1FLX3VFS09XOWdhdVU5ZGpTOXJiRDNSc3doRTFLR3dxZWR6aHlfNFFiUWYxT1dOa0N5WEp4TkVsZEREVW9HWGFQMTF1TWZBU1ljSTBCTklJVkRqRkxrcl9WMVcyX1hHQTJBaF9FbkVLYkdHa3V1cGFhM1BnU0drTFB5?oc=5",
           "direction": "negative",
           "impact_pct": -1.1,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
+          "title_cn": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-09-09",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMXVtYmFPeUQ2cWkta1JBbzJnNGtGZ2ZRSFU0VTRwaUVuZ0NVblJHdGcyblQ2Um9GUzlYQW54UUhyQW1YQ2RISTBaQU91U1NVbVE0RHJfOVpFQlAtN2VSc3otbG5fOEJFX3RSTmNaNDFCUWJxVXpUZHZ1MVpZLUJIUzB5YUN5aWRscjI4OVB3dU1OaGNXTktnOFB5YzdzaWF6S2N4RlF0UzlSd3A1eW5TekI0R05JdjdQRGswMU80b0FDb3c?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -134,24 +147,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "Unitedhealth Group Inc Stock (UNH) Opened Down by 3.79% on Sep 9: Facts Behind the Movement - TradingKey",
-          "title_cn": "Unitedhealth Group Inc Stock (UNH) Opened Down by 3.79% on Sep 9: Facts Behind the Movement - TradingKey",
-          "summary": "",
-          "pubDate": "2026-09-09",
-          "provider": "TradingKey",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTy1TTGVidEFnbVNYN01weXRzZjI3YVlBVWJfNHdrZDdLcWExSElISXU1ZXZ4WEFYbmtDWVpZcTNoQnMxa18zbDRoSW9LYWVHN2xSRURiQm5sYnkwTUFpR28xNm91OHdObEZicEFnLTRLNW0zcU8tYVRvVnllX1JHUXgydTJKV3JGT2c?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "2026-10-27"
     },
     {
@@ -324,7 +324,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-12 16:29:56",
+  "generated_at": "2026-09-12 17:18:47",
   "macro_summary": "",
-  "cached_at": "2026-09-12T16:33:45.646932"
+  "cached_at": "2026-09-12T17:22:47.635136"
 }
