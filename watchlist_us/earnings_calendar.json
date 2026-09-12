@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11",
+  "updated": "2026-09-12",
   "events": [
     {
       "date": "2026-01-27",
@@ -447,7 +447,7 @@
       "symbol": "ECON",
       "name": "CPI通胀数据",
       "period": "经济数据",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "8月数据"
     },
