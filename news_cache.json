@@ -20,14 +20,14 @@
           "source": "rule"
         },
         {
-          "title": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - Yahoo Finance UK",
-          "title_cn": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - Yahoo Finance UK",
+          "title": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - uk.finance.yahoo.com",
+          "title_cn": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - uk.finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-13",
-          "provider": "Yahoo Finance UK",
+          "provider": "uk.finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBMVU5ralBGMU9vRnRLZ1NFS2JfVEs2R1hsMUJRdlBCVmdOYS1fZFNLa19RcVZidUg1Tms1b01WdHdLejg2WUk0bVB5NUVVVVE2Y0VoUFY1WUo1bko4RVBoSGhEY0lvODhzcEhQSVRIeWpNNUtoQUN6WXdMRQ?oc=5",
           "direction": "negative",
-          "impact_pct": -1.4,
+          "impact_pct": -0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -247,11 +247,11 @@
       "source": "rule"
     },
     {
-      "title": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - WSJ",
-      "title_cn": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - WSJ",
+      "title": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - wsj.com",
+      "title_cn": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - wsj.com",
       "summary": "",
       "pubDate": "2026-09-11",
-      "provider": "WSJ",
+      "provider": "wsj.com",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT2FWUnZ2OXJzNkR6VEpTYXhoMDZ2Mm1VYkZ3N1NCT051SHk2S1FxbnNIcGtBam1pNGN5M2lCazQwMFV5UHBNQUVERTVyTHd5VmFHaXBmRWdRVG9IY0gzWWNkT1Q5cXl3VUw2eVFkeVc2ZVA2R1JTcnA0NE5BU1BjUWI2dTVTMXQ0cURjTGw0N0t3cERhdnNfMHlvbW80MGZ5aVhRRWFZX3Fadw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -273,12 +273,12 @@
       "source": "rule"
     },
     {
-      "title": "Trump Urges Federal Reserve To Cut Rates As Market Bets On Warsh Hike - Investor's Business Daily",
-      "title_cn": "Trump Urges Federal Reserve To Cut Rates As Market Bets On Warsh Hike - Investor's Business Daily",
+      "title": "Economists think a rate hike is coming. Here’s what that could mean for the economy - Northeastern Global News",
+      "title_cn": "Economists think a rate hike is coming. Here’s what that could mean for the economy - Northeastern Global News",
       "summary": "",
-      "pubDate": "2026-09-13",
-      "provider": "Investor's Business Daily",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPaEVOMUNfTUZvb2hraDdJWDJDMTVJM21kSjJVV2lOdll4R09DQWZtcVZCZmIySE9QMW11dU1NMlUzazdRYmQzcUhTLURxcDhYeXQwbldmeGMyNGlpREJlMTQ2SXl0bEc1YWFUUzdWdnlkZTNYUjZLSnBwUkp6QXlTd18yVGlZYnJSTnktN0JpSU82amFfRk1uWXhwMA?oc=5",
+      "pubDate": "2026-09-11",
+      "provider": "Northeastern Global News",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBwQ3BHUFg3c0VXdWFNSGFpR3JSaFBodUZxMmJHUzJZMTlhVldTMVZqbWEzSGFvckhhVGVJbWtlOVpPcHNxNW5GaWdWV0NYN09zVTBLMVJkdVcwUG1HdGkyOWZsZmx3akoyaEFxakIyQ25jY1pONldYanpwTQ?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -299,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-13 16:45:53",
+  "generated_at": "2026-09-13 16:57:01",
   "macro_summary": "",
-  "cached_at": "2026-09-13T16:50:36.332416"
+  "cached_at": "2026-09-13T17:01:45.600298"
 }
