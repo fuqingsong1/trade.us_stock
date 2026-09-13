@@ -20,14 +20,14 @@
           "source": "rule"
         },
         {
-          "title": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - uk.finance.yahoo.com",
-          "title_cn": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - uk.finance.yahoo.com",
+          "title": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - Yahoo Finance UK",
+          "title_cn": "The P/E ratio on Nvidia stock has fallen to 14. Time to consider buying? - Yahoo Finance UK",
           "summary": "",
           "pubDate": "2026-09-13",
-          "provider": "uk.finance.yahoo.com",
+          "provider": "Yahoo Finance UK",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBMVU5ralBGMU9vRnRLZ1NFS2JfVEs2R1hsMUJRdlBCVmdOYS1fZFNLa19RcVZidUg1Tms1b01WdHdLejg2WUk0bVB5NUVVVVE2Y0VoUFY1WUo1bko4RVBoSGhEY0lvODhzcEhQSVRIeWpNNUtoQUN6WXdMRQ?oc=5",
           "direction": "negative",
-          "impact_pct": -0.8,
+          "impact_pct": -1.4,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -247,12 +247,12 @@
       "source": "rule"
     },
     {
-      "title": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - wsj.com",
-      "title_cn": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - wsj.com",
+      "title": "Experts Predict No Fed Rate Cut Next Week: What It Means - Newsweek",
+      "title_cn": "Experts Predict No Fed Rate Cut Next Week: What It Means - Newsweek",
       "summary": "",
       "pubDate": "2026-09-11",
-      "provider": "wsj.com",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT2FWUnZ2OXJzNkR6VEpTYXhoMDZ2Mm1VYkZ3N1NCT051SHk2S1FxbnNIcGtBam1pNGN5M2lCazQwMFV5UHBNQUVERTVyTHd5VmFHaXBmRWdRVG9IY0gzWWNkT1Q5cXl3VUw2eVFkeVc2ZVA2R1JTcnA0NE5BU1BjUWI2dTVTMXQ0cURjTGw0N0t3cERhdnNfMHlvbW80MGZ5aVhRRWFZX3Fadw?oc=5",
+      "provider": "Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT2gxejhKMWQ2Z0xyRmJyNUxieFRZUmtQZXcyazh5REJjRExVN1VINFZmZVhiZkxXRVp4TmoxWWlWQWRrVktrcDM1TmtRRkltcDZPM1pNOXFFcGlnaEpKenpyM0IyNXVMT3dVMU90ZnU3bnZ1WTduMDJxcy11OExIZWNiVGh0aU0?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -260,12 +260,12 @@
       "source": "rule"
     },
     {
-      "title": "Experts Predict No Fed Rate Cut Next Week: What It Means - Newsweek",
-      "title_cn": "Experts Predict No Fed Rate Cut Next Week: What It Means - Newsweek",
+      "title": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - WSJ",
+      "title_cn": "Week Ahead for FX, Bonds: All Eyes on Fed Rate Decision - WSJ",
       "summary": "",
       "pubDate": "2026-09-11",
-      "provider": "Newsweek",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOT2gxejhKMWQ2Z0xyRmJyNUxieFRZUmtQZXcyazh5REJjRExVN1VINFZmZVhiZkxXRVp4TmoxWWlWQWRrVktrcDM1TmtRRkltcDZPM1pNOXFFcGlnaEpKenpyM0IyNXVMT3dVMU90ZnU3bnZ1WTduMDJxcy11OExIZWNiVGh0aU0?oc=5",
+      "provider": "WSJ",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOT2FWUnZ2OXJzNkR6VEpTYXhoMDZ2Mm1VYkZ3N1NCT051SHk2S1FxbnNIcGtBam1pNGN5M2lCazQwMFV5UHBNQUVERTVyTHd5VmFHaXBmRWdRVG9IY0gzWWNkT1Q5cXl3VUw2eVFkeVc2ZVA2R1JTcnA0NE5BU1BjUWI2dTVTMXQ0cURjTGw0N0t3cERhdnNfMHlvbW80MGZ5aVhRRWFZX3Fadw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -299,7 +299,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-13 16:57:01",
+  "generated_at": "2026-09-13 17:09:22",
   "macro_summary": "",
-  "cached_at": "2026-09-13T17:01:45.600298"
+  "cached_at": "2026-09-13T17:14:02.921615"
 }
