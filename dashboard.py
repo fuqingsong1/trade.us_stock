@@ -2119,6 +2119,11 @@ function recalc(d, dv, wv, fx){
   if (px == null || !close.length) return;
   const k = (fx && fx > 0) ? fx : 1;
   const pxd = px / k;
+  // 数据不足(如腾讯对历史K线只给首尾2根)时: 只更新当前价, 区间/布林等保留后端原值, 避免指标错乱
+  if (close.length < 10) {
+    d.px = pxd;
+    return;
+  }
   const al = Math.min.apply(null, low.slice(-10)), ah = Math.max.apply(null, high.slice(-10));
   const alow = al, ahigh = ah;
   const pct = (ahigh > alow) ? Math.max(0, Math.min(1,(pxd - alow)/(ahigh - alow))) : 0.5;
@@ -2136,9 +2141,42 @@ function recalc(d, dv, wv, fx){
   Object.assign(d, { px: pxd, alow, ahigh, pct, boll_pct, boll_pct_w, p_buy2, p_buy3, p_sell1, p_sell2, vol, ratio, loss_rate, eligible, zone: zone[0], zone_class: zone[1] });
 }
 
+// ---- 行情数据源: 刷新只更新当前价(区间/布林变化小, 保留后端原值) ----
+// 腾讯批量行情 qt.gtimg.cn (国内CDN不限流+CORS全开), 失败个股回退 Yahoo chart 只取最新价
+const TXQ = 'https://qt.gtimg.cn/q=';
+function txQuoteCode(sym){
+  const hm = sym.match(/^(\d{5})\.HK$/);     if (hm) return 'hk' + hm[1];
+  const am = sym.match(/^(\d{6})\.(SZ|SS)$/); if (am) return (am[2]==='SZ'?'sz':'sh') + am[1];
+  if (/^[A-Z][A-Z0-9-]{0,9}$/.test(sym) && !sym.includes('.')) return 'us' + sym;  // 美股
+  return null;  // 韩/日/商品/指数等走 Yahoo
+}
+// 批量拿当前价: 入参 array of {sym, q}, 更新 prices[sym]=real_price_usd
+async function txBatchQuotes(list){
+  const got = {};
+  const items = list.filter(x => x.q);
+  if (!items.length) return got;
+  const u = TXQ + items.map(x => x.q).join(',');
+  let txt = '';
+  try {
+    const r = await fetch(u, { headers: { 'Accept': 'text/plain,*/*' } });
+    if (r.ok) txt = await r.text();
+  } catch(e) {}
+  if (!txt) return got;
+  const lines = txt.trim().split('\n');
+  for (const line of lines) {
+    const m = line.match(/v_([^=]+)="([^"]+)"/);
+    if (!m) continue;
+    const q = m[1], parts = m[2].split('~');
+    const px = Number(parts[3]);
+    const item = items.find(x => x.q === q);
+    if (item && px > 0) got[item.sym] = px;
+  }
+  return got;
+}
 const YAHOO = 'https://query1.finance.yahoo.com/v8/finance/chart/';
 async function getYChart(sym, interval, range){
-  const u = YAHOO + encodeURIComponent(sym) + '?interval=' + interval + '&range=' + range + '&includePrePost=false';
+  const rng = range || (interval === '1wk' ? '5y' : '2y');
+  const u = YAHOO + encodeURIComponent(sym) + '?interval=' + interval + '&range=' + rng + '&includePrePost=false';
   const r = await fetch(u, { headers: { 'Accept': 'application/json' } });
   if (!r.ok) throw new Error('http' + r.status);
   return r.json();
@@ -2183,35 +2221,17 @@ function commodityRow(c){
 }
 function renderCommod(){ const el = document.getElementById('commod-tbody'); if (el) el.innerHTML = commodities.map(commodityRow).join(''); }
 async function refreshCommodities(){
+  // 大宗商品: 只刷新当前价(Yahoo chart 取最新收盘), 区间/布林保留后端原值
   await mapPool(commodities, 4, async (c) => {
     try {
       const d = await getYChart(c.sym, '1d', '6mo');
       if (d && d.chart && d.chart.result && d.chart.result[0]) {
         const q = d.chart.result[0].indicators.quote[0], cl = q.close.filter(v=>v!=null);
-        const hi = q.high ? q.high.filter(v=>v!=null) : [], lo = q.low ? q.low.filter(v=>v!=null) : [];
         const meta = d.chart.result[0].meta || {};
         const px = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : (cl[cl.length-1] || 0);
-        c.px = px; c.boll_d = bollPB(cl, px);
-        const al = lo.length ? Math.min.apply(null, lo.slice(-10)) : 0, ah = hi.length ? Math.max.apply(null, hi.slice(-10)) : 0;
-        c.alow = al; c.ahigh = ah;
-        const pct = (ah > al) ? Math.max(0, Math.min(1,(px - al)/(ah - al))) : 0.5; c.pct = pct;
-        const vol = (ah > al) ? (ah - al)/((ah + al)/2) : 0; c.vol = vol;
-        const bps = (vol > 0.075) ? [0.27,0.19,0.11,0.75,0.82] : [0.32,0.24,0.16,0.70,0.78];
-        c.bp1=bps[0]; c.bp2=bps[1]; c.bp3=bps[2]; c.sp1=bps[3]; c.sp2=bps[4];
-        const w = ah - al; const pe = PLACE_LIVE;
-        c.p_buy2 = al + w*bps[1]; c.p_buy3 = al + w*bps[2]; c.p_sell1 = al + w*bps[3]; c.p_sell2 = al + w*bps[4];
-        let z = ['上半区','zone-upper'];
-        if (pct <= bps[2]+pe) z=['BUY3区','zone-buy3'];
-        else if (pct <= bps[1]+pe) z=['BUY2区','zone-buy2'];
-        else if (pct <= bps[0]+pe) z=['BUY1区','zone-buy1'];
-        else if (pct >= bps[4]-pe) z=['SELL2区','zone-sell2'];
-        else if (pct >= bps[3]-pe) z=['SELL1区','zone-sell1'];
-        else z=(pct<0.50)?['下半区','zone-lower']:['上半区','zone-upper'];
-        c.zone=z[0]; c.zone_class=z[1];
+        if (px > 0) c.px = px;
       }
     } catch(e) {}
-    try { const wv = await getYChart(c.sym, '1wk', '2y'); if (wv && wv.chart && wv.chart.result && wv.chart.result[0]) { const wc = wv.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_w = bollPB(wc, c.px); } } catch(e) {}
-    try { const mv = await getYChart(c.sym, '1mo', '5y'); if (mv && mv.chart && mv.chart.result && mv.chart.result[0]) { const mc = mv.chart.result[0].indicators.quote[0].close.filter(v=>v!=null); c.boll_m = bollPB(mc, c.px); } } catch(e) {}
   });
   renderCommod();
 }
@@ -2219,28 +2239,45 @@ async function refreshCommodities(){
 async function refreshLive(){
   const btn = document.querySelector('.header .refresh');
   const orig = btn.innerHTML;
-  btn.disabled = true; btn.innerHTML = '刷新中…(约15-40秒)';
+  btn.disabled = true; btn.innerHTML = '刷新中…(约5-15秒)';
   const syms = [];
   for (const d of [...data, ...hkData]) if (!d.error && !d.is_index) syms.push(d.sym);
-  const fxCache = {};
-  async function fxOf(sym){
-    const token = sym.endsWith('.KS') ? 'KRW=X' : sym.endsWith('.T') ? 'JPY=X' : null;
-    if (!token) return 1;
-    if (!(token in fxCache)) { try { const j = await getYChart(token, '1d', '5d'); fxCache[token] = (j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta) ? j.chart.result[0].meta.regularMarketPrice : null; } catch(e) { fxCache[token] = null; } }
-    return fxCache[token] || 1;
-  }
   const getD = (sym) => data.find(x=>x.sym===sym) || hkData.find(x=>x.sym===sym);
-  await mapPool(syms, 6, async (sym) => {
+  // 1) 腾讯批量行情: 覆盖美股/港股/A股, 单次请求, 只更新当前价(区间/布林保留后端原值)
+  const quoteList = syms.map(sym => ({ sym, q: txQuoteCode(sym) })).filter(x => x.q);
+  const prices = await txBatchQuotes(quoteList);
+  let okCnt = Object.keys(prices).length, failCnt = syms.length - okCnt;
+  for (const sym of Object.keys(prices)) {
+    const d = getD(sym);
+    if (d) d.px = prices[sym];
+  }
+  // 2) 未覆盖(韩日/商品/指数): 走 Yahoo chart 取最新价, 只更新 px (韩日股按汇率换算为美元)
+  const fxCache = {};
+  const rest = syms.filter(s => !(s in prices));
+  await mapPool(rest, 4, async (sym) => {
     const d = getD(sym); if (!d) return;
-    let dv = null, wv = null;
-    try { dv = await getYChart(sym, '1d', '6mo'); } catch(e) {}
-    try { wv = await getYChart(sym, '1wk', '2y'); } catch(e) {}
-    recalc(d, dv, wv, await fxOf(sym));
+    try {
+      const fxTok = sym.endsWith('.KS') ? 'KRW=X' : sym.endsWith('.T') ? 'JPY=X' : null;
+      async function fxOf2(){
+        if (!fxTok) return 1;
+        if (!(fxTok in fxCache)) { try { const j = await getYChart(fxTok, '1d', '5d'); fxCache[fxTok] = (j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta) ? j.chart.result[0].meta.regularMarketPrice : null; } catch(e) { fxCache[fxTok] = null; } }
+        return fxCache[fxTok] || 1;
+      }
+      const dv = await getYChart(sym, '1d', '5d');
+      if (dv && dv.chart && dv.chart.result && dv.chart.result[0]) {
+        const q = dv.chart.result[0].indicators.quote[0], cl = (q.close||[]).filter(v=>v!=null);
+        const meta = dv.chart.result[0].meta || {};
+        const pxn = (meta.regularMarketPrice != null) ? meta.regularMarketPrice : (cl[cl.length-1] || 0);
+        const fxr = await fxOf2();
+        if (pxn > 0) { d.px = pxn / fxr; okCnt++; } else failCnt++;
+      } else failCnt++;
+    } catch(e) { failCnt++; }
   });
   await refreshCommodities();
   renderSummaries(); renderTables(); renderCommod();
   btn.disabled = false; btn.innerHTML = orig;
-  btn.innerHTML = '已刷新 ' + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'});
+  const msg = (failCnt === 0) ? `已刷新(全部${okCnt}只) ` : `已刷${okCnt}只, ${failCnt}只失败(数据源限流/网络)` ;
+  btn.innerHTML = msg + new Date().toLocaleTimeString('zh-CN', {hour:'2-digit', minute:'2-digit'});
 }
 
 // 初始渲染
