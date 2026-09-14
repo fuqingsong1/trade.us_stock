@@ -33,11 +33,11 @@
           "source": "rule"
         },
         {
-          "title": "ASML stock dropped for a month but a top analys... - pluang.com",
-          "title_cn": "ASML stock dropped for a month but a top analys... - pluang.com",
+          "title": "ASML stock dropped for a month but a top analys... - Pluang",
+          "title_cn": "ASML stock dropped for a month but a top analys... - Pluang",
           "summary": "",
           "pubDate": "2026-09-14",
-          "provider": "pluang.com",
+          "provider": "Pluang",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxORUNIa0s3VlVMU01JQVg1TEN0ZHpBVkU0NTQ2NUs5Z0NHd0xOb1p5UDdjSmJIRVY4aUJZZUFYcG5EdUd6R2dmZ2R3cHk5YVJBb1dJNmZjSFk5NkJ3bVdrVEpFaW1wSmcwal8tTW1KOHlkbnpaamszRnZ2U1piRmNjUkpkeFZuZUlJc1d0UFZaMlNLWUVYejd4M0RqWDZ0a2s?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
@@ -161,6 +161,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Wall St falls as AI anxiety batters Nvidia, chipmakers - Reuters",
+          "title_cn": "Wall St falls as AI anxiety batters Nvidia, chipmakers - Reuters",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQYVB5TUc4VTc5MGdNMjVWcVYxUUszYjdXU3hrVnZXbVRCRm40Z3JBX3BhTElKaXVFQmU4SW82WWRwLVdxcGFTVVhPclllM25kSzR0MWdqUmU5YjQydl9MZDhLZ1MzQmF0b01UY3MxaWx0VkxOMjJUQzhmbHJPQjQzdXJMWkJ2OGs5R0ZQc2FjeVpEdjZkM2VqMC1aeGhXSm8?oc=5",
+          "direction": "negative",
+          "impact_pct": -2.0,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "Nvidia, chip stocks fall as AI CEOs call for slowdown - Yahoo Finance",
           "title_cn": "Nvidia, chip stocks fall as AI CEOs call for slowdown - Yahoo Finance",
           "summary": "",
@@ -206,19 +219,6 @@
           "pubDate": "2026-09-14",
           "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWVhZM0FqUkQ1dEpUQU5ZNzBkbHZuYWJpaWxIendUTDNDQjhNb20wVGEtampJcHNPYlhtRENrY002VXhrZ1VnV3BLVFdSa3dJOW9nZmxyRFBIbnUzd2NrelJteXpKbFFwcXpSa0llbk1mQXJGdVRDVDZUNUdPbmFCWnZCUkdJUE9ZaUpzaHNaa3A2X3d6LUpNQTFOb3c?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Why is NVIDIA stock sliding today? - Investing.com",
-          "title_cn": "Why is NVIDIA stock sliding today? - Investing.com",
-          "summary": "",
-          "pubDate": "2026-09-14",
-          "provider": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZ3RWRnhocHBpbHlUVTQwTU5pS2xDcTdtUktENDNlZ1I5WTNPaVZYZVYxSUluUU9zUFZQd1RzQy1VM2R6UkYya3dUUDNNS3U1bzg4SWRKZDJwcTVEQXh2UWszNW4xaWFHZkVYSkdzVFdnT2xyNGxUN3JzMVMzUXc5d0dEX3hHcV9mXy03ckhxVEZSaXEySm9SMW5fTQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -277,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "Why Is Broadcom Stock Falling Monday? - Benzinga",
-          "title_cn": "Why Is Broadcom Stock Falling Monday? - Benzinga",
+          "title": "Why Is Broadcom Stock Falling Monday? - benzinga.com",
+          "title_cn": "Why Is Broadcom Stock Falling Monday? - benzinga.com",
           "summary": "",
           "pubDate": "2026-09-14",
-          "provider": "Benzinga",
+          "provider": "benzinga.com",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOLVBZb0d3cm42Vm5IbDhua01UbGtsTUowNllpRDFIZGFRM2pLbjcwVEZ0NFJNWml5Sk5ES29vQ0hGUnNjSVdyeXBTSldsRUhwRTZkZFNIMGVRN09OWkdRZWN0WkxQc1ZnZ1J1YmpfWlowajcwamlabG40TGNzcXNha0VOa2h5eVVyRExERlNRemt4Y2M?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
@@ -354,19 +354,6 @@
           "source": "rule"
         },
         {
-          "title": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - Yahoo Finance",
-          "title_cn": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-09-14",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSUd3WHhQY0J4bVl2bzhlUlhSRHhiQnFoVEdwVnd5TFlQWkliYnpQVlhTU0lnbHFxb3YxUklXc0lBSzdwVm9HaE10a2k0ZzYwcVRPXzVldldaUHpqR0U4RFRaRTh2Z1lGNzRnczd6TXBjTUQxWEx1Wm8xNjM2eV9tR1liQnc0aldvcWw5NFI1MzJvRTlreC1TTQ?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.4,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "GE Vernova Sinks 9% as GLJ Research Starts at Sell With $470 Target; Eaton Drops 7%, Quanta Services Falls 4% - 24/7 Wall St.",
           "title_cn": "GE Vernova Sinks 9% as GLJ Research Starts at Sell With $470 Target; Eaton Drops 7%, Quanta Services Falls 4% - 24/7 Wall St.",
           "summary": "",
@@ -375,6 +362,19 @@
           "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPXzFGMHcwNkhQQkRHUDNjQW1Sd0xDZWZ1MGJsQ1gtVVB1cDBMb3Q5VmJJV0o0cGJHY1d3bzZjM3Y4N1RUbm5xcVhWaWI1MVpxYmY1NmJPRHE2bExhejBpc0ZNS0pwWG5UWHVGWUc1bEE2UUY0dm8xY0M1UjVacVRnQUczTVpXSmktdU5YQjhUanlyazZaakhPLXJqVlVLRTV6d1lhS3NlczBrZFFOMnVMbnYtVWVYaGt3UUg3UVJEcXF2N0ZtekNXV2xFeDdVWDNaV2RKLXNxZmtvblNNN2YwOA?oc=5",
           "direction": "negative",
           "impact_pct": -1.2,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - The Globe and Mail",
+          "title_cn": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - The Globe and Mail",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "The Globe and Mail",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQQUh4T0xHMlZ1XzA5dTUxeDZrVHY0Q0Rva05kemZoT2lXUkdSVEpya1pFcFVPQm9TOENGWlZwdGtCMl9URXkyVUd5RTZjTjhYZ1VEUFV5Si1UcFUzdlZ2SE9RSWdiVkxUS2JrdzBfRlZFcXhNdS1mSk9SSzRWU3FhbHJ0el80ZFh4ZmRxcUZ6dEYzX091aWloX2RMOHdQa19PTDVCQUtaZVhDcXdVNmNXMmdUQzNRaGt5R0JONjhYbnJrMGNLT0Fvd3c5SkFfNW1BQjdyZzVUOEZ5WkRqV0hlM3BVYw?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -734,7 +734,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-14 18:17:29",
+  "generated_at": "2026-09-14 18:32:38",
   "macro_summary": "",
-  "cached_at": "2026-09-14T18:21:47.951412"
+  "cached_at": "2026-09-14T18:36:54.909086"
 }
