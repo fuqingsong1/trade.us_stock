@@ -277,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "Why Is Broadcom Stock Falling Monday? - benzinga.com",
-          "title_cn": "Why Is Broadcom Stock Falling Monday? - benzinga.com",
+          "title": "Why Is Broadcom Stock Falling Monday? - Benzinga",
+          "title_cn": "Why Is Broadcom Stock Falling Monday? - Benzinga",
           "summary": "",
           "pubDate": "2026-09-14",
-          "provider": "benzinga.com",
+          "provider": "Benzinga",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOLVBZb0d3cm42Vm5IbDhua01UbGtsTUowNllpRDFIZGFRM2pLbjcwVEZ0NFJNWml5Sk5ES29vQ0hGUnNjSVdyeXBTSldsRUhwRTZkZFNIMGVRN09OWkdRZWN0WkxQc1ZnZ1J1YmpfWlowajcwamlabG40TGNzcXNha0VOa2h5eVVyRExERlNRemt4Y2M?oc=5",
           "direction": "negative",
           "impact_pct": -0.8,
@@ -405,14 +405,27 @@
           "source": "rule"
         },
         {
-          "title": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
-          "title_cn": "Is UNH Stock Set For Another 12% Rally? Analyst Says Medical Cost Trends, Supportive Data Points Leading Toward Favorable Q2 - Stocktwits",
+          "title": "Jim Cramer Discusses UnitedHealth’s (UNH) Profitable Growth, and Market Positioning - Yahoo Finance",
+          "title_cn": "Jim Cramer Discusses UnitedHealth’s (UNH) Profitable Growth, and Market Positioning - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-09",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPMXVtYmFPeUQ2cWkta1JBbzJnNGtGZ2ZRSFU0VTRwaUVuZ0NVblJHdGcyblQ2Um9GUzlYQW54UUhyQW1YQ2RISTBaQU91U1NVbVE0RHJfOVpFQlAtN2VSc3otbG5fOEJFX3RSTmNaNDFCUWJxVXpUZHZ1MVpZLUJIUzB5YUN5aWRscjI4OVB3dU1OaGNXTktnOFB5YzdzaWF6S2N4RlF0UzlSd3A1eW5TekI0R05JdjdQRGswMU80b0FDb3c?oc=5",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLTRoUkhhQ1duS0R5NXViTFkwZmtrWWotU1FIenNJZUlYUi1DXy1TblhIamM5SENYMFVhTHRnNzdHQ2dXMG5iem5TYVVrUzFDVWl1MXhrQzltelgxb3c2SkhuelBzdUUweE9XWklnWWJUekxYNWpGbnV5WkhIRmpZZzdIMlBMTi1aNTN0ZjdnTGdudTZwd1dMMjJ3T0dBYmNMbkoweA?oc=5",
           "direction": "positive",
-          "impact_pct": 0.2,
+          "impact_pct": 0.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - Quiver Quantitative",
+          "title_cn": "UnitedHealth Group Falls as Investors Weigh Optum Florida Deal and Ongoing Margin Pressures - Quiver Quantitative",
+          "summary": "",
+          "pubDate": "2026-09-09",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOU2FwZHd3U2NhR3habGY3dmxzb1ktZkJjbTVNZjBDazBHT3poemo2cUNKY1g1VEFMRm53U2xBR3JYMjQ1cS1mMnYzRHNCcnlxQTRZa2Iwemcxc0RrQnM3S0ppbGxzUlptZnExeFhqMGRmUFJoUURJaXlaMV9TZTNVbmE3blBELTlkM19SV2VRclRlR2JwbV9wbk9IckhoOVJ6QnhiZk10UUVFbDlRWm9tMFQyakI0MnRDQk42VUlxWGxCQQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -442,24 +455,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "UnitedHealth Group (UNH) Stock Still Seems Cheap After A 15% Gain - simplywall.st",
-          "title_cn": "UnitedHealth Group (UNH) Stock Still Seems Cheap After A 15% Gain - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-09-11",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQd0NfY19GeE9hTF9RZ082T3Jkc1REM1BVaW9hckNfV2lCN19LbUlXeDhwM3RobWNJdmR2Z2o0UnhDMnJOLW5KTVRTbzJsUlVzb2tFQ1NKREM5NkZHeDctMGxRbzh6RjBSN1dJS3ZBNjVXa3RVQVBseDFNTm1lUERoX1FFa0pQQ2lyQ0NYcjZIMndPRDExSE12YVdlVGY0bDRKWk1fandOeTNRTzBZdHR2dHVhak80MlJEQjVBVE9qS3d5Znc2eWZZS0NZVzMxVDZBRUHSAdcBQVVfeXFMTVFLbmFEaENVaFJpQ014QU4tWkNTSHNMdy1NRFYxV0FsYVdsNEw3RE9jRjJnckNsWTJDTk5SYldVNVBPZ2d5N2tweENsdkxwTjhpZVlDeDcxcl9LdkI3RHlnbzJGUHJ4SGVnOWItQmp2NTFkaS1OYUk5OExCbW5rV0R3bzJDajROSVR3UjBVOWZxTzlzeXJveTVoWURBUzM2QmVNRE95Ui1KZzVOdjVqSHVGV1BsYXpiR25PNUVVSHJVLXJwaUZ0cm8tNFhLYUdQZFNKT25KRDQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "2026-10-27"
     },
     {
@@ -734,7 +734,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-14 18:38:17",
+  "generated_at": "2026-09-14 18:44:03",
   "macro_summary": "",
-  "cached_at": "2026-09-14T18:42:32.041563"
+  "cached_at": "2026-09-14T18:48:28.103716"
 }
