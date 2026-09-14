@@ -7,6 +7,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Why ASML Stock Is Falling Today - The Motley Fool",
+          "title_cn": "Why ASML Stock Is Falling Today - The Motley Fool",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE01TVl5Y3l4cHY4N0lDMkxEX3ZkTUwyUjdTb3Q5TEdDSWpQTGFBTTJ6aVV2R1ZTb1RuWGdTM3cteDd4cFdqVGVfT1pabzZTY2Y4RG5ma3dURzBmU2RyUDY5X3lUU0w4NEZRWDlfa0RvMzRWZTBXcGZqSWFucEhYOXc?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Chip Equipment Stocks Slide as AI Pacing Call Reaches Fab Spending: Applied Materials and Lam Research Fall 6%, ASML Sinks 5% - 24/7 Wall St.",
           "title_cn": "Chip Equipment Stocks Slide as AI Pacing Call Reaches Fab Spending: Applied Materials and Lam Research Fall 6%, ASML Sinks 5% - 24/7 Wall St.",
           "summary": "",
@@ -52,19 +65,6 @@
           "pubDate": "2026-09-14",
           "provider": "Investing.com",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNQWp0bUU0YXA1YWFfZ0x3b3J1dE1Qc01nSFB1X2l3bklXajl4ZFlVejdYU0xnSG5yZFVEUUFHOWR5VnM5ME1KY1F3Q2JCUW1hZ3FMMjhaVk92YzRLTHpOdG9UZDBIclVlWVdReDNyQzJEU1Y1R3N3aVBQV2otbFo3Rm9PYUhuVnRobkxrU3VkTFBmNFpuY1BqaQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Advanced Micro Devices vs. ASML: Which Tech Stock Is a Better Buy in 2026? - Yahoo Finance",
-          "title_cn": "Advanced Micro Devices vs. ASML: Which Tech Stock Is a Better Buy in 2026? - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-09-14",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQUjlLLUZldFRhU095VjM0QmlxT1JkZzFKUGo2TWkzeHNCU3BEelBfZ09TeWtIdzlqdDNQNE1JNUlLa09peFNXTzNpTzVLaE1YRWRFaE5PMjlTUTV1TE1xVHlWRjhja1Jwd3VmMWhpMWVMajJRUG03b2dFTGpJZzBqUHZ4STZCYnk0OXJidWJJeUZqTEduM0VBYTYwRQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -341,6 +341,19 @@
           "source": "rule"
         },
         {
+          "title": "GE Vernova sinks 9% as GLJ Research starts with Sell rating, Street-low $470 PT (GEV:NYSE) - Seeking Alpha",
+          "title_cn": "GE Vernova sinks 9% as GLJ Research starts with Sell rating, Street-low $470 PT (GEV:NYSE) - Seeking Alpha",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOekR6SWdlOS1vTXczY2NaVDRTSTFzZFFmR0tibVZlLWt2NU1wRXVZOVczc2tUUkszdDFKdU9oakxGb0NPNVZGUXZsN0JLU0xHTzRmb3g1eWFWSm9XRGhYeUtNeEM2VWViTTZMSWhUWVVRejhpN2tsRHJoUXAzS245UW04a3Q2bkp4d2dCYlB6eDMxMmhHaktsU3RYT19lWFNFdVRmNzhuakNMVDM1eXJtcHRvREFsQQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -2.7,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "GLJ Research Initiates GE Vernova(GEV.US) With Sell Rating, Announces Target Price $470 - Moomoo",
           "title_cn": "GLJ Research Initiates GE Vernova(GEV.US) With Sell Rating, Announces Target Price $470 - Moomoo",
           "summary": "",
@@ -362,19 +375,6 @@
           "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPXzFGMHcwNkhQQkRHUDNjQW1Sd0xDZWZ1MGJsQ1gtVVB1cDBMb3Q5VmJJV0o0cGJHY1d3bzZjM3Y4N1RUbm5xcVhWaWI1MVpxYmY1NmJPRHE2bExhejBpc0ZNS0pwWG5UWHVGWUc1bEE2UUY0dm8xY0M1UjVacVRnQUczTVpXSmktdU5YQjhUanlyazZaakhPLXJqVlVLRTV6d1lhS3NlczBrZFFOMnVMbnYtVWVYaGt3UUg3UVJEcXF2N0ZtekNXV2xFeDdVWDNaV2RKLXNxZmtvblNNN2YwOA?oc=5",
           "direction": "negative",
           "impact_pct": -1.2,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - The Globe and Mail",
-          "title_cn": "Can GE Vernova's Rising Free Cash Flow Strengthen Its Growth Story? - The Globe and Mail",
-          "summary": "",
-          "pubDate": "2026-09-14",
-          "provider": "The Globe and Mail",
-          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQQUh4T0xHMlZ1XzA5dTUxeDZrVHY0Q0Rva05kemZoT2lXUkdSVEpya1pFcFVPQm9TOENGWlZwdGtCMl9URXkyVUd5RTZjTjhYZ1VEUFV5Si1UcFUzdlZ2SE9RSWdiVkxUS2JrdzBfRlZFcXhNdS1mSk9SSzRWU3FhbHJ0el80ZFh4ZmRxcUZ6dEYzX091aWloX2RMOHdQa19PTDVCQUtaZVhDcXdVNmNXMmdUQzNRaGt5R0JONjhYbnJrMGNLT0Fvd3c5SkFfNW1BQjdyZzVUOEZ5WkRqV0hlM3BVYw?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -734,7 +734,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-14 18:32:38",
+  "generated_at": "2026-09-14 18:38:17",
   "macro_summary": "",
-  "cached_at": "2026-09-14T18:36:54.909086"
+  "cached_at": "2026-09-14T18:42:32.041563"
 }
