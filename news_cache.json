@@ -84,11 +84,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high - cnbc.com",
-          "title_cn": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high - cnbc.com",
+          "title": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high - CNBC",
+          "title_cn": "World’s largest contract chipmaker TSMC sees August revenue surge over 53% to record high - CNBC",
           "summary": "",
           "pubDate": "2026-09-10",
-          "provider": "cnbc.com",
+          "provider": "CNBC",
           "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9ycjd0eDNoeHBMd2Y4OE5TT2JvVUlNbVlhREFBc19jRTU3b0lrRTkxU1JrSmdmZ1AwcGFsWUlvZXBfT3FVS093cWxNZDA0WlRmb3haODhHVHREaDlyV3RYWVNjdEtYWTMtdGxwUEhPb3kzd9IBd0FVX3lxTE51eV9XN2ZtTHdhbUJaX1dtaTFWT0k5THItMFBIb3RRN3ZZT2dlamlnLXRaMkROcHFCQjBTWkcyQ3BlTWc1bmRsMUpsTnRwU2VKUWRxSW5lQ3FiTV9MRzVKX1QwUi1LYThTaEhpdUs0dTcyd0hER2Jn?oc=5",
           "direction": "positive",
           "impact_pct": 0.7,
@@ -136,12 +136,12 @@
           "source": "rule"
         },
         {
-          "title": "TSMC Faces Revenue 'Uncertainty' In 2028-29 As AI Investments Need To Prove Their Returns, Morningstar Analyst Says - Stocktwits",
-          "title_cn": "TSMC Faces Revenue 'Uncertainty' In 2028-29 As AI Investments Need To Prove Their Returns, Morningstar Analyst Says - Stocktwits",
+          "title": "TSMC Stock: Why Taiwan Semi’s Record Sales Isn’t Boosting AMD, Other Chip Makers - Barron's",
+          "title_cn": "TSMC Stock: Why Taiwan Semi’s Record Sales Isn’t Boosting AMD, Other Chip Makers - Barron's",
           "summary": "",
-          "pubDate": "2026-09-12",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNNmFsNzl4TU16dUxqTXhCMVlNcXZvSXJ0ZWJKSU1OcDRpTnJwdkZxN3RHTmpGSUV5Nnh0Um12SG5ibTJGZUhQUVN4ZmtXQUdheXJmcVVzRm9qZWdNQWdmTG02dFl5V2dQLXJuUUVBeTBjZ0hhZDdhc3FqRko2ZVg2TEljNE9lV0pTSjlIUVBvYllOY19BQmZDME9KMHduZ2RWVWM2b09XQlNveEYzQnBJUzFSWXRZU0ROUXNhbkZvTE5nbEFfSnc?oc=5",
+          "pubDate": "2026-09-10",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9SekxhU1RoU2NEc2RGMEVCS2NDVFVjUmZaX0N6MGg1NEtMbk41YnZWN2xRazhMaVA3NnExUDFmakpqZi1ldGs0WERJMmxzZEluRXh3cmplNUIzX3kxa0NXN1huZFRvUWNOak94QlVNcGVxOGI3SjRZQ0NR?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -187,6 +187,19 @@
           "source": "rule"
         },
         {
+          "title": "Amazon stock shows strong growth potential desp... - Pluang",
+          "title_cn": "Amazon stock shows strong growth potential desp... - Pluang",
+          "summary": "",
+          "pubDate": "2026-09-15",
+          "provider": "Pluang",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNSEIyVlFraG5nWUJRWHpTelBMLW9YWkplWHF4cUxrUEYtRjFBV1NzSG01UUJwWmQtY1hLN3JTOVlYdi1wQ2x0WjlUM2ZPN012QXVON1V3dEw0enRCVmNCSUxONFVRSFgzVGd3UlJwLVBoMkdhM0t1VE5DbUdRM2ZQY2lxejRJVkpyeFdYSFptZzE?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Ad Tech Briefing: AI is reinforcing Big Tech’s grip on advertising growth - Digiday",
           "title_cn": "Ad Tech Briefing: AI is reinforcing Big Tech’s grip on advertising growth - Digiday",
           "summary": "",
@@ -211,24 +224,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "Prediction: Owning 100 Shares of Amazon Stock Will Turn $25,000 Into $50,000 by 2030 - Yahoo Finance",
-          "title_cn": "Prediction: Owning 100 Shares of Amazon Stock Will Turn $25,000 Into $50,000 by 2030 - Yahoo Finance",
-          "summary": "",
-          "pubDate": "2026-09-12",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONWhTVmpmMmpQSnRVWE5wVDkxWGJXZGF6WDVHNUczOW0tdW8xRHhEdmR6TUNxSGthN1F3SDJTV2ZiQ1dsa0xIa0FHdVYyQTY3RXpQSTNMT2NiQkltZXlnT2FGR2ZjWE40dFhkaTQ5YldOVGZCejFLcGd6Wm1EQ0xrUkRoRno0TFhBR2hjbTh0UjJ2bUxIWmlXcFFpLXhCVTBEUGc?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "2026-10-29"
     },
     {
@@ -251,11 +251,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia CEO Jensen Huang Just Dropped Huge News for This Cybersecurity Stock - Barchart.com",
-          "title_cn": "Nvidia CEO Jensen Huang Just Dropped Huge News for This Cybersecurity Stock - Barchart.com",
+          "title": "Nvidia CEO Jensen Huang Just Dropped Huge News for This Cybersecurity Stock - barchart.com",
+          "title_cn": "Nvidia CEO Jensen Huang Just Dropped Huge News for This Cybersecurity Stock - barchart.com",
           "summary": "",
           "pubDate": "2026-09-15",
-          "provider": "Barchart.com",
+          "provider": "barchart.com",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNDNnR2JZcGlqVWlwTVZvVG1YdjV0NTRiTHFHT1dCdXBhSTl2ZVEzRUFFWjNfWWJqREdUbEZKYThjSkE4YTkyOVR6aDBIbGtqLWl5MElXUDd3MFY4cmp1NW1aMFpHT0dHRTdXUEtXeUljYzhVQjZzTnlrQmppQ3pLc2ZYQ0J4QlY1WmV0N21QVjRDTzdkWTNDVE9xWjAtbmQ3MUtiQjMyeU9xSUVWZEtWeXR0d2JSZHBPQ2hB?oc=5",
           "direction": "negative",
           "impact_pct": -1.0,
@@ -341,11 +341,11 @@
           "source": "rule"
         },
         {
-          "title": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed - cnbc.com",
-          "title_cn": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed - cnbc.com",
+          "title": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed - CNBC",
+          "title_cn": "Broadcom CEO addresses Anthropic's slowdown push, says AI revenue targets haven't changed - CNBC",
           "summary": "",
           "pubDate": "2026-09-14",
-          "provider": "cnbc.com",
+          "provider": "CNBC",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOamtMaEl3OW04aFdDZXY3Q0tDMnRWWHNna3h1ak5HTi1INUZIX0h6R1g1Z0JKOC1NSkR1R3VCVUFzTktFR0g0T2V4QzNRQkgtRlZ4YUltRGc0eGdITDhCY3N4M1VaRU5Nd2w1TWJXMnNSNTZPRHBkTUwwM0lUZkhmU1VzNnhtUXl2TTlPcGJ3c2NabEhmTDA3RGNaMGtKTmQzZG1hdm1sbzBDRHlmYXNZZ9IBtgFBVV95cUxQRk56b2o1TFpzTnZKNGpOVm5QeUxNZzk4SC11d1FGUnNNX1ltU0lTaGdYQjB4Qjl5aExrTjVJQ0xpWlVVQ2tqdGE4UU1tajBRZWM5NWVMVXJvcU1zZFFGX254NzV3V3RSLUVUR0E0VVc5REZxM01WbE9IZi1FWkNiaW5VbGJXbmtsdXQyS3Z4d0FNd2VlSDdJRlZDRDJZQnp1dmhyc2hQVDBBMENxaUlYc05IcHhfQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -482,11 +482,11 @@
           "source": "rule"
         },
         {
-          "title": "74% expect data to grow 25% or more in three years. WD will discuss how to store it. - Stock Titan",
-          "title_cn": "74% expect data to grow 25% or more in three years. WD will discuss how to store it. - Stock Titan",
+          "title": "74% expect data to grow 25% or more in three years. WD will discuss how to store it. - stocktitan.net",
+          "title_cn": "74% expect data to grow 25% or more in three years. WD will discuss how to store it. - stocktitan.net",
           "summary": "",
           "pubDate": "2026-09-15",
-          "provider": "Stock Titan",
+          "provider": "stocktitan.net",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQVlo0ZFZEekZHQnVPNmk2TFNqWDVfaXhmdF80MlM0RUJocUVyX3h5ZGhRQ24tS1RXSVV1SkIzWllabVZkbHUyV1RNYXVSRkZZQmdCMWtRREpyOUlXZW4yakhZb0tyVUNTWXZKazdHdmxYa1RadFNSQ1pheEtFVUM4SGZHX1hkanRDNmZKNFN4ZktTRVZ5SjZEWVJMbE9aSnZlTEtaOHRXZldYTlBJQlJyb3ZPNzlaTEU4Yi1V?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -508,11 +508,11 @@
           "source": "rule"
         },
         {
-          "title": "Western Digital Corp Stock (WDC) Moved Down by 3.00% on Sep 15: Drivers Behind the Movement - TradingKey",
-          "title_cn": "Western Digital Corp Stock (WDC) Moved Down by 3.00% on Sep 15: Drivers Behind the Movement - TradingKey",
+          "title": "Western Digital Corp Stock (WDC) Moved Down by 3.00% on Sep 15: Drivers Behind the Movement - tradingkey.com",
+          "title_cn": "Western Digital Corp Stock (WDC) Moved Down by 3.00% on Sep 15: Drivers Behind the Movement - tradingkey.com",
           "summary": "",
           "pubDate": "2026-09-15",
-          "provider": "TradingKey",
+          "provider": "tradingkey.com",
           "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOa3UwR0tzVExNd2xobVRUbld0YlgyejBjaGhPUVRhck5kal80QjZOdGdVWnIwdzhQMHdKRHdidmhLaHgwWEdDSmJlSFREY09YXzBjYWREZFd5WTMwV1hrVFRDU3c2U2g4ajhZNzdEc3V4cmZuSWlILUwwb0lyS1pHaWEtUDdkOWJrUEE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -572,19 +572,6 @@
           "source": "rule"
         },
         {
-          "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
-          "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
-          "summary": "",
-          "pubDate": "2026-09-14",
-          "provider": "Stocktwits",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2Z6WlJrd3RCU2tmUHNrVmlVSW1jUDVIZTdLbFlkWVNUUjZ5UWZocGp6UW0tX0RPQjhqbXhrYmtEeTBteDY4eGZXQ1dmZUEtWG9Ubkd6dlhaVGU1Mk9HSEhLVDYtaURWdXJyeVNWanZHcW5DdUFUZTFMRDEyd3pPWUZFT1JBVENDZVQ3WGlXRGQ4eXdLdGl1MlptTUNlMkMwVTVEZ0JHNmxFQkl5WHFSRXdVdmV6OWUyWGJRcw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "UNH Stock Quote Price and Forecast - CNN",
           "title_cn": "UNH Stock Quote Price and Forecast - CNN",
           "summary": "",
@@ -609,6 +596,19 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "Unitedhealth Group Inc Stock (UNH) Opened Down by 3.79% on Sep 9: Facts Behind the Movement - tradingkey.com",
+          "title_cn": "Unitedhealth Group Inc Stock (UNH) Opened Down by 3.79% on Sep 9: Facts Behind the Movement - tradingkey.com",
+          "summary": "",
+          "pubDate": "2026-09-09",
+          "provider": "tradingkey.com",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOTy1TTGVidEFnbVNYN01weXRzZjI3YVlBVWJfNHdrZDdLcWExSElISXU1ZXZ4WEFYbmtDWVpZcTNoQnMxa18zbDRoSW9LYWVHN2xSRURiQm5sYnkwTUFpR28xNm91OHdObEZicEFnLTRLNW0zcU8tYVRvVnllX1JHUXgydTJKV3JGT2c?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -623,11 +623,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - Stock Titan",
-          "title_cn": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - Stock Titan",
+          "title": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - stocktitan.net",
+          "title_cn": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - stocktitan.net",
           "summary": "",
           "pubDate": "2026-09-15",
-          "provider": "Stock Titan",
+          "provider": "stocktitan.net",
           "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVFo3ck9YMWFTamxYclpxaUxQR1B3aDZnUUZwTjZqUkFBX0hyeGdvVzhiT3k4OGM5eDlKdktpQVA2QXRTcE1hbWZmWnZCUGdrUVNVblJXXzB5RUJSZEo2SUpVVlBBZE94VXA4c191dS1HdmVQYVhlbVR6TEZDSFFfR2NHVXd0NlpsNmljN3VSZEZsNlRIa1JxUFFBZS15OGd4c08xOTlUcUhLbUhDRl84Y0pKVUh0SERKS2c?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -675,12 +675,12 @@
           "source": "rule"
         },
         {
-          "title": "Why Is Blackstone (BX) Exiting A Dating App While Eyeing Australia And India? - Yahoo Finance",
-          "title_cn": "Why Is Blackstone (BX) Exiting A Dating App While Eyeing Australia And India? - Yahoo Finance",
+          "title": "Why Blackstone (BX) Stock Is Down Today - Quiver Quantitative",
+          "title_cn": "Why Blackstone (BX) Stock Is Down Today - Quiver Quantitative",
           "summary": "",
-          "pubDate": "2026-09-15",
-          "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdDlWYTRJakpxbGVKWXRFLVhsdkpYc0l5WlJ0SEttZ0tCdm1vOWFFVWpOVWZlWFBBYW9GeEJBcjBZZ2dRbDlZT1BKS1A1ODdLdXB4UFY2TTVzSVpFdDNOUzl6MXl6TWhJcUg1bWJNNjNrQlJaaHJzX0VjV2pCQkNkN1JtbWpMQWNwV20zc09uOTg4Y1g4REViU2xmb3J4Zw?oc=5",
+          "pubDate": "2026-09-09",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRDllaUZPV3BNVE1KNFhYY2t4WnhGaFgzUGZMcmpNWlJtOWRVdFU4dTlORkNPVWpZNV9nckpHeVhXQlVTUjZaa2dpekZNb0lGQkk4UGhOMlBmakk5NDFFOUV2TGJqa3R6bVlpdGxsNENZdnlrci0ySDVRc1lBWkh6NVln?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -861,11 +861,11 @@
       "source": "rule"
     },
     {
-      "title": "Fed rate hike on Wednesday now likely, say economists, and at least one more to follow: Reuters Poll - Reuters",
-      "title_cn": "Fed rate hike on Wednesday now likely, say economists, and at least one more to follow: Reuters Poll - Reuters",
+      "title": "Fed rate hike on Wednesday now likely, say economists, and at least one more to follow: Reuters Poll - reuters.com",
+      "title_cn": "Fed rate hike on Wednesday now likely, say economists, and at least one more to follow: Reuters Poll - reuters.com",
       "summary": "",
       "pubDate": "2026-09-14",
-      "provider": "Reuters",
+      "provider": "reuters.com",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPYmtGdWt3WFV1bmpCR2REM0NZMkZIOEE2c3BRdFhrc21CcUpVUEx6QTdOdDZOQ3dGV2pmYmxOVDA3WjJoclVnZlB2cXl5R3NfSDh6cy0zWGRoUFU1UjA4LTVFckZHWkVBUkJpdWtFaTFvTWNjM1IzVi1sSGhZNmNETzdJcUhOOF9MN2pGSXNyelRkSFlIUktUT1ZjX1VIY2MxQV80NWNLVi1hS0s0bEpaR2FGbzRzeVE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -900,7 +900,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-15 17:25:17",
+  "generated_at": "2026-09-15 17:38:55",
   "macro_summary": "",
-  "cached_at": "2026-09-15T17:29:00.056573"
+  "cached_at": "2026-09-15T17:42:37.283880"
 }
