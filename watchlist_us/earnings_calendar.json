@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-15",
+  "updated": "2026-09-16",
   "events": [
     {
       "date": "2026-01-27",
@@ -456,7 +456,7 @@
       "symbol": "FED",
       "name": "FOMC会议",
       "period": "FOMC",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "含SEP经济预测"
     },
