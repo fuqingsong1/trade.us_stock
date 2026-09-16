@@ -84,11 +84,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "TSMC Widens Foundry Lead as AI Demand Soars - businesskorea.co.kr",
-          "title_cn": "TSMC Widens Foundry Lead as AI Demand Soars - businesskorea.co.kr",
+          "title": "TSMC Widens Foundry Lead as AI Demand Soars - Businesskorea",
+          "title_cn": "TSMC Widens Foundry Lead as AI Demand Soars - Businesskorea",
           "summary": "",
           "pubDate": "2026-09-16",
-          "provider": "businesskorea.co.kr",
+          "provider": "Businesskorea",
           "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBMV1I1SjJLVnhyX1J4cDhULXo0Zk8yR0tmQWkyZHhkZjBNYWxVNWtmOHBBQ3drRHdnVy1ETHBnTGZadTlZQWdVV3hQdERNSG93aHE4X0xtMVBmOVI1UTU4R1Q5aUx4cVlJcXpLVm8tSVNQM2tD?oc=5",
           "direction": "positive",
           "impact_pct": 1.6,
@@ -136,11 +136,11 @@
           "source": "rule"
         },
         {
-          "title": "TSMC returns to prior ex-dividend level within 27 minutes after opening - Focus Taiwan",
-          "title_cn": "TSMC returns to prior ex-dividend level within 27 minutes after opening - Focus Taiwan",
+          "title": "TSMC returns to prior ex-dividend level within 27 minutes after opening - focustaiwan.tw",
+          "title_cn": "TSMC returns to prior ex-dividend level within 27 minutes after opening - focustaiwan.tw",
           "summary": "",
           "pubDate": "2026-09-16",
-          "provider": "Focus Taiwan",
+          "provider": "focustaiwan.tw",
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9ST0Rtb2d2c0ZFMURObG5mUl9XcWpKTWg5dElfa2VWc3JoVlBKb0oybmc2VndPTmFIck9VdjVYWU4xQnU3Q0ttVzVNWXRVT0JaOVd0TTk1RQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -187,19 +187,6 @@
           "source": "rule"
         },
         {
-          "title": "What's Going On With Amazon Stock Today? - Benzinga",
-          "title_cn": "What's Going On With Amazon Stock Today? - Benzinga",
-          "summary": "",
-          "pubDate": "2026-09-16",
-          "provider": "Benzinga",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOTnJ2dWlzYmJxQktzNHdzY2NKT1lYRWlUUFhVWDJTVW5oUnVxdzdXNlIyQWNxY295TldBQ1ZIUzVQX0RfVDQ5eDZNNTJvampDOWY3WnB2VjFpMnM0RzFvc2pFS3ZzdWE0ZDNINjNhbjF1aU1paGh4YnJDaGxhcWo5UV8tT29hUEJRUGV4anVKLVNydDNYWExqVkE2eTZXSnpwVmE4?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Should You Buy Amazon Stock For The Demand AWS Cannot Yet Serve? - Trefis",
           "title_cn": "Should You Buy Amazon Stock For The Demand AWS Cannot Yet Serve? - Trefis",
           "summary": "",
@@ -219,6 +206,19 @@
           "pubDate": "2026-09-16",
           "provider": "Investing.com",
           "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQaGhLY0wteGNWTk14OFNBWmlmYnp0Q2JKQXVCV0FrR3pFTTltSDAxUzg1dlRGQTA5LVk2UGpULXJKckcyZ2JoX0lmaGJ6OTV1Q29XbHVyWk1wb0JWalc1SGwyS3hCQWZVZ01ZWWR6SlJaaE42VkRsQjFKaURVamktVDUxVE1yemZmWUFkNzRXTm1oYlBpME81eUFjWjJfdXVFcGFHUjRxREs0Q28yZDY3ZW5pMUhySlE3UTlDYjllaw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Is Amazon Stock a Buy After Its Best Quarter in Years? - The Motley Fool",
+          "title_cn": "Is Amazon Stock a Buy After Its Best Quarter in Years? - The Motley Fool",
+          "summary": "",
+          "pubDate": "2026-09-16",
+          "provider": "The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQa1NtdzVMQkZHRWNmWlgxa0p2S01aRVdBc3FwUHhIeHJOY0FZeGgtemcwT0dKektQUVpoZnREUlFHbDVWYmdQTXdDNmJhLU5peVFxRDdvX0NvWGhqQjNxWlQtQm9Cb28weDgzdU1WUElweDJYWkxib2ctQnlpUWoxOUhEY3FUaVp3UnNBRQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -264,6 +264,19 @@
           "source": "rule"
         },
         {
+          "title": "Michael Burry Just Said 7 Words Dismissing AI After Slowdown Fears: \"There Is Nothing AI to Slow Down.\" Should Investors Trust His Nvidia and Palantir Shorts? - The Motley Fool",
+          "title_cn": "Michael Burry Just Said 7 Words Dismissing AI After Slowdown Fears: \"There Is Nothing AI to Slow Down.\" Should Investors Trust His Nvidia and Palantir Shorts? - The Motley Fool",
+          "summary": "",
+          "pubDate": "2026-09-16",
+          "provider": "The Motley Fool",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNlRHWWhKYUlsMWpXM19jOFAtcFNaa0dFclhNOTNIWFNTV2RIZU4tMmoxcU1jd0F3bVhLazFvNXZsRVR3VzVrX2VIUVNTUXc0MFBsV1RINUVzUVhPSTNLZnc1Nm1wbHhUSTlXa1VVSU5XcEwtTjhlQzB2XzhidkhLWGU3RHd1cW9VX1VORGYxSkJUdk9tTkRtTA?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.7,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "Nvidia Stock Rises as Meta’s Zuckerberg Weighs In on AI Safety After Trump - Barron's",
           "title_cn": "Nvidia Stock Rises as Meta’s Zuckerberg Weighs In on AI Safety After Trump - Barron's",
           "summary": "",
@@ -283,19 +296,6 @@
           "pubDate": "2026-09-14",
           "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWVhZM0FqUkQ1dEpUQU5ZNzBkbHZuYWJpaWxIendUTDNDQjhNb20wVGEtampJcHNPYlhtRENrY002VXhrZ1VnV3BLVFdSa3dJOW9nZmxyRFBIbnUzd2NrelJteXpKbFFwcXpSa0llbk1mQXJGdVRDVDZUNUdPbmFCWnZCUkdJUE9ZaUpzaHNaa3A2X3d6LUpNQTFOb3c?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Is It Too Late to Buy Nvidia Stock? - The Motley Fool",
-          "title_cn": "Is It Too Late to Buy Nvidia Stock? - The Motley Fool",
-          "summary": "",
-          "pubDate": "2026-09-16",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPUlhGdVFRUlByQmQ2b1NQaURNLU9LUTNKZ0ZFVzgzSWFfMzdiVlBiMzJuS2NONEdoM01pUHVkQUVlMi1iTko3ZFJEQlRWbEp0NDJFV2FzVjlXM1o2X2J6aEV2T3pES3ZxWllqUmM1QkxHQmdvX2JOMVBNMkM3TzNSWTliUQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -418,19 +418,6 @@
           "source": "rule"
         },
         {
-          "title": "Why Is UNH Stock Trading At A Premium With The Slowest Growth? - Trefis",
-          "title_cn": "Why Is UNH Stock Trading At A Premium With The Slowest Growth? - Trefis",
-          "summary": "",
-          "pubDate": "2026-09-09",
-          "provider": "Trefis",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPd2QtRFZTYXgzSEI2OTJtSGl3YnpFME5uczlzWDhIVE1UVEJUaDhxVzJDX3J4d2dockZDR3I3THJ5SkNha1JxWVQyZ2dFU21ROUFXNGdJa3dRSWtlU19KMHY4ZVRuUjJzbGVieWFLR3doZEpmQW1FbjhCT1ZTWDlwZTZPUzdsNUplMWpJUGlSeHJ4ZmdJV1F5cDFrQTlTUlVDN3JMVnVXSVgxeVlCeU91Y2NpV0Z4bFo3UVBKOWF3?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.2,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
           "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
           "summary": "",
@@ -455,11 +442,24 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
+        },
+        {
+          "title": "UnitedHealth Group will share its next results Oct. 13. The call starts at 8 a.m. - stocktitan.net",
+          "title_cn": "UnitedHealth Group will share its next results Oct. 13. The call starts at 8 a.m. - stocktitan.net",
+          "summary": "",
+          "pubDate": "2026-09-15",
+          "provider": "stocktitan.net",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOZER4VUd0dUJNTVhHR2I0WmtoMkdrSmJGSjhtWjBvd1NVWVE4V045NEQzZHU5NkRET1I5NjBjU0poSFJHc2lSc0N4cHdPSFJyQjl0eERsT3J4dDNlUXZSSk8zRjJtbnBTNnE4YWREamQ5V0JnSGZHUmMzMXhTa1o5elNaelloeW9PMENycmREamZQUnU5N05FYnE1cHpqYXdFYUE?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "2026-10-27"
     },
     {
@@ -468,19 +468,6 @@
       "has_position": false,
       "is_eligible": true,
       "news": [
-        {
-          "title": "BX Looks 37.5% Undervalued on GF Value™ Amid Dividend Sustainabi - GuruFocus",
-          "title_cn": "BX Looks 37.5% Undervalued on GF Value™ Amid Dividend Sustainabi - GuruFocus",
-          "summary": "",
-          "pubDate": "2026-09-16",
-          "provider": "GuruFocus",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNWFRUURvRDAxbkNqWFdKUGIwVk96VWk4aUdXWnlGS3VCYmp0OHctWEw5ZmU2OHNxZEVZaDhYT3pRMTRXMGRxcFNNU3g2MkhjSzF3M2k0UVRqNEdTWTJtNU84SUlDTjFISHdOcVpNeVIyM2tEYjNnSDZhN1J3LTlRaUM5SVdfU1kzM0YzM1hJRjk5Zm5xdHBIbXpNZEZPd19zXzA1N3ZUWDA1UUFuUEowQTlOdw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
         {
           "title": "Blackstone Stock Price Forecast. Should You Buy BX? - StockInvest.us",
           "title_cn": "Blackstone Stock Price Forecast. Should You Buy BX? - StockInvest.us",
@@ -495,12 +482,25 @@
           "source": "rule"
         },
         {
-          "title": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - Stock Titan",
-          "title_cn": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - Stock Titan",
+          "title": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - stocktitan.net",
+          "title_cn": "Eric Schmidt and Masayoshi Son are upcoming guests on Blackstone’s new podcast - stocktitan.net",
           "summary": "",
           "pubDate": "2026-09-15",
-          "provider": "Stock Titan",
+          "provider": "stocktitan.net",
           "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVFo3ck9YMWFTamxYclpxaUxQR1B3aDZnUUZwTjZqUkFBX0hyeGdvVzhiT3k4OGM5eDlKdktpQVA2QXRTcE1hbWZmWnZCUGdrUVNVblJXXzB5RUJSZEo2SUpVVlBBZE94VXA4c191dS1HdmVQYVhlbVR6TEZDSFFfR2NHVXd0NlpsNmljN3VSZEZsNlRIa1JxUFFBZS15OGd4c08xOTlUcUhLbUhDRl84Y0pKVUh0SERKS2c?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "BX Looks 37.5% Undervalued on GF Value™ Amid Dividend Sustainabi - GuruFocus",
+          "title_cn": "BX Looks 37.5% Undervalued on GF Value™ Amid Dividend Sustainabi - GuruFocus",
+          "summary": "",
+          "pubDate": "2026-09-16",
+          "provider": "GuruFocus",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNWFRUURvRDAxbkNqWFdKUGIwVk96VWk4aUdXWnlGS3VCYmp0OHctWEw5ZmU2OHNxZEVZaDhYT3pRMTRXMGRxcFNNU3g2MkhjSzF3M2k0UVRqNEdTWTJtNU84SUlDTjFISHdOcVpNeVIyM2tEYjNnSDZhN1J3LTlRaUM5SVdfU1kzM0YzM1hJRjk5Zm5xdHBIbXpNZEZPd19zXzA1N3ZUWDA1UUFuUEowQTlOdw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -572,12 +572,12 @@
           "source": "rule"
         },
         {
-          "title": "Novo teams up with Anthropic for R&D (NVO:NYSE) - Seeking Alpha",
-          "title_cn": "Novo teams up with Anthropic for R&D (NVO:NYSE) - Seeking Alpha",
+          "title": "NVO Stock Alert: What to Know as Novo Nordisk Rebrands to 'Novo' - Yahoo Finance",
+          "title_cn": "NVO Stock Alert: What to Know as Novo Nordisk Rebrands to 'Novo' - Yahoo Finance",
           "summary": "",
-          "pubDate": "2026-09-16",
-          "provider": "Seeking Alpha",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9pUzJ3S3R3dVNMMExodlpMaFZKdFBVUWpLU01SNUNKQTZTbkVwb1oxWk91dzJqVS1vTExaekMzWmJLbzI3SGFDS0c5bTlPNHRmUlY4Ynk4bEc5Qk9ya3dVckNwVGdjRHV4TUtfRzd1SFJzSGpHelJwZEx0TnE?oc=5",
+          "pubDate": "2026-09-14",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQTUlXRTlOaG9jMW1TZ19QNE9hbUNwQjZUQkREdThsS3REdzJsa3BZMVNRRDJFNDdxbzBLc3BEX1pEWjh5am56bloxOTc0eWRrSC1jdnpLa2JwamNxT0EtcjNYVk9PSkZKQUFXTFBySER6UE0zblMwUThNQjZSQnZxXzVPcUNiRHhyR1hrb3QtNA?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -598,12 +598,12 @@
           "source": "rule"
         },
         {
-          "title": "NVO Looks 59.5% Undervalued on GF Value™ as Dividend Sustainabil - GuruFocus",
-          "title_cn": "NVO Looks 59.5% Undervalued on GF Value™ as Dividend Sustainabil - GuruFocus",
+          "title": "Novo teams up with Anthropic for R&D (NVO:NYSE) - Seeking Alpha",
+          "title_cn": "Novo teams up with Anthropic for R&D (NVO:NYSE) - Seeking Alpha",
           "summary": "",
           "pubDate": "2026-09-16",
-          "provider": "GuruFocus",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNdmZtYkJIRkpsd1ZSQ01LeDFJQTlOSHUxbHpybXFVOWZmbzhHRG5xVHVDeFp2NHdrbmp3SGprYi04Q2xEaWVvOXRQVnVHb1VxaENxWWRJVks4TVllOHBMMnpDV1dJZ0N5UTdHazVlSnF4emhIYm9UbUFGOFNWdlVDMzVpMFdma0ZxZ3ZTZThGcDNNSno5Z204dUFJYWxnbFJwRmtHV3c5VVpGQlpOTlE0?oc=5",
+          "provider": "Seeking Alpha",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9pUzJ3S3R3dVNMMExodlpMaFZKdFBVUWpLU01SNUNKQTZTbkVwb1oxWk91dzJqVS1vTExaekMzWmJLbzI3SGFDS0c5bTlPNHRmUlY4Ynk4bEc5Qk9ya3dVckNwVGdjRHV4TUtfRzd1SFJzSGpHelJwZEx0TnE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -733,11 +733,11 @@
   ],
   "macro": [
     {
-      "title": "Fed meeting live updates: Rate hike expected for the first time in three years - cnbc.com",
-      "title_cn": "Fed meeting live updates: Rate hike expected for the first time in three years - cnbc.com",
+      "title": "Fed meeting live updates: Rate hike expected for the first time in three years - CNBC",
+      "title_cn": "Fed meeting live updates: Rate hike expected for the first time in three years - CNBC",
       "summary": "",
       "pubDate": "2026-09-16",
-      "provider": "cnbc.com",
+      "provider": "CNBC",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1RWUJMaHR6WU9hNlFYTnlPQ1lqS0xsMnRuTlMtdndQaXFJdXpKVXhiQS1IbjJiUVpudkRqWDdoZWZIekpsQy1VYU1uMUJQUHZMZjFCVU9Fa1gzdGZkMFpqSWZwWXY2Y1dnTU9teG5uZlhBVTVYU0HSAXtBVV95cUxPZDNnc0c0YVZIQkNTTlJDRWpYNXNBdUxrRUtaeTdZVUVHa3JJVXpCZmNVdTJaZ0x3Q1E4bGNhVUVkbjBDdmVreldONlE3Y3NXSm9YeThsdGhkM1ozME9iZ2JVa0p4NVVkTHpqcW1WSnVoMlMwWkpkRi1YdHM?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -746,12 +746,12 @@
       "source": "rule"
     },
     {
-      "title": "Fed Meeting Today: FOMC Expected to Raise Interest Rates; Dow Slips — Live Updates - wsj.com",
-      "title_cn": "Fed Meeting Today: FOMC Expected to Raise Interest Rates; Dow Slips — Live Updates - wsj.com",
+      "title": "Fed expected to raise interest rates for the first time since 2023 - CNN",
+      "title_cn": "Fed expected to raise interest rates for the first time since 2023 - CNN",
       "summary": "",
       "pubDate": "2026-09-16",
-      "provider": "wsj.com",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQUE5oTVluRXJXSEZFTGp6UUpwcjluaGhVUlpsbGJ1WnFnVU05MDhSNDMwT3ZleW5fQnhia1ZYbFZ0SzN3dFNkSzRnV1lxbUpyREtpSnZlYndsRFM1RW5GeW1WcTdvRnZfNVh1TXAzWWVBVEZPZnAtYm9JLXNick5YZA?oc=5",
+      "provider": "CNN",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPMkpuZEVrRnJHeExPbVBwMzJBa1AxNmhBYVRadDA2WXIxdDF0TXVoYTRHNG04djJkWVFjZFgwTEEzTElGYkR1MG1WWlZPOGV6TWpaeGhwTHJlRHBoVUZnZU1pTmItMFZ6LUtkSl8xTFVoZ3Z5bFZTMDF2Q29PcVdWc0tHdG4yWWlzWERGSm1zUVVMNjA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -759,12 +759,12 @@
       "source": "rule"
     },
     {
-      "title": "How a Fed rate hike would affect your bank accounts, loans, credit cards, and investments - Yahoo Finance",
-      "title_cn": "How a Fed rate hike would affect your bank accounts, loans, credit cards, and investments - Yahoo Finance",
+      "title": "Trump and the Federal Reserve are on a collision course over interest rates - NBC News",
+      "title_cn": "Trump and the Federal Reserve are on a collision course over interest rates - NBC News",
       "summary": "",
-      "pubDate": "2026-09-14",
-      "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQTUtLLVE2UTZzODVEU2lHSGZxdkZ1YkIxMDNIdTNNQmpNZDZuRDVIOUg5ajRUeTU3Q0E4MElONUZfTENCYlJRdnowemlBdlh1U0JzdGIwUGZPYU9kRnd1S2tsOW5zT2VVTWxZWWVVVkxxM2FxcUpRcVRuaGwzSk9wNjhPU3o1YkszUkdTRFFjQ0lxanNRbGJTVE0xYnBHdThNejlqNWt4WWlYSWxtWTJHX0RtNlluUlI1WUl6U0M0X3dnVTRoNVR0WWI5eTQyaTdyLWNPd0IxbFBGcEhfTE42T1BTNVN5V3FQZU9Tb0REREd2QQ?oc=5",
+      "pubDate": "2026-09-16",
+      "provider": "NBC News",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORUx2RFdkdERoV091d1VKeFloZFNyMXVxN1RTelVMd3VzQUI0eHpDTWdaQm0zbTlxSTNNcERBZzlycXM5bmRKNWpjZEpGQ0RWVzJYWjF3M1pNRlFfUkp0Z3g0WGpndHcweWFMNUlmOVVtRWRUZThNR0ZyLWFsalVabE9zNlFZNnFSb3dncHZidlh6d05pVkVaamtn?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -772,12 +772,12 @@
       "source": "rule"
     },
     {
-      "title": "The Fed is expected to raise interest rates for the first time in 3 years - NPR",
-      "title_cn": "The Fed is expected to raise interest rates for the first time in 3 years - NPR",
+      "title": "WATCH LIVE: Warsh holds briefing after Fed meeting as interest rates expected to rise - PBS",
+      "title_cn": "WATCH LIVE: Warsh holds briefing after Fed meeting as interest rates expected to rise - PBS",
       "summary": "",
-      "pubDate": "2026-09-16",
-      "provider": "NPR",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOVTl2UWxwMkg4QzNVNll6b0ZoSlhSNlVzOV9sd2Z6bWd0Vm5rS0U5Ni1XTmplTVlNamhVV1d3RDA2ckxWTVJIakVpNnlscEc3b29xRklzRGhwSmVlMmJ5d0dpcDE4eENtYXUtUEU2a3g5MlFNZXI0UkVHeHY3a2tWNU5Fd2dITUtWRnNwQ19Qdy1oS0p3Vkhleg?oc=5",
+      "pubDate": "2026-09-15",
+      "provider": "PBS",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNbG5TakU0X3dMbFJEZU9LRkkweWpLSC1HQnR0ZGZjSnBBMnhxeDJfeXpJbl9ETDVKajhrMnZIZy1hRUdpZFllY2VTbmROclRnbUk5TU9xalVmbUxkVEd5THdtaW9ReHpua1M0Q3RLdFlTOWQ3UGxkUmF0QjZELWhNSjRENm1FbGl1RWN2VHd4Y291RGdpN0RtRDdjdFJmSjFGcU5TQVRlT0w5T3o1TzZZSHAwMTRrUHZCLU9acUZB0gHDAUFVX3lxTFBFVmt4Z21jOVJHWklFdzlfMS1HOXVvdXRJdV9sZmhENW9OWDVrdVF3UHpuYk03VFZfVVB1V3pjLUtJaUd5TUswTFhUZTNXTFYtZXdaOWIyeGszNmNwM2ZKeUhHcThwRUJSNHduR0V3cHVrTHljM25HazRWcXB0VlYtekVnZW5NQlE0ZU9YY2h1NkFmeGRsOWRBNXkxTGVVYlRUR3JKR1JwUjRfQ0xjZU9nTjBadjZqeThjeExQbG56X0Zwcw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -785,12 +785,12 @@
       "source": "rule"
     },
     {
-      "title": "Warsh likely to side with financial markets over Trump as Fed rate hike expected - spectrumlocalnews.com",
-      "title_cn": "Warsh likely to side with financial markets over Trump as Fed rate hike expected - spectrumlocalnews.com",
+      "title": "Fed expected to hike interest rates for first time since 2023. See what it means for your money. - CBS News",
+      "title_cn": "Fed expected to hike interest rates for first time since 2023. See what it means for your money. - CBS News",
       "summary": "",
-      "pubDate": "2026-09-16",
-      "provider": "spectrumlocalnews.com",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSk01WS16OGZ0TnZZcE82Y3lPODJPV3h5WUhTMEpnZk1TQ2FQbF9HNk5kMDBlT3NYSzdwaWRVcTFQdnNOOE52cDJfWm9SMWVGQ0xteTAta3ZrZG1aV3RqVjVqUXBXeDZFbG5JbV9yQnV0T01nLWwzN1NHWUVRSVRndXpiRk9YRHJUUVMya0ozamxKSjMteWU2SllNT0h3RXZfMlctVzNPc0UxWnpBYmRv?oc=5",
+      "pubDate": "2026-09-15",
+      "provider": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5tTG1LNFp1QVVLaXp2RzhVVWdTOTQ2V2hKSUFnQkx2S29EcGVwbkNjWU94OWhmS0tuNV9paERaQk0yOXpaUGhxRUozVkdqX2MtV0UybDd1M0dqczNzdlJ5NjVrYnRzSnEzQUFOUGVuWXJZOEU?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -798,7 +798,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-16 17:24:20",
+  "generated_at": "2026-09-16 17:36:15",
   "macro_summary": "",
-  "cached_at": "2026-09-16T17:27:58.480178"
+  "cached_at": "2026-09-16T17:39:44.220315"
 }
