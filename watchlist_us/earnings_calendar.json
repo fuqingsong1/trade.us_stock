@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-16",
+  "updated": "2026-09-17",
   "events": [
     {
       "date": "2026-01-27",
@@ -465,7 +465,7 @@
       "symbol": "FED",
       "name": "FOMC会议第2日",
       "period": "FOMC",
-      "status": "upcoming",
+      "status": "done",
       "file": null,
       "note": "利率决议+鲍威尔发布会"
     },
