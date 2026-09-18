@@ -161,6 +161,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "NVIDIA (NASDAQ:NVDA): High-Growth Leadership and Strong Momentum - ChartMill",
+          "title_cn": "NVIDIA (NASDAQ:NVDA): High-Growth Leadership and Strong Momentum - ChartMill",
+          "summary": "",
+          "pubDate": "2026-09-18",
+          "provider": "ChartMill",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQOFJJM05wZjB1U05jSWdnTDA0THdQT0drRmMxTlRhNFVBb2lGRTNFM3R1X3FtVDFOY19KSy1oWUlFSzVVZFIzaGZneWZKVUZrSDJVQ0tlMnBsR1VHN2tKVUhLWm5DLVZvZEhXVXZFaEFMNGVhVzRhTlY5VkdVSktERC1LYlZBek4xdl9mWGcyYnljdUdpWWdXamwxVjdydUR5aXZ4QTVPX1FhOVF4Q1hPaVJR?oc=5",
+          "direction": "positive",
+          "impact_pct": 0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Nvidia Stock Drops. It’s Still the Best Chip Bet in an AI Slowdown. - Barron's",
           "title_cn": "Nvidia Stock Drops. It’s Still the Best Chip Bet in an AI Slowdown. - Barron's",
           "summary": "",
@@ -211,24 +224,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "Breakout Watch: Savvy Investors Get Wired Up For This Nvidia, Amazon Partner - Investor's Business Daily",
-          "title_cn": "Breakout Watch: Savvy Investors Get Wired Up For This Nvidia, Amazon Partner - Investor's Business Daily",
-          "summary": "",
-          "pubDate": "2026-09-18",
-          "provider": "Investor's Business Daily",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUzg1RElWX3NCUHg5bXVNcFpZRVl4bDRJeTBId01DaURpWEZOZk1pWVhIcGZVTkEyRW5EYy04TUV0elA4Sk92TGVMOG9mV0RfNi1YWGJFNEExNGJzQ1k0dFdTd0Q0NUc0YWZwX0xGOWhRaGtNd3liSXphZGFfNERxaVJPN0hmSGxjTDd5OC1FR2U3dU1GU0JpSHZEeWdHOUNXdUZlZ1hDOHRYS0VlT0VaRVVjRzhBVHNmQWUxQjFn?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     },
     {
@@ -386,6 +386,31 @@
       "next_earnings": "2026-10-22"
     },
     {
+      "symbol": "00700.HK",
+      "name": "腾讯控股",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "On September 18, Tencent (00700) repurchased 237,000 shares for approximately HK$100 million. - Moomoo",
+          "title_cn": "On September 18, Tencent (00700) repurchased 237,000 shares for approximately HK$100 million. - Moomoo",
+          "summary": "",
+          "pubDate": "2026-09-18",
+          "provider": "Moomoo",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPSC1ZREtjTWlGaWRRUW16NVJoYXhFWW9OVUsxM0JKc20zdGc0b1o1ZXV2RXBCT1hvQlFjU0VXTGNiZnlnVnRvTlhhb0ZFemZvbUJ1N1hEdjhTTlBlcVpxaDl3REZDSFpuRDc4VXFrM2RhcHdXTzFPN0ZnX1ZiQVdlSDlsbWNPakNjVG8tdHhBMUNzVmpDNEJPVjlXLWRMNm44ekNiYlNwY09ZMHZxcHc5NXQ5Tjl2UQ?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "未公布"
+    },
+    {
       "symbol": "PDD",
       "name": "拼多多",
       "has_position": false,
@@ -452,11 +477,11 @@
       "source": "rule"
     },
     {
-      "title": "Mississippi employment reaches record high as unemployment rate falls, governor says - WLBT",
-      "title_cn": "Mississippi employment reaches record high as unemployment rate falls, governor says - WLBT",
+      "title": "Mississippi employment reaches record high as unemployment rate falls, governor says - wlbt.com",
+      "title_cn": "Mississippi employment reaches record high as unemployment rate falls, governor says - wlbt.com",
       "summary": "",
       "pubDate": "2026-09-18",
-      "provider": "WLBT",
+      "provider": "wlbt.com",
       "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOYzU0NzNXbFp4ZGF6dmdYMUswOTlEZlVzMElCVHRZTEpDV1V4T1Y4VjdGNV9yQ0dNcTYxdXhFYnBwVWNoS0xOU3hKWU5laGVGcmFKRlNjaGJ4VXduaGVjM29ZOVZtb18xaW5odWVhYWwtVm1xdExIY3N0QWpWVzZpQl84RzJwazJvYm9SbldiN3RRR2hrVVRwcXd3LXlQYVJlRmZiYWs5VkpYZFJvZHdraFVDd9IBxwFBVV95cUxOYklGQkkwNzhPZ2ZyWHp4RU1odUx5OHMxT081aW5Wc29OZ1JzVVlLblRoV0xrQkRaZktWUDJxck0tN2pPUU5QSXVpNDB0THdpTDlwbFpHVnhvaDlOS3pUX3M2OW9aRzBJMDlWWnpscGdVRGZBRlhMYVd6LS1hd1pzMEUzc3hnajlCTXNrdjJQbDliMWF1SEJ0T2tDZ1F3ZGhITnpQTzlmS0VXamExWnh4SVQ3Vm1GVC1DWHNDV3BQSUdHRnFLTXJr?oc=5",
       "direction": "negative",
       "impact_pct": -0.8,
@@ -504,7 +529,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-18 16:50:47",
+  "generated_at": "2026-09-18 17:03:03",
   "macro_summary": "",
-  "cached_at": "2026-09-18T16:54:54.977495"
+  "cached_at": "2026-09-18T17:06:11.287860"
 }
