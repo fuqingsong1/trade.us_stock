@@ -46,19 +46,6 @@
           "source": "rule"
         },
         {
-          "title": "Bank of America resets Amazon stock forecast on delivery plan - thestreet.com",
-          "title_cn": "Bank of America resets Amazon stock forecast on delivery plan - thestreet.com",
-          "summary": "",
-          "pubDate": "2026-09-19",
-          "provider": "thestreet.com",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOb21LLTl5YTdiakJCVXlDMFVkM2JjYjl2OVkwZGNfUHc5a3dSQms1YlpyblIzRE5JRklOYlgwTXM0LVBsMTc1N0E1b2tWTWFMQWU1MmJYVTl3UHcxMlVLNENDTHVLRzR3RzhtSmJaekZTeVlLS0VyQXQtM2Rid2Q4WUduTmZRd1RHRF9EYTFFeFBvSXVRMURWdlRBUkZrb0tacVE?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
           "title_cn": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
           "summary": "",
@@ -69,6 +56,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Generac enters into $8B deal with Amazon to supply generators for data centers - wpr.org",
+          "title_cn": "Generac enters into $8B deal with Amazon to supply generators for data centers - wpr.org",
+          "summary": "",
+          "pubDate": "2026-09-17",
+          "provider": "wpr.org",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPOFNtMnhmeGpUSFN4V2lRbnFzVURzY0hPaHA5WXdSUW8yLW5DcnVFdnZmUFh1RXA5Q0NLOWMwWWNRN0JTSGtxYkt6YWwzdTd6bWExSHVDVk5nb2dkRF9qS3piZzYwaDAzUEdwU1RiQXZPYmJSMktSZ2haQko4MnY1VWdKS1E4cFVHZU5SaA?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -84,6 +84,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Nvidia Stock Drops. It’s Still the Best Chip Bet in an AI Slowdown. - Barron's",
+          "title_cn": "Nvidia Stock Drops. It’s Still the Best Chip Bet in an AI Slowdown. - Barron's",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNd28zaEgxYzJOZi1kWWhWa0Y5RG5za0VEUDN5dEVXTjVPdzhnTlhLX3BIaUdTNUEtN20zRWhkandEbDlZaTNiX0VrUkQ2aFQ3Z3BvbmlDeTI5enc2RUJqaTkzV3FZZWxZUmxqMXBNZ25MNnRLMDhPYmV1aTd0WWc3MERLWQ?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.3,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
           "title": "Prediction: This Much Nvidia (NVDA) Stock Bought Today Could Be Worth $28,560 by 2030 - Yahoo Finance",
           "title_cn": "Prediction: This Much Nvidia (NVDA) Stock Bought Today Could Be Worth $28,560 by 2030 - Yahoo Finance",
           "summary": "",
@@ -97,11 +110,11 @@
           "source": "rule"
         },
         {
-          "title": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - Forbes",
-          "title_cn": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - Forbes",
+          "title": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - forbes.com",
+          "title_cn": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - forbes.com",
           "summary": "",
           "pubDate": "2026-09-19",
-          "provider": "Forbes",
+          "provider": "forbes.com",
           "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPd3hBeWZ0aEY5Nk1IVUtYcUFaeVdWQjZrR0ZuNzZ0MGN4NjByLVVWMFRwVVVLRVF3Y1VmdTYxZ3lSOXpDdEJMXy1CbXhORFJZUDVVT21hSW55VjJMVkZudXlmbFhNVmg0U0JaazRQMWJGY2RoNjVXNHFxZ0FNcjlpYWJrc2JXbkk5NnF1b0phQ0c1RFdNUU15NHBfbw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -116,19 +129,6 @@
           "pubDate": "2026-09-18",
           "provider": "The Motley Fool",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOU1NybnJkOFdXRXV2TW5tNDZ0OHpnU0tzeG5KbXAzWE9vSmpqYlQ5aHJJOUM3SHlfNHR5NmhRTU9rSDJVc0N6emw4Y0tOc1NxS1lTQmNFczNES2JwTko3OWxOWVh1VllMUHctQU03VFQtVVh2ZHllbXdadm1LZEVRcWRLekVZbVhGT2tseVQ4WjZfSEpLeHlyaA?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Why Nvidia Stock Looks Like a $5 Trillion Bargain - Barron's",
-          "title_cn": "Why Nvidia Stock Looks Like a $5 Trillion Bargain - Barron's",
-          "summary": "",
-          "pubDate": "2026-09-17",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1SU1dGdkU5Z1J0dC1XOTlla1hvRmFuYW5sUU5ROTF6Ym1LNHJpc2dab0szUzRTc1RmaWVlR0w0am4wTldYUk1hMWVsRW93WUxLNWJyYXZDZnNpeFV0dU9CSUplOWZSYlFNNXVkdTQ2US02bENPRlBOZjRaMzY?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -151,7 +151,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "negative",
       "next_earnings": "未公布"
     },
     {
@@ -161,14 +161,27 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Employer Health Costs Surge: What it Means for EHTH, CNC & UNH - TradingView",
-          "title_cn": "Employer Health Costs Surge: What it Means for EHTH, CNC & UNH - TradingView",
+          "title": "Employer Health Costs Surge: What it Means for EHTH, CNC & UNH - tradingview.com",
+          "title_cn": "Employer Health Costs Surge: What it Means for EHTH, CNC & UNH - tradingview.com",
           "summary": "",
           "pubDate": "2026-09-18",
-          "provider": "TradingView",
+          "provider": "tradingview.com",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQZnVDbDlYTW1rcm14MEtTMHpWcndoWHhUUVgyd0ctNm8zS0NNWFNLY2JDNDRXYWlLUjJsdmdueGJ3UnRNVzc0Q1JxRU02UVRiS0hzaTlVb1BFbWZJdlJxYkhpd3BNMkt1VVB6RVpEV3ZpVHp4Nl96UFNFRF9HYmFGX3Q0amxsY3NobFdhSjZyRk9VM0dCRUhfR21XLTVEeU9ycGhvZ1RGR0pnaEhSMlJCckplM0I?oc=5",
           "direction": "positive",
           "impact_pct": 1.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
+          "title_cn": "Did Berkshire Sell UNH Stock Too Early? Retail Traders Think So – Call Its Exit ‘Way Overblown’ - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-09-14",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQV2Z6WlJrd3RCU2tmUHNrVmlVSW1jUDVIZTdLbFlkWVNUUjZ5UWZocGp6UW0tX0RPQjhqbXhrYmtEeTBteDY4eGZXQ1dmZUEtWG9Ubkd6dlhaVGU1Mk9HSEhLVDYtaURWdXJyeVNWanZHcW5DdUFUZTFMRDEyd3pPWUZFT1JBVENDZVQ3WGlXRGQ4eXdLdGl1MlptTUNlMkMwVTVEZ0JHNmxFQkl5WHFSRXdVdmV6OWUyWGJRcw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -211,19 +224,6 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
-        },
-        {
-          "title": "Should UnitedHealth Group (UNH) Revisit Its Valuation Following Raised Guidance And Cost Trends? - simplywall.st",
-          "title_cn": "Should UnitedHealth Group (UNH) Revisit Its Valuation Following Raised Guidance And Cost Trends? - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-09-17",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNTlY2SjNkZnd6VUhlQXNsb0pKdlJ0SklCZjdrOWFxX0l4VkxqQUhVN20wbnBuazExUXR2LVI0N3dGM1pvMEtrTVpxQm5CNmM2MzJuNUhZWlNFSmtYVVNtdTNsTmM4ekQydndwQXRiUHlDb0g4WXkyblU4djZLWWZ4YXRDUHlPV09BdnpzOGNfRnUzSnVlMTFmdkZHcTZTYzVMaDFKalZWdnlaQ2VXMlZGSWpNZlJYV0kwb0cwWVB1eXRkRlVHenRLTzhmTUpmX1N4dEHSAdcBQVVfeXFMTnBfeS0tcmhWV04xZTRwY09VRW5OUlVScDEwTzJBSU5jYmQyaG9RMXhrb1ZPT0JiajJBXzE5cWFMSTM1TDJLanlaZDRPRS1LTTl4c1RpTDAtbzVqTUpxOEhuTFJCWngwM3Zza25mX2FjTkw1Xy0xLXUydEV2Nm5sSXJjd20zVHFGYVJFRHBUblNKU0ltTDlUNzQxSHFQbDllZ25uT1JoTU80M29UdGpkdXVBWk45OEFoeDZIanlFTnZnSXpmSjVDNl9zTnVwTnplN1pXYWRROUE?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -264,6 +264,19 @@
           "source": "rule"
         },
         {
+          "title": "Blackstone (BX) Could Be 13% Undervalued On PGP Glass Exit Talks - Yahoo Finance",
+          "title_cn": "Blackstone (BX) Could Be 13% Undervalued On PGP Glass Exit Talks - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-19",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPT3JnVHhsWFRhWU9BUVNnU09ETTNoT3dodTg0djR4X3BjdHFFWHBFN0VBQ3A0cUEwaEdUNHZmNlNnWk1FWC1INmhuQkNkU0I0Z2NYTFNYM1lfLTlna29mZXdWbVpXQ283WGMtcVBmRVZ3UFdjR3p5dklBZUxxbnU0cnBpbDV4TXktaWhjTU9oN0RWRlB3czhEVi1sZ2lvR05I?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "GOOGL, BX Stock In Focus — Banking Consortium Reportedly Lines Up $22B AI Chip Financing For Blackstone-Alphabet Venture - Stocktwits",
           "title_cn": "GOOGL, BX Stock In Focus — Banking Consortium Reportedly Lines Up $22B AI Chip Financing For Blackstone-Alphabet Venture - Stocktwits",
           "summary": "",
@@ -277,29 +290,16 @@
           "source": "rule"
         },
         {
-          "title": "Blackstone (NYSE: BX) executive lines up 100,000-share sale in 2026 - Stock Titan",
-          "title_cn": "Blackstone (NYSE: BX) executive lines up 100,000-share sale in 2026 - Stock Titan",
+          "title": "Blackstone(BX.US) Director Sells US$12.38 Million in Common Stock - moomoo.com",
+          "title_cn": "Blackstone(BX.US) Director Sells US$12.38 Million in Common Stock - moomoo.com",
           "summary": "",
-          "pubDate": "2026-09-18",
-          "provider": "Stock Titan",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcFB6X0loWG5NNndUdUwxVkdFTEtaWlBqbjlJNXpJdzFXckppVlM0bl9FN1dYb210UEYtLURxQlF5czVSTVJralFIcktKalZreXk3MS1sWDhrZXI3c3BMSy0wT3VqUXRlYWtzSEQzV1hQVkl4a3VPTDVkMlc5MTIyRnQyX08tWTlVSnBRZG1zNXFXVVU?oc=5",
+          "pubDate": "2026-09-19",
+          "provider": "moomoo.com",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ1NSZ3RvVnhIQzJveEVKREZ2LVJncVVLSkwwZVRweGxJN0lCTGFVX29JaU1ZcTJKOG1tbGxaZjZ4dnI5aW9mQXhRcjl3MnlsRDZ1UzE1bFZBWmhzeUJ0bVZMNzQtYXloQU5JNE1JTmUxbnNscTJxMGNKQ3Z3VzREYkZjUEN0R3p1cUZMNWUweWZWUldRaURjMGhKSEtwZnhV?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "GOOGL, BX Stock In Focus — Banking Consortium Reportedly Lines Up $22B AI Chip Financing For Blackstone-Alphabet Venture - TradingView",
-          "title_cn": "GOOGL, BX Stock In Focus — Banking Consortium Reportedly Lines Up $22B AI Chip Financing For Blackstone-Alphabet Venture - TradingView",
-          "summary": "",
-          "pubDate": "2026-09-16",
-          "provider": "TradingView",
-          "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxQYTBMRW1iVFpQMlVtZFJhRmhqN0V5Nm8wUjNXbkpUNkJJX2ExT3kyYXVlMW4wTGRqLVdKTU5mM1FhMTVSRWRjbTlheXJoRkFFRlNMYWdXeFNJRWw5VFhZd213VGM5T0dZWmpHZW9aMDFJcWU5djFhM2lGd2x5by1OdU9QVTBxcHdrOW9lTG9GY0VmZG5Wa3JqVjVxbWlSbXlXM0VmQkd3enVQNFhTVlBHOGpqUmVmT3B0OU9EX28zQnY0OEVqMDJUZGxDSHR0Y1ptV2tzOXFjMWprc0hyejVtUUdVMERkMWJrNnNaWjFqdkRiNmhsR0ExMldmZFZPR3N0dkViZnVkZw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "行业",
           "source": "rule"
         }
       ],
@@ -315,11 +315,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Price to earnings forward of PDD Holdings Inc. ADR A Cert Deposito Arg Repr 0.04 ADR A – BCBA:PDD - TradingView",
-          "title_cn": "Price to earnings forward of PDD Holdings Inc. ADR A Cert Deposito Arg Repr 0.04 ADR A – BCBA:PDD - TradingView",
+          "title": "Price to earnings forward of PDD Holdings Inc. ADR A Cert Deposito Arg Repr 0.04 ADR A – BCBA:PDD - tradingview.com",
+          "title_cn": "Price to earnings forward of PDD Holdings Inc. ADR A Cert Deposito Arg Repr 0.04 ADR A – BCBA:PDD - tradingview.com",
           "summary": "",
           "pubDate": "2026-09-19",
-          "provider": "TradingView",
+          "provider": "tradingview.com",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOU0x0YmhXbkxRQTVIOWgyMVd6eDRKQTFKOWRPOUVDVi1zd0FtRXgxWVlPazhrS3Exa2dSSjdnLWphVTZjYkFncXpqdHI0YzNjYTFHbWNJaDNscldHS0pvMkRZN2wwQ2MwU21LVFJYQV9vcEZOZ3QyY3pSckpGT19wYjVxYWNWQkJqNEM2ZFQwNTNfVlpLT2YzWlBmOWRWZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -328,11 +328,11 @@
           "source": "rule"
         },
         {
-          "title": "Alibaba Climbs 3%, PDD and JD.com Tick Up: Is China Technology Finding Buyers Again? - 247wallst.com",
-          "title_cn": "Alibaba Climbs 3%, PDD and JD.com Tick Up: Is China Technology Finding Buyers Again? - 247wallst.com",
+          "title": "Alibaba Climbs 3%, PDD and JD.com Tick Up: Is China Technology Finding Buyers Again? - 24/7 Wall St.",
+          "title_cn": "Alibaba Climbs 3%, PDD and JD.com Tick Up: Is China Technology Finding Buyers Again? - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-18",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPWHREMVdnNFlRb3pTSnRjcmRFLXVaWUpfTG1IOXZERGlXcTZyRFp0eXpjeElHYjAxYjZzelBUa1BEZHY5VDZlbnlWcnVBRWhzRXNjMDVWRUdxeXlGTEt0YnpmZFpiOUlGR016V1VyNG1xZ3BCWmswYlFPMmJrZ1JaZTJlbGw2cm8wWDZjangzVVpyTlA5OE1wLVNEQlhEZ2JDTEVQLWZOOTZHZDVCNUhKdDRvTkdFX2FLOXp3aU5MY1RsZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -427,7 +427,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-19 16:29:47",
+  "generated_at": "2026-09-19 16:48:55",
   "macro_summary": "",
-  "cached_at": "2026-09-19T16:33:42.028056"
+  "cached_at": "2026-09-19T16:52:50.286320"
 }
