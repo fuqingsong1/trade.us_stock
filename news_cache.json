@@ -46,19 +46,6 @@
           "source": "rule"
         },
         {
-          "title": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
-          "title_cn": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
-          "summary": "",
-          "pubDate": "2026-09-18",
-          "provider": "Talk Business & Politics",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRXQ5VkxJNEk2b3FKeUtidVZqaFBaUGc1TTIyN3h2R3dkNTNVc053YVZkbU42djBka1luSFd4SUJRMXVMQXlKZktObDlxUmFTbDg2U1dRckR6ZUZBY0FLZUFlRFlGeV85ZjFjeUNxSkFOUDgxMm9FSmJGdExJMVZZUkV0N1AxN1dpMHV0WXR1WDRZUl9Kd1ZVZEk5RDcwbE1PZ0VWWXB3?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Generac enters into $8B deal with Amazon to supply generators for data centers - wpr.org",
           "title_cn": "Generac enters into $8B deal with Amazon to supply generators for data centers - wpr.org",
           "summary": "",
@@ -69,6 +56,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
+          "title_cn": "Amazon leads U.S. retail spending share, lags Walmart for grocery share - Talk Business & Politics",
+          "summary": "",
+          "pubDate": "2026-09-18",
+          "provider": "Talk Business & Politics",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRXQ5VkxJNEk2b3FKeUtidVZqaFBaUGc1TTIyN3h2R3dkNTNVc053YVZkbU42djBka1luSFd4SUJRMXVMQXlKZktObDlxUmFTbDg2U1dRckR6ZUZBY0FLZUFlRFlGeV85ZjFjeUNxSkFOUDgxMm9FSmJGdExJMVZZUkV0N1AxN1dpMHV0WXR1WDRZUl9Kd1ZVZEk5RDcwbE1PZ0VWWXB3?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
           "source": "rule"
         }
       ],
@@ -110,11 +110,11 @@
           "source": "rule"
         },
         {
-          "title": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - forbes.com",
-          "title_cn": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - forbes.com",
+          "title": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - Forbes",
+          "title_cn": "Is Nvidia Or Intel Stock The Better Buy Heading Into Year End? - Forbes",
           "summary": "",
           "pubDate": "2026-09-19",
-          "provider": "forbes.com",
+          "provider": "Forbes",
           "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPd3hBeWZ0aEY5Nk1IVUtYcUFaeVdWQjZrR0ZuNzZ0MGN4NjByLVVWMFRwVVVLRVF3Y1VmdTYxZ3lSOXpDdEJMXy1CbXhORFJZUDVVT21hSW55VjJMVkZudXlmbFhNVmg0U0JaazRQMWJGY2RoNjVXNHFxZ0FNcjlpYWJrc2JXbkk5NnF1b0phQ0c1RFdNUU15NHBfbw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -136,12 +136,12 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia Stock Is Up 21% in Six Months. Here’s What the Street Still Isn’t Pricing In - TIKR.com",
-          "title_cn": "Nvidia Stock Is Up 21% in Six Months. Here’s What the Street Still Isn’t Pricing In - TIKR.com",
+          "title": "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year - 24/7 Wall St.",
+          "title_cn": "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-18",
-          "provider": "TIKR.com",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOX1RsVlU2SGY3eE1uRjZQWFlnSjF1REhYakxrSHQ2TmVfRTFsamlJb2N4YUFsTm5MLWNYQ3pjYTFhVWdpUzItRy1lRjVHM1kxLUNEYXlpdnJLZmdUaURYdVhuWUFnMnJSYXpVN3RkX2kyTVVMLXdvTzhCTDNhVnNwNS1ZY1BjUXh1MWRvYkdHNDV6S0g3OUtFUVY0bzk4Wjh4WE1iekFjVjk?oc=5",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOendoRmVjZ0xlYURWVHo0c2hSbnVQWlRJYkwyXzJDV2xuOFlfbXk0aEN5b2szVVJpd2N5OGhLS2V6bjJlNEc1Uml4alkxXzJGSTkxN1V1U2FFMnkzNXAtUWUtNW41a0lhUnVQazRpRDVDLTA1MmVFUWNtXzVaaFRpcG1xbHBadlJkbkZVUGF3c0N0c29uMjI4RDRwa2RtS1IzcnNMU0dORHB2VU5xSDFBeE1kcGk?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -309,6 +309,31 @@
       "next_earnings": "2026-10-22"
     },
     {
+      "symbol": "00700.HK",
+      "name": "腾讯控股",
+      "has_position": false,
+      "is_eligible": true,
+      "news": [
+        {
+          "title": "$BABA-W (09988.HK)$$TENCENT (00700.HK)$ Solid performance today 👍 Taking some profits here, keep up the momentum[Keep Fighting] - moomoo.com",
+          "title_cn": "$BABA-W (09988.HK)$$TENCENT (00700.HK)$ Solid performance today 👍 Taking some profits here, keep up the momentum[Keep Fighting] - moomoo.com",
+          "summary": "",
+          "pubDate": "2026-09-15",
+          "provider": "moomoo.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxORGJzTTBLd0w3czRqd280NFM4OVRNQ3dXMTRtM3lVYlE3cFJIUzJOOVNHYURZYzZZdERER01RelNVTmlIWWFNb0R6bkVyTUJsZktlYmZaQzUteFRWS3lzR29rbmtkQmdSal9LQzY5NV9LUmwyUWRUbUg2WWlsSzNySk1vckdHdVhUdVN0M2JXTUk5QVh6MVNhVG82b1hsUjI3NldrXzZxWHhSZEJBVUIw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        }
+      ],
+      "stock_summary": "",
+      "total_impact": 0,
+      "net_direction": "neutral",
+      "next_earnings": "未公布"
+    },
+    {
       "symbol": "PDD",
       "name": "拼多多",
       "has_position": false,
@@ -427,7 +452,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-19 16:48:55",
+  "generated_at": "2026-09-19 17:21:08",
   "macro_summary": "",
-  "cached_at": "2026-09-19T16:52:50.286320"
+  "cached_at": "2026-09-19T17:24:30.314441"
 }
