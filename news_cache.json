@@ -97,12 +97,12 @@
           "source": "rule"
         },
         {
-          "title": "Prediction: This Much Nvidia (NVDA) Stock Bought Today Could Be Worth $28,560 by 2030 - Yahoo Finance",
-          "title_cn": "Prediction: This Much Nvidia (NVDA) Stock Bought Today Could Be Worth $28,560 by 2030 - Yahoo Finance",
+          "title": "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year - Yahoo Finance",
+          "title_cn": "Prediction: This Is Where Nvidia Stock Could Be by the End of Next Year - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-18",
           "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOMmZvaF9VQ2U1S1RUSXJ5TVItSk5sWDBrZU4yZEczYXNQNHBDN19tUFhUbUxGT2NjYVdvdVY1WjRaWUlWMElpR2Q4YjB1MG1IY2FNcThBeDRfdXVpSjFNQk9nc3BreTB5b28wazZrcVRxT2RCSjYzNEFXOEVtUHhhV3V0TGx5bFA1Q1Y2RVBUa1dReXpuMkRFOUgxRktvUEk?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPN0ItSllGbkRERXZTTUZfNTh0SUNjTHlVNWxWUy05eUVEUGU5SXhsVy1xMnN4eGdZUlJ1U1gzQ2xnVzktSy16WjVMTEtPcXl4N01wTUxpMVdHQUFBQ0pyRnYwS3dpZ2tVR2lVUVlUcVBBUFZtcGN3bXBmbnQ2RDJpeW1DNHdpcmlaUU1ocU9uOTd0WGRGUGJQLS1temFoNmVrRlE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -413,19 +413,6 @@
   ],
   "macro": [
     {
-      "title": "Oregon sees slow, steady decline in jobs as unemployment remains relatively flat - NPR for Oregonians",
-      "title_cn": "Oregon sees slow, steady decline in jobs as unemployment remains relatively flat - NPR for Oregonians",
-      "summary": "",
-      "pubDate": "2026-09-17",
-      "provider": "NPR for Oregonians",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNcjZ0ODg5bUNFWXBFYm9BU3FBNzlCMzlVeDZKazYyR2FsRnFYYWxzbGw2dmEycEFNUzNPSUNGLW0wU1NTWEdYSUQwdGdBNVNLbVdUNXZRWXVSc3V0cTVScnRnaG9xWWtvSG1pRXdFZGswYThpb0hmOFNHUF9TeHRiNlRJOXBaaTVRa09hYmJjWEc2eVlsMkJqZV91OHlSdXZKeFZzdEwtZU9oVkdUTE9BMUI2Y01tcTNDODlvYWdXbzBiRVFub3BN?oc=5",
-      "direction": "negative",
-      "impact_pct": -0.4,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Fed approves interest rate hike, signals one more to come this year - CNBC",
       "title_cn": "Fed approves interest rate hike, signals one more to come this year - CNBC",
       "summary": "",
@@ -476,9 +463,22 @@
       "reason": "",
       "type": "宏观",
       "source": "rule"
+    },
+    {
+      "title": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
+      "title_cn": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
+      "summary": "",
+      "pubDate": "2026-09-15",
+      "provider": "PBS",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNbG5TakU0X3dMbFJEZU9LRkkweWpLSC1HQnR0ZGZjSnBBMnhxeDJfeXpJbl9ETDVKajhrMnZIZy1hRUdpZFllY2VTbmROclRnbUk5TU9xalVmbUxkVEd5THdtaW9ReHpua1M0Q3RLdFlTOWQ3UGxkUmF0QjZELWhNSjRENm1FbGl1RWN2VHd4Y291RGdpN0RtRDdjdFJmSjFGcU5TQVRlT0w5T3o1TzZZSHAwMTRrUHZCLU9acUZB0gHDAUFVX3lxTFBFVmt4Z21jOVJHWklFdzlfMS1HOXVvdXRJdV9sZmhENW9OWDVrdVF3UHpuYk03VFZfVVB1V3pjLUtJaUd5TUswTFhUZTNXTFYtZXdaOWIyeGszNmNwM2ZKeUhHcThwRUJSNHduR0V3cHVrTHljM25HazRWcXB0VlYtekVnZW5NQlE0ZU9YY2h1NkFmeGRsOWRBNXkxTGVVYlRUR3JKR1JwUjRfQ0xjZU9nTjBadjZqeThjeExQbG56X0Zwcw?oc=5",
+      "direction": "neutral",
+      "impact_pct": 0.0,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
     }
   ],
-  "generated_at": "2026-09-20 16:39:21",
+  "generated_at": "2026-09-20 16:46:32",
   "macro_summary": "",
-  "cached_at": "2026-09-20T16:42:42.465383"
+  "cached_at": "2026-09-20T16:50:02.509603"
 }
