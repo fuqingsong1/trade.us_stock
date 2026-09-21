@@ -110,11 +110,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth Group (UNH) Stock Moves -1.28%: What You Should Know - easternprogress.com",
-          "title_cn": "UnitedHealth Group (UNH) Stock Moves -1.28%: What You Should Know - easternprogress.com",
+          "title": "UnitedHealth Group (UNH) Stock Moves -1.28%: What You Should Know - Eastern Progress",
+          "title_cn": "UnitedHealth Group (UNH) Stock Moves -1.28%: What You Should Know - Eastern Progress",
           "summary": "",
           "pubDate": "2026-09-17",
-          "provider": "easternprogress.com",
+          "provider": "Eastern Progress",
           "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQeTJtU0hmWjZ3X1JzNDBrd1hwTWowOV9qT2d3WGpUMDRGZENBanlWRi1qaG41c3lRemhQNF9XbER6UXhzZ2dCUl95SE1henQta25oRElvd0pMUG12a0t6Y0hxeVRqZUdpV1VVd2RtczBxVkFWcHZEMFloMzhIbHdmZXcyQXg4VkM4M2tEM2VLUkUzUXpFMlFmbHlqUkF4MjJLcnhiUzJidmllS1c5b1h3RmpaZUdlZXRfMlVwYVNjRU9CTDZKMzR5bHFuekkzZ3VyQ0V0RUE3eTNDUEU?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -264,14 +264,14 @@
           "source": "rule"
         },
         {
-          "title": "Novo Nordisk Targets Over Five New Blockbusters By 2030, But NVO Stock Slides On Growth Concerns - Yahoo Finance",
-          "title_cn": "Novo Nordisk Targets Over Five New Blockbusters By 2030, But NVO Stock Slides On Growth Concerns - Yahoo Finance",
+          "title": "Novo Nordisk stock falls after 2030 strategy disappoints investors - Yahoo Finance",
+          "title_cn": "Novo Nordisk stock falls after 2030 strategy disappoints investors - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-21",
           "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRG54c1JnN2xUZGVwSm5Oc0FraVZoY2dvbWZpd3o1VnBKTGFNSEZuNk50WDdXbGxWc2hpbkxhdUk1X3czalRiRlRMZEpTMmF6NnRpaUVQQzRTTlNianRmOFVNQmxUeDg3TnFjaXRpMDFKbnlRWmdhZGM1cjRvTDItVjFFdFhaZ1BQT0JZVFkxbTZQc0dTU2c?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.4,
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQaUExRWNGYXNhdkxXRlBoLUJmVGhIUF9nVWpMWkxlMmJRWVNyTXh6REZvNXQwbmpveC03SGRBSTd1eEFJemF4a1FGTEFxS0FFeWhHM3BudkdiMktHQkdDSWdwU1hiQmlEdE9OZExFcFRnbXdLbmFsZjNjdXBKWmJQeVFaNkdPTXY3ZnhUaW43SDlsVmtIcXJPY2R3?oc=5",
+          "direction": "negative",
+          "impact_pct": -1.4,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -305,7 +305,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "positive",
+      "net_direction": "neutral",
       "next_earnings": "2026-11-04"
     },
     {
@@ -413,12 +413,12 @@
   ],
   "macro": [
     {
-      "title": "Fed raises interest rates for the first time since 2023 - CNN",
-      "title_cn": "Fed raises interest rates for the first time since 2023 - CNN",
+      "title": "Trump says he told Warsh to vote for hike with the rest of Fed board: 'It's not going to matter' - CNBC",
+      "title_cn": "Trump says he told Warsh to vote for hike with the rest of Fed board: 'It's not going to matter' - CNBC",
       "summary": "",
       "pubDate": "2026-09-16",
-      "provider": "CNN",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPMkpuZEVrRnJHeExPbVBwMzJBa1AxNmhBYVRadDA2WXIxdDF0TXVoYTRHNG04djJkWVFjZFgwTEEzTElGYkR1MG1WWlZPOGV6TWpaeGhwTHJlRHBoVUZnZU1pTmItMFZ6LUtkSl8xTFVoZ3Z5bFZTMDF2Q29PcVdWc0tHdG4yWWlzWERGSm1zUVVMNjA?oc=5",
+      "provider": "CNBC",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBzYXVXRVNMRmFVMkVqeGJMLVhsQklJNlVTOU4yN09nMVJMcXozWmJRUUFORlpzTTdBWHB2dU1aS1pGRkY0cWpBc3FjV1RaV3h1ZzdnbVVKQXNiVjBvY1NGYWFwRkdrQ2R6c3hyRjlGbzB6TXV10gF6QVVfeXFMTzlzVC1yMDVCc3UwVld5bEpIbm04VWx4Q3JYR1c4NVZDXy1YUElET05SNG82TVJnVUcydVo3UHozTHBXRDNQcm05YTRCOEo2M3BjTHUycko0MUZteEJzU0NRM2RsdWpJRkt0aU8weS1LRjhhVzdncWxiQXc?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -426,12 +426,12 @@
       "source": "rule"
     },
     {
-      "title": "Fed approves interest rate hike, signals one more to come this year - CNBC",
-      "title_cn": "Fed approves interest rate hike, signals one more to come this year - CNBC",
+      "title": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
+      "title_cn": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
       "summary": "",
-      "pubDate": "2026-09-16",
-      "provider": "CNBC",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB2d21SUXhkazRGZk1QSTgxb2lQME5TUzdVNEZ0bWVxdWRENm96dUNfU040Rnc4Skl5MnZwcXlKLXh0c1NzYVhrNDZHY0F2M2otb0ZEZmRyd0N2Vlk1WjZ1a1FpZk9jaEtBV25HejlPUE5LVWllZDN2TtIBfkFVX3lxTE5MbUliaWM2Nm1nSDRQU0ZEUmdZUXVNVjRZeXpzRWlaY2pMRzMwdGFUb09jaWhqUFNJZEo5OUxJenR2aEtkcWR0MnVYR3VmdndJWlJTNGlPWmUzNmJYLS1oZ29fMW5PR0dzY3JYUkUzaGdfemtIQjBqc1hjMjNtZw?oc=5",
+      "pubDate": "2026-09-15",
+      "provider": "PBS",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNbG5TakU0X3dMbFJEZU9LRkkweWpLSC1HQnR0ZGZjSnBBMnhxeDJfeXpJbl9ETDVKajhrMnZIZy1hRUdpZFllY2VTbmROclRnbUk5TU9xalVmbUxkVEd5THdtaW9ReHpua1M0Q3RLdFlTOWQ3UGxkUmF0QjZELWhNSjRENm1FbGl1RWN2VHd4Y291RGdpN0RtRDdjdFJmSjFGcU5TQVRlT0w5T3o1TzZZSHAwMTRrUHZCLU9acUZB0gHDAUFVX3lxTFBFVmt4Z21jOVJHWklFdzlfMS1HOXVvdXRJdV9sZmhENW9OWDVrdVF3UHpuYk03VFZfVVB1V3pjLUtJaUd5TUswTFhUZTNXTFYtZXdaOWIyeGszNmNwM2ZKeUhHcThwRUJSNHduR0V3cHVrTHljM25HazRWcXB0VlYtekVnZW5NQlE0ZU9YY2h1NkFmeGRsOWRBNXkxTGVVYlRUR3JKR1JwUjRfQ0xjZU9nTjBadjZqeThjeExQbG56X0Zwcw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -452,12 +452,12 @@
       "source": "rule"
     },
     {
-      "title": "What a Fed rate hike means for your bank accounts, loans, credit cards, and investments - Yahoo Finance",
-      "title_cn": "What a Fed rate hike means for your bank accounts, loans, credit cards, and investments - Yahoo Finance",
+      "title": "Fed meeting live updates: Fed hikes interest rates by 25 basis points for first time in 3 years in unanimous decision - Yahoo Finance",
+      "title_cn": "Fed meeting live updates: Fed hikes interest rates by 25 basis points for first time in 3 years in unanimous decision - Yahoo Finance",
       "summary": "",
       "pubDate": "2026-09-16",
       "provider": "Yahoo Finance",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQWFVhZ0tfMTFRT2pMR2pwLXdNLWctREhfN3lvdUoxRU9QSFRUSkJVVi03SnhBR29xUVFKenJlWHEzVG53X0RKN2d1WEVkSzhhSjlWVnl6ZmE3TDhUdGZRYkhhb3paajBFWjJTNEhydS01NzFfdWdodWhTMDZpZ1A4X1dqQ0ZZMEZWd2FGQW9DZTlJNlY0MW5VcUhqOE5rUjdXMWRQcXV6YWNsU2RTT1RTRFllWEZ0QVVoZHM4b0otU2FqMGFTTGowX1BmMWQwWWhpcmpPTXNxWloxMXVVYlJWSnBEV2I1UUtieFYycnZzWQ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOdmZ6ZWVGendWVHM4dm1raHp1ckZOaGpHd2Y3SmNVYXRIUzhlMEI3b1lKNFhuTU5EMWVEc3dDb2FpTWU0SlJjSTJ1RTFmR29wdzJ4bGgtMW9xVkxtNnpoX0Z2TjNic0R4SXF5ZXZtc2RYMXktNFFGWEQtY1ZhQkpDY2pneWNKWURHRm84MFBnVF9qZmNMSktfRm1aUUZjbmk3bEh4SVdMNElkWHRlWHlRdHpwY3E4VGxSTFE?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -465,12 +465,12 @@
       "source": "rule"
     },
     {
-      "title": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
-      "title_cn": "WATCH: Warsh says 'inflation is too high' after Fed raises interest rate 1st time in 3 years - PBS",
+      "title": "Fed raises interest rates for the first time since 2023 - CNN",
+      "title_cn": "Fed raises interest rates for the first time since 2023 - CNN",
       "summary": "",
-      "pubDate": "2026-09-15",
-      "provider": "PBS",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNbG5TakU0X3dMbFJEZU9LRkkweWpLSC1HQnR0ZGZjSnBBMnhxeDJfeXpJbl9ETDVKajhrMnZIZy1hRUdpZFllY2VTbmROclRnbUk5TU9xalVmbUxkVEd5THdtaW9ReHpua1M0Q3RLdFlTOWQ3UGxkUmF0QjZELWhNSjRENm1FbGl1RWN2VHd4Y291RGdpN0RtRDdjdFJmSjFGcU5TQVRlT0w5T3o1TzZZSHAwMTRrUHZCLU9acUZB0gHDAUFVX3lxTFBFVmt4Z21jOVJHWklFdzlfMS1HOXVvdXRJdV9sZmhENW9OWDVrdVF3UHpuYk03VFZfVVB1V3pjLUtJaUd5TUswTFhUZTNXTFYtZXdaOWIyeGszNmNwM2ZKeUhHcThwRUJSNHduR0V3cHVrTHljM25HazRWcXB0VlYtekVnZW5NQlE0ZU9YY2h1NkFmeGRsOWRBNXkxTGVVYlRUR3JKR1JwUjRfQ0xjZU9nTjBadjZqeThjeExQbG56X0Zwcw?oc=5",
+      "pubDate": "2026-09-16",
+      "provider": "CNN",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPMkpuZEVrRnJHeExPbVBwMzJBa1AxNmhBYVRadDA2WXIxdDF0TXVoYTRHNG04djJkWVFjZFgwTEEzTElGYkR1MG1WWlZPOGV6TWpaeGhwTHJlRHBoVUZnZU1pTmItMFZ6LUtkSl8xTFVoZ3Z5bFZTMDF2Q29PcVdWc0tHdG4yWWlzWERGSm1zUVVMNjA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -478,7 +478,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-21 18:24:30",
+  "generated_at": "2026-09-21 18:37:23",
   "macro_summary": "",
-  "cached_at": "2026-09-21T18:28:05.529288"
+  "cached_at": "2026-09-21T18:40:42.158112"
 }
