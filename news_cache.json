@@ -20,12 +20,25 @@
           "source": "rule"
         },
         {
-          "title": "What Are Amazon Stock Bears Missing? - Yahoo Finance",
-          "title_cn": "What Are Amazon Stock Bears Missing? - Yahoo Finance",
+          "title": "What Are Amazon Stock Bears Missing? - Trefis",
+          "title_cn": "What Are Amazon Stock Bears Missing? - Trefis",
           "summary": "",
           "pubDate": "2026-09-23",
+          "provider": "Trefis",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNcFhaMWNuYmU4eTVGbzNfc1hIRHBpOFg3TGtqU2FrX0tPQ2xwalcxNDYzbWIwT2d0MTREVDdQRmhCbGs1MnVzemJHQnY5SDFmSmttbnlacmRBdHE2Yi1YWnlYNXpETHJSaWVKRUxiVWV2c00zWkpTY1puTXVSdHl5ZmgzRERSRTRpUVlTTklBaUdnVTExalFaSXF6M1Q?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "What Will $5,000 Invested in Amazon Stock Be Worth in 5 Years? - Yahoo Finance",
+          "title_cn": "What Will $5,000 Invested in Amazon Stock Be Worth in 5 Years? - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-21",
           "provider": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQ0paTWRBWFpsY2dVckJSbDRCN2hyeUVRSXVxU0RhRjR4R2Y4emNfRnJNV2I2OU1SRjgyblRSWWJvaEtmYnluajUyME9FX1JnMEEwcUJMSEV4REp6c0dlZ0FOd3ZoaW9FU0c4VjA2Z19zYkt2RHQ2Sl9vNUVJMWNKZGVQZXpoRW5qMF8tbV9XSElmUGVDSFE?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdU5DQTJ6UXJtM1YtRmIzNVBFU3ZtLWpRdEhNMEZuYmdBNHY5UjRLclpYc3FtMjhZTVd2U0ZhWnBmRktnUEJzQ0FYMGhWcTF6OTdPbTc3ZThCSnJHOWlRUmVmcXduQ1pndWxMNndGR0NpdXBoR0pjbVNLSGN4bkVnelZEd0JMaWZzaG91bDlyWHFHTWlTTEhN?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -57,19 +70,6 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "Trump discloses more than 1,100 July trades, including up to $25 million each in sales of Microsoft, Amazon - CNBC",
-          "title_cn": "Trump discloses more than 1,100 July trades, including up to $25 million each in sales of Microsoft, Amazon - CNBC",
-          "summary": "",
-          "pubDate": "2026-09-22",
-          "provider": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPRDhjQUdQbl9DazhqUEFYbklmaVhoVXhJOGQtNzEwZ2p1YnBfSXBXejctMWpxY3ltV1BPVElRQnhydm5xdm5vYmFydVVBeHFtcTJraUNFamVRUDFvb0tCMEtDZmtOaGcwWDhDYWQ0d1YycEVmNC1vZnh3VnNOQlFUaUlGLW0xR2FjWm5rWmRibFRhcm1LemZZ0gGcAUFVX3lxTE9YX0VmZjdHQXdGRjVnNFRWQnItRElCWGFFTTZWVWhOTVR6ZTdVR0hzU3dybFc4WXlSR3RSM3kzWVo5SGcyeTRpeFhWcmdXanVJWm9jX2d1bW9zalF1bXN6UEU1M1N6Q2JaSE5rQm9CWHpSM0RtS1hrMFNCaDhya0dneExYOEh1RVgtUzliN1daaU9zazJMQnppV3FkNQ?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
@@ -84,24 +84,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - Barron's",
-          "title_cn": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - Barron's",
+          "title": "Nvidia Stock Set For 40% Surge: 3 Catalysts That Could Drive the Next Big Move - 24/7 Wall St.",
+          "title_cn": "Nvidia Stock Set For 40% Surge: 3 Catalysts That Could Drive the Next Big Move - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONFNKSXh1cWdKdlk1LVQ2WjZ5UUZrN0Npak92YkZRd2xfTlhZdTc3UkFNTXM1S05SMVJzdDBidmlqLTlCXy10TDZ3OUg2ckE4ZHhDT1BlVXYtWXBkaFlmNndrY2FRaWNlX0VKLWwxZE5Za0VEN19vQkROUVV5eGxzX3pB?oc=5",
-          "direction": "negative",
-          "impact_pct": -1.6,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
-          "title": "Nvidia Stock Set For 40% Surge: 3 Catalysts That Could Drive the Next Big Move - 247wallst.com",
-          "title_cn": "Nvidia Stock Set For 40% Surge: 3 Catalysts That Could Drive the Next Big Move - 247wallst.com",
-          "summary": "",
-          "pubDate": "2026-09-23",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNUGh0WlNVdkw1LVBnV3ZRYXU4ZGhpbWF1WXRHbm1ramZGd3lNYV9VX0lGMFFfYV9mRlFNdUZyUy1nMVhwa05vb085T01IWGhRbnBfdlZCOU1zSlFySlowZEpWaWowb1RubGRNZ0hUWEFoZlpNM21uamRpaFZlLWVPLTVLTjNmdW9fa200RDdNcXV0QjY4TjAyWmZPZ2RFMUhjdHlZMXRnZzBkMVVrOUVqaXBLc1ptS203cFB4VA?oc=5",
           "direction": "positive",
           "impact_pct": 1.6,
@@ -110,11 +97,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg",
-          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg",
+          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
+          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "Bloomberg",
+          "provider": "Bloomberg.com",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmZza3lFQmV4Y3NTNVlkOThiYTlkUWFGY1lPUWF1SEpPRkRNXy1GRnpNYWlDa1JqdEJRejYyVF9mSlQ2eldpbGR0dFRRM1dWVS1oY1RmMGNqRy1aVExud1duUXhTZHdZTW9SU2J6aVBrMTVUVmNubDlQc3F6TjNHem4zWTM1dlp6dWFtbzd6d3ZOOE43NDNXYkpGMzMwR1NqQ2VfT3FPVGMtbEJHdzFMNQ?oc=5",
           "direction": "negative",
           "impact_pct": -1.5,
@@ -144,6 +131,19 @@
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPdTdkd3lSRVVNUkVSdm1NcTNwWlVRbHcycHp2c2VPdExBU3ZaRzdQZ1k0RGxkU2Zqa25wcjZ1anVQT0xucWc5bmM2SGRuT1ZxTlZoem5hQm9IV3ZOSkZhb1JOaklRbEdIV292THBtcmRSRlZaNXJPYUZVQ1NGNVhQMWM5VHc4R2oxbl9WNGZYVUxIWjdRZE0xTTl2RjVHdGdqT25BUkRoNnJKNTdUTHFqWXhEemFsTUtJcGlBaQ?oc=5",
           "direction": "positive",
           "impact_pct": 0.8,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - barrons.com",
+          "title_cn": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - barrons.com",
+          "summary": "",
+          "pubDate": "2026-09-23",
+          "provider": "barrons.com",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONFNKSXh1cWdKdlk1LVQ2WjZ5UUZrN0Npak92YkZRd2xfTlhZdTc3UkFNTXM1S05SMVJzdDBidmlqLTlCXy10TDZ3OUg2ckE4ZHhDT1BlVXYtWXBkaFlmNndrY2FRaWNlX0VKLWwxZE5Za0VEN19vQkROUVV5eGxzX3pB?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -213,11 +213,11 @@
           "source": "rule"
         },
         {
-          "title": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - TradingView",
-          "title_cn": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - TradingView",
+          "title": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - tradingview.com",
+          "title_cn": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - tradingview.com",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "TradingView",
+          "provider": "tradingview.com",
           "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNSnZXaHhZZGMyUm5IdlF5SlA0Mmpvd3BvU05CUGp4UllZZmJOUDU1OHZFM0djRlBROUZHc0F4LWh0SDZSbzhWU1EtaDhqRWZFWTJFSko0OFc1aXhIVlptQzZ6WF9fNVhOMTVRcjZTZDRZQnUxNDNUMjY0eTAxbjRYY2VJdnRhdzc2M3owYzhuMWcxVUhoUk5vSExjSWZoX1kwbUh4WF91UG8yd0MwcENNc19ITQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -238,19 +238,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "- ARES & BX: Short Positioning Doubled, Stock Prices Down Over 30% - s3partners.com",
-          "title_cn": "- ARES & BX: Short Positioning Doubled, Stock Prices Down Over 30% - s3partners.com",
-          "summary": "",
-          "pubDate": "2026-09-23",
-          "provider": "s3partners.com",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNT2c2ejgtamVULWtLR0pRSWRKMWVlUlFUX0VDclV5YmZxTW5venNMbE1wVGZCMXNSUnJ1T2Y5RzdVRGhMTFdBZzRFWjhzdVE4bXVTY3l1TUdhNTF0S3FoNHF1ZzN4R2w2YldJc3NmSU1mOFdwYVFJQlV5Xy1ybXE2NFViRUNHT2U1cVhwY3dYMEFrYWpJRGNLVjhkSQ?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.4,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Blackstone (BX) Stock Looks Fairly Priced Despite A 31% Drop - simplywall.st",
           "title_cn": "Blackstone (BX) Stock Looks Fairly Priced Despite A 31% Drop - simplywall.st",
           "summary": "",
@@ -264,11 +251,11 @@
           "source": "rule"
         },
         {
-          "title": "Blackstone Inc. (BX) Stock Price, News, Quote & History - ca.finance.yahoo.com",
-          "title_cn": "Blackstone Inc. (BX) Stock Price, News, Quote & History - ca.finance.yahoo.com",
+          "title": "Blackstone Inc. (BX) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+          "title_cn": "Blackstone Inc. (BX) Stock Price, News, Quote & History - Yahoo! Finance Canada",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "ca.finance.yahoo.com",
+          "provider": "Yahoo! Finance Canada",
           "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1GRy1LYmI1NFNmbVNvUU9ncTJ4VFRHdzFDMDNGNmptX0o2dzNlYk44dTFSYzJ1SGFGVGxETFdITzlpeVVQclFHVl9uRmg5RVU?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -277,11 +264,11 @@
           "source": "rule"
         },
         {
-          "title": "Blackstone slides as sector pressure appears to outweigh upbeat realization update - Quiver Quantitative",
-          "title_cn": "Blackstone slides as sector pressure appears to outweigh upbeat realization update - Quiver Quantitative",
+          "title": "Blackstone slides as sector pressure appears to outweigh upbeat realization update - quiverquant.com",
+          "title_cn": "Blackstone slides as sector pressure appears to outweigh upbeat realization update - quiverquant.com",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "Quiver Quantitative",
+          "provider": "quiverquant.com",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQeDktd1dSZGJRYm1TbmIzUHpRNmZMWUJTMWg5Q1lYUmREMUJjM3EtaUpzQVZMM0FsQUhXOUpvLWd0ZVpGMmo5eU5pLVN2cjZYTnBlTGlFWWR5cTk1cE0ycVBIUjdhTEJzTUI1eUg2U0NGbjFEeERTYVQ0MFZ3TjVSS1V5dVBtak53Ni1QVVJtQV9aVUZVT0JEbFZWUmtIWkZBcGpEYzVTOW5wZ21IYTlRYjhKS2hsQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -296,6 +283,19 @@
           "pubDate": "2026-09-23",
           "provider": "TradingKey",
           "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWEZhS2JEYU9MYXJ6ZUlDcDJfNGVFQzFEb21nazBTbUVWbnZLMzl5eEVvY0pIaDJyZDAyeGZfbnJPX3ZRQkRwQjZ6RVdxcWRMWHZ0SWlEODVCQ2tmOGVIbHBNOHNIeXpBQTlVN1A3ZHd3ZVByMVo0NmtQS1BvOTZ0XzZlRFgzbmpr?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Blackstone (BX) Could Be 16% Undervalued On PGP Glass Sale Talks - simplywall.st",
+          "title_cn": "Blackstone (BX) Could Be 16% Undervalued On PGP Glass Sale Talks - simplywall.st",
+          "summary": "",
+          "pubDate": "2026-09-23",
+          "provider": "simplywall.st",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOeEx3SGxydDVMWERDMWNoTXdPWnBPSWY3M1ZNMzhKMGNrUjQyVmNmWk9fanlob3U2T3ZOQzZKeEdmVWlQQXFzdGVrNHNPUy0wcHhyNnRfSVRkQldQMXhlZ2ZTdHlWSElKMnBQbTdkWEkwOURQLXpZRUlZM3ZiVW03SzJad0pkOXhDZGtwQ2MwY0tpNnk2Y2xEUnZlTm5NcHk0c1JJQW94bXZRZ2t1bHo1TVIyZTdsN2FCV21fMU1iSmtmbG1BMmFpSDYxRER1RHRSNGpiczhB0gHbAUFVX3lxTE9JcU4tM3l0WDRvSVJEbG9MU0tDeWdneUgyMHBJV1R5RFFjTm5Lbm1WRTIzcHM5UU4wcGhCQWJvQWM5YktiN040aFF4R2FUdnZHTVNKN1VKTmtyVG9jbnlxaTliSWhHLS13d0lqc3kyOUxqNzljdTBsc3hjWjJRQnZiUk14dlNOQlc1NjNNVzBISlBhZjRWUkhOQjQ4MXU2emhUekwzZThkR0RzZWFwOHZyd00yUVA2TlJxcWpmMkpYUkNTanpxZGs4MWtuVFE3dm1DRnAzSkxIQUs2TQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -367,14 +367,14 @@
           "source": "rule"
         },
         {
-          "title": "Why Novo Stock Is Tumbling After Drugmaker Unveils Ambitious Growth Plan - Barron's",
-          "title_cn": "Why Novo Stock Is Tumbling After Drugmaker Unveils Ambitious Growth Plan - Barron's",
+          "title": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - TIKR.com",
+          "title_cn": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - TIKR.com",
           "summary": "",
-          "pubDate": "2026-09-21",
-          "provider": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQbG1oQ3VwckVyM1puRC04YzV6akFJMVF5TzNLaTBGRVBnaGNWVFJGdkxIZDduamgxUWJNUldfZnJBZ2ZrbUZDU1g0ODRHcHYxaVJZSmhUWjZNU3RTa1pHcm0weHhQdDhxS1dSN3cyajZFMDhUOEpEeDhIQUJBVDY2Z3k2UVJZQQ?oc=5",
+          "pubDate": "2026-09-23",
+          "provider": "TIKR.com",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMWMzX1oxVjE3N1Rsb1RwOTNnbWFxcFNyYlQ2eDNISFMxMTBweEZ0cU9kQzFZUkIxeG5XSmFCWGFZQVlnMEF4aDhlckZZQURybkxmZDFKN3hXUjhQbGt3cldBeXZPQlFVX05ESDV1b3NTZ2xEUExnNjREeC1uLTB4c3F0OGF5a0JxdjFOMUhR?oc=5",
           "direction": "positive",
-          "impact_pct": 0.9,
+          "impact_pct": 0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -491,11 +491,11 @@
       "source": "rule"
     },
     {
-      "title": "US interest rates raised for first time in three years - bbc.com",
-      "title_cn": "US interest rates raised for first time in three years - bbc.com",
+      "title": "US interest rates raised for first time in three years - BBC",
+      "title_cn": "US interest rates raised for first time in three years - BBC",
       "summary": "",
       "pubDate": "2026-09-17",
-      "provider": "bbc.com",
+      "provider": "BBC",
       "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9wV0taWmp1eDMyZ1lLcndQX3FJMGJQUTJ6blJWbWZSTkNjTXFSVTlvVW1CZUlaYlZzU1hwenJBMnBtdFA4dnEzTWdqdmN5SXBBUW43STU5bGg2eWM?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -504,11 +504,11 @@
       "source": "rule"
     },
     {
-      "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut - AP News",
-      "title_cn": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut - AP News",
+      "title": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut - apnews.com",
+      "title_cn": "Federal Reserve hikes key rate for 1st time in 3 years, defying Trump demands for a cut - apnews.com",
       "summary": "",
       "pubDate": "2026-09-16",
-      "provider": "AP News",
+      "provider": "apnews.com",
       "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVlB2TmNqY1dILUtfRTFBQ0JPSk53elRnU1QzdmhIQ3VvTWlkelRTd3haWHJ4bmxiY2ZOcGhvd09wMTllVkVLQzk5NkdKZzNPeHpaZTRHQ242Ynd2Q1ZIUU50cUp1N2JYd1lCQndZQlhMUTZFekFZWWNueUxNbmRiUHdBZ2dWbDgzNlhmejZneHptaFhGbDI1M0JPbk8zZw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -530,7 +530,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-23 17:49:38",
+  "generated_at": "2026-09-23 18:00:53",
   "macro_summary": "",
-  "cached_at": "2026-09-23T17:53:30.802099"
+  "cached_at": "2026-09-23T18:05:00.648164"
 }
