@@ -20,11 +20,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon stock could surge to $350 in 2027 as AWS booms and AI chip demand grows. - pluang.com",
-          "title_cn": "Amazon stock could surge to $350 in 2027 as AWS booms and AI chip demand grows. - pluang.com",
+          "title": "Amazon stock could surge to $350 in 2027 as AWS booms and AI chip demand grows. - Pluang",
+          "title_cn": "Amazon stock could surge to $350 in 2027 as AWS booms and AI chip demand grows. - Pluang",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "pluang.com",
+          "provider": "Pluang",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQVS1EdmRhS1hNbjg4blI2RnFHZ2ZMNDNxTFhuR3FHU0RpOXdWY3hDOEpaNkdCQS02MjhCSjFwd0ltN0o4SWpXX2VpV3BaV1RQX2RQaklEUmhsT1pZcVU2Um5kZ1ozUjVwNFdodXo0UlRYajVyOWJyUlRERzRVR2h0dXhobG9uOXdHNksw?oc=5",
           "direction": "positive",
           "impact_pct": 1.6,
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Immense Dividend Hike Puts Dividend Growth Stocks in the Spotlight - morningstar.com",
-          "title_cn": "Nvidia’s Immense Dividend Hike Puts Dividend Growth Stocks in the Spotlight - morningstar.com",
+          "title": "Nvidia’s Immense Dividend Hike Puts Dividend Growth Stocks in the Spotlight - Morningstar",
+          "title_cn": "Nvidia’s Immense Dividend Hike Puts Dividend Growth Stocks in the Spotlight - Morningstar",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "morningstar.com",
+          "provider": "Morningstar",
           "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdVV4dEg1UDVVUEUtcU91WXRCZFI3Zm5pQU5tMTF2Q0tqZThjQjV6Nk5QdEt1NGJHMzBhRmpUV0lQS093MVVXOTdPNHdvRTE3RWFTMGM4Y21VNmhfQ0gtREdkeW9ES3BhMDh3UDJxcFV4aE16M0hNZmtSb0x4RnVKdC0xZmEyZjAzMV9ud0xMcXlGSktJZnRENGpmVmtJeURFVFFGRA?oc=5",
           "direction": "positive",
           "impact_pct": 0.8,
@@ -161,19 +161,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "2 Undervalued Semiconductor Stocks to Watch While the Market Is Skeptical of AI Growth - Morningstar",
-          "title_cn": "2 Undervalued Semiconductor Stocks to Watch While the Market Is Skeptical of AI Growth - Morningstar",
-          "summary": "",
-          "pubDate": "2026-09-23",
-          "provider": "Morningstar",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPdTdkd3lSRVVNUkVSdm1NcTNwWlVRbHcycHp2c2VPdExBU3ZaRzdQZ1k0RGxkU2Zqa25wcjZ1anVQT0xucWc5bmM2SGRuT1ZxTlZoem5hQm9IV3ZOSkZhb1JOaklRbEdIV292THBtcmRSRlZaNXJPYUZVQ1NGNVhQMWM5VHc4R2oxbl9WNGZYVUxIWjdRZE0xTTl2RjVHdGdqT25BUkRoNnJKNTdUTHFqWXhEemFsTUtJcGlBaQ?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.6,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "Why is Broadcom stock rallying today? - Investing.com",
           "title_cn": "Why is Broadcom stock rallying today? - Investing.com",
           "summary": "",
@@ -187,11 +174,11 @@
           "source": "rule"
         },
         {
-          "title": "Why Broadcom Stock Is Worth $650 - morningstar.com",
-          "title_cn": "Why Broadcom Stock Is Worth $650 - morningstar.com",
+          "title": "Why Broadcom Stock Is Worth $650 - Morningstar",
+          "title_cn": "Why Broadcom Stock Is Worth $650 - Morningstar",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "morningstar.com",
+          "provider": "Morningstar",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNQXZoMFoybDN3cmI0OTBaMjZQbEpYNHR5ZF9oNjNJM0FrcHNIR2pVaVFSWGwyWmFqaUZMaFhucmFjRVVJdVBJWHJXd0pqWGMwZllYUzVfcURlQUk3LXdYYXlLcDdndnBza01LWXZUSHlfM0s5bVoxbEF5MUxRXzdvYVprSC1LYWlwMGdsaE15UDZXRGM?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -219,6 +206,19 @@
           "pubDate": "2026-09-24",
           "provider": "The Motley Fool",
           "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOd2VRTnF6NTJlRE5FV0JNNl9ROU9sSEhkMHoxd2tyaU9qT0JCZXBQWmhjd0ZJSWtuekFickg4ZVdyQjhDN2FjcWEtUW1JUGR0MGpMYlRBYkFoc002bDR6S1I1TjlZVWlKR3RqZzdFR18yMml3b0lpcFVMWUtBZFFmUm4yTERtVy1wUVE?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "What's Going On With Broadcom Stock Thursday? - Benzinga",
+          "title_cn": "What's Going On With Broadcom Stock Thursday? - Benzinga",
+          "summary": "",
+          "pubDate": "2026-09-24",
+          "provider": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOZUxTVDFDaGlFdnRUd1pMX1RvNlpmMmxaZ0RBNHc4U0U2cUc5NWtNTkJiX1RvejFFVWVkSjJadmlqSU1aUnF2NXBzSVd4bjdIQXdIQy1nVWFVOTNKMDdlSTJfS3ZEX2d2enJsVk1BWjFTSG56aEdTd0lHVzVNOFd5T0ZjcGxKdTlGeXZSUzFwdDBtME52N2FaSG5kZWdHdXZl?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -290,11 +290,11 @@
           "source": "rule"
         },
         {
-          "title": "A new UnitedHealth executive will oversee people, property, purchasing and security. - stocktitan.net",
-          "title_cn": "A new UnitedHealth executive will oversee people, property, purchasing and security. - stocktitan.net",
+          "title": "A new UnitedHealth executive will oversee people, property, purchasing and security. - Stock Titan",
+          "title_cn": "A new UnitedHealth executive will oversee people, property, purchasing and security. - Stock Titan",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "stocktitan.net",
+          "provider": "Stock Titan",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOQjBqVWZQd054elJVaEMtWEk2amVPUzk5ZUhfSGV6WFdFbmlCMnRIVG5ZeTVFbUFUU2VwUEdpbzgya09Jb0Y3NWZfSU5PaGRYVkpyXzdxUG1NQ0c0RTBKM195RlI5ZWd0cC13Z19CX3Nvb205dXRRMW4tWUt1MGZOWTBWUHpaQ1BVOGVlRXR0X0htUmlMOXd1OF9IVXhWNDZFV2o2X3BOSlNWUQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -328,11 +328,11 @@
           "source": "rule"
         },
         {
-          "title": "For the first time, eligible investors outside the U.S. get four kinds of Blackstone investments in one fund. - stocktitan.net",
-          "title_cn": "For the first time, eligible investors outside the U.S. get four kinds of Blackstone investments in one fund. - stocktitan.net",
+          "title": "For the first time, eligible investors outside the U.S. get four kinds of Blackstone investments in one fund. - Stock Titan",
+          "title_cn": "For the first time, eligible investors outside the U.S. get four kinds of Blackstone investments in one fund. - Stock Titan",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "stocktitan.net",
+          "provider": "Stock Titan",
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQdHJxLVZzX3JhVmozTGpXb2VIVktaSjY4Y3ZPVHRUUTJUYy1URHpfZjV2YWlPNjdHbkpoUU9tdENvWGg4VF9tTGxDM1Y5NFZ0VXJPUlU1SFlYdmxRMDZnUklvRHo5bFAwSHk4QlRPdUVXRTkyV2R6UG1qMmY3bTJzNm5ycFBwN2gxdVhPYUVSam1PM2M2MkdKanAtZ1NvQ3hCM1BITHk4NA?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -593,6 +593,19 @@
       "source": "rule"
     },
     {
+      "title": "Douglas County non-farm employment declines over the year - nrtoday.com",
+      "title_cn": "Douglas County non-farm employment declines over the year - nrtoday.com",
+      "summary": "",
+      "pubDate": "2026-09-24",
+      "provider": "nrtoday.com",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPUWtWTUVMSFFpOS02V19kaUZSY1FDeHRSd1l3dHZwU3B1MndDLUFYSFpKeXVxYzBZMFkxeTJ6MHdqT2dMLTkza1dFYmhJVTluQldrZktWeXFCLWhUdVY1NmxRWEt2ZzRReE9UelpfSGdUQ2NiQWJUUlRWYTg0b1VXNk0wZXNQRmgwcGd5VU1SQ0dwNXhVSkwtdFhDaldlNzRUVndXSVJ1Z3JyQ2RWaTZNYVRNalU1WElYZ2lpVzVQclpYODdqMEF3Wl9GMFFDb0lTbDBkZQ?oc=5",
+      "direction": "negative",
+      "impact_pct": -0.8,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "Law school graduates report declining debt, high job mobility and growing AI use - National Jurist",
       "title_cn": "Law school graduates report declining debt, high job mobility and growing AI use - National Jurist",
       "summary": "",
@@ -606,25 +619,12 @@
       "source": "rule"
     },
     {
-      "title": "Fed’s Barr says future interest rate hikes ‘likely’ needed to tame inflation - The Hill",
-      "title_cn": "Fed’s Barr says future interest rate hikes ‘likely’ needed to tame inflation - The Hill",
+      "title": "Fed’s Barr says future interest rate hikes ‘likely’ needed to tame inflation - thehill.com",
+      "title_cn": "Fed’s Barr says future interest rate hikes ‘likely’ needed to tame inflation - thehill.com",
       "summary": "",
       "pubDate": "2026-09-23",
-      "provider": "The Hill",
+      "provider": "thehill.com",
       "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9EdzJJZVlSVDhNMGMyYmJrTGVieVdLQXlBSVlYbVNYbmt0b0cxM0J3M295TnJTN25tTU9IbjVxNk9lQmpLdzdrMGV3TGNFQlcxSDZwNmduSW9ySTl6VTVqdnNLQmV5Y2EzUEpER2luOXlsZEXSAXhBVV95cUxPVE1LZHE1YzZZcHNSaVB1dTA1Qk9ramtnRENqVFl1QVVZbVhTSnNXNkFwSUNEZmxYMlU2cV8wSWcwZjNkaWdMMG1TWkJ4Y0lkX3NhMjZ4cWg2RzcyUFNqTXdtR004S0YtR0k1TlJzUmROV0lETHpUY3o?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
-      "title": "Citi sees no Fed rate cuts until June 2027, crypto in trouble? - Crypto News",
-      "title_cn": "Citi sees no Fed rate cuts until June 2027, crypto in trouble? - Crypto News",
-      "summary": "",
-      "pubDate": "2026-09-24",
-      "provider": "Crypto News",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNUW84cllGeE9RWUxpSl9KRDB6YUNzWGY5d2QyY0xtdTRfcHVrSHJ2bGZmYTZuelRsMzRSaVY4b21pQWRGQlRocGFNaGQtOGVGa25QWHkwMFNFNi0zMjdsYUxCY2Q4TWUzSFhQNlMyMUp4OUpfT2JhTU1ka2FDNzVLTm83akVKejBf?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -632,7 +632,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-24 17:50:28",
+  "generated_at": "2026-09-24 18:00:23",
   "macro_summary": "",
-  "cached_at": "2026-09-24T17:53:50.385338"
+  "cached_at": "2026-09-24T18:03:55.232005"
 }
