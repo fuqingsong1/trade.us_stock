@@ -84,19 +84,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Nvidia Stock Could Surge by 2028: Here's How Beginners Can Get In Now According to Motley Fool's Price Estimates - The Motley Fool",
-          "title_cn": "Nvidia Stock Could Surge by 2028: Here's How Beginners Can Get In Now According to Motley Fool's Price Estimates - The Motley Fool",
-          "summary": "",
-          "pubDate": "2026-09-23",
-          "provider": "The Motley Fool",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNWnMtSlBuUGQxc1U2SmtSTnR4ZUhUMXJoazVZckU3UnBvWU1HVzlPLUlqQzZKcTA0Z1AwSVNjRFVCN1VQT05yX3BHcjJZSGFCOWlfQWV3a0otdWtmQ3VsRFAyWlEtbGk0RkhmNW51SXFXb3hnc1VuMUthNUpzVFlkWkgzeUVnWGdZNVJjTFBzektyQ3BYYVIzaA?oc=5",
-          "direction": "positive",
-          "impact_pct": 2.1,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Nvidia Stock Drops as CEO Huang Suggests Drastic Alternative to AI Regulation - Barron's",
           "title_cn": "Nvidia Stock Drops as CEO Huang Suggests Drastic Alternative to AI Regulation - Barron's",
           "summary": "",
@@ -144,6 +131,19 @@
           "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdVV4dEg1UDVVUEUtcU91WXRCZFI3Zm5pQU5tMTF2Q0tqZThjQjV6Nk5QdEt1NGJHMzBhRmpUV0lQS093MVVXOTdPNHdvRTE3RWFTMGM4Y21VNmhfQ0gtREdkeW9ES3BhMDh3UDJxcFV4aE16M0hNZmtSb0x4RnVKdC0xZmEyZjAzMV9ud0xMcXlGSktJZnRENGpmVmtJeURFVFFGRA?oc=5",
           "direction": "positive",
           "impact_pct": 0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Yahoo Finance",
+          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-22",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPQVB0djBZRHItdW9ub3BCOEFrUGtQZlhfNmEwXzdhR1dVU3BuX0ZFRmNvOXcxMUlBMUtEb3dxWVd6cURqbkV3dXcxMWR3WUo2MTBkZDdETWJWWGNnWk0wNk9ZVGw5N2VRVTQ2ZWVtSUJBeWpGXzZsOUJSbzNsX1lJZ1g5dDRKS3JFb29UX0JwSWs4a3FxVlJmd21pSE9nRHB2?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -632,7 +632,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-24 17:39:56",
+  "generated_at": "2026-09-24 17:50:28",
   "macro_summary": "",
-  "cached_at": "2026-09-24T17:43:18.934048"
+  "cached_at": "2026-09-24T17:53:50.385338"
 }
