@@ -264,11 +264,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth (UNH) CEO holds 177,690 shares directly after receiving 50 dividend shares. - stocktitan.net",
-          "title_cn": "UnitedHealth (UNH) CEO holds 177,690 shares directly after receiving 50 dividend shares. - stocktitan.net",
+          "title": "UnitedHealth (UNH) CEO holds 177,690 shares directly after receiving 50 dividend shares. - Stock Titan",
+          "title_cn": "UnitedHealth (UNH) CEO holds 177,690 shares directly after receiving 50 dividend shares. - Stock Titan",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "stocktitan.net",
+          "provider": "Stock Titan",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQN0N3Tm1MTnJDZllxN2ZfdE1fVnZPQzM4bWYza3M0UmVESWV2d1BXVFk0UnhrRENFTThnTXp0aHpRR3BTNDNFZ2JkMjFtbF9aWU44OGhmN0RCMG5XR3dRNTY3VkM4RURCV25sSW9oRkVwb0ZFMzI2dlUxWVZlLVg1RTVqa2lpRnl2U1FaaWdDYnhrZTJnbFZTR2ZoVm9EWVlVd3BKa3BwVG1kakJQNFJLakt2SWZMdw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -290,11 +290,11 @@
           "source": "rule"
         },
         {
-          "title": "A UnitedHealth (NYSE: UNH) executive received 84 shares tied to stock awards that may not vest. - stocktitan.net",
-          "title_cn": "A UnitedHealth (NYSE: UNH) executive received 84 shares tied to stock awards that may not vest. - stocktitan.net",
+          "title": "A UnitedHealth (NYSE: UNH) executive received 84 shares tied to stock awards that may not vest. - Stock Titan",
+          "title_cn": "A UnitedHealth (NYSE: UNH) executive received 84 shares tied to stock awards that may not vest. - Stock Titan",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "stocktitan.net",
+          "provider": "Stock Titan",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNR1RFUDN0U0xTdHdFTFlNaXp1MVF5MHNsMUNrTU1OZ3VmTDRPcUgzQW00SHM4UU1OWjJhQjhtWFZmT29oWllPQ0N0Y2Iya1M4M3RXMk1WMGtnemtrTVAzRXRhRHB5RWQwbDhWTXl1UXFERzdWemwwUlRGT2hBMGwyMjVkOUJ5bUhBWFJManVVTW96bjJyR2hJdEJnejh4R2Izd2dfQzdGdEpKcnc1UzI0eWpIcUx4QQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -341,11 +341,11 @@
           "source": "rule"
         },
         {
-          "title": "Two funds bought 191,058 and 637 real estate fund shares at $26.17, Blackstone (BX) reports. - stocktitan.net",
-          "title_cn": "Two funds bought 191,058 and 637 real estate fund shares at $26.17, Blackstone (BX) reports. - stocktitan.net",
+          "title": "Two funds bought 191,058 and 637 real estate fund shares at $26.17, Blackstone (BX) reports. - Stock Titan",
+          "title_cn": "Two funds bought 191,058 and 637 real estate fund shares at $26.17, Blackstone (BX) reports. - Stock Titan",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "stocktitan.net",
+          "provider": "Stock Titan",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdFlrSTRjb0p3aFkwajAyQmJhNUJNcFRTY2NIYUhST3hsa3Q3UG1ZcDVPaVVDVGEydGhQbkdPLUJKWnBmeWpfcFJYbGxzbTZNamNwaGJUUGpsc0MtOGU3MEF4amZpMmNZSWRfajBXTVVTTUlvTlM0ajk5S3dZQUpqazhMWTdYcExIMnRjajVQbUNDckdMZFFhSjFuU3k2RUZPRUJfZElDWU5OQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -418,11 +418,11 @@
           "source": "rule"
         },
         {
-          "title": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - TIKR.com",
-          "title_cn": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - TIKR.com",
+          "title": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - tikr.com",
+          "title_cn": "Novo Nordisk Stock Slides After Unveiling Long Term Pipeline Growth Targets - tikr.com",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "TIKR.com",
+          "provider": "tikr.com",
           "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMWMzX1oxVjE3N1Rsb1RwOTNnbWFxcFNyYlQ2eDNISFMxMTBweEZ0cU9kQzFZUkIxeG5XSmFCWGFZQVlnMEF4aDhlckZZQURybkxmZDFKN3hXUjhQbGt3cldBeXZPQlFVX05ESDV1b3NTZ2xEUExnNjREeC1uLTB4c3F0OGF5a0JxdjFOMUhR?oc=5",
           "direction": "positive",
           "impact_pct": 0.5,
@@ -592,6 +592,19 @@
   ],
   "macro": [
     {
+      "title": "Illinois metro areas see unemployment rates drop in August - 1470 & 100.3 WMBD",
+      "title_cn": "Illinois metro areas see unemployment rates drop in August - 1470 & 100.3 WMBD",
+      "summary": "",
+      "pubDate": "2026-09-25",
+      "provider": "1470 & 100.3 WMBD",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObTcyMlZpYzBjRXdkank0ei0ya0N2M3JaTlFpMVYyVURINVZ5UlFjNWFqVlZTOHUwNGFBVDVBY3U0VHZqMEs3VjBZNU5CdzJ5UjRTd1R4eEtBTGhlRXk2UGpNZWJCNzlMYmVBZXJuLVBpYUZCcGNGTXlKRnNLcjB5VEZCaTlCU1FrNTVrN184VXNvZXltNEVF?oc=5",
+      "direction": "negative",
+      "impact_pct": -0.8,
+      "reason": "",
+      "type": "宏观",
+      "source": "rule"
+    },
+    {
       "title": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
       "title_cn": "Will the Fed raise interest rates this year? Divided economists weigh in - ABC News - Breaking News, Latest News and Videos",
       "summary": "",
@@ -631,19 +644,6 @@
       "source": "rule"
     },
     {
-      "title": "There's a reason Trump is the only one talking about 1% interest rates - Reuters",
-      "title_cn": "There's a reason Trump is the only one talking about 1% interest rates - Reuters",
-      "summary": "",
-      "pubDate": "2026-09-23",
-      "provider": "Reuters",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPYjQ0bXJDcnFwd3RhY2JmdnRjTVJvT3g4WEc3UGNDZ05mLUN6eGMtSjdSdzdkaFJPYjdKX3BZQWoyM2hVbUJfRjJaWERxNHZaSTNOQnJiblVRd1dKOFBUWXZHSnh5RzBCOUJYR0U3LXBGaTVvQ2RRcUNSMkhVU1o3Q1ZUYURqcFlwQ0R3bVNYTTlSZWdoOWl1SkVsbkUyTm8?oc=5",
-      "direction": "neutral",
-      "impact_pct": 0.0,
-      "reason": "",
-      "type": "宏观",
-      "source": "rule"
-    },
-    {
       "title": "Wall St Week Ahead Jobs report, inflation data to test US rate path, economic strength - Reuters",
       "title_cn": "Wall St Week Ahead Jobs report, inflation data to test US rate path, economic strength - Reuters",
       "summary": "",
@@ -657,7 +657,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-25 17:39:39",
+  "generated_at": "2026-09-25 17:54:34",
   "macro_summary": "",
-  "cached_at": "2026-09-25T17:43:51.294958"
+  "cached_at": "2026-09-25T17:58:43.021287"
 }
