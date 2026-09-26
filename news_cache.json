@@ -20,11 +20,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon Turned $1,000 Into $5,239 Over Ten Years but Recent Buyers Face a Rougher Reality - finance.yahoo.com",
-          "title_cn": "Amazon Turned $1,000 Into $5,239 Over Ten Years but Recent Buyers Face a Rougher Reality - finance.yahoo.com",
+          "title": "Amazon Turned $1,000 Into $5,239 Over Ten Years but Recent Buyers Face a Rougher Reality - Yahoo Finance",
+          "title_cn": "Amazon Turned $1,000 Into $5,239 Over Ten Years but Recent Buyers Face a Rougher Reality - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNcE5UMlNIaGhDT0VKei0wOXRHT3Y3OUVON3Vra1hidzB2SFpxaWk3bFprSUJ4eVY0M2stMmswMndjc0NTS3ZqcWtLNnF0NmZmbDRfWWFtOXQ5d0RsdkNvOEk0aDk0TW8yVnk5T1VBazhJMUVwYnVvbHgwZGk4S2MzN3dUaUYzQ1pwcmEzTEtkQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -97,14 +97,27 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia Trades Near Its 52-Week High at Its Cheapest Valuation in a Decade. History Says This Is What $1,000 Invested Could Be Worth by 2030. - finance.yahoo.com",
-          "title_cn": "Nvidia Trades Near Its 52-Week High at Its Cheapest Valuation in a Decade. History Says This Is What $1,000 Invested Could Be Worth by 2030. - finance.yahoo.com",
+          "title": "Nvidia Trades Near Its 52-Week High at Its Cheapest Valuation in a Decade. History Says This Is What $1,000 Invested Could Be Worth by 2030. - Yahoo Finance",
+          "title_cn": "Nvidia Trades Near Its 52-Week High at Its Cheapest Valuation in a Decade. History Says This Is What $1,000 Invested Could Be Worth by 2030. - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQVHVJVy1HNlJIeGZpWVVSenBjeHdIMVRFSUQyS25iMjVRUEJyeU9PT3F0N3ROWXJZMVZVX0F6SmpGZzhoVGN5RHdEbmlZeWN0cHVhQzQzRDBEV1NTNlh0UWZYSUQ0QmhDaXNKc3lNcUR3a2pYSmozRHJUVDFUTU5NWjZxdlhqZE9OMHJqbWFVWlZnYVNDVHc?oc=5",
           "direction": "positive",
-          "impact_pct": 0.8,
+          "impact_pct": 1.4,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "NVIDIA Stock (NVDA) Opinions on JPMorgan's Growth Outlook - Quiver Quantitative",
+          "title_cn": "NVIDIA Stock (NVDA) Opinions on JPMorgan's Growth Outlook - Quiver Quantitative",
+          "summary": "",
+          "pubDate": "2026-09-26",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOMGxEVERJdFhBc2ExQjhKU3NZSHlGOC0zaUJZSlEycU1Kam1PRUpQZEprWjZCZkFIN1JBOVFJS0YyTU9iOUUzZ3p1aXByZzAtRUY4TXVXeUFGVGJOZjJHdk9ZbE4tV1hiVWpkakZXX1RENm1RRlhUOVp6XzhpX2NxZGU0b3lBakp2c3RQdGNfUC1kT25yQ1puUTNFS20?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -134,24 +147,11 @@
           "reason": "",
           "type": "行业",
           "source": "rule"
-        },
-        {
-          "title": "I'm Buying More Nvidia Stock Right Now. Here's Why. - finance.yahoo.com",
-          "title_cn": "I'm Buying More Nvidia Stock Right Now. Here's Why. - finance.yahoo.com",
-          "summary": "",
-          "pubDate": "2026-09-24",
-          "provider": "finance.yahoo.com",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQemlRWHNiYmMtaTJDUnNzVFk2d3Ryd1pfZGl4NmFJZUZ1Y3cyRFF2QS1Cam11QVBSdjJLVzNWVTJtUmNkM2d6U1hzU1BsM2dwUkRONTlOZXkwaWxXYkFidG5UWTlqcVktc0hWNFVEdGxtaFNobXlEcGJ3TFpFazhVekpEUi1aXzdqdDlGVHF5VUx0VEtSZ0VR?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "positive",
       "next_earnings": "2026-11-18"
     },
     {
@@ -187,11 +187,11 @@
           "source": "rule"
         },
         {
-          "title": "Where Will Broadcom Stock Be in 5 Years? - finance.yahoo.com",
-          "title_cn": "Where Will Broadcom Stock Be in 5 Years? - finance.yahoo.com",
+          "title": "Where Will Broadcom Stock Be in 5 Years? - Yahoo Finance",
+          "title_cn": "Where Will Broadcom Stock Be in 5 Years? - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-24",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUmpXdnZCM25GNkYzWHRDX2hVN3BpX05vNlpRYmgtdjVSTHlCNVVVNVY4akVXSGxCaVgzV0lhYWlHZG52LVJHanZKcnNxa1NGSUVvaTN6TUxZMmNDc1Q4a29XNGJIdmVfRV9wMEowTVFkSXhJYXJJMWp1SEtCazU3NHpDM0lqcHN6OElKZWdsWU91WnZTZ29aWg?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -238,11 +238,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "UnitedHealth Group (UNH) Stock Trades At A Discount Despite A 21% Slide - finance.yahoo.com",
-          "title_cn": "UnitedHealth Group (UNH) Stock Trades At A Discount Despite A 21% Slide - finance.yahoo.com",
+          "title": "UnitedHealth Group (UNH) Stock Trades At A Discount Despite A 21% Slide - Yahoo Finance",
+          "title_cn": "UnitedHealth Group (UNH) Stock Trades At A Discount Despite A 21% Slide - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNYUNvTGNqc3dDVk1tdHhnUWhELUVvRTZ6bHVzOVEyTEdhc3JFdjFoN3JaU2VQM1oweUs3d1pZcy1IaTAtTkZOTHZHRmgydWdDekYyZFdQS1JodVJMcHJvVlk2TFJfaEROejBXdEt5VnNGM0pOdjE0Nld1dno2cWFuMk5sZHBSNXBzSUUzUlRwdVlvWmFKdnZ5a2R1OWktN3dZeUE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -290,11 +290,11 @@
           "source": "rule"
         },
         {
-          "title": "UNH Vs. HUM: Which Insurer Stock Has More Upside After CMS Reverses Wall Street’s Biggest Medicare Rate Fear? - Stocktwits",
-          "title_cn": "UNH Vs. HUM: Which Insurer Stock Has More Upside After CMS Reverses Wall Street’s Biggest Medicare Rate Fear? - Stocktwits",
+          "title": "UNH Vs. HUM: Which Insurer Stock Has More Upside After CMS Reverses Wall Street’s Biggest Medicare Rate Fear? - stocktwits.com",
+          "title_cn": "UNH Vs. HUM: Which Insurer Stock Has More Upside After CMS Reverses Wall Street’s Biggest Medicare Rate Fear? - stocktwits.com",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "Stocktwits",
+          "provider": "stocktwits.com",
           "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNUTk0UTA5cXJKbW0zYnNVWkZfZlJPTEJKSWZDNFgtWkx0RzlyOVlaSkVMdTVFMl8wbUk2aUJSQUdTenpoQ0dBcHpHbnFMWEZTeEMwY25mZWJfNGZwMjdPUjdzeTFCcjkwMElDOU1mTHFTVy01amZYcVpOYTNzWXdyZEhPY2xMM2wtaEZoS0xRWmtlNTZ6SnFTZDlNZndsMElKMGpYTzYtalVfMHVMSUY5SDFqaXY?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -315,27 +315,27 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Does Blackstone’s New BXPM Fund Subtly Redefine BX’s Private‑Markets Capital‑Raising Playbook? - finance.yahoo.com",
-          "title_cn": "Does Blackstone’s New BXPM Fund Subtly Redefine BX’s Private‑Markets Capital‑Raising Playbook? - finance.yahoo.com",
+          "title": "Does Blackstone’s New BXPM Fund Subtly Redefine BX’s Private‑Markets Capital‑Raising Playbook? - Yahoo Finance",
+          "title_cn": "Does Blackstone’s New BXPM Fund Subtly Redefine BX’s Private‑Markets Capital‑Raising Playbook? - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNNngzYmROUW9ncUpWVldTOThkRllUTXBCRF9YbHdVRXh1b1pyTWZIdWRVbFBBOTRXMTFqbmtIN1FWWWFDa3MtWmMxXzg0LW1qN043bjY5MDg1RVdDMl9KaF9ub1NzNWZESnFycGFRck9iX09OQ3B1WmtTN0g1NEtMMnRiY2xHeGV5a2hNWWgzQ0U3SmdQemlHaWQ5em9Fdw?oc=5",
           "direction": "negative",
-          "impact_pct": -1.0,
+          "impact_pct": -1.7,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - finance.yahoo.com",
-          "title_cn": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - finance.yahoo.com",
+          "title": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - Yahoo Finance",
+          "title_cn": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQV195STMwdW84Q2JmMWYxZFVocGdZN1VwaUxMd1F2RHI2UXNYeEhVbDNSZ2tqSW80NllBbkdubDNIcnFSZ3NhRDhjdlpLOGlENGFoODNCMVc1UkZjSUJJdU1xbGJ3YkdqVktsajFqb0g4NlRLaFc2dW5rNzV3S0dSZkFtbFV0bmZka2VsZTlCQ3FHRVdmSmFMVHAzVi11UDFQRlpJ?oc=5",
           "direction": "negative",
-          "impact_pct": -0.8,
+          "impact_pct": -1.4,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -392,6 +392,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "Why Novo Nordisk Stock Just Crashed - Yahoo Finance",
+          "title_cn": "Why Novo Nordisk Stock Just Crashed - Yahoo Finance",
+          "summary": "",
+          "pubDate": "2026-09-21",
+          "provider": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNM20wdk1HZUJxM09QYjJmTWx6d3pReU5vZTNqcnlLalZnVGIwZm5fUWpWVmREWEtaamF2VmQ3SklLOVhrZkN3MlZUUThpNXlyMldCMGFzakI4Ry1YR3dYRFRLdjhfRlpvd3E2VEpfVFljamVJcDJwdVZ5Zmt2aGhzbHlKLUMxbFZYS0xqU3FGajdvVHh2b1pN?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Novo Nordisk: Capital Markets Day Reveals Its Next Growth Engine (NYSE:NVO) - Seeking Alpha",
           "title_cn": "Novo Nordisk: Capital Markets Day Reveals Its Next Growth Engine (NYSE:NVO) - Seeking Alpha",
           "summary": "",
@@ -400,32 +413,6 @@
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPVlFaM0x1SFJWWDQ4MnpIeXhBdjJVU2JreEFNZy1GR29ZVTluZkxoVWVHMWlNYkp3eDRWVWJRQjNfa0h6WkZsWnBxTmc2djJmOWctV0hCMGtWN2VRbkdfZUtONTdlWXphZEpqQ3JwVmcyMWpDeHBEcEV2bXJIa1R1VHk2VHBDX1RNczZyMFFheG1vV2pnNHpDRzhFQUZvUlpOZ2ZQLTVhYw?oc=5",
           "direction": "positive",
           "impact_pct": 0.8,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Why Novo Nordisk Stock Just Crashed - finance.yahoo.com",
-          "title_cn": "Why Novo Nordisk Stock Just Crashed - finance.yahoo.com",
-          "summary": "",
-          "pubDate": "2026-09-21",
-          "provider": "finance.yahoo.com",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNM20wdk1HZUJxM09QYjJmTWx6d3pReU5vZTNqcnlLalZnVGIwZm5fUWpWVmREWEtaamF2VmQ3SklLOVhrZkN3MlZUUThpNXlyMldCMGFzakI4Ry1YR3dYRFRLdjhfRlpvd3E2VEpfVFljamVJcDJwdVZ5Zmt2aGhzbHlKLUMxbFZYS0xqU3FGajdvVHh2b1pN?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.5,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Novo Nordisk (NVO) Shares Dropped, So What Is Driving Attention Now? - simplywall.st",
-          "title_cn": "Novo Nordisk (NVO) Shares Dropped, So What Is Driving Attention Now? - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-09-24",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQTGdyRDdINTdWQUdlaklLNmRDM000Y3NuZm9HUUkyWFlFOWpvNkRsaWI4R3JvamVSdnJLeHhBNUNpejlDT0EwSkZHZjNYcjdBX1BEcUk5aU9FaVQtQnVXN3MxV2JGSG9nVGh4cmx0NmI1SVZPVnJldkVEOENEX3Q0RXUzQnFiNVd5cVp0aHU5ZEFBbk1sZnJWanNUWmQ5YjhyTUkyenNyVl9ST0pza25tREkwQkxkZ1pCa0hrbUIwSUpXb05EN3N6MVFVbUJjTU4xUzJVb2lWVkpJaWvSAeABQVVfeXFMUHlyTzFUVnVkRDdVWkc2YThHMU1QbzJSOGVsZEkzd2NyWGJBWHBtVk5yM0NVUkg1WjFMMmh6cTRhOGxBYXpud1VqSzAyR2JIWHFwdlMyQlRZSjdWTUZDazlubWw3Rm82UXFEMzVnbzdCQ0NSN05xU3RISWtrbjdXZmZoLVRIcUpVTmozZ3N3MWgzbTR6NWsyc3BpQzFVY0V6V1VIRkpzdEl6QTdscGdFMlF5aGtSS0RTRmZ4azNEUWpkSmZ5MEZiT185WWJLTUROQXJsSXBWRVdRVUtsVEp5MFo?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -452,6 +439,19 @@
           "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMWMzX1oxVjE3N1Rsb1RwOTNnbWFxcFNyYlQ2eDNISFMxMTBweEZ0cU9kQzFZUkIxeG5XSmFCWGFZQVlnMEF4aDhlckZZQURybkxmZDFKN3hXUjhQbGt3cldBeXZPQlFVX05ESDV1b3NTZ2xEUExnNjREeC1uLTB4c3F0OGF5a0JxdjFOMUhR?oc=5",
           "direction": "positive",
           "impact_pct": 0.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Novo Nordisk Stock (NVO) Opinions on Capital Markets Day Outlook - Quiver Quantitative",
+          "title_cn": "Novo Nordisk Stock (NVO) Opinions on Capital Markets Day Outlook - Quiver Quantitative",
+          "summary": "",
+          "pubDate": "2026-09-26",
+          "provider": "Quiver Quantitative",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNQmRPUk9DOXJTdXpFZDRUNldyZGIxeXI4MExOdTZRR1VHYjhhTUNjRFNxN0RTTVhMOGk1ODcybzdBMGZIUDVBckJpYnpFVF9KU0FqcGxPUldyUllEMzUzYTQzaW5hSmdrNDUzNDN4S2w2UXAwdVNaUVRBRlhGQV9NX0wxZ1J2V3RaTVFkY0xNd1VkUHZwSmZwVXgtd0ZPRmk1RjhB?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -519,24 +519,24 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Is PDD Holdings (PDD) Cheap After Higher Earnings Estimates And A 10% Monthly Drop? - finance.yahoo.com",
-          "title_cn": "Is PDD Holdings (PDD) Cheap After Higher Earnings Estimates And A 10% Monthly Drop? - finance.yahoo.com",
+          "title": "Is PDD Holdings (PDD) Cheap After Higher Earnings Estimates And A 10% Monthly Drop? - Yahoo Finance",
+          "title_cn": "Is PDD Holdings (PDD) Cheap After Higher Earnings Estimates And A 10% Monthly Drop? - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZnNQYVhkeXFhUTkzZzZUTU1xUTRWQ0JmSElrczdPZEM0cjkwNTQ4UXRLUW5hZzhvZWdyN3VYZjB1bnJrOEFKZm5zNzNTYWZpQVVhYmR6bkNad2xONjJDVHBkZmtFcjhfTjNVdUxmQlczbl9KZ1Z3bDE2QnlFTUN4bzBBWnEzV3MyWjdlTjdWZV9hSU9KR2M1a3JR?oc=5",
           "direction": "negative",
-          "impact_pct": -0.4,
+          "impact_pct": -0.6,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "PDD Holdings (PDD) Stock Could Be A Bargain Following Its 38% Slide - finance.yahoo.com",
-          "title_cn": "PDD Holdings (PDD) Stock Could Be A Bargain Following Its 38% Slide - finance.yahoo.com",
+          "title": "PDD Holdings (PDD) Stock Could Be A Bargain Following Its 38% Slide - Yahoo Finance",
+          "title_cn": "PDD Holdings (PDD) Stock Could Be A Bargain Following Its 38% Slide - Yahoo Finance",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "finance.yahoo.com",
+          "provider": "Yahoo Finance",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWTRNeS00OXd6SWRlU0VIWlRRdDJXdkt2OHlqYzhYeHRiYVZIZVhCeHFPLUtTdnlHN1U3Wi1hbmVJMEF4MnFsVDdlbDFBeVNwSEs1cGdfMFFJU25Ka1RmN2kzRHRtVzgzalItVlpwM01EY183M1B2c1hrdjNQWGlQYmpzaC00dVlVNlg2RHdSbkg1TzlyS3NYTg?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -545,11 +545,11 @@
           "source": "rule"
         },
         {
-          "title": "PDD Stock Faces Wall Street Reset: Temu Expansion, Supply Chain Spending Pressure Outlook - Stocktwits",
-          "title_cn": "PDD Stock Faces Wall Street Reset: Temu Expansion, Supply Chain Spending Pressure Outlook - Stocktwits",
+          "title": "PDD Stock Faces Wall Street Reset: Temu Expansion, Supply Chain Spending Pressure Outlook - stocktwits.com",
+          "title_cn": "PDD Stock Faces Wall Street Reset: Temu Expansion, Supply Chain Spending Pressure Outlook - stocktwits.com",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "Stocktwits",
+          "provider": "stocktwits.com",
           "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNRi1DQVhzSDBDaHJiSnczS1RXWnFXa2E0RlZXZzZEbDdJRXZidEhXdExlT0R5VXN2WUVTbG1WVEphYm0zaDJhN1Y2cnUtMlNNNXIzaGxWbmZOVFA2cm9PNUtybXlfVEhVSFBvVDg2b0Z2MnJhOG5pUmIyVEVTMDM3NlA0VVpvbFdCTWtCdUdxWGR0ZnNIR1dWd2NqTzNVa3pVdjR0N1otU1J0WXNld2pxLTItV2VYR1FlT1lDMHBfbFZNSkxkbXh1Qk9BZ01RcWhxbDE5T3IydlMyMllJYnhDWTVmQUVJUQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -604,19 +604,6 @@
           "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSHA2Y0didEFrQmc5TzFsMTVQMUFNbnFac0owdl94clNNYnRBWmMyTHFPdlVjYlRvcE5peEFSUlN0cTBla19DNEFDM1hjaENKYjUwTjhhYnV0M2VMbGxmbXlzTGF0NEItN20wWllQT05jWm9RVDZvMkZ3U2JNUzBiM1JqVEFiVy0zcHV3M0ZVV3dlVk5zejZr?oc=5",
           "direction": "negative",
           "impact_pct": -0.6,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Price Performance - Yahoo! Finance Canada",
-          "title_cn": "Price Performance - Yahoo! Finance Canada",
-          "summary": "",
-          "pubDate": "2026-09-25",
-          "provider": "Yahoo! Finance Canada",
-          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4xUHNESmdLRnBldG1IWmhWLWZQeUFJMWViS09MX0RJMlZEU0pTMUtlYUtSMXlRR2xSZ1JRMzdsLWNEYzNEQnpkS25SSWlrV2c2UmNGMFBtYw?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -682,11 +669,11 @@
       "source": "rule"
     },
     {
-      "title": "Prioritizing Citizen Employment in the Gulf Arab States Creates Jobs, but Does Not Replace Migrant Labor - Middle East Forum",
-      "title_cn": "Prioritizing Citizen Employment in the Gulf Arab States Creates Jobs, but Does Not Replace Migrant Labor - Middle East Forum",
+      "title": "Prioritizing Citizen Employment in the Gulf Arab States Creates Jobs, but Does Not Replace Migrant Labor - meforum.org",
+      "title_cn": "Prioritizing Citizen Employment in the Gulf Arab States Creates Jobs, but Does Not Replace Migrant Labor - meforum.org",
       "summary": "",
       "pubDate": "2026-09-26",
-      "provider": "Middle East Forum",
+      "provider": "meforum.org",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMURESWZQY1dsY012bU9QdGZ4UThyMS16RzJBNjRMUHVoQXY0b0hJM3NQNFJTV1llX1lWTEdTMGZZV2NfT0NVTDhLUUNfQTJaTlJKY0h1eWVUbjJvY3o2ZFdkSW1LNE1DbjRncXJmMGdHa1RJYXh0RVVTclp1T2xIUWVJUFRqNS15bmNMOFpyU2FpanBZQUNxTmNsM0c0Z3RiRlkweEY0ZC1UZ2VmOUtJR2R3MkVPVlFoSTcyS19wZ3ZVOGNKenhyUmh6djd1RnNMS2IwX3VlNA?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
@@ -708,7 +695,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-26 17:23:46",
+  "generated_at": "2026-09-26 17:51:08",
   "macro_summary": "",
-  "cached_at": "2026-09-26T17:27:18.992523"
+  "cached_at": "2026-09-26T17:54:50.928222"
 }
