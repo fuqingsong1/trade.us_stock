@@ -33,11 +33,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon Is Spending $220 Billion on Data Centers. Here's Why That Makes The Stock an Incredible Buy - fool.com",
-          "title_cn": "Amazon Is Spending $220 Billion on Data Centers. Here's Why That Makes The Stock an Incredible Buy - fool.com",
+          "title": "Amazon Is Spending $220 Billion on Data Centers. Here's Why That Makes The Stock an Incredible Buy - The Motley Fool",
+          "title_cn": "Amazon Is Spending $220 Billion on Data Centers. Here's Why That Makes The Stock an Incredible Buy - The Motley Fool",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "fool.com",
+          "provider": "The Motley Fool",
           "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOdFJ4Q2pMbUEzRWlJRS1MTWRVNHJtbXFIWW9HREFadDRzWVdRbjBjaGl1WmdFTlpvZWRxSmgzRnp6Rk9aSlRTU0NZOVEtM0Q5ZjU2UUkxeUFYSGU3Rk9pWUZSak9XMW0yMTVDTlc4ZUxXYVM2NTIyOXozeWo4a3dodDFSQms5UE9ubFZ1MDBB?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -110,11 +110,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
-          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
+          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
+          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "bloomberg.com",
+          "provider": "Bloomberg.com",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmZza3lFQmV4Y3NTNVlkOThiYTlkUWFGY1lPUWF1SEpPRkRNXy1GRnpNYWlDa1JqdEJRejYyVF9mSlQ2eldpbGR0dFRRM1dWVS1oY1RmMGNqRy1aVExud1duUXhTZHdZTW9SU2J6aVBrMTVUVmNubDlQc3F6TjNHem4zWTM1dlp6dWFtbzd6d3ZOOE43NDNXYkpGMzMwR1NqQ2VfT3FPVGMtbEJHdzFMNQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.6,
@@ -123,14 +123,14 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - Barron's",
-          "title_cn": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - Barron's",
+          "title": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - barrons.com",
+          "title_cn": "Nvidia Stock Falls. It Has a Google AI Chip Conundrum. - barrons.com",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "Barron's",
+          "provider": "barrons.com",
           "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONFNKSXh1cWdKdlk1LVQ2WjZ5UUZrN0Npak92YkZRd2xfTlhZdTc3UkFNTXM1S05SMVJzdDBidmlqLTlCXy10TDZ3OUg2ckE4ZHhDT1BlVXYtWXBkaFlmNndrY2FRaWNlX0VKLWwxZE5Za0VEN19vQkROUVV5eGxzX3pB?oc=5",
           "direction": "negative",
-          "impact_pct": -0.6,
+          "impact_pct": -0.3,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -160,19 +160,6 @@
       "has_position": false,
       "is_eligible": true,
       "news": [
-        {
-          "title": "$Broadcom (AVGO.US)$ Shorted 32 shares at $363.58 and took profit at $352.36 after the strong reversal confirmed. - Moomoo",
-          "title_cn": "$Broadcom (AVGO.US)$ Shorted 32 shares at $363.58 and took profit at $352.36 after the strong reversal confirmed. - Moomoo",
-          "summary": "",
-          "pubDate": "2026-09-25",
-          "provider": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPZWpSeHBzMmNPZEpqTjc5dlgtYU9SMmRBLTREdDVNWFpqWlI4ci1DNlY0ajlzaEliYkJUMDhaMzFXV2ZZTlBUTDRtbFN4UWNVY0VVRDJxLTAwbV9MQUxYUEFEalQzOW5kaENMRFM1OUs2dFdhZzlyRE0yVHFYSFVOTWZ5UGtGenp3eWVod3dZcTJmTjZuXy00elZvRzZ0dFpVV0tJeA?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
         {
           "title": "2 Undervalued Semiconductor Stocks to Watch While the Market Is Skeptical of AI Growth - Morningstar",
           "title_cn": "2 Undervalued Semiconductor Stocks to Watch While the Market Is Skeptical of AI Growth - Morningstar",
@@ -213,12 +200,25 @@
           "source": "rule"
         },
         {
-          "title": "What It Would Take for Broadcom Stock to Reach $500 - fool.com",
-          "title_cn": "What It Would Take for Broadcom Stock to Reach $500 - fool.com",
+          "title": "What It Would Take for Broadcom Stock to Reach $500 - The Motley Fool",
+          "title_cn": "What It Would Take for Broadcom Stock to Reach $500 - The Motley Fool",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "fool.com",
+          "provider": "The Motley Fool",
           "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOZVJhTzlzWFV6bFZpSHZmV3BYTWZWS1QtTTNpSEZScGp0S09NM0Q1V0JtYTVuR1RMSFMtaFRVeGYtM3ZsX0hMTHpfdFBraVFZVktabmQ2Uk9GOGpkQVFGQ21qSnB2TFVjUnZWMHJFUUplazduWTVIRGlDbXBIeGw1ZFJNSUhtSGZ4dHhOTDVwYWpLWXNOUUdEcw?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Broadcom Has More Than One Way to Win. Here’s Where I See the Stock Going - 24/7 Wall St.",
+          "title_cn": "Broadcom Has More Than One Way to Win. Here’s Where I See the Stock Going - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-09-26",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOR21xMXdWYnJUV3MxVkVYS0lvMjYwczlRTmREREYyTEJJd19HYUNLaDdqYTMxQmNDaVA2dHhUTUwxTWUyamtOWHBua2g1dU1uaHZieVJYSUtjWkQxSUNqZjZ1Qm1Pa2pyYmRCUS1wVVdadHo4dVNkem9JNzNFM1V4RnJGcHdUY2MyclV2aDcyUC1yOUVNaTl5eUpsNUpsMVVPYjBsS1VPZHpJZWRtN2ExdUc4M2Rfdw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
           "reason": "",
@@ -228,7 +228,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "positive",
       "next_earnings": "未公布"
     },
     {
@@ -418,19 +418,6 @@
           "source": "rule"
         },
         {
-          "title": "Novo Nordisk (NVO) Shares Dropped, So What Is Driving Attention Now? - simplywall.st",
-          "title_cn": "Novo Nordisk (NVO) Shares Dropped, So What Is Driving Attention Now? - simplywall.st",
-          "summary": "",
-          "pubDate": "2026-09-24",
-          "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQTGdyRDdINTdWQUdlaklLNmRDM000Y3NuZm9HUUkyWFlFOWpvNkRsaWI4R3JvamVSdnJLeHhBNUNpejlDT0EwSkZHZjNYcjdBX1BEcUk5aU9FaVQtQnVXN3MxV2JGSG9nVGh4cmx0NmI1SVZPVnJldkVEOENEX3Q0RXUzQnFiNVd5cVp0aHU5ZEFBbk1sZnJWanNUWmQ5YjhyTUkyenNyVl9ST0pza25tREkwQkxkZ1pCa0hrbUIwSUpXb05EN3N6MVFVbUJjTU4xUzJVb2lWVkpJaWvSAeABQVVfeXFMUHlyTzFUVnVkRDdVWkc2YThHMU1QbzJSOGVsZEkzd2NyWGJBWHBtVk5yM0NVUkg1WjFMMmh6cTRhOGxBYXpud1VqSzAyR2JIWHFwdlMyQlRZSjdWTUZDazlubWw3Rm82UXFEMzVnbzdCQ0NSN05xU3RISWtrbjdXZmZoLVRIcUpVTmozZ3N3MWgzbTR6NWsyc3BpQzFVY0V6V1VIRkpzdEl6QTdscGdFMlF5aGtSS0RTRmZ4azNEUWpkSmZ5MEZiT185WWJLTUROQXJsSXBWRVdRVUtsVEp5MFo?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.5,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Novo shares slide as drugmaker lays out post-Wegovy growth strategy - CNBC",
           "title_cn": "Novo shares slide as drugmaker lays out post-Wegovy growth strategy - CNBC",
           "summary": "",
@@ -452,6 +439,19 @@
           "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMWMzX1oxVjE3N1Rsb1RwOTNnbWFxcFNyYlQ2eDNISFMxMTBweEZ0cU9kQzFZUkIxeG5XSmFCWGFZQVlnMEF4aDhlckZZQURybkxmZDFKN3hXUjhQbGt3cldBeXZPQlFVX05ESDV1b3NTZ2xEUExnNjREeC1uLTB4c3F0OGF5a0JxdjFOMUhR?oc=5",
           "direction": "positive",
           "impact_pct": 0.3,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "NVO Stock Generates Retail Buzz After European Commission Approves 7.2 MG Once-Weekly Dose Of Wegovy Injection - Stocktwits",
+          "title_cn": "NVO Stock Generates Retail Buzz After European Commission Approves 7.2 MG Once-Weekly Dose Of Wegovy Injection - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-09-25",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNUzZFM2RZVEd2N2tlWk5ZRDBpRmRXVFpueTVGS043Wlc4YW5TWmhjWUg4MXZFM2V5ekJqSk1kZ09NVW9BUmVMbi1lV2hWazRLYzFTeUlvc1BIRU5OTGYydEY1YWlycDktS1U5QlJwcUdkY01jcFgyT2ZqQnQ3VFV1cHFVTVhFUXB3YlN0ODY2UDVsMzdfSWxz?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -708,7 +708,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-26 17:10:02",
+  "generated_at": "2026-09-26 17:17:36",
   "macro_summary": "",
-  "cached_at": "2026-09-26T17:13:24.010397"
+  "cached_at": "2026-09-26T17:20:54.959431"
 }
