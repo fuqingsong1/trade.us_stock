@@ -97,11 +97,24 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
-          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
+          "title": "Nvidia Stock Drops as CEO Huang Suggests Drastic Alternative to AI Regulation - Barron's",
+          "title_cn": "Nvidia Stock Drops as CEO Huang Suggests Drastic Alternative to AI Regulation - Barron's",
+          "summary": "",
+          "pubDate": "2026-09-24",
+          "provider": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPQjd6OU5hSXN5TW9nRnB0OGhIWG1jNU9FNk5iQ2RhNkhRbl9nSVc3RXBxcnJWZGhpUzU2Um8ta0NzOU5XV2lGNUZ3STBncXpBNlk2QnRhbDVXYXRzNGs1Sl9RRnNmSlpMb3FoVWNxMDV6VUt2VklXbFN3ZVl5SzF4eTRLRXpXbmJEaVpXNUFKNUtUbmRfSEE?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.8,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
+          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "bloomberg.com",
+          "provider": "Bloomberg.com",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmZza3lFQmV4Y3NTNVlkOThiYTlkUWFGY1lPUWF1SEpPRkRNXy1GRnpNYWlDa1JqdEJRejYyVF9mSlQ2eldpbGR0dFRRM1dWVS1oY1RmMGNqRy1aVExud1duUXhTZHdZTW9SU2J6aVBrMTVUVmNubDlQc3F6TjNHem4zWTM1dlp6dWFtbzd6d3ZOOE43NDNXYkpGMzMwR1NqQ2VfT3FPVGMtbEJHdzFMNQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.4,
@@ -134,24 +147,11 @@
           "reason": "",
           "type": "个股",
           "source": "rule"
-        },
-        {
-          "title": "What Could Stop NVIDIA Stock Over The Next Six Months? - Trefis",
-          "title_cn": "What Could Stop NVIDIA Stock Over The Next Six Months? - Trefis",
-          "summary": "",
-          "pubDate": "2026-09-27",
-          "provider": "Trefis",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcFEyOXBfTzZ1bENVZmJ6VDdodFYwZlNrTVc0bC1UZ2RWR2lfZzRnQkVidUhpaVdlUDBlbUdRNF9BRXNwMDhxcXZfQUFZWWNiZFpxQ1ZYZnJkZ1VtSEhXb1RQNjFCc1A1Q1V5NE9YbnY1aHptT3VOTXctTnIzZzQ5eEhsakVVSE1nSWtiM1FTcWlRX0VZNkZOTGpOVm9xdE42ZTAxR0trSVZBNUp6Zm1TYjc2aTM?oc=5",
-          "direction": "neutral",
-          "impact_pct": 0.0,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
         }
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "negative",
       "next_earnings": "2026-11-18"
     },
     {
@@ -277,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - es.tradingview.com",
-          "title_cn": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - es.tradingview.com",
+          "title": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - TradingView",
+          "title_cn": "UNH vs. MOH: Which Managed Care Stock Looks More Attractive? - TradingView",
           "summary": "",
           "pubDate": "2026-09-23",
-          "provider": "es.tradingview.com",
+          "provider": "TradingView",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNQU53cXVVMGZfUDM0VnVhUWc1bFZ3aE9GS0VuSFVQTGplaGlqaHJ2bmJ0TmUwcURRQ0VrUzJLYjBWNHpHdkRhM0p4bUdKQ0pWYzZGTjFHVk1OWVBtbHRweFFDMU5Qdk5zWGJlb3hrM3psWF9WeVRsTTluM1BJUEk5ekljWkFmOGYyeFNqSE1OclVVSi1jRTAwZUo0bjllekhoUzFaQS1TUVJqd2ZsaHBZdWtR?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -634,11 +634,11 @@
           "source": "rule"
         },
         {
-          "title": "Price Performance - ca.finance.yahoo.com",
-          "title_cn": "Price Performance - ca.finance.yahoo.com",
+          "title": "Price Performance - Yahoo! Finance Canada",
+          "title_cn": "Price Performance - Yahoo! Finance Canada",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "ca.finance.yahoo.com",
+          "provider": "Yahoo! Finance Canada",
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4xUHNESmdLRnBldG1IWmhWLWZQeUFJMWViS09MX0RJMlZEU0pTMUtlYUtSMXlRR2xSZ1JRMzdsLWNEYzNEQnpkS25SSWlrV2c2UmNGMFBtYw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -733,7 +733,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-27 17:22:41",
+  "generated_at": "2026-09-27 17:40:37",
   "macro_summary": "",
-  "cached_at": "2026-09-27T17:25:27.985893"
+  "cached_at": "2026-09-27T17:43:30.810693"
 }
