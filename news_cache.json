@@ -110,11 +110,11 @@
           "source": "rule"
         },
         {
-          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
-          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - Bloomberg.com",
+          "title": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
+          "title_cn": "Nvidia’s Stock Is Flashing a Warning Sign as Valuation Falls - bloomberg.com",
           "summary": "",
           "pubDate": "2026-09-22",
-          "provider": "Bloomberg.com",
+          "provider": "bloomberg.com",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMmZza3lFQmV4Y3NTNVlkOThiYTlkUWFGY1lPUWF1SEpPRkRNXy1GRnpNYWlDa1JqdEJRejYyVF9mSlQ2eldpbGR0dFRRM1dWVS1oY1RmMGNqRy1aVExud1duUXhTZHdZTW9SU2J6aVBrMTVUVmNubDlQc3F6TjNHem4zWTM1dlp6dWFtbzd6d3ZOOE43NDNXYkpGMzMwR1NqQ2VfT3FPVGMtbEJHdzFMNQ?oc=5",
           "direction": "negative",
           "impact_pct": -0.4,
@@ -634,11 +634,11 @@
           "source": "rule"
         },
         {
-          "title": "Price Performance - Yahoo! Finance Canada",
-          "title_cn": "Price Performance - Yahoo! Finance Canada",
+          "title": "Price Performance - ca.finance.yahoo.com",
+          "title_cn": "Price Performance - ca.finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "Yahoo! Finance Canada",
+          "provider": "ca.finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4xUHNESmdLRnBldG1IWmhWLWZQeUFJMWViS09MX0RJMlZEU0pTMUtlYUtSMXlRR2xSZ1JRMzdsLWNEYzNEQnpkS25SSWlrV2c2UmNGMFBtYw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -733,7 +733,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-27 17:40:37",
+  "generated_at": "2026-09-27 17:50:24",
   "macro_summary": "",
-  "cached_at": "2026-09-27T17:43:30.810693"
+  "cached_at": "2026-09-27T17:53:15.367322"
 }
