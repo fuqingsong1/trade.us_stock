@@ -7,14 +7,27 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Adobe's stock lags despite record revenue, but AI growth and new CEO could push shares to $300 in 2027. - Pluang",
-          "title_cn": "Adobe's stock lags despite record revenue, but AI growth and new CEO could push shares to $300 in 2027. - Pluang",
+          "title": "Adobe's stock lags despite record revenue, but AI growth and new CEO could push shares to $300 in 2027. - pluang.com",
+          "title_cn": "Adobe's stock lags despite record revenue, but AI growth and new CEO could push shares to $300 in 2027. - pluang.com",
           "summary": "",
           "pubDate": "2026-09-30",
-          "provider": "Pluang",
+          "provider": "pluang.com",
           "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5zckdQbnNkRE15UVRsc243cjVuNEVOWVBObGd1S196STFEYlA3bmZLdHJCNW5BWkptRW84T1dmdDBZSDY1WnBCb01FcFc0YldfaS15ZEh0aF9yQnVPUFVwRERNZDhRNW1wdXVDMkd0MTc?oc=5",
           "direction": "positive",
           "impact_pct": 2.1,
+          "reason": "",
+          "type": "行业",
+          "source": "rule"
+        },
+        {
+          "title": "Unity Software Surges 5% as Traders Weigh Meta Platforms VR Glasses Support; Adobe Rises 3%, Intuit Adds 2% - 24/7 Wall St.",
+          "title_cn": "Unity Software Surges 5% as Traders Weigh Meta Platforms VR Glasses Support; Adobe Rises 3%, Intuit Adds 2% - 24/7 Wall St.",
+          "summary": "",
+          "pubDate": "2026-09-30",
+          "provider": "24/7 Wall St.",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQZUtoRS0zUzFLNlR3TmFic25ZZEtBRE1RUlNJbGNRT2ZySU50ZUlCTzVOQlR4VzFZN2l6MHhSOW1sMXY3MTZLSDZwMEVSRWxhanl6clpRbEdNVnpjODFkWl9oQ3ZjdkpWRmMyV1NEczg0cWN5bXRydU5ETWdFRF9RWHM0clBHLWJfWGRRaGVLZ3Q3dExMcWRvdUlxUHV3V3VGNERUODY4M2MyUE9CbklTYTBXZUZLVl9odW9CclZkTEZONFlCZG11OU9zQVNlMDJqUWJoZENZSkhrajR1cG1V?oc=5",
+          "direction": "positive",
+          "impact_pct": 1.6,
           "reason": "",
           "type": "行业",
           "source": "rule"
@@ -33,25 +46,12 @@
           "source": "rule"
         },
         {
-          "title": "Where Could Adobe’s Next Growth Come From? - Trefis",
-          "title_cn": "Where Could Adobe’s Next Growth Come From? - Trefis",
-          "summary": "",
-          "pubDate": "2026-09-29",
-          "provider": "Trefis",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZFVZeGlPMzZXSzA2Vm5NNE1mbjJIY09xZkhBNFJDNVlxOG1QVnRnWjNSN3MtNUpPNlZOR2t0RXJDN0pBNV9ONXFpZVVOZl9zcENsazViLUlpdkxsSmVCcHRpUExUV1A2QmpBSkxTTjBxeU1Ed2tVd0xkRVpDa0o1NjZmY0paLTY0ei0xYnVyU2N6WGY1dVZwUzB2STk0NGRoX3cw?oc=5",
-          "direction": "positive",
-          "impact_pct": 0.6,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Adobe (ADBE) Stock May Trade At A Discount On AI Partnership News - simplywall.st",
           "title_cn": "Adobe (ADBE) Stock May Trade At A Discount On AI Partnership News - simplywall.st",
           "summary": "",
           "pubDate": "2026-09-27",
           "provider": "simplywall.st",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNTncyV3lTcTNzTDJTWlVWUHdJbk9CLUh0eVFoOXFpeVViRllhMGhNc3NFdEY3QTFlQ0FOX2lGbHpUTWUwWE54M2txa2htT0lPaWtxT2kxclp3Rl9oSFZ1RnVaX3VPZFd3RGdtdHBlUVF6ZFFlMkJJcENiT09neXVVRW15TFQ0c0t3V2VKbGszWVdpbEZJU1RCNVF1d2J1Uk5pWmJ2MmRPWWYycW10cGVWS3FpSmdJcWxqYWc5OGstMnRMX3dhYjVN0gHHAUFVX3lxTE1OdzJXeVNxM3NMMlNaVVZQd0luT0ItSHR5UWg5cWl5VWJGWWEwaE1zc0V0RjdBMWVDQU5faUZselRNZTBYTngza3FraG1PSU9pa3FPaTFyWndGX2hIVnVGdVpfdU9kV3dEZ210cGVRUXpkUWUyQklwQ2JPT2d5dVVFbXlMVDRzS3dXZUpsazNZV2lsRklTVEI1UXV3YnVSTmlaYnYyZE9ZZjJxbXRwZVZLcWlKZ0lxbGphZzk4ay0ydExfd2FiNU0?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNXzRnX3F3S1otd2dCLVhQQ3BBQ0dFWVJyY0pSQXNMaVQySks2N3ZvS2tMeTZEWmZPS1RpVkUwekVWbDl4Vk01YW01V0dpckZKQlNucEhYajhUNDMzNGJ3cWhwS1ZaVW53eFNHNS11SFVKWlp6WWRIMUcya2xLa3gzRi11eWFjdmFXSE9nNHo1MTZDUmxHN0dEQkQzVTRQWjl1NFVXbXpwQXJpYTNHNUQzNThtbkNkUjlIY2xWQXktYVlPd9IBxwFBVV95cUxNTncyV3lTcTNzTDJTWlVWUHdJbk9CLUh0eVFoOXFpeVViRllhMGhNc3NFdEY3QTFlQ0FOX2lGbHpUTWUwWE54M2txa2htT0lPaWtxT2kxclp3Rl9oSFZ1RnVaX3VPZFd3RGdtdHBlUVF6ZFFlMkJJcENiT09neXVVRW15TFQ0c0t3V2VKbGszWVdpbEZJU1RCNVF1d2J1Uk5pWmJ2MmRPWWYycW10cGVWS3FpSmdJcWxqYWc5OGstMnRMX3dhYjVN?oc=5",
           "direction": "positive",
           "impact_pct": 0.3,
           "reason": "",
@@ -97,24 +97,11 @@
           "source": "rule"
         },
         {
-          "title": "Amazon.com (NASDAQ:AMZN) Stock Price Target Raised at Rosenblatt Securities - MarketBeat",
-          "title_cn": "Amazon.com (NASDAQ:AMZN) Stock Price Target Raised at Rosenblatt Securities - MarketBeat",
+          "title": "Wall Street stays bullish on Amazon despite rec... - pluang.com",
+          "title_cn": "Wall Street stays bullish on Amazon despite rec... - pluang.com",
           "summary": "",
           "pubDate": "2026-09-30",
-          "provider": "MarketBeat",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPY2JwcWJhSzVXallvNWFYNUFhTnFOb0RLZnBTS0JuMnF5WnNzVnhfSkFqdFNMQUtJWEVZLTNTRnh1a2R5azdZQWxnUmxCMTUwZTBVd3lIMDFNWHhaci10azJmRkpSb2QzMWZvSnc4d1Z0T29hbnVyb1ZUcU54UjN3cUxkNEtqbDFiWl9TNk9kbHExUEExODdXZVRvbWRVUVFQTlRFVXE5NFBlY3J3MUR1X2c3QWZhTzlOMGlfY3A3bmN4bGhoTGtCWnZ6RDd6U00?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.3,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
-          "title": "Wall Street stays bullish on Amazon despite rec... - Pluang",
-          "title_cn": "Wall Street stays bullish on Amazon despite rec... - Pluang",
-          "summary": "",
-          "pubDate": "2026-09-30",
-          "provider": "Pluang",
+          "provider": "pluang.com",
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOZmxMX2lxSDdpX0U2YVgxbFlGVEQ2VmRLN21KbC16cnV2eHVzOFZhMlhJYlE2NS1sRWRuNWwwR3pWb2dBUkFHUlB4SElVdEN0N0pDQ3kzTGIzbTJwb3lMTGhad0NDX2V2WS1xZ0o4MHJYNXBBU0R6ek56U3ZmV2FZYzFRbWh1Z3RlREUxLUhZSUtGN1FlTXVTdGFn?oc=5",
           "direction": "positive",
           "impact_pct": 0.8,
@@ -146,6 +133,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "Could Amazon Stock Survive AI Spending Outrunning Its Cash? - Trefis",
+          "title_cn": "Could Amazon Stock Survive AI Spending Outrunning Its Cash? - Trefis",
+          "summary": "",
+          "pubDate": "2026-09-30",
+          "provider": "Trefis",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQR0NzUGZhY05seEZXRWdESXNCTktRMThkTXQtYXhxZkZTanRQT2ZKVjY0VHlJcUtrWFJLYWktVFVJS3VyNDZ0QzVkR3Y3X2JsMEdkZVY5YkhvXzQ4R2ZnUWU3eVRST0xndUdvQVpXczJoOWxhU056WllLM2lzMjlWQ29DSUloMnNxM0NDRGViS2p0T0VGNWVFZ0FxTFZSOEdWOG1mNVg2WUdiLXRxcEZuM2x1ZHRUdzVISEow?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
           "source": "rule"
         }
       ],
@@ -635,19 +635,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Hong Kong Stock Market Update | Shein-W (00625) drops over 6% to hit record low; H1 adjusted net profit halves as major markets in Europe and the US weaken simultaneously - Moomoo",
-          "title_cn": "Hong Kong Stock Market Update | Shein-W (00625) drops over 6% to hit record low; H1 adjusted net profit halves as major markets in Europe and the US weaken simultaneously - Moomoo",
-          "summary": "",
-          "pubDate": "2026-09-29",
-          "provider": "Moomoo",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcnlmakd0UjdQRjUxMWZ6Q3J3T1VOeWhVUnFWWTRyRlhoWUM3V0c3MzBoNHRGOU9IekNHc3JnRGtDUk1FRGtDbEJ2dHp6R013elB5SV9pN2ZwM2FldktscmR0Wm5tY2JKZy1TSnNGTDVEQXU3dXBGbnJXUkZwU2JvM1ZocE9vYUEyb1gtYkdncEg3X3NGelVwcy1TTy1LMkU?oc=5",
-          "direction": "negative",
-          "impact_pct": -0.6,
-          "reason": "",
-          "type": "个股",
-          "source": "rule"
-        },
-        {
           "title": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - 富途牛牛",
           "title_cn": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - 富途牛牛",
           "summary": "",
@@ -702,7 +689,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "negative",
+      "net_direction": "neutral",
       "next_earnings": "未公布"
     }
   ],
@@ -747,12 +734,12 @@
       "source": "rule"
     },
     {
-      "title": "ADP Says Private-Sector Hiring Picked Up in September - WSJ",
-      "title_cn": "ADP Says Private-Sector Hiring Picked Up in September - WSJ",
+      "title": "Student Loan Borrowers Can Get 1% Interest Rate Cut But Must Act By Today: Here’s How - Forbes",
+      "title_cn": "Student Loan Borrowers Can Get 1% Interest Rate Cut But Must Act By Today: Here’s How - Forbes",
       "summary": "",
-      "pubDate": "2026-09-30",
-      "provider": "WSJ",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdDJBNFN4azBKakZ0bFVqS2F0UlE1cnE2UnU3dTRFb3c4SVpGSWRfRjVDT21CV0RONVZOdjdlOUtoREZ3cjNING0wLWZyZWt3N3BXYmVRc2VORjFPOWZTaVF6ZlFjNk94M3hRa1AtTWk2ZG52cG1ubEtWZk1paEwwM1k1UGhHeWFsVnlxTEthY0dYenJQTE1SWGlxOA?oc=5",
+      "pubDate": "2026-09-28",
+      "provider": "Forbes",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPakw5STQya01JQmZBcjJ5OG9DY3hQOXhVTE9JMUh1TEMxX2piM2EwZHRZRjdEQ0xlT2VJLXVtUWF5RzFVZ3UySHJQT3VSUDV4NjJWWEhqSktDOWVkNElFSHVRaTNzTXI2aDBJMV9lclpJQVlwdFcyNFNUcmRpaTQ2dlR1Q1k1LVE2bzZYMnZiUmRuUTJQdXAwU3VKcHNtQzFJVjJEbUR3ajVjaUxoSWJJVjRtM0pkbGV1OVJtbEpUZ0xQeVJhVzcwN2lhZEtZTk1KZG9LdEVoSQ?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -760,12 +747,12 @@
       "source": "rule"
     },
     {
-      "title": "Prediction market traders think the U.S. added more jobs in September than economists estimate - CNBC",
-      "title_cn": "Prediction market traders think the U.S. added more jobs in September than economists estimate - CNBC",
+      "title": "ADP National Employment Report: Private-Sector Employment Increased by 90,000 Jobs in September - ADP Media Center",
+      "title_cn": "ADP National Employment Report: Private-Sector Employment Increased by 90,000 Jobs in September - ADP Media Center",
       "summary": "",
-      "pubDate": "2026-09-29",
-      "provider": "CNBC",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNc0VkYUpOOVpWNTJBTzJCRzdwc0JIcF9Ra2VfZ0J4LVNnVHN5YkJZdnpfeTJmUnVVSDRqa3pZVFp4aTVISE5oRlNkOGRwQjdyTEM5dXJJSU95M0F6ZW1UNDVOQWVVSVJMQ29kRzl0N1JocklCUXYycWxuaTNPUWpHbTZUVlV6WF9feFRjdmFpd09HT3dKbDRvY29QakJQRnF1QUxDT3hYTdIBrAFBVV95cUxNTFl2T003OG5mUkFTR0RHN3kxaGQwTW1hR2V1RGR1NU8zdTBrN0lUOWxpeFhLdGZpTG5hdFUzYUhfS3MtN3hnVDBncEFETS0xOXp4WDNrazM3cGFyRkFzdlpoVlh5S2hyc1ZFQ3EzeF96X2RaWE5PNWdaMnNDWDBSZXIxX2FaUEtvLWU5SzYzMzZQYzhpY1pHTHFUcGkyNm1INlNKZno4bkZ1Y3pM?oc=5",
+      "pubDate": "2026-09-30",
+      "provider": "ADP Media Center",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT2RWa3k4OGd2a1N4M2VETWljWVVVNHgwYjRuUWdoS1ZJVjE2RzBkVGlQazFKS21IWVJQbzRhdkNxTURPa2NRY1ljWkRXWGJjbTlJTmpWQkQxOHdRc2cxNjRQV2loaUV6QlE1cFgtZGxXb0FlTGkwZ3ZYdklFbG9xbmo0RHZ5ZzI1clNnYUFIQ1NLanAwY3FwdklyRXRwUU5OUVB1eHhfU1l2bVViUlBXSXp2ei1Wa3QzWmt4SUtldE9CckR6NWJGTkFtWjVzdw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -773,7 +760,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-09-30 18:13:43",
+  "generated_at": "2026-09-30 18:24:36",
   "macro_summary": "",
-  "cached_at": "2026-09-30T18:17:07.997152"
+  "cached_at": "2026-09-30T18:28:13.294024"
 }
