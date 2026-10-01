@@ -7,19 +7,6 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Adobe Stock Nears $244 Support as AI Growth Fails to Spark Post-Earnings Rally - TradingKey",
-          "title_cn": "Adobe Stock Nears $244 Support as AI Growth Fails to Spark Post-Earnings Rally - TradingKey",
-          "summary": "",
-          "pubDate": "2026-09-30",
-          "provider": "TradingKey",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNaGFuZ1ZveHQtY0FHNER2bEdJeGloaHFJd2ZaQWYtVXZ0NmtMM2dIMmVKN1VySG5reGJQZm9HR2N6STF0T1U0SVlXQlR0T1hDQ29uRXRGajY3LWQ1QXd1YkctbVJ5NzV2d1FLaXlZdllLU0Nad1pSVUhJdnhwNkp4MFdrN192WUNEdGp1VU5VSUJ1LXVWZk1CY25jNkpjMGlBQnc0YnJxWTVxWnRzTngtbzQyc1dlU0hy?oc=5",
-          "direction": "positive",
-          "impact_pct": 1.4,
-          "reason": "",
-          "type": "行业",
-          "source": "rule"
-        },
-        {
           "title": "What Adobe Stock's AI Partnerships Mean For Shareholders - Simply Wall Street",
           "title_cn": "What Adobe Stock's AI Partnerships Mean For Shareholders - Simply Wall Street",
           "summary": "",
@@ -56,6 +43,19 @@
           "impact_pct": 0.0,
           "reason": "",
           "type": "个股",
+          "source": "rule"
+        },
+        {
+          "title": "ADBE Stock Drops After Morgan Stanley Downgrade – Sees ‘Cleaner Growth And AI Monetization Elsewhere’ - Stocktwits",
+          "title_cn": "ADBE Stock Drops After Morgan Stanley Downgrade – Sees ‘Cleaner Growth And AI Monetization Elsewhere’ - Stocktwits",
+          "summary": "",
+          "pubDate": "2026-10-01",
+          "provider": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPLWN5NVg5UlhHdjhRek9od080R0t4NWNrQnFibFp1bzNfLXpRaDAyZkxMTV9QSWxOeHEwU1FmNG9NUFhseTZVSXQ3UjFUdGFlMWhDemRkTGdiWEt6X2tYdTJualhuNjdxd2h5bDhrT0RDcXBTcEVOOTVyX3o0NTlvcFJwNENPckVJRllUdlRWdmlIdlVIbElDUllCWjhCbFN5MVhZYjZtSlZUTUZFRHBidUprVnhBczVuTmczbGFLaF9EMkFkZXBuaEFn?oc=5",
+          "direction": "neutral",
+          "impact_pct": 0.0,
+          "reason": "",
+          "type": "行业",
           "source": "rule"
         },
         {
@@ -97,11 +97,11 @@
           "source": "rule"
         },
         {
-          "title": "Price Prediction: Amazon Stock Will Hit $400 on This Date - 247wallst.com",
-          "title_cn": "Price Prediction: Amazon Stock Will Hit $400 on This Date - 247wallst.com",
+          "title": "Price Prediction: Amazon Stock Will Hit $400 on This Date - 24/7 Wall St.",
+          "title_cn": "Price Prediction: Amazon Stock Will Hit $400 on This Date - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPalpGT1kxWER3emtJVkYzZHkxQWpoVWlBVVZIZm5KRTBfRThrR3BnSXdtU042QVBoWDlTbWRmS1dyT1lfRWo2ZTB3WGRNcm1abE56LUYyT3liTU9MbkhreHVfRVNzTEJrTUZWRUJrTnhiejYtT3d5cWdFNWV3VDVxR2R0RTdMQnNPMWQ0NkI5ZERTRTI3aDVoMTMwSVllQ0V5?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -123,11 +123,11 @@
           "source": "rule"
         },
         {
-          "title": "Is Amazon Stock a Buy, Hold, or Sell Below $250? - Yahoo Finance",
-          "title_cn": "Is Amazon Stock a Buy, Hold, or Sell Below $250? - Yahoo Finance",
+          "title": "Is Amazon Stock a Buy, Hold, or Sell Below $250? - finance.yahoo.com",
+          "title_cn": "Is Amazon Stock a Buy, Hold, or Sell Below $250? - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-27",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQUNlUWpIMDA2ZnNteVMtOG1sMWxvTHFtYktKSHptZnN2N0dOTklNNGt3aXdIZ2lNZUJSUUtqZ1B0Vm8wTTZfLWJQYnc4Qy1nNl8xTk53eDBRSVYwOEF0M0dDcjhWOTk3Y1liM0JfWjFad25RNkc3QTdSVWdrb0Z3ckRicTFtbGpWZkEwYkVZVDI3YU4tRnc?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -161,11 +161,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Nvidia's record buyback shows chipmaker's stock is too cheap for CEO Huang to resist - CNBC",
-          "title_cn": "Nvidia's record buyback shows chipmaker's stock is too cheap for CEO Huang to resist - CNBC",
+          "title": "Nvidia's record buyback shows chipmaker's stock is too cheap for CEO Huang to resist - cnbc.com",
+          "title_cn": "Nvidia's record buyback shows chipmaker's stock is too cheap for CEO Huang to resist - cnbc.com",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "CNBC",
+          "provider": "cnbc.com",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbm8waVZKNWVxY3ZfVUVnWS1BczZsV0R0azZEVnBfb3JfWVJ4dDlQSlBJaFp5RVhRdjZsUWJGUDllUzFtaWRvVUw1dHVUaGdXbHdnN2I2Z3JNNFpuMWIycGRiSmxGdkxsTEZkWnVMQUZVTnZEd2tVaHo0SUFxWGIwRkoyd3hzUHNZODVRRkhJZnU2eXhjWHFxRzZBLTZpbnhlYVZKZHBfcUdZZ9IBrwFBVV95cUxOTXVYSzZ4LVpyb3FtaGc4UTFXOG9GTXViRjFuWnc1eVJ6SlZ5VXFtVDZGVVhCU2lJb3Q0bXVreURvb2kwbDk4UUg3LS0zMG9RZ2NyWDdOa0RyLUE3bmswV0pjVzJhVWJXazhvcDZZZ2dVa3dlLTFaU1VDblhWbzYxQVBXcnoxWHFucktja0JyX0hKdGhQUWdXdW9naXFSZk90RlRWa0JTRE5BR2VnYWNr?oc=5",
           "direction": "positive",
           "impact_pct": 2.1,
@@ -200,11 +200,11 @@
           "source": "rule"
         },
         {
-          "title": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - nvidianews.nvidia.com",
-          "title_cn": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - nvidianews.nvidia.com",
+          "title": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - NVIDIA Newsroom",
+          "title_cn": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - NVIDIA Newsroom",
           "summary": "",
           "pubDate": "2026-09-28",
-          "provider": "nvidianews.nvidia.com",
+          "provider": "NVIDIA Newsroom",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPR0Vsb0ZuR3F0Sl9oYldFNF90azJObUVsNkJIb0VCWVJxWDRmRmdyR2swZE90ZkxwRGJERXBveVRvX040RUJMLU9Tc3lIbm44R2lzMzcxZHVYRkZmS0lGRWhHMDF4azNCakJHSk00UU1KdEhzNzVrYVd1SVpnNDZyZkV4bWVNVHY3cC1fSlpUSm1BTnZTdS1Vak5LOXB2NkF5X0VnZFhFR1A?oc=5",
           "direction": "positive",
           "impact_pct": 0.5,
@@ -251,11 +251,11 @@
           "source": "rule"
         },
         {
-          "title": "Why Walt Disney (DIS) Stock Is Down Today - quiverquant.com",
-          "title_cn": "Why Walt Disney (DIS) Stock Is Down Today - quiverquant.com",
+          "title": "Why Walt Disney (DIS) Stock Is Down Today - Quiver Quantitative",
+          "title_cn": "Why Walt Disney (DIS) Stock Is Down Today - Quiver Quantitative",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "quiverquant.com",
+          "provider": "Quiver Quantitative",
           "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPcXlFNTNxRE9CMEt4UGg2S1Q2QlBfRlFiTjZQVGtVaTg0Mlppc180OWJzWDJxZ2R6MU1ON2xWaEJSTjFfVEFwWUdaYjRxMVdCNEN2TkdnZTZWUmhZeEdEUlhRNGtrbU9IYTlyRDZicmR2UkVseTJuWjhVZ0UxN1IycE5lUC0?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -277,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "Disney Eyes Collaboration with \"Bluey\" Creator as DIS Stock Shows Modest Undervaluation - GuruFocus",
-          "title_cn": "Disney Eyes Collaboration with \"Bluey\" Creator as DIS Stock Shows Modest Undervaluation - GuruFocus",
+          "title": "Disney Eyes Collaboration with \"Bluey\" Creator as DIS Stock Shows Modest Undervaluation - gurufocus.com",
+          "title_cn": "Disney Eyes Collaboration with \"Bluey\" Creator as DIS Stock Shows Modest Undervaluation - gurufocus.com",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "GuruFocus",
+          "provider": "gurufocus.com",
           "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdE16U1dfNXJWbVNuNHppYUx3T3h4emN6UFcxbmNMUkpkQXRmQVRmcEtCNUlfM04zNy1DVktPRUZNbFQ0blBoVVlxdHpUVE1YRW1ubEdHSHhUc1dBRmkwaVgwdzJ6Ml9uY1dTbExuMnVtRDg2cGJ0VzBBZmNETmpMenRwN0JqSWJ4anJqeTI5V3RrbXBsY1ZlVFJhOGlSd1lkRk95ZXZ0ZEJwaENvZjQxZkZoZ1FvQTRlZjc3UUY5VWc0dw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -328,11 +328,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - Yahoo Finance",
-          "title_cn": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - Yahoo Finance",
+          "title": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - finance.yahoo.com",
+          "title_cn": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNdHBHOTVwMUh0RUs3NnA4Y1h0UWNvcm1Za1laRVFfNWNiLUMyd1NnNll2TVE0Yjd2OUczdXk2cDBnVWFMYlNia1lWeTJpbWJ6SmtteXlWOUNYZUlodWFsaVRXQ1FfZXQ0TTNNbXFfQlNRTVJQdDd1Z056ZEFMcDl0UkpEb0dRT0NjTlJZTV90R3B4bDR5bnlpMnk5bnMyZ2o5R01Z?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -354,11 +354,11 @@
           "source": "rule"
         },
         {
-          "title": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - 247wallst.com",
-          "title_cn": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - 247wallst.com",
+          "title": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - 24/7 Wall St.",
+          "title_cn": "UnitedHealth Stock Has Gone Nowhere for Five Years. Its Dividend Has Not - 24/7 Wall St.",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "247wallst.com",
+          "provider": "24/7 Wall St.",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZVJZcGMwSDNaRnZtNTdrVFQ3eGdDWnRQZTdYUjZzckc2dVlMbmRXZlFYMzVMN3BFOUppTkJ4a2R5bjFzZkE5SF9vT3VjLTBmU2UxV2lYUW1kUTN1U1NIWWR2MjJzTXlWTWJiQlNYQkNVRFBpUC1tQnotdlJBZG42ZzBVZmVhdFpVSUswS25GSGd3YU9OQWN2cEpnNWpjeHlxa3hhbk5ZWUExVktpZmhVQ2dfdmhQZw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -405,24 +405,24 @@
           "source": "rule"
         },
         {
-          "title": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - Yahoo Finance",
-          "title_cn": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - Yahoo Finance",
+          "title": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - finance.yahoo.com",
+          "title_cn": "Blackstone (BX) Stock Seems Reasonable On A 30% One Year Fall - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-26",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQV195STMwdW84Q2JmMWYxZFVocGdZN1VwaUxMd1F2RHI2UXNYeEhVbDNSZ2tqSW80NllBbkdubDNIcnFSZ3NhRDhjdlpLOGlENGFoODNCMVc1UkZjSUJJdU1xbGJ3YkdqVktsajFqb0g4NlRLaFc2dW5rNzV3S0dSZkFtbFV0bmZka2VsZTlCQ3FHRVdmSmFMVHAzVi11UDFQRlpJ?oc=5",
           "direction": "negative",
-          "impact_pct": -0.3,
+          "impact_pct": -0.2,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "Blackstone launches Falcata to help counter cheap drones and missiles. - Stock Titan",
-          "title_cn": "Blackstone launches Falcata to help counter cheap drones and missiles. - Stock Titan",
+          "title": "Blackstone launches Falcata to help counter cheap drones and missiles. - stocktitan.net",
+          "title_cn": "Blackstone launches Falcata to help counter cheap drones and missiles. - stocktitan.net",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "Stock Titan",
+          "provider": "stocktitan.net",
           "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNN0lab2c4WmIzcEpJT2JlNlFyZUpJYzlDcFRJN0hrdDB4NGZ5bWw0MmRBZVNTSlVCaGNCZDhSbmVETmJyZ3lybU9xbVdycFZ5VGlROXdoZHEwVWRQLVRwdnB4VFVRelFsWURnNGpDbXYtNkh4X1daWVpJUmtBekQzell2bjhNT3R6U0FxSE51N3RqNzBQWms4V3YxS1VVVEhMdG55WXN1ZnYya2lOczJMLVlEZTR0a0Q2T243VG9n?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -444,11 +444,11 @@
           "source": "rule"
         },
         {
-          "title": "Blackstone (BX) Commits $1 Billion to Launch Falcata Defense Tec - GuruFocus",
-          "title_cn": "Blackstone (BX) Commits $1 Billion to Launch Falcata Defense Tec - GuruFocus",
+          "title": "Blackstone (BX) Commits $1 Billion to Launch Falcata Defense Tec - gurufocus.com",
+          "title_cn": "Blackstone (BX) Commits $1 Billion to Launch Falcata Defense Tec - gurufocus.com",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "GuruFocus",
+          "provider": "gurufocus.com",
           "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbjRaUzRyb0oxRTh1a0NFaDVhZHhoTE1PZzVpOFdqc2tHSjNvaGdfbHpUb0N5Rkt4Z0RfUlUtMzNhRnpiaFp5Vzk5THJlTF9EcWVCblNkTHJSYnNUMkpEVUg1VGp0VzlWV2VQVGVyRlBrSEwzV0Z3SGo2clpKTmQwMUVSRndoYmk5SEp2TWhSYzRMVVR6VHM0ZHROSEhCOFBhaGhDTFNhT3pKMFJoelE?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -508,11 +508,11 @@
           "source": "rule"
         },
         {
-          "title": "Wegovy cut average liver fat from 8.8% to 3.1% in 55 adults with excess liver fat over 72 weeks. - Stock Titan",
-          "title_cn": "Wegovy cut average liver fat from 8.8% to 3.1% in 55 adults with excess liver fat over 72 weeks. - Stock Titan",
+          "title": "Wegovy cut average liver fat from 8.8% to 3.1% in 55 adults with excess liver fat over 72 weeks. - stocktitan.net",
+          "title_cn": "Wegovy cut average liver fat from 8.8% to 3.1% in 55 adults with excess liver fat over 72 weeks. - stocktitan.net",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "Stock Titan",
+          "provider": "stocktitan.net",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbDhYa0dkV3ppZk9PMzBwS0w5NjNGeENoeGx4Wkw2RVJoSHhMMzB2a2t5TG5yWkMtT0tSU0xLTE8xSVJGOGF1OXdldmFtSkE0YllUTGF4Q2ZPbDNQdWJDZFRydHBGR2Z4bFpjb2RiSWZ1QWJRWnhSVklEZTMwSzN3YjBhRW9KYjdpbF9hdDgtM0FUMDh6RjBSWU56WFlXYTM1d3JBdUhTY1FtU0tnRklHNUFRLWZhQ3ZaT1ZZ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -521,11 +521,11 @@
           "source": "rule"
         },
         {
-          "title": "NVO DCF Analysis: Intrinsic Value $95 vs Price $38 - GuruFocus",
-          "title_cn": "NVO DCF Analysis: Intrinsic Value $95 vs Price $38 - GuruFocus",
+          "title": "NVO DCF Analysis: Intrinsic Value $95 vs Price $38 - gurufocus.com",
+          "title_cn": "NVO DCF Analysis: Intrinsic Value $95 vs Price $38 - gurufocus.com",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "GuruFocus",
+          "provider": "gurufocus.com",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcGFTV2tVQkZiMlF1b0NHVWRjRTFibWhnN19WZUlob2Q0QVhXUUdyV0F6TUViVFA4TGtUUktyQ0xWYWZ1RkxFSUtXS1FyT1RlUkdZYVp0eU1nQ1BxT1J3X2NaekFUNU5oQ0JQVEc1Y2dGczFjMlNmZmRjdlBMRGVyZGo0ZUxSUHFzd213YlZUQQ?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -546,11 +546,11 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "Share Buybacks on September 24 | Tencent and HSBC Holdings, among others, conducted share buybacks, with Tencent spending HK$101 million. - news.futunn.com",
-          "title_cn": "Share Buybacks on September 24 | Tencent and HSBC Holdings, among others, conducted share buybacks, with Tencent spending HK$101 million. - news.futunn.com",
+          "title": "Share Buybacks on September 24 | Tencent and HSBC Holdings, among others, conducted share buybacks, with Tencent spending HK$101 million. - 富途牛牛",
+          "title_cn": "Share Buybacks on September 24 | Tencent and HSBC Holdings, among others, conducted share buybacks, with Tencent spending HK$101 million. - 富途牛牛",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "news.futunn.com",
+          "provider": "富途牛牛",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQM3Z5YUR2TEpHVHhodzFSb1ZyaXg2S2Q1d1VSOFIxclhyTTNCb1pJQkU0aUpvYkJBckY2R1pFM0RmcGtZTUxLYlByTVF3QWpFN241aFVFbWllQUxHQl9SOHFhM2FDb092RGxxNmEyM2JFRk9GaUtkUWlzUVloeDhrUkxkQzU3eWhfY0ZUVnlOYkhhaklJMWw3MDZ2V0JPNW1MRnhweW96Wmw?oc=5",
           "direction": "positive",
           "impact_pct": 0.2,
@@ -572,11 +572,11 @@
           "source": "rule"
         },
         {
-          "title": "Tencent Holdings Limited (0700.HK) Stock Price, News, Quote & History - Yahoo! Finance Canada",
-          "title_cn": "Tencent Holdings Limited (0700.HK) Stock Price, News, Quote & History - Yahoo! Finance Canada",
+          "title": "Tencent Holdings Limited (0700.HK) Stock Price, News, Quote & History - ca.finance.yahoo.com",
+          "title_cn": "Tencent Holdings Limited (0700.HK) Stock Price, News, Quote & History - ca.finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "Yahoo! Finance Canada",
+          "provider": "ca.finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1yandpalBscEhnS1UtV3AxYXNOMGVVdjA0U3RMcGc4VjRrTl94aFlFbjBtYy0xREZvQVNyc0pUNmExRGZ4RkdjNzlESFM1T0xVdmxFUlV3?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -635,27 +635,27 @@
       "is_eligible": true,
       "news": [
         {
-          "title": "PDD Holdings (PDD) vs. BABA and JD: Value Play or Trap at Its 52-Week Low? - Yahoo Finance",
-          "title_cn": "PDD Holdings (PDD) vs. BABA and JD: Value Play or Trap at Its 52-Week Low? - Yahoo Finance",
+          "title": "PDD Holdings (PDD) vs. BABA and JD: Value Play or Trap at Its 52-Week Low? - finance.yahoo.com",
+          "title_cn": "PDD Holdings (PDD) vs. BABA and JD: Value Play or Trap at Its 52-Week Low? - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-10-01",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNTV9zMFQwNHFabGJFRVdYY3k1OUczM2JrbnlSODAxdU93N0lvU1RwbDUtZlB3NmIxXy1UYzZxYUxKWkktYmhVNnpva2c5MFpEcmtURl9GWUFiYzN3bWk0TkRmVnZva2F2azFIMnE0YThKbWpxeWdac3dselR6WmpqemRRbTZHNUlWMmVQZHQ0UjBpTGM?oc=5",
           "direction": "negative",
-          "impact_pct": -1.4,
+          "impact_pct": -0.8,
           "reason": "",
           "type": "个股",
           "source": "rule"
         },
         {
-          "title": "PDD Holdings Inc. Sponsored ADR (PDD) Registers a Bigger Fall Than the Market: Important Facts to Note - Yahoo Finance",
-          "title_cn": "PDD Holdings Inc. Sponsored ADR (PDD) Registers a Bigger Fall Than the Market: Important Facts to Note - Yahoo Finance",
+          "title": "PDD Holdings Inc. Sponsored ADR (PDD) Registers a Bigger Fall Than the Market: Important Facts to Note - finance.yahoo.com",
+          "title_cn": "PDD Holdings Inc. Sponsored ADR (PDD) Registers a Bigger Fall Than the Market: Important Facts to Note - finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "Yahoo Finance",
+          "provider": "finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNmRLZTR3SXhGdDRkb2tRamdLcXdpWVNiNGczN0tXQlBuMXFTU2wxUVpCWHhIM2dYZ2JwQ0RWZGdicHdIVHhMbmpCLXRXbVVwcFJhd0YyX1dyXzZzOVNYS21XNTdQenRnMGRHb2NhdjhwRHZpUXZMOHRKcnZrYlM4bmp5clcwUVpUeXdJbDVQVTA3ZUVGQXViZVhpRQ?oc=5",
           "direction": "negative",
-          "impact_pct": -0.8,
+          "impact_pct": -0.5,
           "reason": "",
           "type": "个股",
           "source": "rule"
@@ -725,11 +725,11 @@
           "source": "rule"
         },
         {
-          "title": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - news.futunn.com",
-          "title_cn": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - news.futunn.com",
+          "title": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - 富途牛牛",
+          "title_cn": "Shein-W (0625.HK) H1 2026 Performance Review: Orders Maintain Robust Growth; Marketplace and Brand Empowerment Unlock Second Growth Curve - 富途牛牛",
           "summary": "",
           "pubDate": "2026-09-29",
-          "provider": "news.futunn.com",
+          "provider": "富途牛牛",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVy1mTHFWamdHcmZtdVhOcHRqdXF1VW5TcWMxd1JKQ1FMMVpzRlhodVl5dmlqUUl4RU50UkxPNXFDa001LVAwU3ZDMk16RlJVREl3YVBrUG1LRWlZbjZrSWlSOW1CbGtKdEFMb3pFMDBEVlMwRXJQYmhCWHhvRFV2N0wyQ1QtQlFEV0FLblpJR2wwd2oxRU53dnZrZHJsdFFaeGp3?oc=5",
           "direction": "positive",
           "impact_pct": 0.5,
@@ -751,11 +751,11 @@
           "source": "rule"
         },
         {
-          "title": "Price Performance - Yahoo! Finance Canada",
-          "title_cn": "Price Performance - Yahoo! Finance Canada",
+          "title": "Price Performance - ca.finance.yahoo.com",
+          "title_cn": "Price Performance - ca.finance.yahoo.com",
           "summary": "",
           "pubDate": "2026-09-25",
-          "provider": "Yahoo! Finance Canada",
+          "provider": "ca.finance.yahoo.com",
           "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE4xUHNESmdLRnBldG1IWmhWLWZQeUFJMWViS09MX0RJMlZEU0pTMUtlYUtSMXlRR2xSZ1JRMzdsLWNEYzNEQnpkS25SSWlrV2c2UmNGMFBtYw?oc=5",
           "direction": "neutral",
           "impact_pct": 0.0,
@@ -850,7 +850,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-10-01 18:48:51",
+  "generated_at": "2026-10-01 18:59:36",
   "macro_summary": "",
-  "cached_at": "2026-10-01T18:52:36.938627"
+  "cached_at": "2026-10-01T19:03:02.925871"
 }
