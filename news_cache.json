@@ -200,11 +200,11 @@
           "source": "rule"
         },
         {
-          "title": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - NVIDIA Newsroom",
-          "title_cn": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - NVIDIA Newsroom",
+          "title": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - nvidianews.nvidia.com",
+          "title_cn": "NVIDIA Announces a $150 Billion Share Repurchase Authorization Increase - nvidianews.nvidia.com",
           "summary": "",
           "pubDate": "2026-09-28",
-          "provider": "NVIDIA Newsroom",
+          "provider": "nvidianews.nvidia.com",
           "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPR0Vsb0ZuR3F0Sl9oYldFNF90azJObUVsNkJIb0VCWVJxWDRmRmdyR2swZE90ZkxwRGJERXBveVRvX040RUJMLU9Tc3lIbm44R2lzMzcxZHVYRkZmS0lGRWhHMDF4azNCakJHSk00UU1KdEhzNzVrYVd1SVpnNDZyZkV4bWVNVHY3cC1fSlpUSm1BTnZTdS1Vak5LOXB2NkF5X0VnZFhFR1A?oc=5",
           "direction": "positive",
           "impact_pct": 0.4,
@@ -277,11 +277,11 @@
           "source": "rule"
         },
         {
-          "title": "Why Western Digital and Seagate are seeing big stock drops today - marketwatch.com",
-          "title_cn": "Why Western Digital and Seagate are seeing big stock drops today - marketwatch.com",
+          "title": "Why Western Digital and Seagate are seeing big stock drops today - MarketWatch",
+          "title_cn": "Why Western Digital and Seagate are seeing big stock drops today - MarketWatch",
           "summary": "",
           "pubDate": "2026-10-02",
-          "provider": "marketwatch.com",
+          "provider": "MarketWatch",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQazRZX3hqOVllODd4M2NCWF9hd1NSLWhWaVh3R0JCaUJlVm5DQnJJVER4Nklaa3M4YWFCdm1DY1gxeFl4NmkxclZyc0pEVkxBbnpHRmpGOWFvZ3ZUX1VUVlRzbU9ZbmN2OGNIbEhfbDJoWDJ6amc3UEdRbzVsX1JtcjB1Vjc2R2h2S1dXcTFzaDhGd1NESEZjWlFFSnI2SkxiTGFJWlRnOW1pSDQ?oc=5",
           "direction": "negative",
           "impact_pct": -1.6,
@@ -737,6 +737,19 @@
       "is_eligible": true,
       "news": [
         {
+          "title": "SHEIN's First Post-IPO Interim Report Shows Net Profit Halved; Q2 Adjusted Net Profit Plunges Nearly 70% - finance.biggo.com",
+          "title_cn": "SHEIN's First Post-IPO Interim Report Shows Net Profit Halved; Q2 Adjusted Net Profit Plunges Nearly 70% - finance.biggo.com",
+          "summary": "",
+          "pubDate": "2026-09-28",
+          "provider": "finance.biggo.com",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5WVEV1cnQ4ZUJwcEpqSmtEa0RNQjBaUG5LZ0NaQnRfbzZ0blhVOHZFb1ZodjNhQjR0eTdpZFkzc2I0a0VLblJtZEgwOHhTOGF3ZU8tU2xUQU4wX2JRb0NtR1liMHpqUVZpWTNEVFdFaXJwQlJENnc?oc=5",
+          "direction": "negative",
+          "impact_pct": -0.6,
+          "reason": "",
+          "type": "个股",
+          "source": "rule"
+        },
+        {
           "title": "Hong Kong Stock Market Update | Shein-W (00625) drops over 6% to hit record low; H1 adjusted net profit halves as major markets in Europe and the US weaken simultaneously - Moomoo",
           "title_cn": "Hong Kong Stock Market Update | Shein-W (00625) drops over 6% to hit record low; H1 adjusted net profit halves as major markets in Europe and the US weaken simultaneously - Moomoo",
           "summary": "",
@@ -791,7 +804,7 @@
       ],
       "stock_summary": "",
       "total_impact": 0,
-      "net_direction": "neutral",
+      "net_direction": "negative",
       "next_earnings": "未公布"
     }
   ],
@@ -836,12 +849,12 @@
       "source": "rule"
     },
     {
-      "title": "Bond Traders Pull Back on Fed Hike Bets After Soft Jobs Data - Bloomberg.com",
-      "title_cn": "Bond Traders Pull Back on Fed Hike Bets After Soft Jobs Data - Bloomberg.com",
+      "title": "What makes the Federal Reserve decide to raise or lower interest rates? - Chase Bank",
+      "title_cn": "What makes the Federal Reserve decide to raise or lower interest rates? - Chase Bank",
       "summary": "",
-      "pubDate": "2026-10-02",
-      "provider": "Bloomberg.com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQT3NEbUxSZ2pfNEduTEI3V3VrS0FlMVlfTmFOSGVoOVFraUJOdG9LeUhkUHNDclFYZ20tMXo4dHp3YTE3NFFCZHNuX0RZMlpOR0lqRjV2dW9iMFVxbE05Yi12bW4wTmhmWkJzaXQ0WXVpektXT2VNNEFyWTJZcmcya0tnQ1k0S2RBV3hlLUxvOFVNdTRyeDdnMTNROWJVcWNZeGgtVUh3OEpOTEd5NENwcw?oc=5",
+      "pubDate": "2026-09-28",
+      "provider": "Chase Bank",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYmNGVDdWOHB0Y2E3TVNGSVdZbHBqdllnVE9XMXRKRmE5V0l0b3NvZkh0MTR3a0JtdnZMazVKN2FfR1NIdlB5LXZvRkxTaF9jV1ZQVnU5dERKNGNlM2lXdGU4NDluVE5CZmlTLVZENlJBZ1ZXV2NiYXNPWDNTTEhSMlZROVQ3aVhkTzVxNFlLaHF3cUh0dGxwTnFVa0FBY1BNczg1bnpSZVA1eURnbXZ2ag?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -849,12 +862,12 @@
       "source": "rule"
     },
     {
-      "title": "What makes the Federal Reserve decide to raise or lower interest rates? - chase.com",
-      "title_cn": "What makes the Federal Reserve decide to raise or lower interest rates? - chase.com",
+      "title": "Bond Traders Pull Back on Fed Hike Bets After Soft Jobs Data - bloomberg.com",
+      "title_cn": "Bond Traders Pull Back on Fed Hike Bets After Soft Jobs Data - bloomberg.com",
       "summary": "",
-      "pubDate": "2026-09-28",
-      "provider": "chase.com",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNYmNGVDdWOHB0Y2E3TVNGSVdZbHBqdllnVE9XMXRKRmE5V0l0b3NvZkh0MTR3a0JtdnZMazVKN2FfR1NIdlB5LXZvRkxTaF9jV1ZQVnU5dERKNGNlM2lXdGU4NDluVE5CZmlTLVZENlJBZ1ZXV2NiYXNPWDNTTEhSMlZROVQ3aVhkTzVxNFlLaHF3cUh0dGxwTnFVa0FBY1BNczg1bnpSZVA1eURnbXZ2ag?oc=5",
+      "pubDate": "2026-10-02",
+      "provider": "bloomberg.com",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQT3NEbUxSZ2pfNEduTEI3V3VrS0FlMVlfTmFOSGVoOVFraUJOdG9LeUhkUHNDclFYZ20tMXo4dHp3YTE3NFFCZHNuX0RZMlpOR0lqRjV2dW9iMFVxbE05Yi12bW4wTmhmWkJzaXQ0WXVpektXT2VNNEFyWTJZcmcya0tnQ1k0S2RBV3hlLUxvOFVNdTRyeDdnMTNROWJVcWNZeGgtVUh3OEpOTEd5NENwcw?oc=5",
       "direction": "neutral",
       "impact_pct": 0.0,
       "reason": "",
@@ -862,7 +875,7 @@
       "source": "rule"
     }
   ],
-  "generated_at": "2026-10-02 18:21:12",
+  "generated_at": "2026-10-02 18:34:14",
   "macro_summary": "",
-  "cached_at": "2026-10-02T18:26:15.414415"
+  "cached_at": "2026-10-02T18:39:21.562695"
 }
