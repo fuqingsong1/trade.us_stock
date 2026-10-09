@@ -494,7 +494,7 @@ LANDING_HTML = '''<!-- ════ Landing Page ════ -->
     </div>
     <div class="landing-title">交易看板</div>
     <div class="landing-subtitle">US STOCK &middot; LOW-FREQ QUANT  SYSTEM</div>
-    <div class="landing-desc">多标的做T区间可视化 &middot; 策略运行状态监控 &middot; 全球财经新闻聚合</div>
+    <div class="landing-desc">多市场价格区间可视化 &middot; 量化策略状态监控 &middot; 全球财经资讯聚合</div>
     <div class="landing-stats">
       <div class="landing-stat"><div class="val" id="landing-time">--:--:--</div><div class="lbl">Beijing Time</div></div>
     </div>
