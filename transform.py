@@ -392,8 +392,9 @@ a .title-cn:hover { color: #58a6ff; }
 .landing-ticker-item .t-down { color: #f85149; }
 @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 .landing-footer {
-  position: absolute; bottom: 24px; font-size: 11px;
-  color: rgba(255,255,255,0.15); letter-spacing: 2px;
+  position: absolute; bottom: 24px; font-size: 13px;
+  color: #ffffff; letter-spacing: 1px; font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.85);
 }
 .landing-pulse {
   position: fixed; top: 50%; left: 50%;
@@ -445,7 +446,7 @@ a .title-cn:hover { color: #58a6ff; }
   .landing-grid {
     background-size: 40px 40px;
   }
-  .landing-footer { font-size: 10px; }
+  .landing-footer { font-size: 12px; }
   /* ── 手机端日历: 单元格高度自动扩展, 事件允许换行, 不再省略号截断 ── */
   .cal-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; padding: 0 0 12px; }
   .cal-cell { min-height: 48px; height: auto; overflow: visible; padding: 3px 2px; }
