@@ -1,0 +1,85 @@
+name: 财报分析周末自动更新
+
+on:
+  workflow_dispatch:        # 手动触发
+  schedule:
+    # 北京时间周六 09:00 (UTC 01:00), 覆盖周一至周五盘前/盘后发布的财报
+    - cron: "0 1 * * 6"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-analysis
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      # 仓库内的内容文件平时是加密存放的, 构建脚本需要读明文 → 先解锁
+      - name: 解锁受保护内容 (构建需要明文)
+        env:
+          SITE_PASSWORDS: ${{ secrets.SITE_PASSWORDS }}
+        run: python encrypt_site.py unlock
+
+      - name: 校正每只股票真实最近财报日 (失败不阻塞)
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+        run: python update_report_dates.py || echo "::warning::财报日校正失败"
+
+      - name: AI财报分析更新 (数据程序抓取+DeepSeek解读, 仅新财报股票)
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python auto_update_reports.py
+
+      - name: 刷新看板财务指标 (m1/m2/m3优先取自分析文件 + 批量PE, 失败不阻塞)
+        env:
+          CLOUD_MODE: "1"
+          NO_PROXY: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+          TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
+        run: python collect_metrics.py || echo "::warning::财务指标刷新失败"
+
+      - name: 重建六步分析子页面 (analysis/*.html)
+        env:
+          CLOUD_MODE: "1"
+          WORKSPACE_ROOT: ${{ github.workspace }}
+        run: python build_analysis_pages.py || echo "::warning::子页面构建失败"
+
+      # 构建产物是明文 → 提交前重新加密, 仓库里永远只存密文
+      - name: 重新上锁 (发布加密版)
+        env:
+          SITE_PASSWORDS: ${{ secrets.SITE_PASSWORDS }}
+        run: python encrypt_site.py lock
+
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无新财报需更新, 跳过提交"
+          else
+            git commit -m "AI财报分析周末更新 $(date -u +'%Y-%m-%d %H:%M UTC')" || true
+            git pull --rebase -X theirs origin master || true
+            git push
+            echo "已推送更新"
+          fi
