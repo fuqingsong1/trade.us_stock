@@ -1655,15 +1655,17 @@ except Exception as _e:
 # ===== Build Calendar tab HTML (财报/FOMC/经济数据日历) =====
 import html as _html
 calendar_html = ""
+cal_events_us_json = "[]"
+cal_events_cn_json = "[]"
 if CALENDAR_F.exists():
     try:
         with open(CALENDAR_F, "r", encoding="utf-8") as f:
             _cal = json.load(f)
         _now = datetime.now()
         _evts = _cal.get("events", [])
-        _upcoming = [e for e in _evts if e.get("status") == "upcoming"]
-        _pending  = [e for e in _evts if e.get("status") == "pending"]
-        _done     = [e for e in _evts if e.get("status") == "done"]
+        # 按市场拆分: 美股+FOMC+经济数据 / A股+港股 (两个市场各一套月历)
+        _evts_us = [e for e in _evts if not e.get("symbol", "").endswith((".SH", ".SZ", ".SS", ".HK"))]
+        _evts_cn = [e for e in _evts if e.get("symbol", "").endswith((".SH", ".SZ", ".SS", ".HK"))]
 
         def _cal_type_tag(sym):
             return {"FED": ("🏦 FOMC", "#6C5CE7"), "ECON": ("📊 经济数据", "#00838F")}.get(sym, ("📅 财报", "#2c2c2a"))
@@ -1701,15 +1703,29 @@ if CALENDAR_F.exists():
             return ('<table class="cal-table"><thead><tr><th>日期</th><th>类型</th><th>事件/公司</th><th>财期</th><th>备注</th></tr></thead>'
                     f'<tbody>{rows}</tbody></table>')
 
-        _up7  = sum(1 for e in _upcoming if e.get("date") and not e.get("date","").endswith("??")
-                    and 0 <= (datetime.strptime(e["date"], "%Y-%m-%d") - _now).days <= 7)
-        _up30 = sum(1 for e in _upcoming if e.get("date") and not e.get("date","").endswith("??")
-                    and 0 <= (datetime.strptime(e["date"], "%Y-%m-%d") - _now).days <= 30)
-        cal_events_json = json.dumps(_evts, ensure_ascii=False)
-        calendar_html = f'''
+        def _cal_stats(events):
+            _upcoming = [e for e in events if e.get("status") == "upcoming"]
+            _pending = [e for e in events if e.get("status") == "pending"]
+            _up7 = _up30 = 0
+            for e in _upcoming:
+                d = e.get("date", "")
+                if d and not d.endswith("??"):
+                    try:
+                        du = (datetime.strptime(d, "%Y-%m-%d") - _now).days
+                        if 0 <= du <= 7:
+                            _up7 += 1
+                        if 0 <= du <= 30:
+                            _up30 += 1
+                    except Exception:
+                        pass
+            return _upcoming, _pending, _up7, _up30
+
+        def _cal_block(title, tz_note, events, suf):
+            _upcoming, _pending, _up7, _up30 = _cal_stats(events)
+            return f'''
 <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
-  <div style="font-size:14px;font-weight:500">财报 / FOMC / 经济数据日历</div>
-  <div style="font-size:12px;color:#888">数据更新: {_html.escape(str(_cal.get("updated","-")))} | 共 {len(_evts)} 条 | 月历视图, 点击 ◀ ▶ 切换月份</div>
+  <div style="font-size:14px;font-weight:500">{title}</div>
+  <div style="font-size:12px;color:#888">数据更新: {_html.escape(str(_cal.get("updated","-")))} | 共 {len(events)} 条 | {tz_note}</div>
 </div>
 <div class="summary">
   <div class="card"><div class="label">7天内</div><div class="value red">{_up7}</div></div>
@@ -1720,26 +1736,35 @@ if CALENDAR_F.exists():
 <div class="stock-section">
   <div class="stock-header"><div class="stock-info"><span class="stock-sym">📅</span><span class="stock-name">月历提醒</span><span class="macro-tag">一行一周</span></div></div>
   <div class="cal-nav">
-    <button class="cal-nav-btn" id="cal-prev">◀ 上月</button>
-    <span class="cal-title" id="cal-title"></span>
-    <button class="cal-nav-btn" id="cal-next">下月 ▶</button>
+    <button class="cal-nav-btn" id="cal-{suf}-prev">◀ 上月</button>
+    <span class="cal-title" id="cal-{suf}-title"></span>
+    <button class="cal-nav-btn" id="cal-{suf}-next">下月 ▶</button>
   </div>
   <div class="cal-grid cal-dow-row">
     <div class="cal-dow">周一</div><div class="cal-dow">周二</div><div class="cal-dow">周三</div><div class="cal-dow">周四</div><div class="cal-dow">周五</div><div class="cal-dow">周六</div><div class="cal-dow">周日</div>
   </div>
-  <div class="cal-grid" id="cal-grid"></div>
+  <div class="cal-grid" id="cal-{suf}-grid"></div>
 </div>
 <div class="stock-section">
   <div class="stock-header"><div class="stock-info"><span class="stock-sym">?</span><span class="stock-name">待确认日期</span><span class="macro-tag">{len(_pending)}</span></div></div>
   {_cal_table(_pending, '暂无待确认日期的事件')}
 </div>'''
-        print(f"  Calendar tab content loaded ({len(_evts)} events)")
+
+        calendar_html = (
+            _cal_block("美股财报 / FOMC / 经济数据日历", "美东时间口径", _evts_us, "us")
+            + _cal_block("A股 + 港股财报日历", "北京时间口径", _evts_cn, "cn")
+        )
+        cal_events_us_json = json.dumps(_evts_us, ensure_ascii=False)
+        cal_events_cn_json = json.dumps(_evts_cn, ensure_ascii=False)
+        print(f"  Calendar tab content loaded (美股 {len(_evts_us)} + A/HK {len(_evts_cn)} events)")
     except Exception as e:
         calendar_html = f'<div class="no-data">日历数据加载失败: {e}</div>'
-        cal_events_json = "[]"
+        cal_events_us_json = "[]"
+        cal_events_cn_json = "[]"
 else:
-    calendar_html = '<div class="no-data">日历数据不存在，请先运行 watchlist_us/update_calendar.py</div>'
-    cal_events_json = "[]"
+    calendar_html = '<div class="no-data">日历数据不存在，请先运行 collect_calendar.py</div>'
+    cal_events_us_json = "[]"
+    cal_events_cn_json = "[]"
 
 # ===== Build Market Regime HTML =====
 regime_html = ""
@@ -3911,44 +3936,49 @@ if (posData.length > 0) {{
   </tr>`;
 }}
 
-// ===== 日历月历视图 (一行一周, 事件放入对应日期格子) =====
-const calEvents = {cal_events_json};
-const calByDate = {{}};
-for (const ev of calEvents) {{
-  if (!ev.date || ev.date.indexOf('??') >= 0) continue;
-  if (!calByDate[ev.date]) calByDate[ev.date] = [];
-  calByDate[ev.date].push(ev);
-}}
+// ===== 日历月历视图: 美股(us) 与 A股+港股(cn) 两套独立月历 =====
+const calEventsUs = {cal_events_us_json};
+const calEventsCn = {cal_events_cn_json};
 const calTypeColor = (s) => s === 'FED' ? '#6C5CE7' : s === 'ECON' ? '#00838F' : '#3B5BDB';
 const calTypeIcon = (s) => s === 'FED' ? '🏦' : s === 'ECON' ? '📊' : '📅';
 const calNow = new Date();
-let calY = calNow.getFullYear(), calM = calNow.getMonth();
-const calTodayStr = calY + '-' + String(calM + 1).padStart(2, '0') + '-' + String(calNow.getDate()).padStart(2, '0');
-function renderCal() {{
-  const first = new Date(calY, calM, 1);
-  const startDow = (first.getDay() + 6) % 7;
-  const daysInMonth = new Date(calY, calM + 1, 0).getDate();
-  let html = '';
-  for (let i = 0; i < startDow; i++) html += '<div class="cal-cell dim"></div>';
-  for (let day = 1; day <= daysInMonth; day++) {{
-    const ds = calY + '-' + String(calM + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
-    const evs = calByDate[ds] || [];
-    let chips = '';
-    for (const ev of evs) {{
-      const tip = ((ev.period || '') + ' | ' + (ev.name || '') + (ev.note ? ' | ' + ev.note : '')).replace(/"/g, '&quot;');
-      chips += `<span class="cal-chip ${{ev.status}}" style="background:${{calTypeColor(ev.symbol)}}" title="${{tip}}">${{calTypeIcon(ev.symbol)}} ${{ev.name}}</span>`;
-    }}
-    html += `<div class="cal-cell${{ds === calTodayStr ? ' today' : ''}}"><div class="cal-day">${{day}}</div>${{chips}}</div>`;
+const calTodayStr = calNow.getFullYear() + '-' + String(calNow.getMonth() + 1).padStart(2, '0') + '-' + String(calNow.getDate()).padStart(2, '0');
+function makeCal(prefix, events) {{
+  const calByDate = {{}};
+  for (const ev of events) {{
+    if (!ev.date || ev.date.indexOf('??') >= 0) continue;
+    if (!calByDate[ev.date]) calByDate[ev.date] = [];
+    calByDate[ev.date].push(ev);
   }}
-  const total = startDow + daysInMonth;
-  const rem = total % 7;
-  if (rem > 0) for (let i = rem; i < 7; i++) html += '<div class="cal-cell dim"></div>';
-  document.getElementById('cal-grid').innerHTML = html;
-  document.getElementById('cal-title').textContent = calY + '年' + (calM + 1) + '月';
+  const st = {{ y: calNow.getFullYear(), m: calNow.getMonth() }};
+  function renderCal() {{
+    const first = new Date(st.y, st.m, 1);
+    const startDow = (first.getDay() + 6) % 7;
+    const daysInMonth = new Date(st.y, st.m + 1, 0).getDate();
+    let html = '';
+    for (let i = 0; i < startDow; i++) html += '<div class="cal-cell dim"></div>';
+    for (let day = 1; day <= daysInMonth; day++) {{
+      const ds = st.y + '-' + String(st.m + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+      const evs = calByDate[ds] || [];
+      let chips = '';
+      for (const ev of evs) {{
+        const tip = ((ev.period || '') + ' | ' + (ev.name || '') + (ev.note ? ' | ' + ev.note : '')).replace(/"/g, '&quot;');
+        chips += `<span class="cal-chip ${{ev.status}}" style="background:${{calTypeColor(ev.symbol)}}" title="${{tip}}">${{calTypeIcon(ev.symbol)}} ${{ev.name}}</span>`;
+      }}
+      html += `<div class="cal-cell${{ds === calTodayStr ? ' today' : ''}}"><div class="cal-day">${{day}}</div>${{chips}}</div>`;
+    }}
+    const total = startDow + daysInMonth;
+    const rem = total % 7;
+    if (rem > 0) for (let i = rem; i < 7; i++) html += '<div class="cal-cell dim"></div>';
+    document.getElementById(prefix + '-grid').innerHTML = html;
+    document.getElementById(prefix + '-title').textContent = st.y + '年' + (st.m + 1) + '月';
+  }}
+  renderCal();
+  document.getElementById(prefix + '-prev').addEventListener('click', () => {{ st.m--; if (st.m < 0) {{ st.m = 11; st.y--; }} renderCal(); }});
+  document.getElementById(prefix + '-next').addEventListener('click', () => {{ st.m++; if (st.m > 11) {{ st.m = 0; st.y++; }} renderCal(); }});
 }}
-renderCal();
-document.getElementById('cal-prev').addEventListener('click', () => {{ calM--; if (calM < 0) {{ calM = 11; calY--; }} renderCal(); }});
-document.getElementById('cal-next').addEventListener('click', () => {{ calM++; if (calM > 11) {{ calM = 0; calY++; }} renderCal(); }});
+makeCal('cal-us', calEventsUs);
+makeCal('cal-cn', calEventsCn);
 
 </script>
 </body>
