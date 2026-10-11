@@ -45,7 +45,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 OUT_JSON = SCRIPT_DIR / "cycles_data.json"
 OUT_HTML = SCRIPT_DIR / "cycles_fragment.html"
 
-SCHEMA_VER = 2          # 结构版本; 与缓存不符则强制重采
+SCHEMA_VER = 4          # 结构版本; 与缓存不符则强制重采 (v3: 趋势型 R² 判据; v4: 增速序列前瞻改差值口径)
 MAX_KEEP = 700          # 单序列最多保留多少个周期点
 MAX_PLOT = 380          # 大图折线最多点数
 MINI_PLOT = 190         # 小图折线最多点数
@@ -142,14 +142,23 @@ def f_realestate():
 
 
 def f_house_price():
-    """70城新建商品住宅价格指数同比, 取各城市均值, 转成 % 同比"""
+    """京沪 新房+二手 住宅价格指数同比均值。
+    ⚠ akshare 的 macro_china_new_house_price 名字带『70城』, 实际只返回北京/上海两市
+    (每月恰好 2 条 × 188 个月 = 376 行), 不是真·70 城口径 —— 源标签别写成 70 城。
+    新房受限价管制会钝化, 二手更贴市场, 取两者均值比只看新房稳。"""
     df = ak.macro_china_new_house_price()
-    col = _pick_col(df, "新建商品住宅", "同比")
-    sub = df[["日期", col]].copy()
-    sub[col] = pd.to_numeric(sub[col], errors="coerce")
-    g = sub.dropna().groupby("日期")[col].mean() - 100.0
+    cols = [c for c in ("新建商品住宅价格指数-同比", "二手住宅价格指数-同比")
+            if c in df.columns]
+    if not cols:
+        raise ValueError("房价接口缺少同比列")
+    sub = df[["日期"] + cols].copy()
+    for c in cols:
+        sub[c] = pd.to_numeric(sub[c], errors="coerce")
+    g = sub.dropna(subset=cols).groupby("日期")[cols].mean().mean(axis=1) - 100.0
     g.index = pd.to_datetime(g.index)      # 该接口日期是字符串, 必须显式转
-    return g.sort_index(), "国家统计局·70城新房价格指数同比(城市均值)", "%"
+    return (g.sort_index(),
+            "国家统计局·京沪 新房+二手 住宅价格指数同比(免费接口实仅含北京/上海两市)",
+            "%")
 
 
 def f_construction():
@@ -321,12 +330,17 @@ CYCLES = [
 
     dict(key="realestate", name="房地产周期", tag="18-20 年大周期",
          logic="产业链最长、牵连最广, 与城镇化/人口/居民杠杆绑定。"
-               "70城房价是终端价格, 建材指数是上游需求(水泥玻璃)的真实回声, 螺纹钢是地产链用钢的即时报价。"
-               "注意: 原来用的『国房景气指数』数据源已停更在 2025-12(滞后 10 个月), "
-               "拿它算『当前位置』会得出错误结论, 故已剔除。这三个都是『同步或滞后』指标, 不是领先指标。",
+               "房价同比是终端价格, 建材指数是上游需求(水泥玻璃)的真实回声, 螺纹钢是地产链用钢的即时报价。"
+               "注意两处数据坑: ①原来用的『国房景气指数』数据源已停更在 2025-12(滞后 10 个月), "
+               "拿它算『当前位置』会得出错误结论, 故已剔除; "
+               "②akshare 的 macro_china_new_house_price 虽然叫『70 城』, 实际只返回北京/上海两市"
+               "(每月恰好 2 条 × 188 个月 = 376 行), 所以房价那一路的读数是一线城市口径, 不是全国 70 城。"
+               "一线城市房价通常是这轮周期的领先段, 用来看方向比看绝对水平更合适。"
+               "这三个都是『同步或滞后』指标, 不是领先指标。",
          indicators=[
-             I("house_price", "70城新房价格同比", "house_price", "%", "M", "last", 24,
-               (0, "0%=同比持平"), note="统计局, 城市均值", main=True, pos=False),
+             I("house_price", "京沪新房+二手价格同比", "house_price", "%", "M", "last", 24,
+               (0, "0%=同比持平"),
+               note="新房有限价钝化, 二手更贴市场, 取两者均值", main=True, pos=False),
              I("construction", "中国建材指数", "construction", "点", "W", "last", 52, None),
              I("rebar", "螺纹钢期货主力", "rebar", "元/吨", "W", "last", 52, None, note="地产链用钢"),
          ]),
@@ -387,18 +401,97 @@ def resample(s, freq, agg):
     return s
 
 
-def analyze(s, freq, ma):
+# 去趋势用的长期均线窗口 = 3 年。费半/美光/沪铜这类长期单边上涨的品种,
+# 用绝对价格的滚动分位会永远贴着 100%(2022 年那波底部, 费半的绝对分位居然还有 92%),
+# 根本读不出高低 —— 只能用「相对自身趋势的偏离」来定位。
+DEV_WIN = {"W": 156, "M": 36}
+TREND_TH = 1.5      # 后 1/3 均值 / 前 1/3 均值 超过此值 → 有「长期抬升」
+TREND_R2 = 0.50     # 对数价格线性拟合的 R² 超过此值 → 抬升是【单调持续】的, 不是大起大落
+#
+# 两个条件必须同时成立, 缺一不可。只看 TREND_TH 会误伤 BDI/BCI/BPI:
+# 它们后 1/3 均值确实是前 1/3 的 1.7~1.9 倍, 但那是被 2016 年历史大底(BDI 290)
+# 拉出来的 —— 干散货运价是出了名的剧烈均值回归品种, 不是长期趋势。
+# 实测对数线性拟合 R²: BDI 0.31 / BCI 0.13 / BPI 0.30(判否),
+# 而费半 0.96 / 美光 0.74 / 沪铜 0.70 / 沪铝 0.72(判是), 分得很干净。
+#
+# 另外只对【上涨】趋势去趋势, 长期下跌的品种(工业硅 r13=0.60)仍用绝对分位:
+# 下跌品种的绝对分位贴底, 恰好是「相对历史便宜」这个做均值回归真正要用的信息;
+# 而上涨品种的绝对分位永远贴顶(崩盘那一刻都还有 92%), 什么也读不出来。
+
+
+def detrend_dev(x, freq):
+    """对数价格相对 3 年滚动均线的偏离序列(去趋势)。样本不足则全 NaN。
+    freq 也可以直接传整数窗口(绘图时用)。"""
+    n = len(x)
+    W = freq if isinstance(freq, int) else DEV_WIN.get(freq, 156)
+    dev = np.full(n, np.nan)
+    if n <= W:
+        return dev
+    lv = np.log(np.maximum(x, 1e-9))
+    cs = np.cumsum(lv)
+    dev[W - 1:] = lv[W - 1:] - (cs[W - 1:] - np.concatenate([[0], cs[:-W]])) / W
+    return dev
+
+
+def trend_r2(x):
+    """对数价格的线性拟合 R²: 衡量「抬升是否单调持续」。
+    高 R² = 一条平滑向上的直线(费半), 低 R² = 大起大落(BDI)。"""
+    n = len(x)
+    if n < 40:
+        return 0.0
+    lv = np.log(np.maximum(np.asarray(x, float), 1e-9))
+    t = np.arange(n, dtype=float)
+    tv = t - t.mean()
+    den = float((tv * tv).sum())
+    if den <= 0:
+        return 0.0
+    slope = float((tv * (lv - lv.mean())).sum()) / den
+    fit = lv.mean() + slope * tv
+    ss_res = float(((lv - fit) ** 2).sum())
+    ss_tot = float(((lv - lv.mean()) ** 2).sum())
+    return (1.0 - ss_res / ss_tot) if ss_tot > 0 else 0.0
+
+
+def hist_pct_series(v):
+    """每个点相对其【截至当时】全部历史的分位(无前视偏差)"""
+    n = len(v)
+    out = np.full(n, np.nan)
+    tmp = np.empty(n)
+    for t in range(n):
+        if np.isnan(v[t]):
+            continue
+        w = v[:t + 1]
+        w = w[~np.isnan(w)]
+        if len(w):
+            out[t] = float((w <= v[t]).mean())
+    return out
+
+
+def analyze(s, freq, ma, unit=""):
     x = s.values.astype(float)
     n = len(x)
     cur = float(x[-1])
-    pct = float((x <= cur).mean())
-    # 用"最近值 vs 更早值"算分位, 避免长尾分布里分位被极端值主导 —— 这里保持原定义(全样本分位)
+    pct_abs = float((x <= cur).mean())
+
+    # ── 趋势诊断 + 去趋势位置 ──
+    dseq = detrend_dev(x, freq)
+    trend = float(np.mean(x[2 * n // 3:]) / np.mean(x[:max(1, n // 3)]))
+    tr2 = trend_r2(x)
+    if not np.isnan(dseq[-1]):
+        dv = dseq[~np.isnan(dseq)]
+        pct_trend = float((dv <= dseq[-1]).mean())
+    else:
+        pct_trend = None
+    is_trend = (pct_trend is not None) and (trend >= TREND_TH) and (tr2 >= TREND_R2)
+    # 趋势型品种用去趋势口径, 其余(猪价/BDI/纯碱等均值回归型)用绝对分位
+    pct = pct_trend if is_trend else pct_abs
+
     win = 52 if freq == "W" else 12
     recent = float(np.mean(x[-win:])) if n >= win else float(np.mean(x))
     prev = float(np.mean(x[-2 * win:-win])) if n >= 2 * win else float(np.mean(x[:max(1, n // 2)]))
     chg = (recent / prev - 1.0) if prev else 0.0
     mav = float(np.mean(x[-ma:])) if n >= ma else float(np.mean(x))
-    dev = (cur / mav - 1.0) if mav else 0.0
+    mav_dev = (cur / mav - 1.0) if mav else 0.0
 
     if pct <= 0.25:
         pos = "周期低位"
@@ -406,43 +499,51 @@ def analyze(s, freq, ma):
         pos = "周期高位"
     else:
         pos = "周期中位"
-    up, dn = chg > 0.02, chg < -0.02
-    if pct <= 0.25:
-        phase = "底部回升" if up else ("底部探底" if dn else "底部徘徊")
-    elif pct >= 0.75:
-        phase = "顶部回落" if dn else ("顶部冲高" if up else "高位徘徊")
-    elif up:
-        phase = "上行中"
-    elif dn:
-        phase = "下行中"
-    else:
-        phase = "横盘整理"
+    phase = phase_of(pct, chg)
 
     h1, h2 = (26, 52) if freq == "W" else (6, 12)
-    return dict(cur=cur, pct=pct, pos=pos, phase=phase, chg=chg, dev=dev, mav=mav,
-                f6=forecast(x, h1), f12=forecast(x, h2), h1=h1, h2=h2, n=n)
+    ref = dseq if is_trend else None          # 前瞻也按同一口径匹配历史相似位置
+    # 本身就是「增速%」的序列(房价同比等)可以过零, 必须用差值口径, 否则比值会炸
+    fmode = "diff" if unit == "%" else "ratio"
+    return dict(cur=cur, pct=pct, pct_abs=pct_abs, pct_trend=pct_trend,
+                trend=trend, r2=tr2, is_trend=is_trend, pos=pos, phase=phase,
+                chg=chg, dev=mav_dev, mav=mav,
+                f6=forecast(x, ref, h1, mode=fmode),
+                f12=forecast(x, ref, h2, mode=fmode),
+                h1=h1, h2=h2, n=n)
 
 
-def forecast(x, h, band=0.10, min_n=8):
-    """前瞻统计: 历史上分位与当前相近(±10%)的时点, 其后 h 期的变化率分布"""
+def forecast(x, ref, h, band=0.10, min_n=8, mode="ratio"):
+    """前瞻统计: 历史上『位置』与当前相近(±10%)的时点, 其后 h 期的变化分布。
+    ref 给定时按去趋势偏离的位置匹配, 否则退回价格绝对分位。
+    mode="ratio" 算变化率 x[t+h]/x[t]-1 (价格/指数用);
+    mode="diff"  算绝对差 x[t+h]-x[t] (本身已是增速%的序列用 —— 增速可以过零,
+                 比值会除以一个接近 0 的数, 得出 -500% 这种荒唐读数)。"""
     n = len(x)
     if n < h + 40:
         return None
-    cur = x[-1]
-    q = float((x <= cur).mean())
+    rp = hist_pct_series(ref if ref is not None else x)
+    q = rp[-1]
+    if np.isnan(q):
+        return None
     buf = []
     for t in range(30, n - h):
-        if x[t] <= 0:
+        if np.isnan(rp[t]) or np.isnan(x[t]) or np.isnan(x[t + h]):
             continue
-        qt = float((x[:t + 1] <= x[t]).mean())
-        if abs(qt - q) <= band:
-            buf.append(x[t + h] / x[t] - 1.0)
+        if mode == "diff":
+            delta = float(x[t + h] - x[t])
+        else:
+            if x[t] <= 0:
+                continue
+            delta = float(x[t + h] / x[t] - 1.0)
+        if abs(rp[t] - q) <= band:
+            buf.append(delta)
     if len(buf) < min_n:
         return None
     a = np.array(buf)
     return dict(n=int(len(a)), med=float(np.median(a)),
                 p25=float(np.percentile(a, 25)), p75=float(np.percentile(a, 75)),
-                win=float((a > 0).mean()))
+                win=float((a > 0).mean()), mode=mode)
 
 
 def phase_of(pct, chg):
@@ -475,6 +576,18 @@ def _fmt(v, unit):
     return f"{v:,.2f}"
 
 
+def _pp(v, unit="pp"):
+    """分歧度格式化: <1 时保留一位小数, 否则取整 —— 避免出现「±0pp」这种读数"""
+    return f"{v:.1f}{unit}" if 0 < v < 1 else f"{v:.0f}{unit}"
+
+
+def _fmt_axis(v, unit):
+    """Y 轴刻度专用: 去趋势偏离(单位 %)带正负号且不留小数, 版面更干净"""
+    if unit == "%":
+        return f"{v:+.0f}%"
+    return _fmt(v, unit)
+
+
 def _thin(ys, maxn=MAX_PLOT):
     n = len(ys)
     if n <= maxn:
@@ -486,15 +599,41 @@ def _thin(ys, maxn=MAX_PLOT):
     return idx
 
 
-def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6ff"):
-    """历史曲线 + 均线 + 当前位置 (+ 大图带前瞻统计延伸带)"""
+def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6ff", dev_ma=None):
+    """历史曲线 + 均线 + 当前位置 (+ 大图带前瞻统计延伸带)
+    dev_ma: 传窗口(如 156 周)时, 该指标判为趋势型 —— 曲线改画
+            「对数价格相对该窗口均线的偏离(%)」, 而不是绝对价格。"""
     xs = s.index
     ys = s.values.astype(float)
-    idx = _thin(ys, MINI_PLOT if compact else MAX_PLOT)
-    px_ys = [ys[i] for i in idx]
-    n_hist = len(px_ys)
 
-    f6 = None if compact else info.get("f6")
+    # ── 趋势型指标: 直接画「对数偏离 3 年均线」的曲线, 而不是绝对价格 ──
+    # 绝对价格图对费半/美光/沪铜是没用的 —— 曲线一路向右上, 2002 年的大底和
+    # 今天的顶部在图上长得一模一样。画偏离量, 高低立刻分得开。
+    dev_plot = None
+    if dev_ma:
+        _d = detrend_dev(ys, dev_ma)
+        if np.count_nonzero(~np.isnan(_d)) >= 20:
+            dev_plot = _d
+        else:
+            dev_ma = None
+
+    if dev_plot is not None:
+        idx = _thin(np.nan_to_num(dev_plot, nan=0.0), MINI_PLOT if compact else MAX_PLOT)
+        idx = [i for i in idx if not np.isnan(dev_plot[i])]
+        if len(idx) >= 20:
+            px_ys = [dev_plot[i] * 100.0 for i in idx]   # 单位: %
+            y_unit = "%"
+        else:
+            dev_plot = None
+
+    if dev_plot is None:
+        idx = _thin(ys, MINI_PLOT if compact else MAX_PLOT)
+        px_ys = [ys[i] for i in idx]
+        y_unit = unit
+    n_hist = len(px_ys)
+    is_dev = dev_plot is not None
+
+    f6 = None if (compact or is_dev) else info.get("f6")
     ext_xs = 6 if f6 else 0
     f_ext = None
     if f6:
@@ -508,8 +647,13 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
     pad_hi = 0.10 if compact else 0.16
     lo = hist_lo - pad_lo * span
     hi = hist_hi + pad_hi * span
-    if hist_lo > 0:
+    if hist_lo > 0 and not is_dev:
         lo = max(lo, 0.0)
+    if is_dev:
+        # 去趋势图的 0 是「3 年均线」这个基准, 必须留在画面里, 不然读不出正负
+        _pad = 0.20 * max(abs(hist_lo), abs(hist_hi), 1e-9)
+        lo = min(lo, -_pad)
+        hi = max(hi, _pad)
     if ref and not (lo < ref[0] < hi):
         ref = None
 
@@ -517,7 +661,8 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
         return min(max(v, lo), hi)
 
     if compact:
-        L, R, T, B, fs = 42, 10, 9, 17, 9
+        L, R, B, fs = 42, 10, 17, 9
+        T = 20 if is_dev else 9       # 去趋势图标个角标, 留出顶部空间
     else:
         L, R, T, B, fs = 66, 92, 16, 30, 11
 
@@ -539,6 +684,39 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
     parts = [f'<svg viewBox="0 0 {w} {h}" '
              f'style="width:100%;height:auto;display:block">']
 
+    # ── 背景带: 高位区(浅红) / 低位区(浅绿) ──
+    # 边界取「所画序列」的 75% / 25% 分位, 与卡片里周期高位/低位的判定阈值(0.75/0.25)一致。
+    # 配色沿用 A 股习惯: 红=高(涨)、绿=低(跌)。画在最底层, 网格线压在它上面, 保证刻度可读。
+    _bsrc = (dev_plot * 100.0) if is_dev else np.asarray(ys, dtype=float)
+    _bs = _bsrc[~np.isnan(_bsrc)]
+    if len(_bs) >= 30:
+        q75 = float(np.percentile(_bs, 75))
+        q25 = float(np.percentile(_bs, 25))
+        y_hi = Y(min(max(q75, lo), hi))
+        y_lo = Y(min(max(q25, lo), hi))
+        # 高位带
+        if y_hi > T + 2:
+            parts.append(f'<rect x="{L}" y="{T}" width="{pw:.1f}" '
+                         f'height="{y_hi-T:.1f}" fill="rgba(248,81,73,0.11)"/>')
+            parts.append(f'<line x1="{L}" y1="{y_hi:.1f}" x2="{w-R}" y2="{y_hi:.1f}" '
+                         f'stroke="rgba(248,81,73,0.45)" stroke-width="1" stroke-dasharray="4 3"/>')
+            if y_hi - T > 11:
+                parts.append(f'<text x="{w-R-3}" y="{T+9:.1f}" fill="rgba(248,81,73,0.82)" '
+                             f'font-size="{fs-1}" text-anchor="end" paint-order="stroke" '
+                             f'stroke="#0d1117" stroke-width="2.4" stroke-linejoin="round">'
+                             f'高位区 ≥75% 分位</text>')
+        # 低位带
+        if y_lo < T + ph - 2:
+            parts.append(f'<rect x="{L}" y="{y_lo:.1f}" width="{pw:.1f}" '
+                         f'height="{T+ph-y_lo:.1f}" fill="rgba(63,185,80,0.12)"/>')
+            parts.append(f'<line x1="{L}" y1="{y_lo:.1f}" x2="{w-R}" y2="{y_lo:.1f}" '
+                         f'stroke="rgba(63,185,80,0.45)" stroke-width="1" stroke-dasharray="4 3"/>')
+            if T + ph - y_lo > 11:
+                parts.append(f'<text x="{w-R-3}" y="{T+ph-3.5:.1f}" fill="rgba(63,185,80,0.82)" '
+                             f'font-size="{fs-1}" text-anchor="end" paint-order="stroke" '
+                             f'stroke="#0d1117" stroke-width="2.4" stroke-linejoin="round">'
+                             f'低位区 ≤25% 分位</text>')
+
     # 网格 + Y 轴刻度
     ngrid = 3 if compact else 4
     for g in range(ngrid):
@@ -547,7 +725,17 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
         parts.append(f'<line x1="{L}" y1="{y:.1f}" x2="{w-R}" y2="{y:.1f}" '
                      f'stroke="#21262d" stroke-width="1"/>')
         parts.append(f'<text x="{L-5}" y="{y+3.5:.1f}" fill="#8b949e" font-size="{fs}" '
-                     f'text-anchor="end">{_fmt(v, unit)}</text>')
+                     f'text-anchor="end">{_fmt_axis(v, y_unit)}</text>')
+
+    if is_dev:
+        # 去趋势图: 0 就是「3 年均线」这个基准, 用虚线标出来
+        if lo < 0 < hi:
+            y0 = Y(0.0)
+            parts.append(f'<line x1="{L}" y1="{y0:.1f}" x2="{w-R}" y2="{y0:.1f}" '
+                         f'stroke="#d2991d" stroke-width="1" stroke-dasharray="5 4" '
+                         f'opacity="0.8"/>')
+        parts.append(f'<text x="{L+3}" y="{T-6}" fill="#d2991d" font-size="9">'
+                     f'已去趋势 · 对数偏离 3 年均线 (%)</text>')
 
     if ref and lo < ref[0] < hi:
         yr = Y(ref[0])
@@ -572,9 +760,19 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
         parts.append(f'<text x="{(x0+x1)/2:.1f}" y="{T+11}" fill="#f0883e" '
                      f'font-size="10" text-anchor="middle">未来6期(统计外推)</text>')
 
-    if ma_pts:
+    if ma_pts and not is_dev:
         parts.append(f'<polyline points="{ma_pts}" fill="none" stroke="#8b949e" '
                      f'stroke-width="1" stroke-dasharray="4 3" opacity="0.65"/>')
+    if dev_ma and not is_dev:
+        dmav = s.rolling(dev_ma).mean().values
+        dm_pts = " ".join(f"{X(k):.1f},{Y(_clip(dmav[i])):.1f}"
+                          for k, i in enumerate(idx) if not np.isnan(dmav[i]))
+        if dm_pts:
+            parts.append(f'<polyline points="{dm_pts}" fill="none" stroke="#d2991d" '
+                         f'stroke-width="1.2" stroke-dasharray="3 3" opacity="0.9"/>')
+            if not compact:
+                parts.append(f'<text x="{L+4}" y="{T+11}" fill="#d2991d" font-size="10">'
+                             f'3 年均线(去趋势基准)</text>')
     parts.append(f'<polyline points="{pts}" fill="none" stroke="{color}" '
                  f'stroke-width="{1.3 if compact else 1.8}"/>')
 
@@ -653,8 +851,10 @@ CYCLES_CSS = """
 .cyc-ind .ival { font-size:15px; font-weight:600; color:#e6edf3;
   font-variant-numeric:tabular-nums; margin-bottom:3px; }
 .cyc-ind .ival .iu { font-size:10px; color:#8b949e; font-weight:400; margin-left:2px; }
-.cyc-ind .iph { font-size:10.5px; font-weight:500; margin-bottom:8px; }
+.cyc-ind .iph { font-size:10.5px; font-weight:500; margin-bottom:4px; }
 .cyc-ind .iph .dv { color:#6e7681; font-weight:400; }
+.cyc-ind .ibas { font-size:9.5px; color:#6e7681; line-height:1.45; margin-bottom:7px; }
+.cyc-ind .ibas .tr { color:#d2991d; }
 .cyc-ind .ibox { margin-top:auto; }
 .cyc-ind .isrc { font-size:9.5px; color:#6e7681; margin-top:6px; line-height:1.45; }
 .cyc-ind .isrc .warn { color:#d2991d; }
@@ -694,8 +894,8 @@ def render_fragment(rows, updated):
 
         # 分歧度越大, 综合位置越不可信 —— 直接把它标出来, 而不是假装一个数就代表整个周期
         div_bad = agg["pct_std"] > 0.25
-        div_txt = (f'<span style="color:#d2991d">±{agg["pct_std"]*100:.0f}pp 分歧大, 位置参考性低</span>'
-                   if div_bad else f'分歧 ±{agg["pct_std"]*100:.0f}pp')
+        div_txt = (f'<span style="color:#d2991d">±{_pp(agg["pct_std"]*100)} 分歧大, 位置参考性低</span>'
+                   if div_bad else f'分歧 ±{_pp(agg["pct_std"]*100)}')
 
         # ---- 顶部 mini ----
         minis.append(
@@ -714,22 +914,37 @@ def render_fragment(rows, updated):
             st = ind["stats"]
             ic = _ph_color(st["pct"])
             # 对本身就是百分比(如房价同比)的序列,『偏离%』没有意义(接近0时会放大成±几百%),
-            # 改成显示与长期均线的绝对差(pp)
+            # 改成显示与长期均线的绝对差
             if ind["unit"] == "%":
                 dev_txt = f'均线 {st.get("mav", 0):+.2f}%'
             else:
                 dev_txt = f'偏离均线 {st["dev"]*100:+.1f}%'
+            # 位置口径透明度: 趋势型品种必须说明用的是去趋势口径, 否则绝对分位会误导
+            pabs = st["pct_abs"] * 100
+            ptr = st["pct_trend"]
+            r2 = st.get("r2", 0.0)
+            if st["is_trend"]:
+                basis_html = (f'<span class="tr">趋势型 {st["trend"]:.1f}x · R²={r2:.2f} 单调上涨'
+                              f' · 位置取去趋势口径</span>'
+                              f' · 同口径下绝对分位为 {pabs:.0f}%（长期上涨会把它顶到很高，别用）')
+            else:
+                why = ""
+                if ptr is not None and st["trend"] >= TREND_TH and r2 < TREND_R2:
+                    why = f"（涨幅够但 R²={r2:.2f}<{TREND_R2}，是大起大落不是趋势）"
+                basis_html = (f'均值回归型 {st["trend"]:.2f}x · R²={r2:.2f} · 位置取绝对分位{why}'
+                              + (f' · 同口径去趋势分位 {ptr*100:.0f}%' if ptr is not None else ''))
             warn = _stale_warn(ind["last_date"])
             note = f' · {ind["note"]}' if ind.get("note") else ""
             svg = svg_chart_series(ind)
             ind_html.append(
                 f'<div class="cyc-ind">'
                 f'<div class="ihd"><span class="inm" title="{ind["name"]}">{ind["name"]}</span>'
-                f'<span class="ipct" style="color:{ic}">分位 {st["pct"]*100:.0f}%</span></div>'
+                f'<span class="ipct" style="color:{ic}">位置 {st["pct"]*100:.0f}%</span></div>'
                 f'<div class="ival">{_fmt(st["cur"], ind["unit"])}'
                 f'<span class="iu">{ind["unit"] or "指数"}</span></div>'
                 f'<div class="iph" style="color:{ic}">{st["phase"]}'
                 f'<span class="dv"> · {dev_txt}</span></div>'
+                f'<div class="ibas">{basis_html}</div>'
                 f'<div class="ibox">{svg}</div>'
                 f'<div class="isrc">{ind["source"]}'
                 f'<br>{"<span class=\'warn\'>⚠ 数据滞后</span> " if warn else ""}'
@@ -742,10 +957,19 @@ def render_fragment(rows, updated):
                         f'<div class="v" style="color:#6e7681">样本不足</div>'
                         f'<div class="d">该指标历史长度不足以统计</div></div>')
             c = "#3fb950" if f["med"] > 0 else "#f85149"
+            if f.get("mode") == "diff":
+                # 序列本身已是增速%, 后验分布只能用百分点差表示, 不能用「涨跌幅」
+                v = f'{f["med"]:+.2f}pp'
+                rng = f'{f["p25"]:+.2f}pp ~ {f["p75"]:+.2f}pp'
+                unit_note = "pp=百分点; 该指标本身是同比增速, 故统计的是增速的变化"
+            else:
+                v = f'{f["med"]*100:+.1f}%'
+                rng = f'{f["p25"]*100:+.1f}% ~ {f["p75"]*100:+.1f}%'
+                unit_note = "25%~75%区间"
             return (f'<div class="box"><div class="k">{label}</div>'
-                    f'<div class="v" style="color:{c}">{f["med"]*100:+.1f}%</div>'
-                    f'<div class="d">25%~75%区间 {f["p25"]*100:+.1f}% ~ {f["p75"]*100:+.1f}%'
-                    f' | 上涨概率 {f["win"]*100:.0f}% | n={f["n"]}</div></div>')
+                    f'<div class="v" style="color:{c}">{v}</div>'
+                    f'<div class="d">{unit_note} {rng}'
+                    f' | 上行概率 {f["win"]*100:.0f}% | n={f["n"]}</div></div>')
 
         main_nm = next((i["name"] for i in r["indicators"] if i.get("main")), r["indicators"][0]["name"])
 
@@ -756,7 +980,7 @@ def render_fragment(rows, updated):
             f'<span class="tag" style="color:{color};border-color:{color}88;background:{color}18">'
             f'{agg["phase"]}</span></div>'
             f'<div class="src">{len(r["indicators"])} 个指标并列 · '
-            f'综合位置 = 各指标历史分位的均值 · 分歧度 = 分位标准差'
+            f'综合位置 = 各指标位置的均值 · 分歧度 = 位置的标准差'
             + ('<span style="color:#d2991d"> · ⚠ 指标分歧过大, 综合位置参考性低, 请看下方各指标</span>'
                if div_bad else '') + '</div></div>'
             f'<div class="rgt">'
@@ -764,7 +988,7 @@ def render_fragment(rows, updated):
             f'<div class="v" style="color:{color}">{agg["pct_avg"]*100:.0f}%</div></div>'
             f'<div class="metric"><div class="k">指标分歧</div>'
             f'<div class="v" style="color:{"#d2991d" if div_bad else "#e6edf3"}">'
-            f'±{agg["pct_std"]*100:.0f}pp</div></div>'
+            f'±{_pp(agg["pct_std"]*100)}</div></div>'
             f'</div></div>'
             f'<div class="cyc-combo">'
             f'<div class="cyc-barlab big">低位 ← 综合位置 {agg["pct_avg"]*100:.0f}% → 高位</div>'
@@ -780,10 +1004,26 @@ def render_fragment(rows, updated):
             '<div class="cyc-wrap">'
             f'<div class="cyc-topbar"><div class="t">产业周期观察 · 多指标并列</div>'
             f'<div class="s">每个周期用 <b>3 个独立指标</b>交叉验证, 单指标噪音大、易被个体事件扭曲。'
-            f'<b>综合位置</b>=各指标历史分位的均值; <b>分歧度</b>=分位标准差。'
-            f'<b>分歧度 &gt; 25pp 时综合位置本身就不成立</b> —— 说明这几条产业链已经割裂, '
-            f'这时应该直接看下面三个指标各自的读数。'
-            f'<br>前瞻统计取主指标「历史上处于相同分位时」其后 6/12 期的后验分布 —— 这是历史统计, '
+            f'<b>综合位置</b>=各指标位置的均值; <b>分歧度</b>=位置的标准差 —— '
+            f'<b>分歧度 &gt; 25pp 时综合位置本身就不成立</b>, 说明这几条产业链已经割裂, '
+            f'这时应直接看下面三个指标各自的读数。'
+            f'<br><b>位置口径分两种, 页面上逐个标了。</b>'
+            f'长期单边上涨的品种(费半、美光、沪铜)如果用「绝对价格的历史分位」, 结果会永远贴着 100% —— '
+            f'以费半为例, 2018-10 那波顶部绝对分位 81.7%, 而 2022-10 实打实的下行周期底反而只有 77.2%, '
+            f'两个截然相反的时点读数几乎一样, 这叫分辨不出高低。'
+            f'所以对这类<b>趋势型</b>指标, 位置改用'
+            f'<b>对数价格相对 3 年均线的偏离</b>所处分位: 同一口径下费半 2018-10 顶 14%、'
+            f'2020-03 疫情底 0.5%、2022-10 周期底 0.3%、现在 96.7%, 高低一目了然。'
+            f'判定「趋势型」要<b>同时</b>满足两条: 后 1/3 均值 / 前 1/3 均值 ≥ 1.5(有长期抬升), '
+            f'且对数价格的线性拟合 R² ≥ 0.50(抬升是单调持续的)。只看第一条会误伤 BDI —— '
+            f'它涨幅够(1.9x)但 R² 只有 0.31, 是被 2016 年历史大底(290 点)拉出来的剧烈均值回归, '
+            f'不是趋势。猪价/纯碱/BDI 这类均值回归品种不满足条件, 仍用绝对分位。'
+            f'每个指标下方的灰色小字都写明了它用的是哪种口径、以及 R² 是多少。'
+            f'<br><b>曲线背景的两条色带</b>是高低位区(按 A 股习惯: 红=高、绿=低): '
+            f'浅红带 = 历史上落到该品种<b>前 25% 高位</b>的取值区间, 浅绿带 = <b>后 25% 低位</b>区间, '
+            f'分界虚线就是 75% / 25% 分位对应的数值(趋势型指标按去趋势后的偏离算, '
+            f'所以和它的「位置」读数同一口径)。曲线跑进红带就是历史上贵, 跑进绿带就是历史上便宜。'
+            f'<br>前瞻统计取主指标「历史上处于相同位置时」其后 6/12 期的后验分布 —— 这是历史统计, '
             f'不是预测承诺。更新 {updated}</div></div>'
             f'<div class="cyc-grid">{"".join(minis)}</div>'
             f'{"".join(cards)}'
@@ -799,8 +1039,17 @@ def render_fragment(rows, updated):
             f'真正的「新船订单簿/船队运力比」是 Clarksons 付费数据, 免费源拿不到; '
             f'⑤存储周期用的是<b>原厂股价</b>(美光 + 费半 + A股板块), 不是「三大原厂资本开支同比」—— '
             f'后者要逐季读三星/海力士/美光财报, 没有免费实时接口, 也无 DRAM/NAND 现货价免费源; '
-            f'⑥用价格水平的绝对分位衡量周期位置, 会受成本推动(油价/煤价)和长期结构变化污染, '
-            f'所以同一周期内三个指标的分歧本身就是信息, 不要只看均值。'
+            f'⑥<b>位置口径不是统一的</b> —— 趋势型指标(后 1/3 均值 / 前 1/3 均值 ≥ 1.5 且 对数线性 R² ≥ 0.50)'
+            f'取「对数价格相对 3 年均线的偏离」的历史分位, 均值回归型指标取绝对价格分位。'
+            f'混用两种口径的读数不可直接横向比较; '
+            f'⑦用价格/指数衡量周期, 终究会受成本推动与长期结构变化污染, '
+            f'所以同一周期内三个指标的分歧本身就是信息, 不要只看均值; '
+            f'⑧去趋势口径需要至少 3 年+40 期样本, 短序列(多晶硅 93 周)只能退回绝对分位; '
+            f'⑨趋势判据本身也是统计量, 阈值(1.5 / 0.50)是人为设定, 临界品种(沪铝 1.55x、'
+            f'BDI 的 R²=0.31)换个窗口可能翻转, 所以每个指标都同时展示两种口径的分位供你自行判断; '
+            f'⑩房地产周期里的房价同比是<b>京沪两市</b>口径而非全国 70 城 —— akshare 那个接口'
+            f'名字叫 70 城, 实际只返回北京/上海(每月 2 条), 一线城市房价一般是周期的领先段, '
+            f'拿它看方向可以, 别当成全国房价水平。'
             f'<br><b>免责:</b> 周期位置为滚动历史分位, 属描述性统计, 与个股/指数买卖信号无关, 不构成投资建议。'
             f'</div></div>'
             '</div>')
@@ -839,14 +1088,16 @@ def build_cycle_rows():
                     s = s.iloc[-MAX_KEEP:]
                 if len(s) < 30:
                     raise ValueError(f"样本过短({len(s)})")
-                info = analyze(s, ic["freq"], ic["ma"])
+                info = analyze(s, ic["freq"], ic["ma"], unit)
                 inds.append(dict(
                     k=ic["k"], name=name, unit=unit, source=src, note=note,
                     freq=ic["freq"], ma=ic["ma"], ref=ref, main=ic.get("main", False),
                     last_date=s.index[-1].strftime("%Y-%m-%d"), n_raw=len(s),
                     stats=info, svg=svg_chart(s, info, unit, ic["ma"], ref,
                                               w=380, h=168, compact=True,
-                                              color=_ph_color(info["pct"])),
+                                              color=_ph_color(info["pct"]),
+                                              dev_ma=(DEV_WIN.get(ic["freq"], 156)
+                                                      if info.get("is_trend") else None)),
                     series=[[d.strftime("%Y-%m-%d"), round(float(v), 4)]
                             for d, v in zip(s.index, s.values)]))
                 print(f"  [OK] {cfg['name']:<9} {name:<12} {len(s):>4}点  "
@@ -882,7 +1133,9 @@ def rebuild_rows(cached):
             ind = dict(ind)
             ind["svg"] = svg_chart(s, ind["stats"], ind["unit"], ind["ma"], ind["ref"],
                                    w=380, h=168, compact=True,
-                                   color=_ph_color(ind["stats"]["pct"]))
+                                   color=_ph_color(ind["stats"]["pct"]),
+                                   dev_ma=(DEV_WIN.get(ind["freq"], 156)
+                                           if ind["stats"].get("is_trend") else None))
             inds.append(ind)
         rows.append(dict(c, indicators=inds))
     return rows
