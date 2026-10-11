@@ -45,7 +45,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 OUT_JSON = SCRIPT_DIR / "cycles_data.json"
 OUT_HTML = SCRIPT_DIR / "cycles_fragment.html"
 
-SCHEMA_VER = 8          # 结构版本; 与缓存不符则强制重采
+SCHEMA_VER = 9          # 结构版本; 与缓存不符则强制重采
                         # (v3: 趋势型 R² 判据; v4: 增速序列前瞻改差值口径;
                         #  v5: 12 周期 + 锂·挖机·面板·煤炭 + 两个美林时钟;
                         #  v6: 补上用户点名的指标 —— 网页爬取(DRAM/NAND现货价、出栏体重、
@@ -366,6 +366,109 @@ def f_cssc():
     你要的『全球新船订单簿 / 现有船队运力』是 Clarksons 付费数据, 免费源没有;
     而船厂股价 = 市场对在手订单量 × 船价 × 交付周期的提前定价, 与订单簿高度同向。"""
     return _a_share("600150", "中国船舶", "造船龙头·订单簿代理")
+
+
+def f_longi():
+    """隆基绿能 —— 光伏周期代理。
+    光伏主产业链(硅料→硅片→电池→组件)没有免费的完整现货价长序列:
+    多晶硅期货 2024 年底才上市, 工业硅 2022 年底才上市, 都不足一轮周期。
+    隆基是唯一横跨硅片/电池/组件的一体化龙头, 2012 年上市至今 14 年,
+    股价是市场对整个光伏产业链盈利中枢的提前定价 —— 用它补上光伏周期的长度。"""
+    return _a_share("601012", "隆基绿能", "光伏一体化龙头·产业链盈利代理")
+
+
+# ---- 长波(康波)用: 中美 10 年期国债收益率 ----
+def _bond_rate(col, name):
+    df = ak.bond_zh_us_rate()
+    dcol = "日期" if "日期" in df.columns else df.columns[0]
+    s = _series(df[dcol], df[col])
+    if len(s) < 200:
+        raise ValueError("%s 样本过短(%d)" % (name, len(s)))
+    return s, f"{name} · 东方财富中美国债收益率日频", "%", {}
+
+
+def f_us10y():
+    return _bond_rate("美国国债收益率10年", "美国 10 年期国债收益率")
+
+
+def f_cn10y():
+    return _bond_rate("中国国债收益率10年", "中国 10 年期国债收益率")
+
+
+def f_bcti():
+    """波罗的海原油运输指数 BCTI —— 油运运价, 与 BDI(干散)互补。
+    航运周期里干散和油运经常不同步: 干散看铁矿石/煤炭/粮食, 油运看原油贸易量与航距。"""
+    return _macro(ak.macro_shipping_bcti, "波罗的海交易所·BCTI 原油运输指数", "点", "最新值")
+
+
+# ---- 券商/市场位置: 沪深300 市盈率 + 巴菲特指标(市值/GDP) ----
+def f_hs300_pe():
+    """沪深300 滚动市盈率(PE-TTM)。
+    乐咕(danjuanapp)口径, 2005 年至今。用它判断市场整体估值在历史区间的什么位置 ——
+    这是券商周期最直接的『市场位置』读数: 券商股是 beta 放大器, 估值水位决定它能弹多高。"""
+    df = ak.stock_index_pe_lg(symbol="沪深300")
+    dcol = "日期" if "日期" in df.columns else df.columns[0]
+    # 注意列序: '等权滚动市盈率' 排在 '滚动市盈率' 前面, _pick_col 的子串匹配会先命中前者。
+    # 等权口径是小盘股加权, 和沪深300 的市值加权不是一回事, 必须精确取 '滚动市盈率'。
+    ccol = ("滚动市盈率" if "滚动市盈率" in df.columns
+            else _pick_col(df, "滚动市盈率") or _pick_col(df, "静态市盈率"))
+    if ccol is None:
+        raise ValueError("未找到市盈率列: %s" % list(df.columns))
+    s = _series(df[dcol], df[ccol])
+    s = s[s > 0]
+    if len(s) < 100:
+        raise ValueError("市盈率样本过短(%d)" % len(s))
+    return s, "沪深300 滚动市盈率 PE-TTM(乐咕/蛋卷)", "倍", {}
+
+
+def _cn_gdp_ttm():
+    """中国 GDP 滚动 4 个季度合计(亿元)。
+    macro_china_gdp 给的是『年初至今累计值』('2026年第1-2季度' = 上半年累计),
+    而且行序是倒着的。必须先按年拆成单季, 再滚动 4 季求和 ——
+    直接拿累计值当分母, 一季度会把比值算出两三倍, 季节性全错。"""
+    df = ak.macro_china_gdp()
+    qcol, vcol = df.columns[0], _pick_col(df, "国内生产总值", "绝对值")
+    cum = {}
+    for _, r in df.iterrows():
+        m = re.match(r"(\d{4})年第(\d)-?(\d?)季度", str(r[qcol]).strip())
+        if not m:
+            continue
+        y = int(m.group(1))
+        q_end = int(m.group(3)) if m.group(3) else int(m.group(2))
+        try:
+            cum[(y, q_end)] = float(r[vcol])
+        except (TypeError, ValueError):
+            continue
+    if not cum:
+        raise ValueError("GDP 季度解析失败")
+    q = {}
+    for (y, qe), v in cum.items():
+        prev = cum.get((y, qe - 1), 0.0) if qe > 1 else 0.0
+        if v > prev:
+            q[(y, qe)] = v - prev
+    ks = sorted(q)
+    idx = [pd.Timestamp(y, min(qe * 3, 12), 1) + pd.offsets.MonthEnd(0)
+           for y, qe in ks]
+    s = pd.Series([q[k] for k in ks], index=pd.DatetimeIndex(idx))
+    return s.sort_index().rolling(4).sum().dropna()
+
+
+def f_mktcap_gdp():
+    """巴菲特指标: A股总市值 ÷ 中国 GDP(TTM), %。
+    分子分母同步约掉通胀与经济体量增长, 是跨十年可比的『股市相对实体经济的膨胀度』。
+    分母 GDP 是季度数, 市值用月度均值对齐到季末。"""
+    cap = _mkt_cap()                       # 沪深总市值月度(亿元)
+    if cap.max() < 1e3:                    # 单位是亿元, 不该比这个小
+        raise ValueError("市值口径异常")
+    gdp = _cn_gdp_ttm()
+    q = cap.resample("QE").mean().dropna()
+    q = q[q.index >= gdp.index[0]]
+    g = gdp.reindex(q.index, method="ffill")
+    r = (q / g * 100.0).dropna()
+    if len(r) < 20:
+        raise ValueError("样本过短(%d)" % len(r))
+    return (r, "沪深两市总市值 ÷ 中国 GDP(滚动四季, 统计局季度)", "%",
+            {"note": "巴菲特指标; 分子分母同步约掉通胀与经济增长"})
 
 
 def f_xcmg():
@@ -910,7 +1013,8 @@ def crawl_cansi():
 VERIFIED_DATE = "2026-10-12"
 
 READINGS = {
-    "shipping": [
+    # 造船(供给侧)读数: 这三项都是 CANSI 的造船口径, 归到造船周期而不是航运周期
+    "shipbuilding": [
         dict(n="新接订单量", k="neword", u="万载重吨", crawl=("cansi",),
              v="12106", yoy="+173.1%", asof="2026年1-6月", src="中国船舶工业行业协会(人工核实)",
              note="全球份额 82.3%"),
@@ -932,6 +1036,14 @@ READINGS = {
              src="据上述两个指数算得",
              note="比值>1 说明二手船比新船还贵(即期运力抢手，通常是景气顶部特征)；"
                   "2023年约为 149/178≈0.84"),
+    ],
+    # 航运(需求侧·运价)读数: 运价是即期读数, 上面四条曲线已经覆盖了主要船型,
+    # 这里只补两条拿不到曲线、但值得记的口径
+    "shipping": [
+        dict(n="BDI 干散货综合运价", ind="bdi", note="见上方曲线"),
+        dict(n="BCTI 原油运输运价", ind="bcti", note="见上方曲线(2026-10 补上)"),
+        dict(n="集装箱运价(SCFI/CCFI)", v="—", u="点",
+             src="上海航运交易所", note="免费接口只有单期快照, 建不了历史序列, 暂缺"),
     ],
     "memory": [
         dict(n="DRAM 现货价(扣通胀)", crawl=("flash", "dram"), u="点",
@@ -1165,8 +1277,12 @@ FE = {
     "realestate": f_realestate, "house_price": f_house_price, "construction": f_construction,
     "cu": f_cu, "al": f_al, "lme_cu": f_lme_cu,
     "sa": f_sa, "ta": f_ta, "ma": f_ma,
-    "bdi": f_bdi, "bci": f_bci, "bpi": f_bpi,
+    "bdi": f_bdi, "bci": f_bci, "bpi": f_bpi, "bcti": f_bcti,
     "si": f_si, "ps": f_ps, "fg": f_fg,
+    # ---- 长波(康波) / 市场位置 ----
+    "us10y": f_us10y, "cn10y": f_cn10y,
+    "hs300_pe": f_hs300_pe, "mktcap_gdp": f_mktcap_gdp,
+    "longi": f_longi,
     "rebar": f_rebar,
     "sox": f_sox, "micron": f_micron, "cn_mem": f_cn_memory_board,
     # ---- 2026-10 改版新增 ----
@@ -1321,46 +1437,71 @@ for _k in MSER:
 # 二、周期定义 —— 每个周期 3 个并列指标
 # ══════════════════════════════════════════════════════════════
 def I(k, nm, fn, unit="元/吨", freq="W", agg="last", ma=52, ref=None, note="",
-      main=False, pos=True, inv=False, min_n=30):
+      main=False, pos=True, inv=False, min_n=30, force_dev=False):
     """pos=True: 过滤 <=0 的脏数据(运价指数/库存等不可能为负, 但源数据偶有负值毛刺)
     inv=True: 反指标 —— 数值越低代表周期越热(如库存、拆船量)。
               这类直接按原始值排分位会读反(库存历史最低→算成周期低位, 实际是铜最紧的时候),
               所以analyze()里把分位/变化率/偏离全部翻过来。
-    min_n:   最低样本点数。研报提取的年度序列只有十几个点, 用默认 30 会被误杀。"""
+    min_n:   最低样本点数。研报提取的年度序列只有十几个点, 用默认 30 会被误杀。
+    force_dev: 强制走去趋势口径(不看自动判定的 trend/R²)。
+               用于用户点名要求去趋势的品种(如隆基): 它 2012→2021 涨几十倍再跌回来,
+               对数线性 R² 不一定过阈值, 但绝对价格图同样是一条向上的斜线、读不出高低。"""
     return dict(k=k, name=nm, fetch=fn, unit=unit, freq=freq, agg=agg,
                 ma=ma, ref=ref, note=note, main=main, pos=pos,
-                inv=inv, min_n=min_n)
+                inv=inv, min_n=min_n, force_dev=force_dev)
 
 
 CYCLES = [
     # ══════════════════════════════════════════════════════════
-    dict(key="shipping", name="航运周期", tag="10-12 年大周期",
-         logic="造船是重资产长周期, 新船下单到交付 2-3 年, 供给调整极慢, 需求一波动就是 3-5 年大行情。"
-               "BDI 是干散货综合运价, BCI(海岬型/铁矿石煤炭)和 BPI(巴拿马型/粮食)是分船型拆解 —— "
-               "三个同涨说明是全局需求回暖, 只有单一船型涨则多半是局部扰动。"
-               "<b>关于你列的六个造船指标:</b>只有『新接订单量/手持订单量』有持续更新 —— "
-               "用的是<b>中国船舶工业行业协会(CANSI)月度公报</b>的实时爬取, 最新一期的读数在下方的"
-               "『行业读数』卡里。"
+    # ── 造船周期(供给侧)───────────────────────────────────────
+    # 和下面的航运周期是两回事: 造船看的是【船厂产能与订单簿】(供给侧, 10-12 年),
+    # 航运看的是【运价】(需求侧, 高频)。历史上两者经常背离 ——
+    # 典型是 2016 年 BDI 跌到 290 点历史大底时, 造船订单簿还在消化 2013-14 年的订单;
+    # 反过来 2021-22 运价暴涨, 新船价格指数才刚起步(下单到交付要 2-3 年, 供给跟不上)。
+    dict(key="shipbuilding", name="造船周期", tag="供给侧 · 10-12 年",
+         logic="造船是重资产长周期: 新船下单到交付 2-3 年, 船坞产能 10 年才能扩一轮, "
+               "所以供给调整极慢, 一旦供需错配就是 3-5 年大行情。"
+               "<b>这一页是供给侧</b>, 读的是『船厂手里有多少活、新船卖多少钱、老船拆了多少』: "
+               "<b>新船价格指数</b>是造船周期最直接的景气读数(船价涨=船厂议价权强); "
+               "<b>手持订单÷现有船队运力</b>是未来 2-3 年的确定供给(占比高=船厂活多, 但也意味着"
+               "未来交付压力大、运力要过剩); <b>中国船舶</b>股价是市场对在手订单×船价的提前定价。"
+               "<b>『拆船量』是反指标</b>: 拆得越多说明船东在割肉、运价越惨, 船东宁愿把船当废铁卖; "
+               "反过来拆船量趴在历史低位说明老船还在赚钱、没人愿意拆 —— 它的分位已经翻转过来, "
+               "读数高代表造船/航运景气, 不再是字面上拆船量本身的高低。"
+               "<b>关于你列的六个造船指标:</b>『新接订单量/手持订单量』仍在下方『行业读数』卡里, "
+               "用的是<b>中国船舶工业行业协会(CANSI)月度公报</b>的实时爬取。"
                "其余三项<b>原本判定为「Clarksons 付费墙后、拿不到」而直接跳过, 这判断是偷懒, 已补上</b>: "
                "『全球拆船量(含年度交付量)』在<b>东吴证券船舶行业深度</b>里有一张 2006-2025 的完整表; "
                "『新船价格指数』『手持订单÷现有船队运力』在<b>UNCTAD《海运述评》</b>和各大券商年报综述里"
-               "逐年披露。这三条都按用户指示从公开研报里扒出来了, 见下方曲线。"
-               "唯一还没救回来的是<b>二手船成交价</b> —— 二手船价格指数只在 2023/2024 两个年度点上公开, "
-               "凑不出序列, 仍留在读数卡。<b>『拆船量』是反指标</b>: 拆得越多说明船东在割肉、航运越惨, "
-               "所以它的分位已经翻转过来 —— 读数高代表航运景气, 不再是字面上拆船量本身的高低。",
+               "逐年披露。这三条都按你的指示从公开研报里扒出来了, 见下方曲线。"
+               "唯一还没救回来的是<b>二手船成交价</b> —— 只在 2023/2024 两个年度点上公开, "
+               "凑不出序列, 仍留在读数卡。",
+         indicators=[
+             I("ship_nbp", "克拉克森新船价格指数", "ship_nbp", "点", "M", "last", 3, None,
+               main=True, min_n=8, note="Clarksons 公开口径汇编, 2007 至今"),
+             I("ship_obf", "手持订单÷现有船队运力", "ship_obf", "%", "M", "last", 3, None,
+               min_n=8, note="UNCTAD/ABS/Clarksons, 2008 至今"),
+             I("ship_demo", "全球拆船量", "ship_demo", "万载重吨", "M", "last", 3, None,
+               inv=True, min_n=12, note="Clarksons/东吴证券表, 2006-2025 年度"),
+             I("cssc", "中国船舶(订单簿代理)", "cssc", "元", "W", "last", 52, None,
+               note="代理指标: 船厂股价≈在手订单×船价"),
+         ]),
+
+    # ── 航运周期(需求侧·运价)───────────────────────────────────
+    dict(key="shipping", name="航运周期", tag="需求侧 · 运价",
+         logic="这一页是<b>需求侧的运价</b>, 和上面的造船周期(供给侧)分开看。"
+               "BDI 是干散货综合运价, BCI(海岬型/铁矿石煤炭)和 BPI(巴拿马型/粮食)是分船型拆解 —— "
+               "三个同涨说明是全局需求回暖, 只有单一船型涨则多半是局部扰动。"
+               "<b>BCTI 原油运输指数</b>是补上的第四条: 干散和油运经常不同步 —— "
+               "干散看铁矿石/煤炭/粮食的实物贸易量, 油运看原油贸易量与航距(俄乌之后航距拉长, "
+               "油运走出独立行情)。运价是即期供需的读数, 波动幅度远大于造船景气, "
+               "所以它更像『当前赚不赚钱』, 而造船周期才是『未来有没有船』。",
          indicators=[
              I("bdi", "BDI 干散货综合", "bdi", "点", "W", "last", 52, None, main=True),
              I("bci", "BCI 海岬型", "bci", "点", "W", "last", 52, None),
              I("bpi", "BPI 巴拿马型", "bpi", "点", "W", "last", 52, None),
-             I("cssc", "中国船舶(订单簿代理)", "cssc", "元", "W", "last", 52, None,
-               note="代理指标: 船厂股价≈在手订单×船价"),
-             # ↓ 研报/新闻提取序列(年度, 见 MSER)
-             I("ship_demo", "全球拆船量", "ship_demo", "万载重吨", "M", "last", 3, None,
-               inv=True, min_n=12, note="Clarksons/东吴证券表, 2006-2025 年度"),
-             I("ship_nbp", "克拉克森新船价格指数", "ship_nbp", "点", "M", "last", 3, None,
-               min_n=8, note="Clarksons 公开口径汇编, 2007 至今"),
-             I("ship_obf", "手持订单÷现有船队运力", "ship_obf", "%", "M", "last", 3, None,
-               min_n=8, note="UNCTAD/ABS/Clarksons, 2008 至今"),
+             I("bcti", "BCTI 原油运输", "bcti", "点", "W", "last", 52, None,
+               note="油运运价, 与干散常不同步"),
          ]),
 
     # ══════════════════════════════════════════════════════════
@@ -1581,17 +1722,29 @@ CYCLES = [
     # ══════════════════════════════════════════════════════════
     dict(key="solar", name="光伏周期", tag="产能过剩",
          logic="技术迭代快、产能扩张猛, 硅料→硅片→电池片全是产能游戏, 一扩产就价格战。"
-               "工业硅是上游原料, 多晶硅是核心环节, 玻璃是辅材/组件端 —— 三个环节一起看才能判断是全链条出清还是单环节涨价。"
-               "注意: 多晶硅期货 2024 年底才上市, 样本短, 其分位参考价值有限。"
-               "<b>所以又补了一条真正的多晶硅现货长序列</b>: <b>光大证券研究所</b>在《硅料价格处于 2011 年 8 月以来底部》"
-               "里给出过 Wind 口径的国产硅料价格表(2018-2025, 半年度), 已摘出来挂在最后一条。"
+               "工业硅是上游原料, 多晶硅是核心环节。"
+               "<b>『玻璃期货主力』已按你的要求删掉</b> —— 它 2021 年才上市, 只有四五年样本, "
+               "一轮周期都没走完, 挂在光伏周期里只会拉低这一页的可信度; 而且玻璃的下游主要是"
+               "房地产(浮法玻璃七成用于建筑), 它跟的是地产链不是光伏链, 口径本来就不对。"
+               "<b>补上的是『隆基绿能』</b>: 光伏主产业链没有免费的完整现货价长序列(多晶硅期货 "
+               "2024 年底才上市、工业硅 2022 年底才上市, 都不足一轮), 而隆基 2012 年上市至今 14 年, "
+               "是唯一横跨硅片/电池/组件的一体化龙头, 股价相当于市场对整个产业链盈利中枢的提前定价 —— "
+               "它把这一页的时间轴从 4 年拉长到 14 年, 2012-2018 的补贴时代、"
+               "2019-2022 的平价爆发、2023 至今的产能出清三段全在里面了。"
+               "<b>隆基这条曲线做了去趋势处理</b>: 2012→2021 它涨了几十倍, 绝对价格图只会看到一条"
+               "向上的斜线, 2021 年顶部和 2012 年底部在图上长得一模一样; 画成"
+               "『对数价格相对 3 年均线的偏离』之后, 2021 年的泡沫顶和 2024 年的出清底立刻分得开。"
+               "<b>还有一条真正的多晶硅现货长序列</b>: <b>光大证券研究所</b>在"
+               "《硅料价格处于 2011 年 8 月以来底部》里给出过 Wind 口径的国产硅料价格表"
+               "(2018-2025, 半年度), 已摘出来挂在最后一条。"
                "两条多晶硅要对照看 —— 上面那条是 2024-12 才上市的期货(短、但连续), "
                "下面这条是 2018 年至今的现货长史(长、但半年一个点), 判断 2021-22 那轮"
                "『58 → 306 元/kg 涨 424%、再跌 68.8%』的完整周期只能靠下面这条。",
          indicators=[
              I("si", "工业硅期货主力", "si", "元/吨", "W", "last", 52, None, main=True),
+             I("longi", "隆基绿能(去趋势)", "longi", "元", "W", "last", 52, None,
+               force_dev=True, note="光伏一体化龙头·产业链盈利代理"),
              I("ps", "多晶硅期货主力", "ps", "元/吨", "W", "last", 52, None, note="样本短(2024-12起)"),
-             I("fg", "玻璃期货主力", "fg", "元/吨", "W", "last", 52, None, note="辅材/组件端"),
              # ↓ 研报提取序列(Wind/光大证券, 见 MSER)
              I("polysilicon", "国产多晶硅(致密料)价格", "polysilicon", "元/kg", "M", "last", 3, None,
                min_n=10, note="Wind/光大证券表, 2018-2025 半年度"),
@@ -1621,7 +1774,15 @@ CYCLES = [
                "<b>三条放一起才读得对: 今天的杠杆『绝对量很大、但相对市场体量不算极端』</b> —— "
                "水池涨得比杠杆快。不过要注意, 2.29% 已经处于 2010 年以来的 <b>89% 分位</b>, "
                "除了 2015 那波极端泡沫, 它比 2018、2021、2024 各轮都高, 所以是『偏高但没疯』, 不是『不热』。"
-               "<b>判断杠杆是否过热, 看占市值比重那条, 别看余额绝对值 —— 绝对值会被通胀和股市扩容一起顶上去。</b>",
+               "<b>判断杠杆是否过热, 看占市值比重那条, 别看余额绝对值 —— 绝对值会被通胀和股市扩容一起顶上去。</b>"
+               "<br><b>另外补了两条『市场位置』读数(你要的市盈率历史区间 + 市值/GDP):</b> "
+               "券商是纯 beta 放大器, 它自己没有周期, 真正决定它弹多高的是<b>整个市场的位置</b>。"
+               "①<b>沪深300 滚动市盈率</b>(乐咕口径, 2005 年至今 21 年)—— 直接读估值在历史区间的哪一段, "
+               "这条不用去趋势, 市盈率本身就是均值回归的; "
+               "②<b>巴菲特指标 = 沪深总市值 ÷ 中国 GDP(TTM)</b> —— 分子分母同步约掉通胀与经济增长, "
+               "是跨十年可比的『股市相对实体经济的膨胀度』。"
+               "两条都是<b>中国口径</b>(你要的也是中国的)。看券商时把它们当成『天花板高度』: "
+               "估值已经在历史高位时, 成交额再放量, 券商也弹不了多少 —— 因为市场已经不便宜了。",
          indicators=[
              I("turnover", "两市日成交额", "turnover", "亿元", "W", "mean", 52, (10000, "1万亿(行业盈亏线)")),
              I("margin", "两融余额(名义)", "margin", "亿元", "W", "last", 52, None, main=True,
@@ -1631,8 +1792,26 @@ CYCLES = [
              I("margin_cap", "两融余额÷总市值(杠杆率)", "margin_cap", "%", "M", "last", 24, None,
                min_n=60, note="真正的杠杆率口径; 2015-06峰值为3.51%"),
              I("broker_index", "证券公司指数", "broker_index", "点", "W", "last", 52, None),
+             # ↓ 市场位置(中国)
+             I("hs300_pe", "沪深300 市盈率(PE-TTM)", "hs300_pe", "倍", "W", "last", 52, None,
+               min_n=100, note="乐咕/蛋卷口径, 2005 至今; 市场估值水位"),
+             I("mktcap_gdp", "A股总市值÷GDP(巴菲特指标)", "mktcap_gdp", "%", "M", "last", 12, None,
+               min_n=20, note="分子分母同步约掉通胀与经济增长"),
          ]),
 ]
+
+
+# ══════════════════════════════════════════════════════════════
+# 二之二、页面展示顺序
+# ══════════════════════════════════════════════════════════════
+# 用户指定: 康波(独立版块) → 美林时钟(独立版块) → 券商 → 存储 → 铜 → 锂 → 化工 →
+#           造船 → 航运 → 其余按原顺序跟在后面。
+# 康波和时钟不是 CYCLES 里的条目(它们没有『综合位置%』这种读数), 单独渲染在最前面。
+CYCLE_ORDER = ["broker", "memory", "copper", "lithium", "chem",
+               "shipbuilding", "shipping", "hog", "realestate",
+               "excavator", "panel", "coal", "solar"]
+CYCLES = sorted(CYCLES,
+                key=lambda c: CYCLE_ORDER.index(c["key"]) if c["key"] in CYCLE_ORDER else 99)
 
 
 # ══════════════════════════════════════════════════════════════
@@ -1715,7 +1894,7 @@ def hist_pct_series(v):
     return out
 
 
-def analyze(s, freq, ma, unit="", inv=False):
+def analyze(s, freq, ma, unit="", inv=False, force_dev=False):
     x = s.values.astype(float)
     n = len(x)
     cur = float(x[-1])
@@ -1737,7 +1916,9 @@ def analyze(s, freq, ma, unit="", inv=False):
         pct_trend = float((dv <= dseq[-1]).mean())
     else:
         pct_trend = None
-    is_trend = (pct_trend is not None) and (trend >= TREND_TH) and (tr2 >= TREND_R2)
+    _auto = (pct_trend is not None) and (trend >= TREND_TH) and (tr2 >= TREND_R2)
+    is_trend = _auto or (force_dev and pct_trend is not None)
+    forced = bool(is_trend and not _auto)   # 自动判定没过阈值, 但用户点名要去趋势
     # 趋势型品种用去趋势口径, 其余(猪价/BDI/纯碱等均值回归型)用绝对分位
     pct = pct_trend if is_trend else pct_abs
 
@@ -1765,7 +1946,8 @@ def analyze(s, freq, ma, unit="", inv=False):
     # 本身就是「增速%」的序列(房价同比等)可以过零, 必须用差值口径, 否则比值会炸
     fmode = "diff" if unit == "%" else "ratio"
     return dict(cur=cur, pct=pct, pct_abs=pct_abs, pct_trend=pct_trend,
-                trend=trend, r2=tr2, is_trend=is_trend, pos=pos, phase=phase,
+                trend=trend, r2=tr2, is_trend=is_trend, forced=forced,
+                pos=pos, phase=phase,
                 chg=chg, dev=mav_dev, mav=mav, inv=inv,
                 f6=forecast(x, ref, h1, mode=fmode),
                 f12=forecast(x, ref, h2, mode=fmode),
@@ -2353,6 +2535,196 @@ def build_clocks():
     return out
 
 
+# ══════════════════════════════════════════════════════════════
+# 四之三、康波周期(长波 · 50-60 年)
+# ══════════════════════════════════════════════════════════════
+# 先说清楚能做什么、不能做什么:
+# 康波是 50-60 年的长波, 免费接口里最长的一条连续序列是美债 10Y(1990 起, 36 年),
+# 连半轮都不到。**所以这里不做「精确判定当前处于康波第几阶段」** —— 那是拿 36 年数据
+# 去外推 60 年周期, 属于编故事。这里做的是两件诚实的事:
+#   ① 把康波四阶段的框架和历史区间(主流划分)摆出来, 并标明争议在哪;
+#   ② 用可得的最长序列(中美 10Y 国债收益率)给一个【长波定位】——
+#      利率长波是康波最可靠的同步/滞后代理之一: 长波上行(资金成本抬升)对应衰退-萧条,
+#      长波下行对应复苏-繁荣。并且把它和康波阶段的对应关系写在旁边, 置信度也写出来。
+# 中美分开列, 因为这两个经济体当前处在**长波的两个相反方向**上 —— 这是当下最值得记的一件事。
+KWAVE_QUADS = [
+    dict(name="复苏期", tint="rgba(63,185,80,0.12)",
+         feat="利率与商品双双触底、产能已出清完毕、新技术开始商业化扩散",
+         hist="第五波: 1982-1991(信息技术起步)",
+         rate="利率长波下行至历史低位"),
+    dict(name="繁荣期", tint="rgba(248,81,73,0.10)",
+         feat="增长强、通胀温和、资产全面上涨、新技术渗透率快速提升",
+         hist="第五波: 1991-2000(互联网普及)",
+         rate="利率自低位温和回升, 绝对水平仍低"),
+    dict(name="衰退期", tint="rgba(210,153,34,0.12)",
+         feat="利率飙升、商品见顶、滞胀、资产泡沫破裂、贫富分化加剧",
+         hist="第五波: 2000-2008(互联网泡沫→商品牛市→次贷)",
+         rate="利率长波上行, 水位抬到均值以上"),
+    dict(name="萧条期", tint="rgba(88,166,255,0.10)",
+         feat="商品熊市、资产去杠杆、增长中枢下移, 但下一轮新技术在酝酿",
+         hist="第五波: 2008-2020(?); 之后是否进入第六波复苏争议极大",
+         rate="利率自高位回落(央行兜底), 但增长也起不来"),
+]
+
+KWAVE_SERIES = [
+    dict(key="us10y", name="美国 10Y 国债收益率", region="美国",
+         src_note="东方财富中美国债收益率日频, 1990-12 起"),
+    dict(key="cn10y", name="中国 10Y 国债收益率", region="中国",
+         src_note="东方财富中美国债收益率日频, 2002-01 起"),
+]
+
+
+def _kwave_stage(pct, d):
+    """按利率长波的【方向】+【水位】给一个近似定位。
+    d = 近 3 年均值 − 前 10 年均值(pp): 正=长波上行, 负=长波下行。"""
+    if d > 0.5:
+        return ("衰退期" if pct >= 0.5 else "萧条期→复苏期过渡",
+                "利率长波上行" + ("且水位已在均值以上" if pct >= 0.5 else "但绝对水位仍偏低"))
+    if d < -0.5:
+        return ("繁荣期" if pct > 0.5 else "萧条期末 / 下一波孕育期",
+                "利率长波下行" + ("但绝对水位仍偏高" if pct > 0.5 else "且已压到历史低位"))
+    return ("方向不明(长波横盘)", "近 3 年与之前 10 年均值几乎持平")
+
+
+def build_kwave():
+    """返回康波长波定位所需的数据。失败返回 None(页面会显示失败原因, 不硬凑)。"""
+    out = []
+    for cfg in KWAVE_SERIES:
+        try:
+            s, src, unit, _m = FE[cfg["key"]]()
+            m = s.resample("ME").last().dropna()
+            if len(m) < 120:
+                raise ValueError("月度样本过短(%d)" % len(m))
+            cur = float(m.iloc[-1])
+            pct = float((m <= cur).mean())
+            r3 = float(m.iloc[-36:].mean())
+            p10 = float(m.iloc[-156:-36].mean()) if len(m) > 156 else float(m.iloc[:-36].mean())
+            d = r3 - p10
+            stage, why = _kwave_stage(pct, d)
+            info = analyze(m, "M", 12, unit)
+            out.append(dict(
+                key=cfg["key"], name=cfg["name"], region=cfg["region"],
+                cur=cur, pct=pct, d=d, stage=stage, why=why,
+                lo=float(m.min()), hi=float(m.max()),
+                lo_d=m.idxmin().strftime("%Y-%m"), hi_d=m.idxmax().strftime("%Y-%m"),
+                r3=r3, p10=p10, n=len(m), asof=m.index[-1].strftime("%Y-%m"),
+                span=(m.index[0].strftime("%Y-%m"), m.index[-1].strftime("%Y-%m")),
+                src=src, unit=unit, info=info, series=m,
+            ))
+            print(f"  [OK] 康波·{cfg['name']}  当前 {cur:.2f}% · 分位 {pct*100:.0f}% · "
+                  f"长波{d:+.2f}pp → {stage}")
+        except Exception as e:
+            print(f"  [FAIL] 康波 {cfg['name']}: {type(e).__name__}: {str(e)[:90]}")
+    return out
+
+
+def render_kwave(kw):
+    if not kw:
+        return ('<div class="cyc-card" style="margin-top:22px">'
+                '<div class="t" style="font-size:15px;font-weight:600;color:#e6edf3;'
+                'margin-bottom:6px">康波周期 · 长波(50-60 年)</div>'
+                '<div class="s" style="font-size:12px;color:#8b949e;line-height:1.75">'
+                '本次采集未拿到长波序列, 本版块留空 —— 不拿短数据硬凑一个长波结论。</div></div>')
+
+    def _row_for(region):
+        return next((x for x in kw if x["region"] == region), None)
+
+    us, cn = _row_for("美国"), _row_for("中国")
+
+    # ---- 表 1: 四阶段框架 × 中美当前定位 ----
+    qrows = []
+    for q in KWAVE_QUADS:
+        on_us = us and us["stage"].startswith(q["name"][:2])
+        on_cn = cn and cn["stage"].startswith(q["name"][:2])
+        qrows.append(
+            f'<tr style="{"background:rgba(248,81,73,0.09)" if (on_us or on_cn) else ""}">'
+            f'<td style="padding:5px 8px;font-size:12px;font-weight:600;color:#e6edf3">'
+            f'{q["name"]}</td>'
+            f'<td style="padding:5px 8px;font-size:10.5px;color:#8b949e;line-height:1.55">'
+            f'{q["feat"]}</td>'
+            f'<td style="padding:5px 8px;font-size:10.5px;color:#6e7681;line-height:1.55">'
+            f'{q["hist"]}<br><span style="color:#484f58">{q["rate"]}</span></td>'
+            f'<td style="padding:5px 8px;font-size:11px;text-align:center;'
+            f'color:{"#f85149" if on_us else "#484f58"}">{"◀ 美国在此" if on_us else "—"}</td>'
+            f'<td style="padding:5px 8px;font-size:11px;text-align:center;'
+            f'color:{"#f85149" if on_cn else "#484f58"}">{"◀ 中国在此" if on_cn else "—"}</td>'
+            f'</tr>')
+
+    # ---- 表 2: 判定依据 ----
+    erows = []
+    for x in kw:
+        erows.append(
+            f'<tr>'
+            f'<td style="padding:5px 8px;font-size:11.5px;color:#e6edf3;font-weight:600">'
+            f'{x["name"]}</td>'
+            f'<td style="padding:5px 8px;font-size:12px;font-variant-numeric:tabular-nums">'
+            f'{x["cur"]:.2f}{x["unit"]}</td>'
+            f'<td style="padding:5px 8px;font-size:10.5px;color:#8b949e;'
+            f'font-variant-numeric:tabular-nums">'
+            f'{x["lo"]:.2f}({x["lo_d"]}) ~ {x["hi"]:.2f}({x["hi_d"]})</td>'
+            f'<td style="padding:5px 8px;font-size:11px;font-variant-numeric:tabular-nums">'
+            f'{x["pct"]*100:.0f}%</td>'
+            f'<td style="padding:5px 8px;font-size:11px;font-variant-numeric:tabular-nums;'
+            f'color:{"#f85149" if x["d"] > 0 else "#3fb950"}">{x["d"]:+.2f}pp</td>'
+            f'<td style="padding:5px 8px;font-size:10.5px;color:#adbac7;line-height:1.5">'
+            f'{x["stage"]}<br><span style="color:#6e7681">{x["why"]}</span></td>'
+            f'</tr>')
+
+    svgs = []
+    for x in kw:
+        svgs.append(
+            f'<div style="min-width:0">'
+            f'<div style="font-size:11.5px;color:#adbac7;margin-bottom:4px">'
+            f'{x["name"]} · {x["span"][0]} 起 {x["n"]} 个月</div>'
+            f'{svg_chart(x["series"], x["info"], x["unit"], 12, None, w=560, h=150)}'
+            f'</div>')
+
+    return (
+        '<div class="cyc-card" style="margin-top:22px">'
+        '<div class="t" style="font-size:15px;font-weight:600;color:#e6edf3;margin-bottom:6px">'
+        '康波周期 · 长波(50-60 年) · 中美对照</div>'
+        '<div class="s" style="font-size:12px;color:#8b949e;line-height:1.75">'
+        '康波是 50-60 年的技术-经济长波, 一轮里套着 2-3 个中周期(朱格拉/基钦)。'
+        '<b>先把话说死: 免费接口里最长的一条连续序列是美债 10Y(1990 年起, 36 年), '
+        '连半轮康波都不到, 所以这里不宣称「精确判定当前是康波第几阶段」</b> —— 那是拿 36 年'
+        '外推 60 年, 是编故事。下面做的是两件诚实的事: ①把四阶段框架与主流历史区间摆出来, '
+        '并标明争议在哪; ②用可得的最长序列给一个<b>长波定位</b>。'
+        '选利率长波做代理的理由: 它是康波最可靠的同步/滞后指标之一 —— '
+        '长波上行(资金成本系统性抬升)对应衰退到萧条, 长波下行对应复苏到繁荣。'
+        '<b>中美分开列, 因为这两个经济体现在正处在长波的两个相反方向上</b> —— '
+        '这件事比「当前是第几阶段」重要得多。</div></div>'
+        '<div class="ml-card" style="margin-bottom:16px">'
+        '<table class="ml-tb">'
+        '<colgroup><col style="width:64px"><col><col style="width:150px">'
+        '<col style="width:86px"><col style="width:86px"></colgroup>'
+        '<thead><tr><th>阶段</th><th>典型特征</th><th>参考历史区间 / 利率形态</th>'
+        '<th style="text-align:center">美国</th><th style="text-align:center">中国</th>'
+        '</tr></thead><tbody>' + "".join(qrows) + '</tbody></table>'
+        '<div class="ml-lv" style="margin-top:8px"><b>判定依据</b>(长波方向 = 近 3 年均值 − 前 10 年均值):</div>'
+        '<table class="ml-tb" style="margin-top:4px">'
+        '<colgroup><col style="width:150px"><col style="width:70px"><col style="width:150px">'
+        '<col style="width:56px"><col style="width:74px"><col></colgroup>'
+        '<thead><tr><th>指标</th><th>当前</th><th>历史区间</th>'
+        '<th>分位</th><th>长波方向</th><th>指向的阶段</th></tr></thead>'
+        '<tbody>' + "".join(erows) + '</tbody></table>'
+        f'<div class="cyc-grid2">{"".join(svgs)}</div>'
+        '<div class="cyc-logic" style="margin-top:10px">'
+        '<b>这个版块的局限, 请务必知道:</b> '
+        '①样本只有 '
+        + " / ".join(f'{x["n"]} 个月({x["span"][0]} 起)' for x in kw)
+        + ', 而康波一轮是 50-60 年 —— 这里的分位只是「这段样本内的相对位置」, '
+          '换一段样本结论就会变, 不能当成康波坐标; '
+          '②康波的阶段划分本身就<b>没有共识</b>: 主流熊彼特-曼德尔框架把第五波(信息技术)划为 '
+          '1982-2008 前后, 而周金涛一派认为第五波要到 2019 前后才结束、其后是萧条期; '
+          '两者相差一轮中周期, 谁也说不服谁, 所以上表的历史区间只能当参考; '
+          '③利率长波只是康波的一个代理维度, 完整的康波判定还要看商品实际价格长波、'
+          '主导国技术创新扩散率与资本开支周期 —— 这几项没有可用的免费长序列; '
+          '④<b>最值得记的一句话</b>: 中美利率长波当前是<b>反向</b>的 '
+          '(美国在加息后的高水位、中国在降息通道的历史低位), '
+          '这种分化在 2008 年之后的历史上很少见, 它比「康波第几阶段」更有决策含义。'
+          '</div></div>')
+
+
 def clock_svg(c, w=560, h=430):
     """四象限散点 + 最近 5 年轨迹。SVG 里 y 轴向上为正(值越大越靠上)。"""
     L, R, T, B = 78, 22, 30, 52
@@ -2682,6 +3054,10 @@ CYCLES_CSS = """
 .cyc-ind-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 @media (max-width:1180px) { .cyc-ind-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:760px)  { .cyc-ind-grid { grid-template-columns:minmax(0,1fr); } }
+/* 康波版块里的两条长波曲线: 左右并列等宽 */
+.cyc-grid2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;
+  margin-top:10px; }
+@media (max-width:900px){ .cyc-grid2 { grid-template-columns:minmax(0,1fr); } }
 /* 中美两个钟左右并列、等宽、等高(stretch), 各自内部: 图 → 当前象限 → 表 → 数据源 → 说明 */
 .ml-duo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;
   align-items:stretch; }
@@ -2721,9 +3097,10 @@ def _stale_warn(last_date, days=45):
         return False
 
 
-def render_fragment(rows, updated, clocks=None, readings=None):
+def render_fragment(rows, updated, clocks=None, readings=None, kwave=None):
     minis, cards = [], []
     readings = readings or {}
+    kwave = kwave or []
     for r in rows:
         agg = r["agg"]
         color = _ph_color(agg["pct_avg"])
@@ -2761,9 +3138,14 @@ def render_fragment(rows, updated, clocks=None, readings=None):
             ptr = st["pct_trend"]
             r2 = st.get("r2", 0.0)
             if st["is_trend"]:
-                basis_html = (f'<span class="tr">趋势型 {st["trend"]:.1f}x · R²={r2:.2f} 单调上涨'
-                              f' · 位置取去趋势口径</span>'
-                              f' · 同口径下绝对分位为 {pabs:.0f}%（长期上涨会把它顶到很高，别用）')
+                if st.get("forced"):
+                    basis_html = (f'<span class="tr">按你的要求<b>强制去趋势</b> · '
+                                  f'自动判定 R²={r2:.2f} 未达 {TREND_R2} 阈值</span>'
+                                  f' · 同口径下绝对分位为 {pabs:.0f}%（长期上涨会把它顶到很高，别用）')
+                else:
+                    basis_html = (f'<span class="tr">趋势型 {st["trend"]:.1f}x · R²={r2:.2f} 单调上涨'
+                                  f' · 位置取去趋势口径</span>'
+                                  f' · 同口径下绝对分位为 {pabs:.0f}%（长期上涨会把它顶到很高，别用）')
             else:
                 why = ""
                 if ptr is not None and st["trend"] >= TREND_TH and r2 < TREND_R2:
@@ -2874,8 +3256,10 @@ def render_fragment(rows, updated, clocks=None, readings=None):
             f'<br>前瞻统计取主指标「历史上处于相同位置时」其后 6/12 期的后验分布 —— 这是历史统计, '
             f'不是预测承诺。更新 {updated}</div></div>'
             f'<div class="cyc-grid">{"".join(minis)}</div>'
-            f'{"".join(cards)}'
+            # 顺序: 康波(长波) → 美林时钟 → 各个产业周期(券商起)
+            f'{render_kwave(kwave)}'
             f'{render_clocks(clocks or [])}'
+            f'{"".join(cards)}'
             f'<div class="cyc-topbar"><div class="s">'
             f'<b>数据说明:</b> 全部指标取自公开数据源(东方财富/新浪财经/国家统计局/农业农村部/LME伦交所/'
             f'波罗的海交易所/上期所/大商所/郑商所/广期所), 由 akshare 抓取, 未做人工调整。'
@@ -2968,7 +3352,8 @@ def build_cycle_rows():
                 # 研报提取的年度/季度序列天然只有十几个点, 不能套用常规 30 点门槛
                 if len(s) < ic.get("min_n", 30):
                     raise ValueError(f"样本过短({len(s)})，要求{ic.get('min_n', 30)}")
-                info = analyze(s, ic["freq"], ic["ma"], unit, inv=ic.get("inv", False))
+                info = analyze(s, ic["freq"], ic["ma"], unit, inv=ic.get("inv", False),
+                               force_dev=ic.get("force_dev", False))
                 inds.append(dict(
                     k=ic["k"], name=name, unit=unit, source=src, note=note,
                     freq=ic["freq"], ma=ic["ma"], ref=ref, main=ic.get("main", False),
@@ -3048,7 +3433,8 @@ def main():
                         OUT_HTML.write_text(
                             render_fragment(_rows, _meta["updated"],
                                             _meta.get("clocks") or [],
-                                            _meta.get("readings") or {}),
+                                            _meta.get("readings") or {},
+                                            _meta.get("kwave") or []),
                             encoding="utf-8")
                         print(f"已用缓存数据刷新页面: {OUT_HTML.name} "
                               f"({OUT_HTML.stat().st_size/1024:.0f}KB, "
@@ -3069,6 +3455,9 @@ def main():
         return 1
 
     print("开始采集美林时钟 (中国改良版 / 美国原版)…")
+    print("开始采集康波周期 (中美长波定位)…")
+    kwave = build_kwave()
+
     clocks = build_clocks()
 
     print("开始爬取行业读数 (闪存市场/工程机械协会/船舶工业协会)…")
@@ -3079,14 +3468,16 @@ def main():
     n_ind = sum(len(r["indicators"]) for r in rows)
     payload = dict(
         ver=SCHEMA_VER, updated=updated, failed=failed, clocks=clocks, readings=readings,
+        kwave=[{k: v for k, v in x.items() if k not in ("info", "series")} for x in kwave],
         cycles=[{**{k: v for k, v in r.items() if k != "indicators"},
                  "indicators": [{k: v for k, v in i.items() if k != "svg"}
                                 for i in r["indicators"]]} for r in rows])
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-    OUT_HTML.write_text(render_fragment(rows, updated, clocks, readings), encoding="utf-8")
+    OUT_HTML.write_text(render_fragment(rows, updated, clocks, readings, kwave), encoding="utf-8")
     print(f"\n已写出: {OUT_JSON.name} ({OUT_JSON.stat().st_size/1024:.0f}KB)  "
           f"{OUT_HTML.name} ({OUT_HTML.stat().st_size/1024:.0f}KB)  "
-          f"{len(rows)}个周期 / {n_ind}个指标 / {len(clocks)}个时钟 / {n_read}条行业读数")
+          f"{len(rows)}个周期 / {n_ind}个指标 / {len(clocks)}个时钟 / "
+          f"{len(kwave)}条长波 / {n_read}条行业读数")
     if failed:
         print(f"失败周期: {failed}")
     return 0
