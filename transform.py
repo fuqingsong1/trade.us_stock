@@ -7,6 +7,14 @@ transform.py - 将 dashboard.py 生成的原始 dashboard.html 转换为定制�
 """
 import re, sys, os
 
+# Windows 控制台默认 GBK: 直接 print '✅' 会抛 UnicodeEncodeError, 被 dashboard.py
+# 以 subprocess 调用时会让整个主题转换被判定为失败(日志里的 "深色主题应用失败")。统一转 UTF-8。
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 INPUT_DEFAULT = r"C:\Users\15949\.qclaw\workspace-agent-639a44f3\okx\dashboard.html"
 OUTPUT_DEFAULT = os.path.join(os.path.dirname(INPUT_DEFAULT), "index.html")
 

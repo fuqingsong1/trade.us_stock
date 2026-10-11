@@ -3664,13 +3664,13 @@ a .title-cn:hover {{ color: #378ADD; }}
   <button class="tab-btn active" onclick="switchTab('dashboard')">美股看板</button>
   <button class="tab-btn" onclick="switchTab('hk')">港股看板</button>
   <button class="tab-btn" onclick="switchTab('a')">A股看板</button>
+  <button class="tab-btn" onclick="switchTab('cycles')">周期观察</button>
   <button class="tab-btn" onclick="switchTab('commodities')">大宗看板</button>
   <button class="tab-btn" onclick="switchTab('regime')">行情判断</button>
   <button class="tab-btn" onclick="switchTab('news')">新闻分析</button>
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
   <button class="tab-btn" onclick="switchTab('positions')">持仓</button>
   <button class="tab-btn" onclick="switchTab('binance')">币安</button>
-  <button class="tab-btn" onclick="switchTab('cycles')">周期识别</button>
 </div>
 
 <div id="tab-dashboard" class="tab-content active">
@@ -3761,6 +3761,10 @@ a .title-cn:hover {{ color: #378ADD; }}
   </table>
 </div>
 
+<div id="tab-cycles" class="tab-content">
+  {cycles_html}
+</div>
+
 <div id="tab-commodities" class="tab-content">
   <div style="background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:12px 20px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center">
     <div style="font-size:14px;font-weight:500">大宗看板</div>
@@ -3806,10 +3810,6 @@ a .title-cn:hover {{ color: #378ADD; }}
 
 <div id="tab-binance" class="tab-content">
   {binance_tab_html}
-</div>
-
-<div id="tab-cycles" class="tab-content">
-  {cycles_html}
 </div>
 
 <div class="footer">
@@ -4020,7 +4020,8 @@ if not CLOUD_MODE:
         _tf = Path(r"C:\Users\15949\WorkBuddy\2026-08-04-21-02-03\transform.py")
         if _tf.exists():
             _r = _sp.run([sys.executable, str(_tf), str(OUTPUT_F), str(OUTPUT_F)],
-                         capture_output=True, text=True, timeout=120)
+                         capture_output=True, text=True, encoding="utf-8",
+                         errors="replace", timeout=120)
             if _r.returncode == 0:
                 print("  [theme] 已应用深色主题(与线上一致)")
             else:
@@ -4033,7 +4034,8 @@ if not CLOUD_MODE:
                     _mirror.parent.mkdir(parents=True, exist_ok=True)
                     _sh.copyfile(OUTPUT_F, _mirror)   # 先用最新本地版覆盖镜像, 再应用深色
                     _sp.run([sys.executable, str(_tf), str(_mirror), str(_mirror)],
-                            capture_output=True, text=True, timeout=120)
+                            capture_output=True, text=True, encoding="utf-8",
+                            errors="replace", timeout=120)
                 except Exception as _me:
                     print(f"  [WARN] web 镜像同步失败: {_me}")
         else:

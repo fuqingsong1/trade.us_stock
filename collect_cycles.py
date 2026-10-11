@@ -483,7 +483,7 @@ def render_fragment(rows, updated):
 
     return (css +
             '<div class="cyc-wrap">'
-            f'<div class="cyc-topbar"><div class="t">产业周期识别</div>'
+            f'<div class="cyc-topbar"><div class="t">产业周期观察</div>'
             f'<div class="s">位置=该指标在过去{MAX_KEEP}期内所处分位 · 前瞻=历史相似分位(±10%)样本的后验分布'
             f' · 更新 {updated}</div></div>'
             f'<div class="cyc-grid">{"".join(minis)}</div>'
@@ -497,6 +497,23 @@ def render_fragment(rows, updated):
 # ══════════════════════════════════════════════════════════════
 # 六、主流程
 # ══════════════════════════════════════════════════════════════
+CFG_BY_KEY = {c["key"]: c for c in CYCLES}
+
+
+def _rebuild_rows(cached_cycles):
+    """从 cycles_data.json 重建 rows(含 SVG)。
+    用途: 数据还在 7 天新鲜期内、不需要重新联网采集时, 仍然刷新一次页面渲染,
+    这样改了标题/样式后不必加 --force 也能立即生效。"""
+    rows = []
+    for c in cached_cycles:
+        cfg = CFG_BY_KEY.get(c["key"], {})
+        s = pd.Series([v for _, v in c["series"]],
+                      index=pd.to_datetime([d for d, _ in c["series"]]))
+        svg = svg_chart(s, c["stats"], c["unit"], cfg.get("ma", 52), cfg.get("ref"))
+        rows.append(dict(c, svg=svg))
+    return rows
+
+
 def main():
     # 采集频率控制: 产业周期数据本身更新很慢 —— BDI 虽日频但周期性强, LME 库存滞后约3个月,
     # 国房景气指数滞后约10个月。默认 7 天内不重复采集, 避免每天启动都白跑一遍网络。
@@ -509,16 +526,26 @@ def main():
                 stale_days = float(_a.split("=", 1)[1])
             except ValueError:
                 pass
-    if not force and stale_days > 0 and OUT_JSON.exists() and OUT_HTML.exists():
+    if not force and stale_days > 0 and OUT_JSON.exists():
         try:
-            _prev = datetime.strptime(
-                json.loads(OUT_JSON.read_text(encoding="utf-8"))["updated"],
-                "%Y-%m-%d %H:%M")
+            _meta = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+            _prev = datetime.strptime(_meta["updated"], "%Y-%m-%d %H:%M")
             _age = (datetime.now() - _prev).total_seconds() / 86400.0
             if _age < stale_days:
                 print(f"[skip] 周期数据 {_age:.1f} 天前已采集, 未满 {stale_days:g} 天 "
-                      f"(约 {stale_days - _age:.1f} 天后到期), 本次跳过。强制采集请加 --force")
-                return 0
+                      f"(约 {stale_days - _age:.1f} 天后到期), 跳过网络采集, 仅刷新页面渲染。"
+                      f"强制采集请加 --force")
+                # 不联网重采, 但从缓存重建页面 —— 改样式/标题时不必再加 --force
+                try:
+                    _rows = _rebuild_rows(_meta["cycles"])
+                    if _rows:
+                        OUT_HTML.write_text(render_fragment(_rows, _meta["updated"]),
+                                            encoding="utf-8")
+                        print(f"已用缓存数据刷新页面: {OUT_HTML.name} "
+                              f"({OUT_HTML.stat().st_size / 1024:.0f}KB, {len(_rows)}个周期)")
+                        return 0
+                except Exception as _ce:
+                    print(f"[warn] 缓存重建失败({_ce}), 改为完整重新采集")
         except Exception:
             pass  # 时间戳读取异常则按需重新采集, 不做静默失败
 
