@@ -45,7 +45,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 OUT_JSON = SCRIPT_DIR / "cycles_data.json"
 OUT_HTML = SCRIPT_DIR / "cycles_fragment.html"
 
-SCHEMA_VER = 7          # 结构版本; 与缓存不符则强制重采
+SCHEMA_VER = 8          # 结构版本; 与缓存不符则强制重采
                         # (v3: 趋势型 R² 判据; v4: 增速序列前瞻改差值口径;
                         #  v5: 12 周期 + 锂·挖机·面板·煤炭 + 两个美林时钟;
                         #  v6: 补上用户点名的指标 —— 网页爬取(DRAM/NAND现货价、出栏体重、
@@ -975,9 +975,11 @@ READINGS = {
              src="中指院", note="环比 -4.97pct; 商服类 0.45%"),
         dict(n="二手房挂牌量指数", v="1.21", u="指数", asof="2026-06-22",
              src="中指院", note="环比 -0.8%; 挂牌价指数 142.22(环比 -0.06%)"),
-        dict(n="按揭利率锚", ind="lpr5", note="见上方曲线"),
+        dict(n="按揭利率锚 LPR5Y", v="3.50", u="%", asof="2026-09-20",
+             src="中国人民银行", note="曲线已删(长期单边下行、分位无意义); 2019-08 改制后累计下调 115bp"),
         dict(n="居民中长期贷款", v="—", u="亿元", src="央行(免费接口只有总量, 无住户中长期拆分)",
-             note="用『累计新增人民币贷款同比』替代, 见上方曲线"),
+             note="『累计新增人民币贷款同比』是<b>全口径</b>信贷(含制造业/基建/政府债), "
+                  "已被挪去当美林时钟中国版的信用轴, 不再作为地产周期读数"),
     ],
     "lithium": [
         dict(n="碳酸锂现货价(扣通胀)", ind="lc_real", note="见上方曲线"),
@@ -1344,8 +1346,13 @@ CYCLES = [
     dict(key="memory", name="存储周期", tag="3-4 年 · DRAM/NAND",
          logic="存储是半导体里最纯粹的『蛛网周期』: 原厂建一条产线 2-3 年, 一旦同时扩产就过剩, "
                "一旦同时砍资本开支就缺货。历史上 2018 顶 → 2019 崩 → 2020-21 缺货 → 2022-23 崩 → "
-               "2024 起 AI/HBM 拉动新一轮。三个指标互相验证: 费半是全球半导体景气的基准(含存储原厂), "
-               "美光是纯 DRAM/NAND 原厂(弹性最大、最能代表存储本身), A股存储板块是国内映射。"
+               "2024 起 AI/HBM 拉动新一轮。保留下来的三条线各有分工: "
+               "<b>费半</b>是全球半导体景气的基准(含存储原厂, 弹性被非存储业务稀释但样本最长、最连续); "
+               "<b>DRAM / NAND 现货价</b>是存储周期真正的价格本体(最贴近供需); "
+               "<b>三大原厂资本开支</b>是最领先的供给端读数。"
+               "(原『美光科技 MU』『A股存储板块』两条曲线已按你的要求删除 —— "
+               "MU 是单一公司股价、夹杂公司自身经营与 AI/HBM 叙事, 板块指数又是国内情绪映射, "
+               "两者都不能代表存储本身的周期位置, 留着反而稀释下面三条硬指标。)"
                "<b>DRAM / NAND 现货价已经补上了</b>: 集邦 TrendForce 的合约价是付费的, "
                "但<b>中国闪存市场(chinaflashmarket.com)首页公开一组周度 DRAM / NAND 现货价格指数</b>, "
                "形态与集邦现货价高度一致, 已按中国 CPI 折算成不变价挂在下面两条曲线上。"
@@ -1360,8 +1367,6 @@ CYCLES = [
                "缺点是 TrendForce 只有年度数、且最新两年是<b>预测值(F)</b>, 样本仅 5 点, 分位很粗。",
          indicators=[
              I("sox", "费城半导体指数", "sox", "点", "W", "last", 52, None, main=True),
-             I("micron", "美光科技 MU", "micron", "美元", "W", "last", 52, None, note="纯存储原厂"),
-             I("cn_mem", "A股存储板块", "cn_mem", "点", "W", "last", 52, None),
              I("dram_idx", "DRAM 现货价指数(扣通胀)", "dram_idx", "点", "W", "last", 26, None,
                note="中国闪存市场周度(免费源回溯7个月, 本地累积)"),
              I("nand_idx", "NAND 现货价指数(扣通胀)", "nand_idx", "点", "W", "last", 26, None,
@@ -1418,9 +1423,13 @@ CYCLES = [
     # ══════════════════════════════════════════════════════════
     dict(key="hog", name="生猪周期", tag="蛛网 3-4 年",
          logic="猪从出生到出栏 6 个月, 母猪怀孕 4 个月, 供给调整天然滞后 10 个月。"
-               "现货价是当下供需结果, 期货价包含市场对 10 个月后供给的预期, 玉米价格决定养殖成本线, "
+               "现货价是当下供需结果, 期货价包含市场对 10 个月后供给的预期, "
                "猪粮比则是官方口径的盈亏刻度(发改委: 5:1 亏损、6:1 盈亏平衡、9:1 高盈利)。"
-               "猪价跌 + 玉米稳 = 亏损去化; 猪价跌 + 玉米涨 = 加速出清(底部信号)。"
+               "猪价跌 + 饲料稳 = 亏损去化; 猪价跌 + 饲料涨 = 加速出清(底部信号)。"
+               "(原『玉米期货主力』单列一条已按你的要求删除 —— "
+               "玉米是<b>成本端</b>不是猪周期本身, 而且它已经被『猪粮比』完整吃进分母里: "
+               "猪粮比 = 生猪期货 ÷ 玉米期货, 玉米一涨猪粮比就掉, 信息没有丢, "
+               "单挂一条玉米反而让人误把饲料行情当成猪周期位置看。)"
                "<b>『出栏体重』也补上了</b>: 搜猪网 index_hog_spot_price 一次性给到 589 周"
                "(2015 年至今)的成交均重, 挂在下面。用法是: 二次育肥会把猪压栏养到 130kg 以上, "
                "体重读数持续冲高说明<b>隐性库存正在堆积</b>, 后面集中出栏就是砸盘, "
@@ -1438,8 +1447,8 @@ CYCLES = [
          indicators=[
              I("hog_spot", "生猪现货价指数", "hog_spot", "", "W", "last", 52, None, main=True),
              I("hog_fut", "生猪期货主力", "hog_fut", "元/吨", "W", "last", 52, None),
-             I("corn", "玉米期货主力", "corn", "元/吨", "W", "last", 52, None, note="饲料成本端"),
-             I("pig_grain", "猪粮比(期货口径)", "pig_grain", "倍", "W", "last", 52, (6, "6倍=盈亏平衡线")),
+             I("pig_grain", "猪粮比(期货口径)", "pig_grain", "倍", "W", "last", 52,
+               (6, "6倍=盈亏平衡线"), note="分母已含玉米期货成本端"),
              I("hog_weight", "出栏体重(成交均重)", "hog_weight", "kg", "W", "last", 52, None,
                note="二次育肥压栏会推高读数, 是顶部领先信号"),
              I("hog_avg", "瘦肉型猪成交均价", "hog_avg", "元/kg", "W", "last", 52, None),
@@ -1451,8 +1460,18 @@ CYCLES = [
     # ══════════════════════════════════════════════════════════
     dict(key="realestate", name="房地产周期", tag="18-20 年大周期",
          logic="产业链最长、牵连最广, 与城镇化/人口/居民杠杆绑定。"
-               "房价同比是终端价格, 按揭利率锚(LPR5Y)是需求端的闸门, 信贷累计同比是信用端的真实水位, "
-               "建材指数是上游需求(水泥玻璃)的真实回声, 螺纹钢是地产链用钢的即时报价。"
+               "房价同比是终端价格(最核心), 建材指数是上游需求(水泥玻璃)的真实回声。"
+               "<b>三条曲线已按你的要求删除, 逐条说明原因:</b> "
+               "①『5年期以上贷款基准利率』—— 2019 年改制后 LPR5Y 几乎只降不升、长期单边下行, "
+               "看分位永远是 0%, 而且它已经<b>被下面『京沪房价同比』部分消化</b>, 单挂一条只是重复刻度; "
+               "②『累计新增人民币贷款同比』—— 这是<b>全口径社融信贷</b>, 制造业/基建/政府债都混在里面, "
+               "地产只占一小块, 拿它当地产周期的信用水位会严重误读, "
+               "而且它现在被<b>挪去当美林时钟中国版的『信用轴』</b>用了(见页面最下方), 那里才是它的正确位置; "
+               "③『螺纹钢期货主力』—— 螺纹的下游还有基建、制造业厂房、出口, 地产占比已降到三成出头, "
+               "把它当地产链专属读数同样是污染, 真正干净的地产上游回声是<b>建材指数(水泥玻璃)</b>, 保留。"
+               "删完之后这一页只剩『价格 + 上游需求』两条硬曲线, "
+               "所以下面的读数卡反而变得更重要 —— 销售面积、去化周期、土地溢价率、挂牌量这些"
+               "地产专属指标全部在那里, 请一并看。"
                "<b>三处数据坑, 逐条说:</b> ①原来用的『国房景气指数』数据源已停更在 2025-12(滞后 10 个月), "
                "拿它算『当前位置』会得出错误结论, 已剔除; "
                "②akshare 的 macro_china_new_house_price 虽然叫『70 城』, 实际只返回<b>北京/上海两市</b>"
@@ -1465,12 +1484,8 @@ CYCLES = [
              I("house_price", "京沪新房+二手价格同比", "house_price", "%", "M", "last", 24,
                (0, "0%=同比持平"),
                note="新房有限价钝化, 二手更贴市场, 取两者均值", main=True, pos=False),
-             I("lpr5", "5年期以上贷款基准利率", "lpr5", "%", "M", "last", 24, None,
-               note="按揭利率锚; 2019-08 前为贷款基准利率"),
-             I("credit", "累计新增人民币贷款同比", "credit", "%", "M", "last", 24, None,
-               note="信用端; 用累计值避开季末冲量噪音", pos=False),
-             I("construction", "中国建材指数", "construction", "点", "W", "last", 52, None),
-             I("rebar", "螺纹钢期货主力", "rebar", "元/吨", "W", "last", 52, None, note="地产链用钢"),
+             I("construction", "中国建材指数", "construction", "点", "W", "last", 52, None,
+               note="水泥玻璃, 地产上游最干净的回声"),
          ]),
 
     # ══════════════════════════════════════════════════════════
@@ -1830,7 +1845,7 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
     ys = s.values.astype(float)
 
     # ── 趋势型指标: 直接画「对数偏离 3 年均线」的曲线, 而不是绝对价格 ──
-    # 绝对价格图对费半/美光/沪铜是没用的 —— 曲线一路向右上, 2002 年的大底和
+    # 绝对价格图对费半/沪铜/螺纹这类长期向上的品种是没用的 —— 曲线一路向右上, 2002 年的大底和
     # 今天的顶部在图上长得一模一样。画偏离量, 高低立刻分得开。
     dev_plot = None
     if dev_ma:
@@ -2008,19 +2023,109 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
     parts.append(f'<line x1="{L}" y1="{T+ph:.1f}" x2="{w-R}" y2="{T+ph:.1f}" '
                  f'stroke="#30363d" stroke-width="1"/>')
 
-    # X 轴刻度: 紧凑图 5 个 / 大图 7 个, 全部精确到月(YYYY-MM)。
-    # 首尾用 start/end 锚点, 避免第一个标签向左溢出压到 Y 轴刻度文字上。
-    n_tick = 5 if compact else 7
-    for k in range(n_tick):
-        frac = k / (n_tick - 1)
-        xi = (n_hist - 1) * frac
-        i = idx[min(len(idx) - 1, int(round(xi)))]
-        x = X(xi)
-        anchor = "start" if k == 0 else ("end" if k == n_tick - 1 else "middle")
-        parts.append(f'<line x1="{x:.1f}" y1="{T+ph:.1f}" x2="{x:.1f}" y2="{T+ph+3:.1f}" '
-                     f'stroke="#484f58" stroke-width="1"/>')
-        parts.append(f'<text x="{x:.1f}" y="{h-5}" fill="#8b949e" '
-                     f'font-size="{fs}" text-anchor="{anchor}">{xs[i].strftime("%Y-%m")}</text>')
+    # ── X 轴刻度 ──
+    # 老做法是「等分 5 / 7 个点」, 落点取任意索引, 刻度日期常常是 2019-03 这种随机月份,
+    # 而且横向其实还空着一半, 白白浪费。现在改成四件事:
+    #   ① 候选刻度走<b>自然日历网格</b>(月 / 季 / 半年 / 年), 落点全部对齐到 1、4、7、10 月这种整点;
+    #   ② <b>密度自适应</b> —— 按标签实际像素宽度算能塞几个就塞几个, 不再写死 5 个;
+    #   ③ <b>换年的刻度只写年份</b>(2014 / 2015…), 同一年里的刻度<b>只写月份</b>(04 / 07 / 10),
+    #      年份用亮色、月份用暗色区分。这样单个标签从 7 字符压到 4 / 2 字符,
+    #      同一张图能放的刻度数直接翻倍(实测 5 个 → 12~16 个);
+    #   ④ 网格里没被选中打字的点补成<b>不打字的细刻度</b>, 目视参照更密但不糊。
+    d0, d1 = xs[idx[0]], xs[idx[-1]]
+    span_d = max((d1 - d0).days, 1)
+    if span_d <= 200:
+        freq = "MS"                       # 半年以内: 逐月
+    elif span_d <= 2600:
+        freq = "QS"                       # 7 年以内: 逐季
+    elif span_d <= 6200:
+        freq = "2QS"                      # 17 年以内: 半年
+    else:
+        freq = "YS"                       # 超长序列: 逐年
+    if len(idx) <= 20:
+        # 样本本来就少(研报提取的年度/低频序列): 直接拿<b>每个真实数据点</b>当候选刻度。
+        # 这类序列日期间隔还不均匀, 硬套日历网格会让刻度落在两个点中间, 读起来反而误导。
+        cand = [xs[i] for i in idx]
+    else:
+        cand = list(pd.date_range(d0.replace(day=1), d1 + pd.Timedelta(days=1), freq=freq))
+    ts = np.array([xs[i].value for i in idx], dtype=float)
+
+    def _pos(d):
+        """把某个日历日换算成图上的(小数)点位"""
+        tv = np.datetime64(d).astype("datetime64[ns]").astype("float64")
+        return float(np.clip(np.interp(tv, ts, np.arange(len(idx), dtype=float)),
+                             0.0, len(idx) - 1.0))
+
+    def _lab(seq):
+        """换年写 YYYY, 年内只写 MM; 末尾永远写完整 YYYY-MM(那是最新日期, 必须看清)"""
+        out, py = [], None
+        for j, d in enumerate(seq):
+            if j == len(seq) - 1:
+                out.append(d.strftime("%Y-%m"))
+            elif py is None or d.year != py:
+                out.append(str(d.year))
+            else:
+                out.append(d.strftime("%m"))
+            py = d.year
+        return out
+
+    def _w(l):
+        # 数字按等宽 0.56em 估, 短横线约 0.33em
+        return sum(0.56 if c.isdigit() else 0.33 for c in l) * fs
+
+    # 刻度数不超过数据点数(样本本来就少的低频序列别搞得刻度比点还多)
+    cap_n = min(len(idx), 40)
+    chosen = None
+    for step in (1, 2, 3, 4, 6, 8, 12, 16, 24, 40, 60):
+        seq = cand[::step]
+        if len(seq) < 2:
+            break
+        labs = _lab(seq)
+        if len(labs) <= cap_n and sum(_w(l) + 5.0 for l in labs) <= pw * 1.0:
+            chosen = list(zip(seq, labs))
+            break
+    if chosen is None:
+        chosen = [(d0, str(d0.year)), (d1, d1.strftime("%Y-%m"))]
+    # 右端必须落在最新一天上, 否则看不出曲线读到哪个月
+    if _pos(chosen[-1][0]) < len(idx) - 1 - 0.75:
+        chosen.append((d1, d1.strftime("%Y-%m")))
+
+    # 靠得太近就丢掉靠前那个 —— 最新日期优先保留
+    keep = []
+    for p, l in sorted(((_pos(d), l) for d, l in chosen), key=lambda t: t[0]):
+        while keep:
+            pp, ll = keep[-1]
+            if X(p) - X(pp) >= (_w(l) + _w(ll)) / 2 + 3.5:
+                break
+            if len(keep) == 1 and pp <= 0.01:
+                break                      # 起点锚点保底, 不删
+            keep.pop()
+        keep.append((p, l))
+    # 尾刻度必须写完整年月(前面为了省地方可能被压成 MM)
+    if len(keep) >= 2:
+        keep[-1] = (keep[-1][0], d1.strftime("%Y-%m"))
+
+    # 细刻度: 网格里没被选中的点, 只画短线不打字
+    if len(cand) <= 150:
+        _used = {d for d, _ in chosen}
+        for d in cand:
+            if d in _used:
+                continue
+            xx = X(_pos(d))
+            parts.append(f'<line x1="{xx:.1f}" y1="{T+ph:.1f}" x2="{xx:.1f}" y2="{T+ph+2:.1f}" '
+                         f'stroke="#30363d" stroke-width="1"/>')
+
+    for j, (p, l) in enumerate(keep):
+        x = X(p)
+        # 首尾用 start/end 锚点, 避免第一个标签向左溢出压到 Y 轴刻度文字上
+        anchor = "start" if j == 0 else ("end" if j == len(keep) - 1 else "middle")
+        major = (len(l) >= 4)              # 年份刻度(或末尾完整年月)用亮色长刻度
+        parts.append(f'<line x1="{x:.1f}" y1="{T+ph:.1f}" '
+                     f'x2="{x:.1f}" y2="{T+ph+(4 if major else 2.5):.1f}" '
+                     f'stroke="{"#484f58" if major else "#3d444d"}" stroke-width="1"/>')
+        parts.append(f'<text x="{x:.1f}" y="{h-5}" '
+                     f'fill="{"#adbac7" if major else "#8b949e"}" '
+                     f'font-size="{fs}" text-anchor="{anchor}">{l}</text>')
     parts.append('</svg>')
     return "".join(parts)
 
@@ -2420,7 +2525,10 @@ CYCLES_CSS = """
 .cyc-read .rd { width:11%; color:#8b949e; white-space:nowrap; }
 .cyc-read .rs { width:20%; color:#6e7681; }
 .cyc-read .rn2 { color:#6e7681; }
-.cyc-ind-grid { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
+/* 一行最多 3 张卡, 超出自动换行; 窄屏自动降级为 2 列 / 1 列 */
+.cyc-ind-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+@media (max-width:1180px) { .cyc-ind-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:760px)  { .cyc-ind-grid { grid-template-columns:minmax(0,1fr); } }
 .ml-wrap { display:grid; grid-template-columns:minmax(420px,1fr) minmax(320px,1.15fr);
   gap:16px; align-items:start; }
 .ml-svg { min-width:0; }
