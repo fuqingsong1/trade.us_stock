@@ -441,6 +441,45 @@ def f_lc_real():
     return s, src, unit, {"note": "扣除通胀后的实际锂价(元/吨, 不变价)"}
 
 
+def f_margin_real():
+    """两融余额扣通胀: 名义余额是『元』, 2010 年的 1 元和 2026 年的 1 元不是一回事。
+    不折算的话, 光货币通胀就会把余额顶上去, 看起来像杠杆在加, 实际未必。"""
+    s, src, unit, meta = _real(f_margin)
+    return s, src, unit, {"note": "扣通胀后按CPI首期不变价; 名义值会被货币通胀系统性抬高"}
+
+
+def _mkt_cap():
+    """沪深两市总市值(亿元, 月度) —— 来自 akshare 宏观口径的交易所月报"""
+    df = ak.macro_china_stock_market_cap()
+    if "数据日期" not in df.columns:
+        raise ValueError("市值表结构变了")
+    ym = df["数据日期"].astype(str).str.extract(r"(\d{4})年(\d{1,2})月")
+    ok = ym[0].notna()
+    keys = pd.to_datetime(ym.loc[ok, 0] + "-" + ym.loc[ok, 1].str.zfill(2) + "-01")
+    tot = (pd.to_numeric(df.loc[ok, "市价总值-上海"], errors="coerce")
+           + pd.to_numeric(df.loc[ok, "市价总值-深圳"], errors="coerce"))
+    s = pd.Series(tot.values, index=pd.DatetimeIndex(keys)).dropna().sort_index()
+    return s[s > 0]
+
+
+def f_margin_cap():
+    """两融余额 ÷ 沪深总市值(%)。
+    这一路才是真正的『杠杆率』: 分子分母同时把货币通胀和股市扩容都约掉了。
+    直接看余额会被两件事误导 —— ①钱本身毛了(CPI) ②上市公司越来越多、市值越来越大。
+    用比值后, 2015 年杠杆牛的峰值和今天可以直接比。"""
+    m = f_margin()[0].resample("MS").last().dropna()
+    cap = _mkt_cap()
+    # 市值月报比两融日报滞后约 2 个月, 超出的月份没有分母, 宁可不要也不拿旧分母硬凑
+    m = m[m.index <= cap.index[-1]]
+    r = (m / cap.reindex(m.index, method="ffill")).dropna() * 100.0
+    if len(r) < 30:
+        raise ValueError("样本过短(%d)" % len(r))
+    return r, "沪深交易所两融余额 ÷ 沪深两市总市值(交易所月度)", "%", {
+        "note": "分子分母同步约掉通胀与股市扩容; 市值月报滞后约2个月",
+        "pos": True,
+    }
+
+
 # ---- 派生序列: 比价 / 比值 ----
 def _fut_series(sym):
     df = ak.futures_main_sina(symbol=sym, start_date="20000101", end_date=TODAY)
@@ -971,7 +1010,9 @@ READINGS = {
         dict(n="国产多晶硅(致密料)价格", ind="polysilicon", note="见上方曲线(2018-2025 半年度)"),
     ],
     "broker": [
-        dict(n="两融余额", ind="margin", note="见上方曲线"),
+        dict(n="两融余额(名义)", ind="margin", note="见上方曲线"),
+        dict(n="两融余额(实际·扣通胀)", ind="margin_real", note="见上方曲线"),
+        dict(n="两融余额÷总市值(杠杆率)", ind="margin_cap", note="见上方曲线"),
     ],
 }
 
@@ -1096,6 +1137,7 @@ def render_readings(items):
 
 FE = {
     "turnover": f_turnover, "margin": f_margin, "broker_index": f_broker_index,
+    "margin_real": f_margin_real, "margin_cap": f_margin_cap,
     "hog_spot": f_hog_spot, "hog_fut": f_hog_fut, "corn": f_corn,
     "realestate": f_realestate, "house_price": f_house_price, "construction": f_construction,
     "cu": f_cu, "al": f_al, "lme_cu": f_lme_cu,
@@ -1524,10 +1566,34 @@ CYCLES = [
          logic="券商是纯行情放大器, 没有生产, 营收≈佣金+自营+两融利息。三个指标互相验证: "
                "成交额是佣金基数, 两融余额是杠杆情绪, 券商指数是市场给的定价。"
                "成交额日均>1万亿全行业躺赚, <8000亿整体亏损。最值得看的是<b>背离</b> —— "
-               "成交额和两融都在历史高位、券商股价却在中低位, 说明市场根本没给券商定价, 这种时候它才有性价比。",
+               "成交额和两融都在历史高位、券商股价却在中低位, 说明市场根本没给券商定价, 这种时候它才有性价比。"
+               "<b>关于『两融余额要不要扣通胀』—— 要, 而且光扣通胀还不够:</b>"
+               "余额是以『元』计价的名义存量, 它的长期抬升来自三件完全不同的事: "
+               "①<b>货币通胀</b>(CPI 累计 1.44x, 2010 年以来的 1 元 ≠ 今天的 1 元); "
+               "②<b>股市扩容</b>(沪深总市值从 2010 年的约 30 万亿涨到 2026 年的约 116 万亿, 近 4 倍); "
+               "③<b>杠杆率本身的变化</b>(这才是唯一真正属于周期的东西)。"
+               "原来的单条曲线虽然已经用『去趋势』把①②③一起抹平了, 但它回答不了"
+               "『现在和 2015 年杠杆牛比到底谁更疯』这种跨周期问题。所以下面拆成三条: "
+               "<b>名义余额 / 实际余额(扣 CPI) / 占市值比重</b>。"
+               "三个口径给出的结论差别很大, 直接上数(2015 年那波杠杆牛的峰值在 <b>2015-06-18</b>, "
+               "名义 <b>22730 亿</b>、实际 <b>18464 亿</b>):<br>"
+               "① <b>名义</b>: 今天 25660 亿, 比那波峰值还高 <b>13%</b>, 而且 2026-06-25 曾冲到 "
+               "<b>30237 亿</b>的历史最高 —— 只看这条会得出『杠杆史上最疯』的结论;<br>"
+               "② <b>实际(扣 CPI)</b>: 今天 17813 亿, 比那波峰值<b>低 4%</b> —— 名义上的新高, "
+               "扣掉货币通胀后其实还没到 2015 年的水平;<br>"
+               "③ <b>占市值比重</b>: 今天 <b>2.29%</b>, 2015-06 峰值 <b>3.51%</b>, 只有那波的六成半。"
+               "<b>三条放一起才读得对: 今天的杠杆『绝对量很大、但相对市场体量不算极端』</b> —— "
+               "水池涨得比杠杆快。不过要注意, 2.29% 已经处于 2010 年以来的 <b>89% 分位</b>, "
+               "除了 2015 那波极端泡沫, 它比 2018、2021、2024 各轮都高, 所以是『偏高但没疯』, 不是『不热』。"
+               "<b>判断杠杆是否过热, 看占市值比重那条, 别看余额绝对值 —— 绝对值会被通胀和股市扩容一起顶上去。</b>",
          indicators=[
              I("turnover", "两市日成交额", "turnover", "亿元", "W", "mean", 52, (10000, "1万亿(行业盈亏线)")),
-             I("margin", "两融余额", "margin", "亿元", "W", "last", 52, None, main=True),
+             I("margin", "两融余额(名义)", "margin", "亿元", "W", "last", 52, None, main=True,
+               note="未扣通胀; 已在统计上去趋势"),
+             I("margin_real", "两融余额(实际·扣通胀)", "margin_real", "亿元", "W", "last", 52, None,
+               note="按中国CPI折算不变价, 与2015年可比"),
+             I("margin_cap", "两融余额÷总市值(杠杆率)", "margin_cap", "%", "M", "last", 24, None,
+               min_n=60, note="真正的杠杆率口径; 2015-06峰值为3.51%"),
              I("broker_index", "证券公司指数", "broker_index", "点", "W", "last", 52, None),
          ]),
 ]
