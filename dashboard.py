@@ -2130,25 +2130,29 @@ def _regime_zone(pct, vol):
 
 commodities = []
 for _co in COMMODS:
-    _px, _dc, _dh, _dl = _qry_closes(_co["sym"], "1d", "6mo")
-    _pxw, _wc, _, _ = _qry_closes(_co["sym"], "1wk", "2y")
-    _pxm, _mc, _, _ = _qry_closes(_co["sym"], "1mo", "5y")
-    _hh = _dh[-10:] if _dh else []; _ll = _dl[-10:] if _dl else []
-    _al = min(_ll) if _ll else 0; _ah = max(_hh) if _hh else 0
-    _cur = _px if _px is not None else 0
-    _pct = (_cur - _al) / (_ah - _al) if _ah > _al else 0.5
-    _vol = (_ah - _al) / ((_ah + _al) / 2) if _ah > _al else 0
-    _bp1, _bp2, _bp3, _sp1, _sp2 = (0.27, 0.19, 0.11, 0.75, 0.82) if _vol > 0.075 else (0.32, 0.24, 0.16, 0.70, 0.78)
-    _w = _ah - _al
-    _zone, _zcls = _regime_zone(_pct, _vol)
-    commodities.append({"sym": _co["sym"], "name": _co["name"], "ccy": "$",
-                        "px": _cur, "alow": _al, "ahigh": _ah, "vol": _vol,
-                        "pct": round(min(max(_pct, 0), 1), 3),
-                        "bp1": _bp1, "bp2": _bp2, "bp3": _bp3, "sp1": _sp1, "sp2": _sp2,
-                        "p_buy2": _al + _w * _bp2, "p_buy3": _al + _w * _bp3,
-                        "p_sell1": _al + _w * _sp1, "p_sell2": _al + _w * _sp2,
-                        "zone": _zone, "zone_class": _zcls,
-                        "boll_d": _boll_b(_dc, _px), "boll_w": _boll_b(_wc, _pxw or _px), "boll_m": _boll_b(_mc, _pxm or _px)})
+    try:
+        _px, _dc, _dh, _dl = _qry_closes(_co["sym"], "1d", "6mo")
+        _pxw, _wc, _, _ = _qry_closes(_co["sym"], "1wk", "2y")
+        _pxm, _mc, _, _ = _qry_closes(_co["sym"], "1mo", "5y")
+        _hh = _dh[-10:] if _dh else []; _ll = _dl[-10:] if _dl else []
+        _al = min(_ll) if _ll else 0; _ah = max(_hh) if _hh else 0
+        _cur = _px if _px is not None else 0
+        _pct = (_cur - _al) / (_ah - _al) if _ah > _al else 0.5
+        _vol = (_ah - _al) / ((_ah + _al) / 2) if _ah > _al else 0
+        _bp1, _bp2, _bp3, _sp1, _sp2 = (0.27, 0.19, 0.11, 0.75, 0.82) if _vol > 0.075 else (0.32, 0.24, 0.16, 0.70, 0.78)
+        _w = _ah - _al
+        _zone, _zcls = _regime_zone(_pct, _vol)
+        commodities.append({"sym": _co["sym"], "name": _co["name"], "ccy": "$",
+                            "px": _cur, "alow": _al, "ahigh": _ah, "vol": _vol,
+                            "pct": round(min(max(_pct, 0), 1), 3),
+                            "bp1": _bp1, "bp2": _bp2, "bp3": _bp3, "sp1": _sp1, "sp2": _sp2,
+                            "p_buy2": _al + _w * _bp2, "p_buy3": _al + _w * _bp3,
+                            "p_sell1": _al + _w * _sp1, "p_sell2": _al + _w * _sp2,
+                            "zone": _zone, "zone_class": _zcls,
+                            "boll_d": _boll_b(_dc, _px), "boll_w": _boll_b(_wc, _pxw or _px), "boll_m": _boll_b(_mc, _pxm or _px)})
+    except Exception as _ce:
+        # 单只商品行情失败不应拖垮整张看板(尤其网络抖动时), 跳过并继续
+        print(f"[warn] 大宗商品 {_co.get('name', _co.get('sym'))} 行情获取失败, 已跳过: {_ce}")
 commodities_json = json.dumps(commodities, ensure_ascii=False)
 regime_card_json = json.dumps({"action": market_regime.get("action", ""), "exposure": market_regime.get("exposure", 0)}, ensure_ascii=False)
 
@@ -3337,6 +3341,19 @@ async function shareShot(btn){
 renderSummaries(); renderTables(); renderCommod(); renderBriefIdx();
 '''
 
+# ════ 周期识别子页面 (由 collect_cycles.py 独立生成, 不依赖本进程的 akshare) ════
+_CYCLES_F = SCRIPT_DIR / "cycles_fragment.html"
+cycles_html = ""
+if _CYCLES_F.exists():
+    try:
+        cycles_html = _CYCLES_F.read_text(encoding="utf-8")
+    except Exception:
+        cycles_html = ""
+if not cycles_html:
+    cycles_html = ('<div style="background:#161b22;border:1px solid #30363d;border-radius:12px;'
+                   'padding:24px;color:#8b949e;font-size:13px">周期数据尚未生成 — '
+                   '请先运行 collect_cycles.py 采集产业周期指标。</div>')
+
 html = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -3653,6 +3670,7 @@ a .title-cn:hover {{ color: #378ADD; }}
   <button class="tab-btn" onclick="switchTab('calendar')">日历提醒</button>
   <button class="tab-btn" onclick="switchTab('positions')">持仓</button>
   <button class="tab-btn" onclick="switchTab('binance')">币安</button>
+  <button class="tab-btn" onclick="switchTab('cycles')">周期识别</button>
 </div>
 
 <div id="tab-dashboard" class="tab-content active">
@@ -3788,6 +3806,10 @@ a .title-cn:hover {{ color: #378ADD; }}
 
 <div id="tab-binance" class="tab-content">
   {binance_tab_html}
+</div>
+
+<div id="tab-cycles" class="tab-content">
+  {cycles_html}
 </div>
 
 <div class="footer">
