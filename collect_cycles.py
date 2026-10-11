@@ -14,8 +14,8 @@
 输出:     cycles_data.json      (数值, 供复用)
           cycles_fragment.html  (渲染好的页面片段)
 """
-import os, sys, json, traceback, time
-from datetime import datetime
+import os, sys, json, traceback, time, re
+from datetime import datetime, date
 from pathlib import Path
 
 # 国内宏观/期货接口一律直连, 避免本地代理未开时全线报错
@@ -45,9 +45,11 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 OUT_JSON = SCRIPT_DIR / "cycles_data.json"
 OUT_HTML = SCRIPT_DIR / "cycles_fragment.html"
 
-SCHEMA_VER = 5          # 结构版本; 与缓存不符则强制重采
+SCHEMA_VER = 6          # 结构版本; 与缓存不符则强制重采
                         # (v3: 趋势型 R² 判据; v4: 增速序列前瞻改差值口径;
-                        #  v5: 指标扩充到 12 周期/43 指标 + 锂·挖机·面板·煤炭 + 两个美林时钟)
+                        #  v5: 12 周期 + 锂·挖机·面板·煤炭 + 两个美林时钟;
+                        #  v6: 补上用户点名的指标 —— 网页爬取(DRAM/NAND现货价、出栏体重、
+                        #      挖机销量、造船三大指标) + 行业读数卡)
 MAX_KEEP = 700          # 单序列最多保留多少个周期点
 MAX_PLOT = 380          # 大图折线最多点数
 MINI_PLOT = 190         # 小图折线最多点数
@@ -393,15 +395,17 @@ _CPI_IDX = None
 
 
 def _cpi_index():
-    """中国 CPI 定基指数(首期=100), 由月度同比链式推算: 月环比 ≈ (1+同比)^(1/12)。
+    """中国 CPI 定基指数, 由月度同比链式推算: 月环比 ≈ (1+同比)^(1/12)。
     用来把名义价格折算成『不变价』, 使 2013 年和 2026 年的价格可比。
+    ⚠ 基期必须归一化到 **1.0**(不是 100): 实际价 = 名义价 ÷ 指数,
+    若指数基期取 100, 实际价会被整体缩小 100 倍, 量级就荒唐了(原油 400 元/桶 → 2.76)。
     分位对定基年份不敏感(整体乘常数不改变排序), 所以选哪年做基期无所谓。"""
     global _CPI_IDX
     if _CPI_IDX is None:
         s, _, _, _ = f_cpi()
         m = (1.0 + s / 100.0) ** (1.0 / 12.0)
         lvl = m.cumprod()
-        _CPI_IDX = lvl / lvl.iloc[0] * 100.0
+        _CPI_IDX = lvl / lvl.iloc[0]
     return _CPI_IDX
 
 
@@ -568,6 +572,528 @@ def f_usa_unemp():
     return _em_usa("EMG00001039", "美国失业率(东财 datacenter, 2008 起)", "%")
 
 
+# ══════════════════════════════════════════════════════════════
+def f_hog_weight():
+    """生猪出栏体重(成交均重, kg) —— 用户点名的『二次育肥与出栏体重』里的体重这一半。
+    搜猪网 index_hog_spot_price 一次性给 589 周(2015 起), 是免费源里最长的出栏体重序列。
+    逻辑: 二次育肥会把猪压栏养到 130kg+, 体重读数一旦持续冲高, 说明隐性库存正在堆积,
+    后面集中出栏就是砸盘 —— 所以体重是猪价顶部区的领先信号之一。"""
+    df = ak.index_hog_spot_price()
+    s = _series(df["日期"], df["成交均重"])
+    s = s[(s > 80) & (s < 200)]
+    return s, "搜猪网·全国瘦肉型猪成交均重(出栏体重)", "kg", {}
+
+
+def f_hog_avg():
+    """瘦肉型猪成交均价(元/kg) —— 比『现货价指数』更直观的绝对价位。"""
+    df = ak.index_hog_spot_price()
+    s = _series(df["日期"], df["成交均价"])
+    s = s[(s > 3) & (s < 40)]
+    return s, "搜猪网·全国瘦肉型猪成交均价", "元/kg", {}
+
+
+# ══════════════════════════════════════════════════════════════
+# 一之三、网页爬取采集
+# ---------------------------------------------------------------------------
+# 这一节是专门为「akshare 没有、但网页上确实公开」的指标写的。
+# 上一版我把这些一律标成「付费数据无免费接口」就跳过了 —— 那是偷懒, 实际去翻才发现
+# 不少是可以拿到的: 中国闪存市场首页就内嵌了 DRAM/NAND 现货价格指数(周度),
+# 搜猪网给出栏体重, 中国工程机械工业协会官网每月发挖机销量快报, 中国船协发造船三大指标。
+# 共同特点是: 免费源只给【滚动窗口】(最近 7 个月 / 最近十几期), 回溯不了十年。
+# 所以全部走「本地累积」: 每次采集把新点并进本地缓存, 样本随时间自然变长。
+# ══════════════════════════════════════════════════════════════
+CACHE_DIR = SCRIPT_DIR / "crawl_cache"
+FLASH_CACHE = CACHE_DIR / "flash_index.json"
+EXC_CACHE = CACHE_DIR / "excavator_sales.json"
+CANSI_CACHE = CACHE_DIR / "cansi_shipbuilding.json"
+
+_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
+
+
+def _http(url, timeout=20, retries=2, **kw):
+    last = None
+    for _ in range(retries + 1):
+        try:
+            r = requests.get(url, timeout=timeout,
+                             headers={"User-Agent": _UA}, **kw)
+            if r.status_code == 200:
+                return r.content.decode("utf-8", "ignore")
+            last = "HTTP %d" % r.status_code
+        except Exception as e:
+            last = e
+            time.sleep(0.6)
+    raise RuntimeError("抓取失败 %s (%s)" % (url, last))
+
+
+def _load_cache(p, default):
+    try:
+        if p.exists():
+            return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return default
+
+
+def _save_cache(p, obj):
+    try:
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(obj, ensure_ascii=False), encoding="utf-8")
+    except Exception:
+        pass
+
+
+# ---------------------------------------------------------------
+# 1) 中国闪存市场 —— DRAM / NAND 现货价格指数(周度)
+# ---------------------------------------------------------------
+def _flash_parse(html):
+    """首页 G2Plot 的数据是内联的: var data=[NAND]; var data1=[DRAM];
+    日期只有『月-日』, 需要推断年份(滚动窗口最多跨一年)。"""
+    blocks = re.findall(r"var\s+data1?\s*=\s*(\[.*?\]);", html, re.S)
+    if len(blocks) < 2:
+        raise ValueError("未找到指数数据块")
+    out = {}
+    today = datetime.now().date()
+    for key, blk in zip(("nand", "dram"), blocks):
+        arr = json.loads(blk)
+        if len(arr) < 5:
+            raise ValueError("%s 数据点过少" % key)
+        year, prev = today.year, None
+        dates = []
+        for a in arr:
+            mm, dd = a["date"].split("-")
+            d = datetime(year, int(mm), int(dd)).date()
+            if prev is not None and (d - prev).days > 200:
+                year -= 1
+                d = datetime(year, int(mm), int(dd)).date()
+            if d > today:
+                year -= 1
+                d = datetime(year, int(mm), int(dd)).date()
+            prev = d
+            dates.append(d.strftime("%Y-%m-%d"))
+        out[key] = dict(dates=dates, values=[float(a["index"]) for a in arr])
+    return out
+
+
+def crawl_flash_index():
+    """返回 {'dram': {dates, values}, 'nand': {...}}, 并与本地缓存合并(滚动窗口累积)"""
+    html = _http("https://www.chinaflashmarket.com/", timeout=25)
+    fresh = _flash_parse(html)
+    cache = _load_cache(FLASH_CACHE, {})
+    merged = {}
+    for k in ("dram", "nand"):
+        old = cache.get(k) or {"dates": [], "values": []}
+        m = dict(zip(old["dates"], old["values"]))
+        m.update(dict(zip(fresh[k]["dates"], fresh[k]["values"])))
+        ks = sorted(m)
+        merged[k] = {"dates": ks, "values": [m[x] for x in ks]}
+    if merged != cache:
+        _save_cache(FLASH_CACHE, merged)
+    return merged
+
+
+def _flash_series(kind):
+    d = crawl_flash_index()[kind]
+    return pd.Series(d["values"], index=pd.to_datetime(d["dates"])).sort_index()
+
+
+def f_dram_idx():
+    """DRAM 现货价格指数(扣除通胀, 不变价)。
+    集邦 TrendForce 的 DRAM 合约价是付费的, 但【中国闪存市场】首页公开一组周度现货价格指数,
+    形态与集邦现货价高度一致, 可以直接当 DRAM 现货周期用。"""
+    s = _deflate(_flash_series("dram"))
+    n = len(s)
+    note = "样本%d周" % n
+    if n < 104:
+        note += " · 免费源只回溯7个月, 靠本地累积增长, 分位参考性有限"
+    return (s, "中国闪存市场·DRAM现货价格指数(周度, 已按中国CPI折算不变价)",
+            "点", {"note": note})
+
+
+def f_nand_idx():
+    s = _deflate(_flash_series("nand"))
+    n = len(s)
+    note = "样本%d周" % n
+    if n < 104:
+        note += " · 免费源只回溯7个月, 靠本地累积增长, 分位参考性有限"
+    return (s, "中国闪存市场·NAND现货价格指数(周度, 已按中国CPI折算不变价)",
+            "点", {"note": note})
+
+
+# ---------------------------------------------------------------
+# 2) 中国工程机械工业协会 —— 挖掘机月度销量
+# ---------------------------------------------------------------
+def _exc_parse(html):
+    txt = re.sub(r"<script.*?</script>", " ", html, flags=re.S)
+    txt = re.sub(r"<[^>]+>", " ", txt)
+    txt = re.sub(r"\s+", " ", txt)
+    m1 = re.search(r"(\d{4})年(\d{1,2})月销售各类挖掘机([\d,]+)台，同比增长([-\d.]+)%", txt)
+    if not m1:
+        return None
+    m2 = re.search(r"国内销量([\d,]+)台", txt)
+    m3 = re.search(r"出口(\d[\d,]*)台", txt)
+    return dict(
+        ym="%s-%02d" % (m1.group(1), int(m1.group(2))),
+        sales=float(m1.group(3).replace(",", "")),
+        yoy=float(m1.group(4)),
+        dom=float(m2.group(1).replace(",", "")) if m2 else None,
+        exp=float(m3.group(1).replace(",", "")) if m3 else None,
+    )
+
+
+def crawl_excavator(deep=False):
+    """扫 cncma.org 的文章 ID 找『工程机械行业主要产品销售快报一』, 解析当月挖机销量。
+    deep=True 时大范围回溯(首次建库用, 约 2 分钟); 平时只扫最近 260 个 ID 增量更新。"""
+    from concurrent.futures import ThreadPoolExecutor
+
+    def one(i):
+        try:
+            h = _http("http://www.cncma.org/article/%d" % i, timeout=12, retries=1)
+        except Exception:
+            return None
+        if "快报一" not in h[:4000] and "快报一" not in h:
+            return None
+        r = _exc_parse(h)
+        return r
+
+    cache = _load_cache(EXC_CACHE, {})
+    top = _load_cache(EXC_CACHE, {}).get("_top_id")
+    start = (top + 5) if top else 22740
+    lo = 14500 if (deep or not cache) else max(14500, start - 260)
+    ids = list(range(start, lo, -1))
+    got = []
+    try:
+        with ThreadPoolExecutor(max_workers=16) as ex:
+            for r in ex.map(one, ids):
+                if r and r.get("ym"):
+                    got.append(r)
+    except Exception:
+        pass
+    for r in got:
+        cache[r["ym"]] = r
+    if got:
+        cache["_top_id"] = max(int(x) for x in
+                               [cache.get("_top_id", 0)] + [start])
+    _save_cache(EXC_CACHE, cache)
+    return {k: v for k, v in cache.items() if not k.startswith("_")}
+
+
+def excavator_series():
+    d = crawl_excavator(deep=not EXC_CACHE.exists())
+    if len(d) < 3:
+        raise ValueError("挖机销量样本过少(%d)" % len(d))
+    ks = sorted(d)
+    return (pd.Series([d[k]["sales"] for k in ks],
+                      index=pd.to_datetime([k + "-01" for k in ks])),
+            ks, d)
+
+
+# ---------------------------------------------------------------
+# 3) 中国船舶工业行业协会 —— 造船三大指标(半年/季度口径)
+# ---------------------------------------------------------------
+def crawl_cansi():
+    """CANSI 的『造船三大指标』只在每半年/季度的运行分析稿里给数, 没有结构化接口,
+    且 2002-2025 的汇总表是图片。这里抓最新一期新闻稿的数值, 存进缓存做读数展示。"""
+    # ⚠ 首页用 http 能取到, 但详情页会被 301 到 https, requests 跟随后又把
+    # host 拼错成 'www.cansi.org.cncms' —— 直接写 https 就绕开这个坑。
+    # 另外正文里是「造船完工量3650万载重吨，同比增长51.2%，占世界总量的62.2%」,
+    # 三个数字中间夹着一堆话, 用一条长正则很容易因为标点变体失配,
+    # 所以改成【分项独立匹配】—— 拿到几个算几个。
+    def _num(pat, txt):
+        m = re.search(pat, txt)
+        return float(m.group(1).replace(",", "")) if m else None
+
+    cache = _load_cache(CANSI_CACHE, {})
+    try:
+        idx = _http("http://www.cansi.org.cn/", timeout=25)
+        links = re.findall(r'href="(/cms/document/\d+\.html)"[^>]*>([^<]{4,60})</a>', idx)
+        cand = [(u, t) for u, t in links if ("三大指标" in t or "船舶统计" in t)]
+        for u, t in cand[:8]:
+            if u in cache.get("_done", []):
+                continue
+            try:
+                txt = re.sub(r"<[^>]+>", " ", _http("https://www.cansi.org.cn" + u, timeout=25))
+                txt = re.sub(r"\s+", " ", txt)
+                d = dict(
+                    title=t.strip(), url="https://www.cansi.org.cn" + u,
+                    done=_num(r"造船完工量([\d,]+)万载重吨", txt),
+                    done_yoy=_num(r"造船完工量[\d,]+万载重吨，同比增长([-\d.]+)%", txt),
+                    neword=_num(r"新接订单量([\d,]+)万载重吨", txt),
+                    neword_yoy=_num(r"新接订单量[\d,]+万载重吨，同比增长([-\d.]+)%", txt),
+                    holding=_num(r"手持订单量([\d,]+)万载重吨", txt),
+                    holding_yoy=_num(r"手持订单量[\d,]+万载重吨，同比增长([-\d.]+)%", txt),
+                )
+                per = re.search(r"(\d{4})年(1&mdash;(\d{1,2})月|1—(\d{1,2})月|上半年|1-(\d{1,2})月)", txt)
+                d["period"] = (per.group(0).replace("&mdash;", "—") if per else "")
+                if d["done"] and d["neword"] and d["holding"]:
+                    cache[t.strip()] = d
+                    cache.setdefault("_done", []).append(u)
+                    break
+            except Exception:
+                continue
+    except Exception:
+        pass
+    _save_cache(CANSI_CACHE, cache)
+    return {k: v for k, v in cache.items() if not k.startswith("_")}
+
+
+# ══════════════════════════════════════════════════════════════
+# 一之四、行业读数卡
+# ---------------------------------------------------------------------------
+# 你点名的很多指标(能繁母猪存栏、30 城成交面积、铜 TC/RC、化工开工率、面板报价、
+# 挖机销量、造船订单…)在免费源里【只有新闻/研报口径的最新值, 没有十年历史序列】。
+# 拿不到序列就不该假装能算分位 —— 但也不该干脆不显示。
+# 所以单独开一格「行业读数」: 只给【最新值 + 同比/环比 + 截止期 + 来源】, 不画曲线不算分位。
+#  · src 以 http 开头 = 本次运行时实时爬取
+#  · 其余 = 人工核对于研报/新闻/协会公告, 标注核实日期 (见 VERIFIED_DATE)
+# ══════════════════════════════════════════════════════════════
+VERIFIED_DATE = "2026-10-12"
+
+READINGS = {
+    "shipping": [
+        dict(n="新接订单量", k="neword", u="万载重吨", crawl=("cansi",),
+             v="12106", yoy="+173.1%", asof="2026年1-6月", src="中国船舶工业行业协会(人工核实)",
+             note="全球份额 82.3%"),
+        dict(n="手持订单量", k="holding", u="万载重吨", crawl=("cansi",),
+             v="36325", yoy="+54.9%", asof="2026年1-6月", src="中国船舶工业行业协会(人工核实)",
+             note="全球份额 71.2%; 除以年交付量≈订单簿可支撑年数"),
+        dict(n="造船完工量", k="done", u="万载重吨", crawl=("cansi",),
+             v="3650", yoy="+51.2%", asof="2026年1-6月", src="中国船舶工业行业协会(人工核实)",
+             note="全球份额 62.2%"),
+        dict(n="全球新船订单簿/现有船队运力", v="—", u="%", src="Clarksons(付费)",
+             note="该比例是 Clarksons 核心付费产品, 免费源无; 可用手持订单量÷近12月完工量近似"),
+        dict(n="新船价格指数", v="—", u="点", src="Clarksons Newbuilding Price Index(付费)",
+             note="免费源无历史序列"),
+        dict(n="二手船成交价 / 二手vs新船价比", v="—", u="美元",
+             src="VesselsValue / Clarksons(付费)", note="免费源无"),
+        dict(n="全球拆船量", v="—", u="万载重吨", src="Clarksons / BIMCO(付费, 仅年度)",
+             note="免费源无月度序列"),
+    ],
+    "memory": [
+        dict(n="DRAM 现货价(扣通胀)", crawl=("flash", "dram"), u="点",
+             note="中国闪存市场周度现货指数, 已折不变价; 集邦合约价为付费"),
+        dict(n="NAND 现货价(扣通胀)", crawl=("flash", "nand"), u="点",
+             note="同上"),
+        dict(n="三大原厂资本开支同比", v="—", u="%", src="三星/海力士/美光季报(需人工读)",
+             note="无免费聚合接口; 每季度财报季可手工更新"),
+        dict(n="(原厂)渠道库存周转天数", v="—", u="天", src="集邦/研报(付费)",
+             note="免费源无"),
+        dict(n="合约价与现货价价差", v="—", u="%", src="集邦 TrendForce(付费)",
+             note="免费源无; 现货指数与费半/美光的背离可间接观察"),
+    ],
+    "copper": [
+        dict(n="铜精矿现货 TC 加工费", v="-226.2", u="美元/干吨", asof="2026-09",
+             src="SMM 上海有色网(经新闻/研报转载)",
+             note="历史新低; 2026 长单 TC=0(史上首次)、2025 长单 21.25、2024 长单 80"),
+        dict(n="电解铜样本开工率", v="88.19", u="%", asof="2026-07",
+             src="上海钢联/三个皮匠", note="冶炼开工"),
+        dict(n="LME 铜库存", ind="lme_cu", note="见上方曲线"),
+        dict(n="上期所铜库存", v="—", u="吨", src="上期所(免费接口仅回溯3个月)",
+             note="futures_inventory_em 实测只有 67 个交易日, 算不了分位"),
+        dict(n="COMEX 铜库存", v="—", u="短吨", src="CME(付费)", note="免费源无"),
+        dict(n="国内电网投资增速", v="—", u="%", src="国家能源局/中电联",
+             note="无免费结构化接口"),
+    ],
+    "chem": [
+        dict(n="纯碱行业开工负荷", v="81.9", u="%", asof="2026年1-8月", src="卓创资讯",
+             note="较上年降 3.8pct; 9月预计进一步降至 72%"),
+        dict(n="纯碱企业库存", v="179", u="万吨", asof="2026-09-17", src="卓创资讯",
+             note="同比 +14%; 重碱库存 68.24 万吨, 库存集中西北/西南/华北"),
+        dict(n="甲醇装置平均开工负荷", v="72.50", u="%", asof="2026-08-28", src="卓创资讯",
+             note="较 7 月降 3.58pct; 西北 78.21%"),
+        dict(n="沿海甲醇库存", v="73.55", u="万吨", asof="2026-08-28", src="卓创资讯",
+             note="历史中等偏低; 生产企业库存同步去化"),
+        dict(n="PTA 开工负荷", v="67.9", u="%", asof="2026-09-03", src="CCF",
+             note="聚酯负荷 75.6%"),
+        dict(n="原油价格(扣通胀)", ind="sc_real", note="见上方曲线"),
+    ],
+    "hog": [
+        dict(n="能繁母猪存栏量", v="3780", u="万头", asof="2026Q2末", src="国家统计局",
+             note="同比 -263万头(-6.5%), 较2025年末减181万头; 正常保有量目标 3750 万头"),
+        dict(n="能繁母猪存栏(卓创196样本)", v="850.83", u="万头", asof="2026-08末",
+             src="卓创资讯", note="环比 -1.61%, 同比 -7.11%"),
+        dict(n="猪粮比", v="<4.6", u="倍", asof="2026-08", src="国家发改委/人民政协网",
+             note="跌破一级预警线(5:1), 自繁自养每头亏 190~290 元"),
+        dict(n="出栏体重(成交均重)", ind="hog_weight", note="见上方曲线"),
+        dict(n="仔猪价格", v="—", u="元/头", src="农业农村部/涌益(无免费接口)",
+             note="搜猪网只给最近 15 天, 建不了序列; 可用成交均价做替代观察"),
+        dict(n="二次育肥存量", v="—", u="万头", src="涌益咨询(付费)",
+             note="免费源无; 冻品库容率可作替代: 32.56%(2026年第34周, Mysteel, 同比+15pct)"),
+    ],
+    "realestate": [
+        dict(n="30 大中城市商品房成交面积", v="652.33", u="万㎡", asof="2026-09",
+             src="中指院/数据GO", note="环比 +8.28%, 同比 -10.75%, 1-9月累计同比 -7.27%"),
+        dict(n="新建商品房销售面积同比", v="-12.1", u="%", asof="2026年1-8月",
+             src="国家统计局", note="1-5月为 -10.8%, 跌幅仍在扩大"),
+        dict(n="二手房网签面积同比", v="+10.6", u="%", asof="2026年1-8月",
+             src="住建部/同花顺", note="1-8月 5.5 亿㎡, 连续多月高于新房"),
+        dict(n="库存去化周期(十城面积存销比)", v="22.93", u="月", asof="2026-09",
+             src="数据GO", note="一线 12.58 月, 二线 42.47 月; 十城可售 7525.60 万㎡(同比-5.04%)"),
+        dict(n="住宅土地成交溢价率", v="13.1", u="%", asof="2026-06(近四周)",
+             src="中指院", note="环比 -4.97pct; 商服类 0.45%"),
+        dict(n="二手房挂牌量指数", v="1.21", u="指数", asof="2026-06-22",
+             src="中指院", note="环比 -0.8%; 挂牌价指数 142.22(环比 -0.06%)"),
+        dict(n="按揭利率锚", ind="lpr5", note="见上方曲线"),
+        dict(n="居民中长期贷款", v="—", u="亿元", src="央行(免费接口只有总量, 无住户中长期拆分)",
+             note="用『累计新增人民币贷款同比』替代, 见上方曲线"),
+    ],
+    "lithium": [
+        dict(n="碳酸锂现货价(扣通胀)", ind="lc_real", note="见上方曲线"),
+        dict(n="工业级碳酸锂价格", v="—", u="元/吨", src="SMM/百川(付费)",
+             note="广期所碳酸锂期货是最接近现货的免费连续序列"),
+    ],
+    "excavator": [
+        dict(n="挖掘机月度销量", k="sales", u="台", crawl=("exc",), note="含出口"),
+        dict(n="挖掘机内销", k="dom", u="台", crawl=("exc",), note="国内销量"),
+        dict(n="挖掘机出口", k="exp", u="台", crawl=("exc",),
+             note="2026 出口增速显著高于内销"),
+        dict(n="挖机销量同比", k="yoy", u="%", crawl=("exc",), note="当月同比"),
+    ],
+    "panel": [
+        dict(n="32 吋电视面板报价", v="35.0", u="美元/片", asof="2026-09",
+             src="TrendForce 集邦咨询(经新浪财经等转载)", note="环比 8 月持平(34.0~36.0)"),
+        dict(n="55 吋电视面板报价", v="123", u="美元/片", asof="2026-09",
+             src="TrendForce 集邦咨询", note="环比持平(116~126); 65吋 173、43吋 63"),
+        dict(n="面板厂稼动率", v="79.6", u="%", asof="2026-10(预计)", src="TrendForce",
+             note="五代及以上大世代线, 环比 -4.2pct; 京东方/华星/惠科十一减产挺价"),
+    ],
+    "coal": [
+        dict(n="秦皇岛动力煤价(Q5500)", v="—", u="元/吨",
+             src="CCTD/秦皇岛海运煤炭交易市场(历史在付费墙后)",
+             note="动力煤期货 ZC 已退市, 无免费连续序列; 环渤海动力煤指数 BSPI 需订阅"),
+        dict(n="环渤海港口库存", v="—", u="万吨",
+             src="CCTD(付费)", note="秦皇岛港场存日报网页存在但历史数据需订阅"),
+        dict(n="电厂日耗", v="—", u="万吨/日", src="CCTD/沿海电厂(付费)",
+             note="用『全社会用电量同比』作需求侧替代, 见上方曲线"),
+    ],
+    "solar": [
+        dict(n="多晶硅/硅片价格", v="—", u="元/吨", src="InfoLink/SMM(付费)",
+             note="期货曲线见上方"),
+    ],
+    "broker": [
+        dict(n="两融余额", ind="margin", note="见上方曲线"),
+    ],
+}
+
+
+def build_readings(rows=None):
+    """把 READINGS 里 crawl= 的项用实时爬虫填值, 返回 {cycle_key: [读数...]}
+    ind= 的项表示『这个指标已经在上面画了曲线』, 直接从 rows 里把当前值搬过来,
+    免得出现『见上方曲线』却显示成「— 无免费源」的自相矛盾。"""
+    ind_lookup = {}
+    for r in (rows or []):
+        for i in r["indicators"]:
+            ind_lookup[(r["key"], i["k"])] = i
+            ind_lookup[(r["key"], i["name"])] = i
+    try:
+        exc = excavator_series()
+        exc_map, exc_ks = exc[2], exc[1]
+        exc_last = exc_map[exc_ks[-1]]
+        exc_asof = exc_ks[-1]
+        exc_note = "共%d个月(自%s), 协会月度快报爬取+本地累积" % (len(exc_ks), exc_ks[0])
+    except Exception as e:
+        exc_map, exc_last, exc_asof, exc_note = {}, {}, "", "爬取失败: %s" % str(e)[:60]
+
+    try:
+        cansi = crawl_cansi()
+        cansi_last = list(cansi.values())[0] if cansi else {}
+    except Exception as e:
+        cansi, cansi_last = {}, {}
+
+    flash = {}
+    try:
+        d = crawl_flash_index()
+        flash = {"dram": (d["dram"]["values"][-1], d["dram"]["dates"][-1], len(d["dram"]["dates"])),
+                 "nand": (d["nand"]["values"][-1], d["nand"]["dates"][-1], len(d["nand"]["dates"]))}
+    except Exception:
+        flash = {}
+
+    out = {}
+    for ck, items in READINGS.items():
+        rows = []
+        for it in items:
+            r = dict(it)
+            r.pop("crawl", None)
+            cr = it.get("crawl")
+            # crawl 可以写成 ("exc",) 只带来源(字段名沿用 k), 也可以带第二个元素指定字段
+            fld = (cr[1] if len(cr) > 1 else it.get("k")) if cr else None
+            filled = False
+            if cr and cr[0] == "exc":
+                k = fld
+                v = exc_last.get(k)
+                if v is not None:
+                    vs = ("%+.2f%%" % v) if k == "yoy" else ("%.0f" % v)
+                    r.update(v=vs, asof=exc_asof,
+                             yoy=("%+.2f%%" % exc_last["yoy"]) if k == "sales" else None,
+                             src="中国工程机械工业协会 cncma.org(实时爬取)",
+                             note=exc_note if k != "yoy" else "当月同比")
+                    filled = True
+            elif cr and cr[0] == "cansi":
+                k = fld
+                if cansi_last.get(k) is not None:
+                    r.update(v=("%.0f" % cansi_last[k]),
+                             yoy=("%+.1f%%" % cansi_last[k + "_yoy"]),
+                             asof=cansi_last.get("period", ""),
+                             src="中国船舶工业行业协会 cansi.org.cn(实时爬取)")
+                    filled = True
+            elif cr and cr[0] == "flash":
+                k = cr[1]
+                if k in flash:
+                    v, dt, n = flash[k]
+                    r.update(v=("%.1f" % v), asof=dt,
+                             src="中国闪存市场(实时爬取)",
+                             note="样本%d周, 已折不变价" % n)
+                    filled = True
+            # ind= 的项: 该指标已在上方画了曲线, 直接把当前值搬过来
+            if not filled and it.get("ind"):
+                ii = ind_lookup.get((ck, it["ind"]))
+                if ii is not None:
+                    r.update(v=_fmt(ii["stats"]["cur"], ii["unit"]),
+                             u=ii["unit"] or "",
+                             asof=ii["last_date"], src=ii["source"],
+                             note=it.get("note", "") or "该指标已在上方画出曲线")
+                    filled = True
+            if not filled and "v" not in r:
+                r.setdefault("v", "—")
+                r.setdefault("src", "无免费源")
+            if "src" not in r:
+                r["src"] = "研报/新闻核实于 " + VERIFIED_DATE
+            if "asof" not in r:
+                r["asof"] = VERIFIED_DATE
+            rows.append(r)
+        out[ck] = rows
+    return out
+
+
+def render_readings(items):
+    if not items:
+        return ""
+    trs = []
+    for r in items:
+        val = str(r.get("v", "—"))
+        miss = val in ("—", "", "None")
+        yoy = r.get("yoy")
+        ytxt = ""
+        if yoy:
+            try:
+                f = float(str(yoy).replace("%", "").replace("+", ""))
+                col = "#f85149" if f >= 0 else "#3fb950"
+                ytxt = f' <span style="color:{col};font-weight:600">{yoy}</span>'
+            except Exception:
+                ytxt = " " + str(yoy)
+        trs.append(
+            f'<tr><td class="rn">{r["n"]}</td>'
+            f'<td class="rv" style="color:{"#6e7681" if miss else "#e6edf3"}">{val}'
+            f'<span class="ru">{r.get("u","")}</span>{ytxt}</td>'
+            f'<td class="rd">{r.get("asof","")}</td>'
+            f'<td class="rs">{r.get("src","")}</td>'
+            f'<td class="rn2">{r.get("note","")}</td></tr>')
+    return ('<div class="cyc-read"><div class="rh">行业读数 · 你点名但免费源拿不到长序列的指标'
+            '(只给最新值, 不画曲线不算分位)</div>'
+            '<table class="rt"><thead><tr><th>指标</th><th>最新值</th><th>截止</th>'
+            '<th>来源</th><th>备注</th></tr></thead><tbody>'
+            + "".join(trs) + "</tbody></table></div>")
+
 FE = {
     "turnover": f_turnover, "margin": f_margin, "broker_index": f_broker_index,
     "hog_spot": f_hog_spot, "hog_fut": f_hog_fut, "corn": f_corn,
@@ -589,6 +1115,9 @@ FE = {
     "m2": f_m2, "m1": f_m1, "credit": f_credit, "lpr5": f_lpr5,
     "cpi": f_cpi, "elec": f_elec,
     "ism": f_ism, "usa_cpi": f_usa_cpi, "usa_unemp": f_usa_unemp,
+    # ---- 网页爬取(滚动窗口 + 本地累积) ----
+    "dram_idx": f_dram_idx, "nand_idx": f_nand_idx,
+    "hog_weight": f_hog_weight, "hog_avg": f_hog_avg,
 }
 
 
@@ -628,16 +1157,21 @@ CYCLES = [
                "一旦同时砍资本开支就缺货。历史上 2018 顶 → 2019 崩 → 2020-21 缺货 → 2022-23 崩 → "
                "2024 起 AI/HBM 拉动新一轮。三个指标互相验证: 费半是全球半导体景气的基准(含存储原厂), "
                "美光是纯 DRAM/NAND 原厂(弹性最大、最能代表存储本身), A股存储板块是国内映射。"
-               "<b>关于你列的五个存储指标:</b>『三大原厂资本开支同比』要逐季读三星/海力士/美光财报, "
-               "『DRAM / NAND 现货价』在集邦 TrendForce 付费库和 DXI 指数里(免费源已停更), "
-               "『渠道库存周转天数』和『合约价-现货价价差』同样是付费研报口径。"
-               "这四项<b>没有免费接口</b>, 页面只能继续用原厂股价作代理 —— "
-               "股价是市场对资本开支与现货价周期的<b>提前定价</b>, 逻辑上比季报更早, "
-               "但它是预期而非现货, 别当成现货价读。",
+               "<b>DRAM / NAND 现货价已经补上了</b>: 集邦 TrendForce 的合约价是付费的, "
+               "但<b>中国闪存市场(chinaflashmarket.com)首页公开一组周度 DRAM / NAND 现货价格指数</b>, "
+               "形态与集邦现货价高度一致, 已按中国 CPI 折算成不变价挂在下面两条曲线上。"
+               "缺点是<b>免费源只回溯 7 个月</b>, 所以这两条曲线是自 2026-02 起<b>本地累积</b>的, "
+               "样本会越跑越长; 现阶段别拿它的分位当周期位置看, 看方向和拐点就行。"
+               "剩下三项仍是付费口径:『三大原厂资本开支同比』要逐季读三星/海力士/美光财报, "
+               "『渠道库存周转天数』和『合约价-现货价价差』只有集邦研报有 —— 都列在下方读数卡里。",
          indicators=[
              I("sox", "费城半导体指数", "sox", "点", "W", "last", 52, None, main=True),
              I("micron", "美光科技 MU", "micron", "美元", "W", "last", 52, None, note="纯存储原厂"),
              I("cn_mem", "A股存储板块", "cn_mem", "点", "W", "last", 52, None),
+             I("dram_idx", "DRAM 现货价指数(扣通胀)", "dram_idx", "点", "W", "last", 26, None,
+               note="中国闪存市场周度(免费源回溯7个月, 本地累积)"),
+             I("nand_idx", "NAND 现货价指数(扣通胀)", "nand_idx", "点", "W", "last", 26, None,
+               note="中国闪存市场周度(免费源回溯7个月, 本地累积)"),
          ]),
 
     # ══════════════════════════════════════════════════════════
@@ -681,8 +1215,13 @@ CYCLES = [
                "现货价是当下供需结果, 期货价包含市场对 10 个月后供给的预期, 玉米价格决定养殖成本线, "
                "猪粮比则是官方口径的盈亏刻度(发改委: 5:1 亏损、6:1 盈亏平衡、9:1 高盈利)。"
                "猪价跌 + 玉米稳 = 亏损去化; 猪价跌 + 玉米涨 = 加速出清(底部信号)。"
-               "<b>关于『能繁母猪存栏量』(农业农村部月度, 免费接口已失效)、『仔猪价格』和"
-               "『二次育肥/出栏体重』(涌益咨询付费周报): 都取不到。</b>"
+               "<b>『出栏体重』也补上了</b>: 搜猪网 index_hog_spot_price 一次性给到 589 周"
+               "(2015 年至今)的成交均重, 挂在下面。用法是: 二次育肥会把猪压栏养到 130kg 以上, "
+               "体重读数持续冲高说明<b>隐性库存正在堆积</b>, 后面集中出栏就是砸盘, "
+               "所以体重偏高往往是猪价顶部区的领先信号。"
+               "剩下『能繁母猪存栏量』(农业农村部/统计局只有季度口径, 无免费月度序列)、"
+               "『仔猪价格』和『二次育肥存量』(涌益咨询付费周报)都列在下方读数卡里, "
+               "能繁母猪我核到了 2026Q2 末的 3780 万头(同比 -6.5%)。"
                "注意本页的猪粮比是<b>生猪期货 ÷ 玉米期货</b>算的, 不是发改委的出场价/批发价口径, "
                "量级和历史形态对得上, 但绝对值会有偏差。",
          indicators=[
@@ -690,6 +1229,9 @@ CYCLES = [
              I("hog_fut", "生猪期货主力", "hog_fut", "元/吨", "W", "last", 52, None),
              I("corn", "玉米期货主力", "corn", "元/吨", "W", "last", 52, None, note="饲料成本端"),
              I("pig_grain", "猪粮比(期货口径)", "pig_grain", "倍", "W", "last", 52, (6, "6倍=盈亏平衡线")),
+             I("hog_weight", "出栏体重(成交均重)", "hog_weight", "kg", "W", "last", 52, None,
+               note="二次育肥压栏会推高读数, 是顶部领先信号"),
+             I("hog_avg", "瘦肉型猪成交均价", "hog_avg", "元/kg", "W", "last", 52, None),
          ]),
 
     # ══════════════════════════════════════════════════════════
@@ -1597,6 +2139,22 @@ CYCLES_CSS = """
 .cyc-fc .box .d { font-size:10px; color:#6e7681; margin-top:3px; }
 .cyc-logic { margin-top:12px; font-size:12.5px; line-height:1.75; color:#adbac7;
   border-left:3px solid #30363d; padding-left:12px; }
+.cyc-read { margin-top:12px; border:1px solid #21262d; border-radius:9px;
+  background:#0d1117; padding:10px 12px 8px; }
+.cyc-read .rh { font-size:11.5px; font-weight:600; color:#adbac7; margin-bottom:7px;
+  padding-bottom:6px; border-bottom:1px solid #21262d; }
+.cyc-read .rt { width:100%; border-collapse:collapse; table-layout:fixed; }
+.cyc-read th { font-size:10px; color:#6e7681; font-weight:500; text-align:left;
+  padding:3px 7px; border-bottom:1px solid #161b22; }
+.cyc-read td { padding:4px 7px; border-bottom:1px solid #161b22; vertical-align:top;
+  font-size:11px; line-height:1.55; word-break:break-word; }
+.cyc-read .rn { width:19%; color:#e6edf3; font-weight:600; }
+.cyc-read .rv { width:17%; font-weight:600; font-variant-numeric:tabular-nums;
+  white-space:nowrap; }
+.cyc-read .ru { font-size:9.5px; color:#8b949e; font-weight:400; margin-left:3px; }
+.cyc-read .rd { width:11%; color:#8b949e; white-space:nowrap; }
+.cyc-read .rs { width:20%; color:#6e7681; }
+.cyc-read .rn2 { color:#6e7681; }
 .cyc-ind-grid { grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); }
 .ml-wrap { display:grid; grid-template-columns:minmax(420px,1fr) minmax(320px,1.15fr);
   gap:16px; align-items:start; }
@@ -1633,8 +2191,9 @@ def _stale_warn(last_date, days=45):
         return False
 
 
-def render_fragment(rows, updated, clocks=None):
+def render_fragment(rows, updated, clocks=None, readings=None):
     minis, cards = [], []
+    readings = readings or {}
     for r in rows:
         agg = r["agg"]
         color = _ph_color(agg["pct_avg"])
@@ -1745,6 +2304,7 @@ def render_fragment(rows, updated, clocks=None):
             f'<div class="cyc-ind-grid">{"".join(ind_html)}</div>'
             f'<div class="cyc-fc">{fc_txt(f6, f"未来半年 · 主指标「{main_nm}」历史相似位置后")}'
             f'{fc_txt(f12, f"未来一年 · 主指标「{main_nm}」历史相似位置后")}</div>'
+            f'{render_readings(readings.get(r["key"]))}'
             f'<div class="cyc-logic">{r["logic"]}</div>'
             f'</div>')
 
@@ -1799,22 +2359,32 @@ def render_fragment(rows, updated, clocks=None):
             f'⑩房地产周期里的房价同比是<b>京沪两市</b>口径而非全国 70 城 —— akshare 那个接口'
             f'名字叫 70 城, 实际只返回北京/上海(每月 2 条), 一线城市房价一般是周期的领先段, '
             f'拿它看方向可以, 别当成全国房价水平。'
-            f'<br><b>⑪你点名的很多行业指标是付费数据, 本页只能用代理, 已在每个指标处逐条标注:</b>'
-            f'造船的「新船订单簿/船队运力」「新接订单/手持订单」「新船价格指数」「二手船价」「拆船量」→ '
-            f'Clarksons / VesselsValue / 中国船协付费或停更, 改用 BDI 三兄弟 + 中国船舶股价代理; '
-            f'存储的「三大原厂资本开支同比」「DRAM/NAND 现货价」「渠道库存周转天数」「合约价-现货价价差」→ '
-            f'集邦 TrendForce 付费 + 无免费接口, 继续用费半/美光/A股板块股价代理; '
-            f'铜的「TC/RC 加工费」(SMM/安泰科)、「电网投资增速」→ 无免费接口; '
-            f'化工的「行业开工率」「行业库存」(隆众/卓创)→ 付费, 改用 PTA÷原油 等效价差代理; '
-            f'生猪的「能繁母猪存栏」(农业农村部接口已失效)、「仔猪价格」「出栏体重」(涌益付费)→ '
-            f'改用生猪期货 ÷ 玉米期货 的猪粮比; '
-            f'地产的「销售面积增速」「30 城成交」「二手房挂牌/带看」(贝壳)、「土地溢价率」、「去化周期」→ '
-            f'全部付费或无接口, 只能用房价+利率+信贷+上游四面包抄; '
-            f'「挖机月度销量」(工程机械协会无免费接口)→ 用三一/徐工/恒立股价代理; '
-            f'「32/55 吋面板报价」(集邦/群智付费)→ 用京东方/TCL科技/深天马股价代理; '
-            f'「秦皇岛动力煤价/港口库存/电厂日耗」(动力煤期货 ZC 已退市, CCTD 付费)→ '
-            f'用焦煤/焦炭期货 + 全社会用电量同比代理。'
-            f'<b>代理指标不等同于原数据</b>, 请当作方向参考。'
+            f'<br><b>⑪你点名的每个指标都在页面上, 只是分了三种呈现方式 —— 逐条交代清楚:</b>'
+            f'<b>(a) 能拿到长序列的 → 正常画曲线算分位。</b>已补上的有: '
+            f'<b>DRAM / NAND 现货价</b>(中国闪存市场周度指数, 已按 CPI 折不变价)、'
+            f'<b>生猪出栏体重</b>(搜猪网 548 周成交均重)、<b>猪粮比</b>、<b>原油/碳酸锂实际价</b>、'
+            f'<b>PTA÷原油价差</b>、<b>全社会用电量同比</b>。'
+            f'<b>(b) 免费源只给滚动窗口的 → 爬取 + 本地累积。</b>'
+            f'<b>挖机月度销量</b>来自中国工程机械工业协会(cncma.org)每月销售快报, '
+            f'<b>造船三大指标</b>来自中国船舶工业行业协会(cansi.org.cn), '
+            f'闪存市场那两条指数也是。这类免费源只回溯 7~16 期, 页面会随每次采集自动累积样本, '
+            f'现阶段<b>别拿它的分位当周期位置</b>, 看方向和拐点即可。'
+            f'<b>(c) 确实只有新闻/研报口径的 → 放在每个周期的「行业读数」表里</b>, '
+            f'只给最新值 + 来源 + 截止期, <b>不画曲线不算分位</b>(拿不到序列就不该假装能算): '
+            f'能繁母猪存栏 3780 万头(2026Q2末, 统计局)、30 城成交面积 652.33 万㎡(2026-09)、'
+            f'十城存销比 22.93 月、新建商品房销售面积同比 -12.1%(1-8月)、土地溢价率 13.1%、'
+            f'铜精矿现货 TC -226.2 美元/干吨(2026-09, SMM)、纯碱开工负荷 81.9% 与库存 179 万吨、'
+            f'甲醇开工负荷 72.5%、32 吋 35.0 美元 / 55 吋 123 美元(2026-09, TrendForce)。'
+            f'<b>其中 (c) 里除标注「实时爬取」的以外, 都是我核对于 {VERIFIED_DATE} 的研报/新闻, '
+            f'不会自动更新, 需要定期人工复核。</b>'
+            f'<br>仍然取不到、只能用代理或只能空着的: '
+            f'造船的「订单簿/船队运力」「新船价格指数」「二手船价」「拆船量」(Clarksons/VesselsValue 付费); '
+            f'存储的「三大原厂资本开支同比」「渠道库存周转天数」「合约价-现货价价差」(集邦付费); '
+            f'铜的「电网投资增速」、上期所/COMEX 铜库存历史(免费接口只有 3 个月); '
+            f'生猪的「仔猪价格」「二次育肥存量」(涌益付费); '
+            f'煤炭的「秦皇岛动力煤价/港口库存/电厂日耗」(CCTD 付费墙, 动力煤期货 ZC 已退市)。'
+            f'<b>代理指标(中国船舶/京东方/三一等股价)不等同于原数据</b>, 请当作方向参考。'
+            f'<br><b>⑫美林时钟两版都只用两个宏观轴切四格, 维度远少于现实。</b>'
             f'<br><b>⑫美林时钟两版都只用两个宏观轴切四格, 维度远少于现实。</b>'
             f'轴向统一取「相对公认基准的偏离」(中国: 增速的 12 个月变化; 美国: ISM-50、CPI-2%), '
             f'中线固定为 0, 不用历史分位(否则会被 M2/信贷增速的长期下台阶钉死在同一格)。'
@@ -1935,7 +2505,8 @@ def main():
                     if _rows:
                         OUT_HTML.write_text(
                             render_fragment(_rows, _meta["updated"],
-                                            _meta.get("clocks") or []),
+                                            _meta.get("clocks") or [],
+                                            _meta.get("readings") or {}),
                             encoding="utf-8")
                         print(f"已用缓存数据刷新页面: {OUT_HTML.name} "
                               f"({OUT_HTML.stat().st_size/1024:.0f}KB, "
@@ -1958,18 +2529,22 @@ def main():
     print("开始采集美林时钟 (中国改良版 / 美国原版)…")
     clocks = build_clocks()
 
+    print("开始爬取行业读数 (闪存市场/工程机械协会/船舶工业协会)…")
+    readings = build_readings(rows)
+    n_read = sum(len(v) for v in readings.values())
+
     updated = datetime.now().strftime("%Y-%m-%d %H:%M")
     n_ind = sum(len(r["indicators"]) for r in rows)
     payload = dict(
-        ver=SCHEMA_VER, updated=updated, failed=failed, clocks=clocks,
+        ver=SCHEMA_VER, updated=updated, failed=failed, clocks=clocks, readings=readings,
         cycles=[{**{k: v for k, v in r.items() if k != "indicators"},
                  "indicators": [{k: v for k, v in i.items() if k != "svg"}
                                 for i in r["indicators"]]} for r in rows])
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-    OUT_HTML.write_text(render_fragment(rows, updated, clocks), encoding="utf-8")
+    OUT_HTML.write_text(render_fragment(rows, updated, clocks, readings), encoding="utf-8")
     print(f"\n已写出: {OUT_JSON.name} ({OUT_JSON.stat().st_size/1024:.0f}KB)  "
           f"{OUT_HTML.name} ({OUT_HTML.stat().st_size/1024:.0f}KB)  "
-          f"{len(rows)}个周期 / {n_ind}个指标 / {len(clocks)}个时钟")
+          f"{len(rows)}个周期 / {n_ind}个指标 / {len(clocks)}个时钟 / {n_read}条行业读数")
     if failed:
         print(f"失败周期: {failed}")
     return 0
