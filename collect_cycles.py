@@ -714,11 +714,28 @@ def _flash_parse(html):
     return out
 
 
+FLASH_STALE = ""          # 抓取失败时写入原因, 用于在卡片上标注「数据停在 X」
+
+
 def crawl_flash_index():
-    """返回 {'dram': {dates, values}, 'nand': {...}}, 并与本地缓存合并(滚动窗口累积)"""
-    html = _http("https://www.chinaflashmarket.com/", timeout=25)
-    fresh = _flash_parse(html)
+    """返回 {'dram': {dates, values}, 'nand': {...}}, 并与本地缓存合并(滚动窗口累积)
+
+    2026-10 起源站上了人机验证 —— 返回的不再是首页 HTML 而是一个验证页,
+    _flash_parse 必然抛「未找到指数数据块」。这条序列本来就是本地逐周累积的,
+    所以抓不到时<b>退回本地缓存</b>继续用旧值, 而不是让整张卡片消失:
+    卡片凭空不见比数据旧两周糟糕得多(而且会让人误以为是我又偷偷删了指标)。"""
+    global FLASH_STALE
+    FLASH_STALE = ""
     cache = _load_cache(FLASH_CACHE, {})
+    try:
+        html = _http("https://www.chinaflashmarket.com/", timeout=25)
+        fresh = _flash_parse(html)
+    except Exception as e:
+        if any((cache.get(k) or {}).get("dates") for k in ("dram", "nand")):
+            FLASH_STALE = f"源站已加人机验证, 本次未刷新({type(e).__name__}), 沿用本地累积值"
+            print(f"  [WARN] 中国闪存市场抓取失败({type(e).__name__}), 沿用本地累积缓存")
+            return cache
+        raise
     merged = {}
     for k in ("dram", "nand"):
         old = cache.get(k) or {"dates": [], "values": []}
@@ -745,6 +762,8 @@ def f_dram_idx():
     note = "样本%d周" % n
     if n < 104:
         note += " · 免费源只回溯7个月, 靠本地累积增长, 分位参考性有限"
+    if FLASH_STALE:
+        note += f" · ⚠ {FLASH_STALE}, 最新停在 {s.index[-1].strftime('%Y-%m-%d')}"
     return (s, "中国闪存市场·DRAM现货价格指数(周度, 已按中国CPI折算不变价)",
             "点", {"note": note})
 
@@ -755,6 +774,8 @@ def f_nand_idx():
     note = "样本%d周" % n
     if n < 104:
         note += " · 免费源只回溯7个月, 靠本地累积增长, 分位参考性有限"
+    if FLASH_STALE:
+        note += f" · ⚠ {FLASH_STALE}, 最新停在 {s.index[-1].strftime('%Y-%m-%d')}"
     return (s, "中国闪存市场·NAND现货价格指数(周度, 已按中国CPI折算不变价)",
             "点", {"note": note})
 
@@ -2142,8 +2163,13 @@ def svg_chart(s, info, unit, ma, ref, w=1180, h=250, compact=False, color="#58a6
 # 央行这个月比一年前更松还是更紧。所以两个时钟的轴都统一取「同比增速的 12 个月变化(pp)」,
 # 中线固定为 0。美国那边同理: 增长用 ISM 减荣枯线 50、通胀用 CPI 减美联储目标 2%,
 # 这样中线才有公认含义, 而不是一个随样本漂移的分位数。
-CLOCK_PATH_N = 60          # 轨迹画最近多少个月
-CLOCK_DIFF_M = 12          # 变化口径的月数
+CLOCK_PATH_N = 0           # 轨迹画最近多少期; 0 = 画全部历史
+                           # (改成季度口径后总共也就 ~74 期, 完全可以整段画完。
+                           #  之前只画最近 60 个月是个坑: 2021 之后美国 CPI 一直在 2% 上方,
+                           #  于是最近 5 年被钉在钟的上半部, 看上去像「从没进过衰退期和复苏期」——
+                           #  实际上把历史拉长到 2008 年, 四格都走过。)
+CLOCK_DIFF_Q = 4           # 变化口径的季度数(4 个季度 = 12 个月)
+CLOCK_RECENT_Q = 8         # 轨迹里把最近多少个季度画亮(2 年)
 
 
 CLOCK_DEFS = [
@@ -2168,10 +2194,19 @@ CLOCK_DEFS = [
         logic="美林时钟原本的两轴是「产出缺口 × 通胀」, 但中国没有可用的产出缺口高频数据, "
               "所以国内券商(任泽平/华创等)普遍改用<b>货币 × 信用</b>两轴: "
               "央行管货币(M2/利率), 银行与实体管信用(社融/信贷), 两轴的松紧组合决定了大类资产轮动。"
-              "本页的『信用』用<b>累计新增人民币贷款同比</b>(社融存量增速更标准, 但那个免费接口滞后到 2026-04, "
-              "会把当前象限算错), 『货币』用<b>M2 同比</b>; 两轴都取 12 个月的变化(pp), 中线为 0。"
+              "本页『信用』用<b>累计新增人民币贷款同比</b>, 『货币』用<b>M2 同比</b>; "
+              "两轴都取<b>4 个季度(12 个月)的变化量</b>, 中线固定为 0 —— "
+              "不用水平分位, 因为 M2 和信贷增速是长期下台阶的, 用分位会把钟钉死在「双紧」那一格十年不动。"
+              "<b>这个钟有三处口径妥协, 逐条说明:</b> "
+              "①信用轴标准做法是<b>社融存量同比</b>, 但免费接口只有 2015 年起的社融<b>增量</b>, "
+              "凑不出 2008 年以来的长序列, 只好退而用人民行的累计新增人民币贷款同比; "
+              "②这个指标每年 1 月会把累计口径重置成单月值、春节错位又让 1-2 月极不稳定, "
+              "改成<b>季度取季末值</b>(3/6/9/12 月)之后, 每个季度都是「年内累计到季末」, "
+              "跨年相减口径一致, 年初噪声自然被稀释(这也是改成季度口径最重要的收益); "
+              "③四象限的名字和美国版<b>不落在同一个角</b>(中国版衰退期在左上、美国版在左下), "
+              "这不是写错 —— 两轴语义不同(货币信用 vs 增长通胀), 但<b>旋转方向一致, 都是顺时针</b>。"
               "<b>这是框架不是定律</b>: 2015 年之后中国信用周期被地产和隐性债务主导, "
-              "四象限的资产映射出现过明显失灵(典型是 2016-17 紧货币+宽信用下商品与地产同时走强), "
+              "资产映射出现过明显失灵(典型是 2016-17 紧货币+宽信用下商品与地产同时走强), "
               "请把它当成描述当前所处的货币信用环境, 而不是买卖信号。",
     ),
     dict(
@@ -2197,9 +2232,19 @@ CLOCK_DEFS = [
               "(相对荣枯线 50 的偏离, 50 是官方扩张/收缩的分界), 通胀用 <b>美国 CPI 年率</b>"
               "(相对美联储 2% 目标的偏离)。数据源是东方财富 datacenter —— "
               "akshare 自带的 macro_usa_* 大多来自金十, 已停更在 2025-09, 会把当前象限算错。"
-              "轨迹线画的是最近 5 年的月度路径, 越新的点颜色越亮, 可以看出这个钟是<b>顺时针</b>转的"
-              "(经典美林时钟的旋转方向): 衰退→复苏→过热→滞胀→衰退。"
-              "同样提醒: 2020 年之后财政直接发钱、2022-23 供应链冲击, 都让这个框架短暂失效过。",
+              "<b>这个钟有三处口径妥协, 逐条说明:</b> "
+              "①ISM 是<b>制造业</b> PMI, 而美国经济里服务业占八成以上, 拿它当「增长」会漏掉服务端的冷热; "
+              "②美联储 <b>2012 年才正式确立 2% 通胀目标</b>, 2008-2011 那一段是回溯套用, 严格说不严谨; "
+              "③两轴都用<b>水平偏离</b>而不是变化量 —— 这与原版美林一致(产出缺口本身就是可正可负的水平量), "
+              "但代价是<b>半格黏性极强</b>: 2021 之后美国 CPI 一直压在 2% 上方, "
+              "最近五年整段被钉在钟的上半部。之前只画最近 60 个月, 看上去就像"
+              "「美国从没进过衰退期和复苏期」—— 这确实是画法的问题, 不是数据的问题。"
+              "<b>把 2008 年以来的全部季度画出来, 四格其实都走过</b>(见下方历史占比): "
+              "2008 危机、2013-2015 那轮低通胀、2020 疫情后都在钟的下半部, "
+              "2016-17 和 2021 在右上(过热), 2022-25 在左上(滞胀)。旋转方向仍是经典美林的<b>顺时针</b>。"
+              "<b>框架不等于定律</b>: 2022 年美联储激进加息时「衰退期买债券」彻底失灵 —— "
+              "那年美国长久期国债是有史以来最差的年份之一, 因为这轮通胀是供给端驱动的, "
+              "央行没法像过去那样用降息对冲。",
     ),
 ]
 
@@ -2209,6 +2254,24 @@ def _monthly(s):
         return s.resample("ME").last().dropna()
     except ValueError:
         return s.resample("M").last().dropna()
+
+
+def _quarterly(s, how="last"):
+    """月度 → 季度。
+    how="last" : 取季末值。用于「累计同比」这类口径 —— 累计新增人民币贷款同比在每年 1 月
+                 会重置成单月值、春节错位又会把 1-2 月打得很难看; 取季末(3/6/9/12 月)后
+                 每个季度都是「年内累计到该季末」, 跨年相减时口径一致, 噪音自然被稀释。
+    how="mean" : 取季内均值。用于 ISM / CPI 这类水平值, 纯粹为了降噪。"""
+    try:
+        r = s.resample("QE")
+    except ValueError:
+        r = s.resample("Q")
+    return (r.mean() if how == "mean" else r.last()).dropna()
+
+
+def _qlab(ts):
+    """Timestamp → '2019Q3'"""
+    return f"{ts.year}Q{(ts.month - 1) // 3 + 1}"
 
 
 def _clock_fetch(fetch_key):
@@ -2222,18 +2285,24 @@ def build_clocks():
     for cfg in CLOCK_DEFS:
         try:
             if cfg["key"] == "us_ml":
-                # 美国两轴是「相对公认基准的偏离」, 不是 12 月变化
-                xlev, xsrc, _ = _clock_fetch("ism")
-                ylev, ysrc, _ = _clock_fetch("usa_cpi")
+                # 美国两轴是「相对公认基准的偏离」(水平口径), 不是同比变化
+                xm, xsrc, _ = _clock_fetch("ism")
+                ym, ysrc, _ = _clock_fetch("usa_cpi")
+                # 水平值用季内均值降噪(ISM 月度抖动很大)
+                xlev, ylev = _quarterly(xm, "mean"), _quarterly(ym, "mean")
                 xs, ys = xlev - 50.0, ylev - 2.0
             else:
-                xlev, xsrc, _ = _clock_fetch(cfg["x"]["fetch"])
-                ylev, ysrc, _ = _clock_fetch(cfg["y"]["fetch"])
-                xs = (xlev - xlev.shift(CLOCK_DIFF_M)).dropna()
-                ys = (ylev - ylev.shift(CLOCK_DIFF_M)).dropna()
+                xm, xsrc, _ = _clock_fetch(cfg["x"]["fetch"])
+                ym, ysrc, _ = _clock_fetch(cfg["y"]["fetch"])
+                # 累计同比类取季末值, 保证跨年相减时口径一致(见 _quarterly 注释)
+                xlev, ylev = _quarterly(xm, "last"), _quarterly(ym, "last")
+                xs = (xlev - xlev.shift(CLOCK_DIFF_Q)).dropna()
+                ys = (ylev - ylev.shift(CLOCK_DIFF_Q)).dropna()
             df = pd.concat([xs.rename("x"), ys.rename("y")], axis=1).dropna()
-            if len(df) < 24:
-                raise ValueError("对齐后样本过短(%d)" % len(df))
+            if len(df) < 12:
+                raise ValueError("对齐后样本过短(%d 个季度)" % len(df))
+            # 水平值也换成季度口径, 免得出现「轴向截至 2026Q3、水平值却写某个月」的自相矛盾
+            xlev, ylev = xlev.reindex(df.index), ylev.reindex(df.index)
             cx, cy = float(df["x"].iloc[-1]), float(df["y"].iloc[-1])
             # 象限: SVG 里 y 越小越高。命名顺序与 CLOCK_DEFS 的 quads 保持一致(先左右后上下)
             qpos = ("右" if cx >= 0 else "左") + ("上" if cy >= 0 else "下")
@@ -2251,10 +2320,11 @@ def build_clocks():
                 else:
                     m = (df["x"] < 0) & (df["y"] < 0)
                 share[qq["pos"]] = int(m.sum()) / tot
-            path = [[d.strftime("%Y-%m"), round(float(a), 3), round(float(b), 3)]
-                    for d, a, b in zip(df.index[-CLOCK_PATH_N:],
-                                       df["x"].iloc[-CLOCK_PATH_N:],
-                                       df["y"].iloc[-CLOCK_PATH_N:])]
+            _sl = slice(-CLOCK_PATH_N, None) if CLOCK_PATH_N else slice(None)
+            path = [[_qlab(d), round(float(a), 3), round(float(b), 3)]
+                    for d, a, b in zip(df.index[_sl],
+                                       df["x"].iloc[_sl],
+                                       df["y"].iloc[_sl])]
             out.append(dict(
                 key=cfg["key"], name=cfg["name"], tag=cfg["tag"], logic=cfg["logic"],
                 xname=cfg["x"]["name"], yname=cfg["y"]["name"],
@@ -2265,17 +2335,19 @@ def build_clocks():
                 ylev_unit="%",
                 cur=dict(x=round(cx, 3), y=round(cy, 3), pos=qpos,
                          name=q["name"], asset=q["asset"], why=q["why"]),
-                asof=df.index[-1].strftime("%Y-%m"), n=int(len(df)),
+                asof=_qlab(df.index[-1]), n=int(len(df)), gran="季度",
+                span=(_qlab(df.index[0]), _qlab(df.index[-1])),
                 share=share, path=path, quads=cfg["quads"],
                 # 水平值取与两轴对齐的那个月(df 的最后一行), 免得出现
                 # 「轴向截至 2026-08、水平值却写 2026-09」的自相矛盾
                 xlev=round(float(xlev.reindex(df.index).dropna().iloc[-1]), 3),
                 ylev=round(float(ylev.reindex(df.index).dropna().iloc[-1]), 3),
-                xlev_date=df.index[-1].strftime("%Y-%m"),
-                ylev_date=df.index[-1].strftime("%Y-%m"),
+                xlev_date=_qlab(df.index[-1]),
+                ylev_date=_qlab(df.index[-1]),
             ))
             print(f"  [OK] {cfg['name']}  当前象限 {qpos} {q['name']} · {q['asset']} "
-                  f"(x={cx:+.2f}pp, y={cy:+.2f}pp, 截至 {out[-1]['asof']})")
+                  f"(x={cx:+.2f}pp, y={cy:+.2f}pp, 截至 {out[-1]['asof']}, "
+                  f"{out[-1]['n']} 个季度)")
         except Exception as e:
             print(f"  [FAIL] 时钟 {cfg['name']}: {type(e).__name__}: {str(e)[:100]}")
     return out
@@ -2285,20 +2357,42 @@ def clock_svg(c, w=560, h=430):
     """四象限散点 + 最近 5 年轨迹。SVG 里 y 轴向上为正(值越大越靠上)。"""
     L, R, T, B = 78, 22, 30, 52
     pw, ph = w - L - R, h - T - B
-    xs = [p[1] for p in c["path"]]
-    ys = [p[2] for p in c["path"]]
-    lo_x, hi_x = min(xs), max(xs)
-    lo_y, hi_y = min(ys), max(ys)
-    pad_x = max((hi_x - lo_x) * 0.18, 0.6)
-    pad_y = max((hi_y - lo_y) * 0.18, 0.6)
-    # 中线 0 必须画得进去
-    x0, x1 = min(lo_x - pad_x, -pad_x), max(hi_x + pad_x, pad_x)
-    y0, y1 = min(lo_y - pad_y, -pad_y), max(hi_y + pad_y, pad_y)
+    xs = np.asarray([p[1] for p in c["path"]], dtype=float)
+    ys = np.asarray([p[2] for p in c["path"]], dtype=float)
+
+    # ── 稳健坐标范围(8%/92% 分位), 不用 min/max ──
+    # 中国版有个真实但致命的极值: 2008Q4 信贷同比的 4 季度变化是 -287pp、
+    # 2009Q1 是 +250pp(四万亿那波)。它比正常波动大一个数量级, 用 min/max 定轴的话
+    # 2010 年之后 17 年会被压成中间一条竖线, 图就废了。所以按分位定轴,
+    # 越界的点压到边缘、画成空心菱形并注明, 数据一个都没丢。
+    def _bounds(v):
+        # 默认用 min/max(一个点都不裁)。只有当全距离谱到「> 6 倍 10-90 分位距」时才切稳健分位
+        # —— 也就是只有真的存在数量级级别的离群点才裁。
+        # 这个自适应很关键: 两个钟的极值形态完全不同。中国版 X 轴是 537pp 全距 vs 57pp 分位距
+        # (比值 9.5) → 裁; 美国版两轴比值只有 1.9 / 2.1, 全距本来就正常, 硬裁反而会把
+        # 2020 疫情、2021-22 高通胀这些最有价值的段压到边缘上。
+        lo, hi = float(v.min()), float(v.max())
+        q10, q90 = np.percentile(v, [10, 90])
+        if (hi - lo) > 6.0 * max(q90 - q10, 1e-9):
+            lo, hi = np.percentile(v, [10, 90])
+        pad = max((hi - lo) * 0.16, 0.6)
+        lo, hi = lo - pad, hi + pad
+        return min(lo, -pad), max(hi, pad)                    # 中线 0 必须画得进去
+
+    x0, x1 = _bounds(xs)
+    y0, y1 = _bounds(ys)
+    # 当前点必须在画面内
+    x0, x1 = min(x0, c["cur"]["x"]), max(x1, c["cur"]["x"])
+    y0, y1 = min(y0, c["cur"]["y"]), max(y1, c["cur"]["y"])
+    clip = [(lb, a, b) for lb, a, b in c["path"]
+            if a < x0 or a > x1 or b < y0 or b > y1]
 
     def X(v):
+        v = min(max(v, x0), x1)
         return L + (v - x0) / (x1 - x0) * pw
 
     def Y(v):
+        v = min(max(v, y0), y1)
         return T + ph - (v - y0) / (y1 - y0) * ph
 
     zx, zy = X(0), Y(0)
@@ -2338,14 +2432,51 @@ def clock_svg(c, w=560, h=430):
              f'stroke-width="1" stroke-dasharray="4 4"/>')
     p.append(f'<rect x="{L}" y="{T}" width="{pw}" height="{ph}" fill="none" stroke="#30363d"/>')
     # 轨迹
-    pts = " ".join(f"{X(a):.1f},{Y(b):.1f}" for _, a, b in c["path"])
-    p.append(f'<polyline points="{pts}" fill="none" stroke="#58a6ff" stroke-width="1.4" '
-             f'stroke-opacity="0.42" stroke-linejoin="round"/>')
     n = len(c["path"])
-    for i, (_, a, b) in enumerate(c["path"][-18:]):
-        op = 0.25 + 0.6 * (i / max(1, len(c["path"][-18:]) - 1))
-        p.append(f'<circle cx="{X(a):.1f}" cy="{Y(b):.1f}" r="1.9" fill="#58a6ff" '
+    pts = " ".join(f"{X(a):.1f},{Y(b):.1f}" for _, a, b in c["path"])
+    p.append(f'<polyline points="{pts}" fill="none" stroke="#58a6ff" stroke-width="1.1" '
+             f'stroke-opacity="0.26" stroke-linejoin="round"/>')
+    # 最近 2 年这段单独加粗高亮 —— 全历史 70+ 个点如果都画粗, 就是一团毛线
+    if n > CLOCK_RECENT_Q:
+        rpts = " ".join(f"{X(a):.1f},{Y(b):.1f}"
+                        for _, a, b in c["path"][-(CLOCK_RECENT_Q + 1):])
+        p.append(f'<polyline points="{rpts}" fill="none" stroke="#58a6ff" stroke-width="2.1" '
+                 f'stroke-opacity="0.88" stroke-linejoin="round"/>')
+    # 全历史小点: 越新越亮, 能看出年代顺序
+    for i, (_, a, b) in enumerate(c["path"]):
+        op = 0.18 + 0.34 * (i / max(1, n - 1))
+        p.append(f'<circle cx="{X(a):.1f}" cy="{Y(b):.1f}" r="1.7" fill="#58a6ff" '
                  f'fill-opacity="{op:.2f}"/>')
+    # 最近 8 个季度放大加亮, 一眼看出最近的移动方向
+    rec = c["path"][-CLOCK_RECENT_Q:]
+    for i, (_, a, b) in enumerate(rec):
+        t = i / max(1, len(rec) - 1)
+        p.append(f'<circle cx="{X(a):.1f}" cy="{Y(b):.1f}" r="{2.4 + 1.6 * t:.1f}" '
+                 f'fill="#58a6ff" fill-opacity="{0.45 + 0.55 * t:.2f}"/>')
+    # 年份标注: 从起点起每 3 年的 Q1 标一次 —— 否则只看得到一团轨迹, 读不出「哪年在哪个格」
+    y0 = int(c["path"][0][0][:4])
+    for i, (lb, a, b) in enumerate(c["path"]):
+        if not lb.endswith("Q1") or len(lb) != 6:
+            continue
+        yr = int(lb[:4])
+        if i != 0 and (yr - y0) % 3 != 0:
+            continue
+        p.append(f'<text x="{X(a):.1f}" y="{Y(b)-7:.1f}" font-size="9" '
+                 f'fill="#8b949e" text-anchor="middle" paint-order="stroke" '
+                 f'stroke="#0d1117" stroke-width="2.4" stroke-linejoin="round">{yr}</text>')
+    # 越界点: 压在边缘画空心菱形, 数据不丢但要让人知道它是被压过来的
+    for lb, a, b in clip:
+        dx, dy = X(a), Y(b)
+        p.append(f'<path d="M{dx:.1f},{dy-3.8:.1f} L{dx+3.8:.1f},{dy:.1f} '
+                 f'L{dx:.1f},{dy+3.8:.1f} L{dx-3.8:.1f},{dy:.1f} Z" fill="#0d1117" '
+                 f'stroke="#58a6ff" stroke-width="1.2" stroke-opacity="0.9"/>')
+    if clip:
+        _mx = max(abs(float(xs.min())), abs(float(xs.max())),
+                  abs(float(ys.min())), abs(float(ys.max())))
+        p.append(f'<text x="{L+6}" y="{T+ph-6:.1f}" font-size="9" fill="#6e7681" '
+                 f'paint-order="stroke" stroke="#0d1117" stroke-width="2.4" '
+                 f'stroke-linejoin="round">◇ {len(clip)} 期超出坐标范围已压到边缘'
+                 f'(历史极值 {_mx:.0f}pp, 按 8%/92% 分位定轴)</text>')
     # 当前点
     cx, cy = X(c["cur"]["x"]), Y(c["cur"]["y"])
     p.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="7" fill="none" '
@@ -2374,6 +2505,16 @@ def clock_svg(c, w=560, h=430):
     return "".join(p)
 
 
+def _rot_line(c):
+    """按顺时针轮动顺序(衰退→复苏→过热→滞胀)把四格历史占比串成一句话"""
+    pos_of = {q["name"]: q["pos"] for q in c["quads"]}
+    out = []
+    for nm in ("衰退期", "复苏期", "过热期", "滞胀期"):
+        p = pos_of.get(nm)
+        out.append(f'{nm} {c["share"].get(p, 0) * 100:.0f}%' if p else f'{nm} —')
+    return " → ".join(out)
+
+
 def render_clocks(clocks):
     if not clocks:
         return ""
@@ -2398,13 +2539,13 @@ def render_clocks(clocks):
                 f'font-variant-numeric:tabular-nums;text-align:right">'
                 f'{c["share"].get(q["pos"], 0)*100:.0f}%</td></tr>')
         cards.append(
-            f'<div class="cyc-card">'
+            f'<div class="ml-card">'
             f'<div class="cyc-hd">'
             f'<div class="lft"><div class="nm">{c["name"]}'
             f'<span class="tag" style="color:#f85149;border-color:#f8514988;background:#f8514918">'
             f'{c["cur"]["name"]} · {c["cur"]["asset"]}</span></div>'
-            f'<div class="src">{c["tag"]} · 截至 {c["asof"]} · 轨迹为最近 {len(c["path"])} 个月'
-            f' · 历史样本 {c["n"]} 个月</div></div>'
+            f'<div class="src">{c["tag"]} · 截至 {c["asof"]} · '
+            f'轨迹 {c["span"][0]}→{c["span"][1]} 共 {c["n"]} 个季度</div></div>'
             f'<div class="rgt">'
             f'<div class="metric"><div class="k">{c["xname"]}轴</div>'
             f'<div class="v" style="color:{"#f85149" if c["cur"]["x"]>=0 else "#3fb950"}">'
@@ -2413,25 +2554,32 @@ def render_clocks(clocks):
             f'<div class="v" style="color:{"#f85149" if c["cur"]["y"]>=0 else "#3fb950"}">'
             f'{c["cur"]["y"]:+.2f}<span style="font-size:10px;color:#8b949e">pp</span></div></div>'
             f'</div></div>'
-            f'<div class="ml-wrap"><div class="ml-svg">{clock_svg(c)}</div>'
-            f'<div class="ml-side">'
-            f'<div class="ml-now"><b>{c["cur"]["name"]}</b> · {c["cur"]["asset"]}'
+            # ── 图在上 ──
+            f'<div class="ml-svg">{clock_svg(c)}</div>'
+            # ── 当前象限说明 ──
+            f'<div class="ml-now"><b>{c["cur"]["pos"]} · {c["cur"]["name"]}</b> · {c["cur"]["asset"]}'
             f'<div style="margin-top:4px">{c["cur"]["why"]}</div></div>'
-            f'<table class="ml-tb"><thead><tr>'
+            # ── 表在下 ──
+            f'<table class="ml-tb">'
+            f'<colgroup><col style="width:56px"><col style="width:66px">'
+            f'<col style="width:74px"><col><col style="width:78px"></colgroup>'
+            f'<thead><tr>'
             f'<th style="text-align:left">象限</th><th style="text-align:left">阶段</th>'
             f'<th style="text-align:left">资产</th><th style="text-align:left">含义</th>'
             f'<th style="text-align:right">历史占比</th></tr></thead>'
             f'<tbody>{"".join(rows)}</tbody></table>'
+            # 按顺时针轮动顺序把四格占比念一遍 —— 直接回答「这个钟到底走没走过衰退/复苏」
+            f'<div class="ml-lv"><b>轮动顺序的历史分布</b>'
+            f'({c["span"][0]}→{c["span"][1]}, 共 {c["n"]} 个季度): {_rot_line(c)}</div>'
             f'<div class="ml-lv">水平值(非轴向, 仅供参照): '
             f'{c["xname"]} {c["xlev"]:.2f}{c.get("xlev_unit","%")} ({c["xlev_date"]}) · '
             f'{c["yname"]} {c["ylev"]:.2f}{c.get("ylev_unit","%")} ({c["ylev_date"]})</div>'
             f'<div class="ml-src">数据源: {c["xsrc"]} · {c["ysrc"]}</div>'
-            f'</div></div>'
             f'<div class="cyc-logic">{c["logic"]}</div>'
             f'</div>')
     return ('<div class="cyc-card" style="margin-top:22px">'
             '<div class="t" style="font-size:15px;font-weight:600;color:#e6edf3;margin-bottom:6px">'
-            '美林时钟 · 两个版本</div>'
+            '美林时钟 · 两个版本(左右并列, 同一时间轴口径)</div>'
             '<div class="s" style="font-size:12px;color:#8b949e;line-height:1.75">'
             '美林时钟把宏观环境切成四格, 每格对应一类占优资产。'
             '<b>中国改良版</b>把美林原来的「产出缺口 × 通胀」换成「<b>货币 × 信用</b>」'
@@ -2439,9 +2587,14 @@ def render_clocks(clocks):
             '<b>美国原版</b>仍用「<b>增长 × 通胀</b>」。'
             '两版的坐标轴都取<b>相对基准的偏离</b>(pp), 中线固定为 0 —— '
             '不用历史分位, 因为 M2 同比和信贷增速是长期下台阶的, 用分位会把钟钉死在同一格十年不动。'
-            '图中轨迹是最近 5 年的月度路径, 越新的点越亮, 经典美林时钟应<b>顺时针</b>旋转: '
-            '衰退→复苏→过热→滞胀。<b>框架不等于定律</b>, 只用来描述当下处在什么货币信用/增长通胀环境。'
-            '</div></div>' + "".join(cards))
+            '<b>轨迹已改成季度口径并画全历史</b>: 月度数据噪声太大, 画线是一团毛线; '
+            '而且原来只画最近 60 个月, 美国那段正好被 2021 之后的高通胀钉在钟的上半部, '
+            '看上去像「从没进过衰退期和复苏期」—— 把 2008 年以来的全部季度画出来, 四格都走过。'
+            '两版都是<b>顺时针</b>旋转(衰退→复苏→过热→滞胀), 但因为两轴语义不同, '
+            '「衰退期」落在的角不一样: 中国版在左上, 美国版在左下。'
+            '<b>框架不等于定律</b>, 只用来描述当下处在什么货币信用/增长通胀环境。'
+            '</div></div>'
+            f'<div class="ml-duo">{"".join(cards)}</div>')
 # 五、HTML 片段渲染
 # ══════════════════════════════════════════════════════════════
 CYCLES_CSS = """
@@ -2529,21 +2682,25 @@ CYCLES_CSS = """
 .cyc-ind-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
 @media (max-width:1180px) { .cyc-ind-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:760px)  { .cyc-ind-grid { grid-template-columns:minmax(0,1fr); } }
-.ml-wrap { display:grid; grid-template-columns:minmax(420px,1fr) minmax(320px,1.15fr);
-  gap:16px; align-items:start; }
-.ml-svg { min-width:0; }
-.ml-side { min-width:0; }
+/* 中美两个钟左右并列、等宽、等高(stretch), 各自内部: 图 → 当前象限 → 表 → 数据源 → 说明 */
+.ml-duo { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;
+  align-items:stretch; }
+.ml-card { background:#161b22; border:1px solid #30363d; border-radius:12px;
+  padding:14px 16px 12px; display:flex; flex-direction:column; min-width:0; }
+.ml-card .cyc-hd { margin-bottom:10px; }
+.ml-svg { min-width:0; margin-bottom:10px; }
 .ml-now { background:#0d1117; border:1px solid #21262d; border-left:3px solid #f85149;
   border-radius:8px; padding:9px 12px; font-size:12px; color:#adbac7; line-height:1.7;
   margin-bottom:10px; }
-.ml-tb { width:100%; border-collapse:collapse; }
+.ml-tb { width:100%; border-collapse:collapse; table-layout:fixed; margin-bottom:2px; }
 .ml-tb th { font-size:10px; color:#6e7681; font-weight:500; text-align:left;
   padding:3px 8px; border-bottom:1px solid #21262d; }
-.ml-tb td { border-bottom:1px solid #161b22; vertical-align:top; }
+.ml-tb td { border-bottom:1px solid #161b22; vertical-align:top; word-break:break-word; }
 .ml-lv { font-size:10.5px; color:#6e7681; margin-top:8px; line-height:1.6; }
 .ml-src { font-size:10px; color:#6e7681; margin-top:4px; line-height:1.5; }
-@media (max-width:900px){ .ml-wrap { grid-template-columns:1fr; }
-  .cyc-grid { grid-template-columns:repeat(2,1fr); } }
+.ml-card .cyc-logic { margin-top:10px; }
+@media (max-width:1100px){ .ml-duo { grid-template-columns:minmax(0,1fr); } }
+@media (max-width:900px){ .cyc-grid { grid-template-columns:repeat(2,1fr); } }
 </style>
 """
 
