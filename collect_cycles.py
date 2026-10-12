@@ -633,6 +633,21 @@ def f_m1():
     return _series(idx, df["货币(M1)-同比增长"]), "人民银行·M1 同比", "%", {}
 
 
+def f_m1m2_gap():
+    """M1 同比 − M2 同比(剪刀差, pp)。
+    这是判断『钱到底活没活化』最直接的一条: M1 是随时能花的钱(活期), M2 里大量的
+    定期/储蓄存款是趴在银行账上不动的。剪刀差走阔(正) = 企业愿意把钱放活期去交易、
+    实体在活化; 剪刀差转负且扩大 = 资金定期化、淤积在金融体系里空转。
+    2024-09 曾到 -14.2pp(有数据以来最低), 就是那轮『M2 高但实体没钱』的极端写照。"""
+    m1, _s1, _u1, _ = f_m1()
+    m2, _s2, _u2, _ = f_m2()
+    d = (m1 - m2).dropna()
+    # 注意: Python 里行尾逗号【不能】续行(没有括号时换行会结束语句),
+    # 写在下一行的 dict 会变成一个孤立的空语句被丢掉 —— 已踩过两次(f_mktcap_gdp 也是同一个坑)
+    return (d, "人民银行·M1 同比 − M2 同比", "pp",
+            {"note": "剪刀差: 正=资金活化、实体转暖; 负且扩大=定期化淤积"})
+
+
 def f_credit():
     """累计新增人民币贷款同比 —— 改良版美林时钟的『信用』轴。
     用累计值而不是当月值: 当月新增信贷季末冲量、年初回落, 噪音极大, 累计同比才是趋势口径。
@@ -1293,7 +1308,7 @@ FE = {
     "cssc": f_cssc, "xcmg": f_xcmg, "tianma": f_tianma,
     "shfe_cu_inv": f_shfe_cu_inv,
     "pig_grain": f_pig_grain, "spread_pta": f_spread_pta, "spread_ma": f_spread_ma,
-    "m2": f_m2, "m1": f_m1, "credit": f_credit, "lpr5": f_lpr5,
+    "m2": f_m2, "m1": f_m1, "m1m2_gap": f_m1m2_gap, "credit": f_credit, "lpr5": f_lpr5,
     "cpi": f_cpi, "elec": f_elec,
     "ism": f_ism, "usa_cpi": f_usa_cpi, "usa_unemp": f_usa_unemp,
     # ---- 网页爬取(滚动窗口 + 本地累积) ----
@@ -2360,9 +2375,17 @@ CLOCK_DEFS = [
         name="美林时钟 · 中国改良版(货币 × 信用)",
         tag="宽货币/紧货币 × 宽信用/紧信用",
         x=dict(fetch="credit", name="信用", lab=("紧信用", "宽信用"),
-               desc="累计新增人民币贷款同比的 12 个月变化"),
-        y=dict(fetch="m2", name="货币", lab=("紧货币", "宽货币"),
-               desc="M2 同比的 12 个月变化"),
+               desc="累计新增人民币贷款同比的 4 个季度变化"),
+        # 货币轴用【M1】而不是 M2: M2 里大量是定期/储蓄存款, 趴在银行账上不动,
+        # 它上升只说明『钱被存进来了』, 不代表实体拿到钱去花了。M1 是随时能支付的活钱,
+        # 才对应真实的交易需求。详见 logic 里的口径说明。
+        y=dict(fetch="m1", name="货币", lab=("紧货币", "宽货币"),
+               desc="M1 同比的 4 个季度变化"),
+        # 口径对照: 主轴换了之后, 把旧轴(M2)和剪刀差一起摆在卡片上, 交叉验证
+        alt=[dict(fetch="m2", name="M2 同比(广义·旧轴)", mode="diff",
+                  desc="4 个季度变化"),
+             dict(fetch="m1m2_gap", name="M1−M2 剪刀差", mode="level",
+                  desc="水平值; 正=资金活化、负=定期化淤积")],
         quads=[
             dict(pos="左上", name="衰退期", asset="债券最佳", tint="rgba(63,185,80,0.10)",
                  why="货币松、信用没起来 —— 钱在金融体系里空转, 实体不借钱, 债券走牛"),
@@ -2376,10 +2399,24 @@ CLOCK_DEFS = [
         logic="美林时钟原本的两轴是「产出缺口 × 通胀」, 但中国没有可用的产出缺口高频数据, "
               "所以国内券商(任泽平/华创等)普遍改用<b>货币 × 信用</b>两轴: "
               "央行管货币(M2/利率), 银行与实体管信用(社融/信贷), 两轴的松紧组合决定了大类资产轮动。"
-              "本页『信用』用<b>累计新增人民币贷款同比</b>, 『货币』用<b>M2 同比</b>; "
+              "本页『信用』用<b>累计新增人民币贷款同比</b>, 『货币』用<b>M1 同比</b>; "
               "两轴都取<b>4 个季度(12 个月)的变化量</b>, 中线固定为 0 —— "
-              "不用水平分位, 因为 M2 和信贷增速是长期下台阶的, 用分位会把钟钉死在「双紧」那一格十年不动。"
-              "<b>这个钟有三处口径妥协, 逐条说明:</b> "
+              "不用水平分位, 因为货币和信贷增速都是长期下台阶的, 用分位会把钟钉死在「双紧」那一格十年不动。"
+              "<b>为什么货币轴是 M1 而不是 M2 —— 你问得对, M2 确实『不准』:</b> "
+              "M2 = M1 + 定期存款 + 储蓄存款 + 其他存款 + 券商客户保证金, 里面<b>绝大部分是趴在银行账上不动的钱</b>。"
+              "M2 上升只说明『钱被存进来了』, 完全不代表实体拿到钱去花了 —— "
+              "2023-24 就是最典型的反例: M2 常年 10% 上下, 同时 M1 一路掉到 -7.4%, "
+              "剪刀差砸到 <b>-14.2pp</b>(2008 年有数据以来最低), 那时候的 M2 读数完全是噪音。"
+              "<b>M1(狭义货币)才是随时能支付的活钱</b>, 直接对应交易需求, 所以它比 M2 更贴身。"
+              "作为交叉验证, 卡片上同时给出<b>旧轴 M2 的变化量</b>和<b>M1−M2 剪刀差</b>: "
+              "两者指向一致时结论可信; 出现背离(典型是 M2 松、M1 紧)时, "
+              "<b>以 M1 为准, 并把剪刀差当成『钱有没有真的流到实体』的判据</b>。"
+              "<b>但 M1 自己有一个必须知道的坑: 2025 年 1 月央行修订了 M1 统计口径</b>"
+              "(纳入个人活期存款和非银行支付机构客户备付金), 2024-12 的 -1.4% 到 2025-01 的 +0.4% "
+              "这 1.8pp 的跳升里相当部分是口径调整、不是真实活化, 所以 <b>2025Q1-2025Q4 这段轨迹点的"
+              "变化量是新旧口径相减、被污染的</b>; 好在最新一期是 2026Q3 减 2025Q3、两端都是新口径, "
+              "当前象限不受影响。"
+              "<b>另外三处口径妥协, 逐条说明:</b> "
               "①信用轴标准做法是<b>社融存量同比</b>, 但免费接口只有 2015 年起的社融<b>增量</b>, "
               "凑不出 2008 年以来的长序列, 只好退而用人民行的累计新增人民币贷款同比; "
               "②这个指标每年 1 月会把累计口径重置成单月值、春节错位又让 1-2 月极不稳定, "
@@ -2462,6 +2499,32 @@ def _clock_fetch(fetch_key):
     return _monthly(res[0]), res[1], res[2]
 
 
+def _clocks_alt(cfg, idx):
+    """算 cfg['alt'] 里的口径对照指标。
+    mode='diff' : 与主轴同口径(季末值的 4 个季度变化), 用来看『换成旧轴会落在哪一格』
+    mode='level': 直接取水平值(如剪刀差), 配历史分位看它在历史上算不算极端"""
+    out = []
+    for a in (cfg.get("alt") or []):
+        try:
+            s, src, unit, _m = FE[a["fetch"]]()
+            q = _quarterly(s, "last")
+            q = q.reindex(idx).dropna() if len(idx) else q
+            if a.get("mode") == "diff":
+                v = float((q - q.shift(CLOCK_DIFF_Q)).dropna().iloc[-1])
+                suffix = "pp(4季变化)"
+                pct = None
+            else:
+                v = float(q.dropna().iloc[-1])
+                suffix = unit
+                pct = float((q.dropna() <= v).mean())
+            out.append(dict(name=a["name"], desc=a.get("desc", ""), v=v,
+                            suffix=suffix, pct=pct, src=src,
+                            asof=_qlab(q.dropna().index[-1])))
+        except Exception as e:
+            print(f"  [WARN] 时钟对照指标 {a.get('name')}: {type(e).__name__}: {str(e)[:80]}")
+    return out
+
+
 def build_clocks():
     out = []
     for cfg in CLOCK_DEFS:
@@ -2526,6 +2589,7 @@ def build_clocks():
                 ylev=round(float(ylev.reindex(df.index).dropna().iloc[-1]), 3),
                 xlev_date=_qlab(df.index[-1]),
                 ylev_date=_qlab(df.index[-1]),
+                alt=_clocks_alt(cfg, df.index),
             ))
             print(f"  [OK] {cfg['name']}  当前象限 {qpos} {q['name']} · {q['asset']} "
                   f"(x={cx:+.2f}pp, y={cy:+.2f}pp, 截至 {out[-1]['asof']}, "
@@ -2946,7 +3010,14 @@ def render_clocks(clocks):
             f'<div class="ml-lv">水平值(非轴向, 仅供参照): '
             f'{c["xname"]} {c["xlev"]:.2f}{c.get("xlev_unit","%")} ({c["xlev_date"]}) · '
             f'{c["yname"]} {c["ylev"]:.2f}{c.get("ylev_unit","%")} ({c["ylev_date"]})</div>'
-            f'<div class="ml-src">数据源: {c["xsrc"]} · {c["ysrc"]}</div>'
+            + ("".join(
+                f'<div class="ml-alt"><b>口径对照 · {a["name"]}</b>: '
+                f'<span style="color:{"#f85149" if a["v"] >= 0 else "#3fb950"}">'
+                f'{a["v"]:+.2f}{a["suffix"]}</span>'
+                + (f' · 历史分位 {a["pct"]*100:.0f}%' if a["pct"] is not None else '')
+                + f' <span style="color:#6e7681">({a["desc"]}, 截至 {a["asof"]})</span></div>'
+                for a in (c.get("alt") or [])))
+            + f'<div class="ml-src">数据源: {c["xsrc"]} · {c["ysrc"]}</div>'
             f'<div class="cyc-logic">{c["logic"]}</div>'
             f'</div>')
     return ('<div class="cyc-card" style="margin-top:22px">'
@@ -3073,6 +3144,8 @@ CYCLES_CSS = """
   padding:3px 8px; border-bottom:1px solid #21262d; }
 .ml-tb td { border-bottom:1px solid #161b22; vertical-align:top; word-break:break-word; }
 .ml-lv { font-size:10.5px; color:#6e7681; margin-top:8px; line-height:1.6; }
+.ml-alt { font-size:10.5px; color:#adbac7; margin-top:4px; line-height:1.55;
+  background:#0d1117; border-left:2px solid #30363d; padding:3px 8px; border-radius:0 4px 4px 0; }
 .ml-src { font-size:10px; color:#6e7681; margin-top:4px; line-height:1.5; }
 .ml-card .cyc-logic { margin-top:10px; }
 @media (max-width:1100px){ .ml-duo { grid-template-columns:minmax(0,1fr); } }
