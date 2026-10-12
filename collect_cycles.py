@@ -2823,15 +2823,26 @@ def clock_svg(c, w=560, h=430):
     clip = [(lb, a, b) for lb, a, b in c["path"]
             if a < x0 or a > x1 or b < y0 or b > y1]
 
-    def X(v):
-        v = min(max(v, x0), x1)
-        return L + (v - x0) / (x1 - x0) * pw
+    # 把轴界冻结成闭包私有常量(默认参数在 def 时求值)。
+    # 之前 X/Y 直接读外层的 x0/y0, 而下面「年份标注」那段又写了 y0 = 起始年份,
+    # 于是 min(max(v,2008), y1) 恒等于 y1, 当前点被顶到画布最上面。用默认参数绑定后,
+    # 外层再怎么重名赋值都影响不到坐标映射。
+    def X(v, _a=x0, _b=x1, _L=L, _pw=pw):
+        v = min(max(v, _a), _b)
+        return _L + (v - _a) / (_b - _a) * _pw
 
-    def Y(v):
-        v = min(max(v, y0), y1)
-        return T + ph - (v - y0) / (y1 - y0) * ph
+    def Y(v, _a=y0, _b=y1, _T=T, _ph=ph):
+        v = min(max(v, _a), _b)
+        return _T + _ph - (v - _a) / (_b - _a) * _ph
 
     zx, zy = X(0), Y(0)
+    # 自检: 当前点必须落在画布内, 且和最后一个路径点重合(当前点就是最新一期)
+    _lp = c["path"][-1]
+    assert T <= Y(c["cur"]["y"]) <= T + ph and L <= X(c["cur"]["x"]) <= L + pw, \
+        "clock_svg: 当前点越界"
+    assert abs(X(c["cur"]["x"]) - X(_lp[1])) < 0.5 and \
+        abs(Y(c["cur"]["y"]) - Y(_lp[2])) < 0.5, \
+        "clock_svg: 当前点与最新一期路径点不重合"
     p = [f'<svg viewBox="0 0 {w} {h}" width="100%" height="auto" '
          f'style="display:block;background:#0d1117;border-radius:9px" '
          f'xmlns="http://www.w3.org/2000/svg">']
@@ -2890,12 +2901,15 @@ def clock_svg(c, w=560, h=430):
         p.append(f'<circle cx="{X(a):.1f}" cy="{Y(b):.1f}" r="{2.4 + 1.6 * t:.1f}" '
                  f'fill="#58a6ff" fill-opacity="{0.45 + 0.55 * t:.2f}"/>')
     # 年份标注: 从起点起每 3 年的 Q1 标一次 —— 否则只看得到一团轨迹, 读不出「哪年在哪个格」
-    y0 = int(c["path"][0][0][:4])
+    # 注意: 变量名必须叫 yr0, 不能叫 y0 —— 上面 y0 是坐标轴下界,
+    # 这里若同名会把 y0 覆盖成起始年份(如 2008), 导致之后 Y() 里
+    # min(max(v, 2008), y1) 恒等于 y1, 当前点被顶到画布最上面。
+    yr0 = int(c["path"][0][0][:4])
     for i, (lb, a, b) in enumerate(c["path"]):
         if not lb.endswith("Q1") or len(lb) != 6:
             continue
         yr = int(lb[:4])
-        if i != 0 and (yr - y0) % 3 != 0:
+        if i != 0 and (yr - yr0) % 3 != 0:
             continue
         p.append(f'<text x="{X(a):.1f}" y="{Y(b)-7:.1f}" font-size="9" '
                  f'fill="#8b949e" text-anchor="middle" paint-order="stroke" '
@@ -2920,7 +2934,14 @@ def clock_svg(c, w=560, h=430):
     p.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="4" fill="{_ph_color(0.9)}"/>')
     lbl = c["asof"]
     tx = min(max(cx + 10, L + 4), L + pw - 52)
-    ty = max(min(cy - 9, T + ph - 6), T + 13)
+    # 标签默认放在点的右上; 若点靠近顶部则改放下方, 靠近右侧则改放左侧
+    if cy > T + 34:
+        ty = cy - 9
+    else:
+        ty = cy + 18
+    ty = min(max(ty, T + 13), T + ph - 6)
+    if cx > L + pw - 60:
+        tx = max(cx - 10 - 6 * len(lbl), L + 4)
     p.append(f'<text x="{tx:.1f}" y="{ty:.1f}" font-size="10.5" font-weight="600" '
              f'fill="#f0b8b5" paint-order="stroke" stroke="#0d1117" stroke-width="2.6" '
              f'stroke-linejoin="round">{lbl}</text>')
